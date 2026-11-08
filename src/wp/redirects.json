@@ -1,0 +1,9 @@
+{
+ "/en/new-home/": "/en/",
+ "/clinique-du-voyageur/prescription/": "/prescription/",
+ "/clinique-du-voyage/": "/clinique-du-voyageur/",
+ "/en/vaccination-generale/": "/en/general-vaccination/",
+ "/colloque-bleu/": "/",
+ "/vaccination/whooping-cough/": "/vaccination/coqueluche/",
+ "/vaccination/diarrhee-a-etec/": "/vaccination/cholera-et-etec/"
+}

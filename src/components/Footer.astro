@@ -1,0 +1,12 @@
+---
+import fr from '../wp/footer-fr.html?raw';
+import en from '../wp/footer-en.html?raw';
+
+interface Props {
+  lang: 'fr' | 'en';
+}
+
+const { lang } = Astro.props;
+---
+
+<Fragment set:html={lang === 'fr' ? fr : en} />

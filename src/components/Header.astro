@@ -1,0 +1,15 @@
+---
+import fr from '../wp/header-fr.html?raw';
+import en from '../wp/header-en.html?raw';
+
+interface Props {
+  lang: 'fr' | 'en';
+  /** Same page in the other language, for the FR/EN switcher. */
+  alt: string | null;
+}
+
+const { lang, alt } = Astro.props;
+const html = (lang === 'fr' ? fr : en).replaceAll('{{ALT_URL}}', alt ?? (lang === 'fr' ? '/en/' : '/'));
+---
+
+<Fragment set:html={html} />

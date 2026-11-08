@@ -1,0 +1,18 @@
+---
+import WpPage, { type WpPageData } from '../layouts/WpPage.astro';
+import pages from '../wp/pages.json';
+
+const bodies = import.meta.glob<string>('../wp/html/*.html', { query: '?raw', import: 'default' });
+
+export function getStaticPaths() {
+  return (pages as WpPageData[]).map((page) => ({
+    params: { slug: page.route === '/' ? undefined : page.route.slice(1, -1) },
+    props: { page },
+  }));
+}
+
+const { page } = Astro.props;
+const body = await bodies[`../wp/html/${page.file}`]();
+---
+
+<WpPage page={page} body={body} />
