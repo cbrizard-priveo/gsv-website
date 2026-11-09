@@ -182,7 +182,14 @@ const current = (href: string) => (href === route ? 'page' : undefined);
 <header class="gsv-header" id="gsv-header">
   <div class="gsv-header__inner">
     <a class="gsv-header__logo" href={home} aria-current={current(home)}>
-      <img src="/wp-content/uploads/2023/08/Logo_GSV_FR.png" alt="Groupe Santé Voyage" width="350" height="175" />
+      <img
+        src="/wp-content/uploads/2021/11/voyage-6-300x171.png"
+        srcset="/wp-content/uploads/2021/11/voyage-6-300x171.png 300w, /wp-content/uploads/2021/11/voyage-6-768x439.png 768w"
+        sizes="140px"
+        alt="Groupe Santé Voyage, propulsé par Priveo"
+        width="300"
+        height="171"
+      />
     </a>
 
     <nav class="gsv-nav" id="gsv-nav" aria-label={menu.menu}>
@@ -355,7 +362,7 @@ const current = (href: string) => (href === route ? 'page' : undefined);
   .gsv-header .gsv-header__logo img {
     display: block;
     width: auto;
-    height: 60px;
+    height: 68px;
   }
   .gsv-header ul {
     margin: 0;
@@ -569,7 +576,7 @@ const current = (href: string) => (href === route ? 'page' : undefined);
       padding: 0 16px;
     }
     .gsv-header .gsv-header__logo img {
-      height: 52px;
+      height: 56px;
     }
     .gsv-header .gsv-header__lang {
       display: none;
