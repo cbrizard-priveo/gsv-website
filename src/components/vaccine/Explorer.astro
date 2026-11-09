@@ -1,0 +1,65 @@
+---
+// Every vaccine as a pill link, the current one highlighted, after Priveo's chip explorer.
+import type { VaccineCopy } from '../../data/vaccine';
+
+interface Props {
+  copy: VaccineCopy;
+  vaccines: { route: string; name: string }[];
+  current: string;
+}
+
+const { copy, vaccines, current } = Astro.props;
+---
+
+<section class="gsv-section explorer">
+  <div class="gsv-container">
+    <header class="gsv-section-header gsv-section-header--left">
+      <span class="gsv-eyebrow">{copy.explorer.eyebrow}</span>
+      <h2 class="gsv-h2">{copy.explorer.title}</h2>
+      <p class="gsv-lede">{copy.explorer.text}</p>
+    </header>
+    <ul class="explorer__chips">
+      {
+        vaccines.map((v) => (
+          <li>
+            <a href={v.route} aria-current={v.route === current ? 'page' : undefined}>
+              {v.name}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .explorer__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .explorer__chips a {
+    display: inline-flex;
+    align-items: center;
+    padding: 9px 16px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: var(--gsv-radius-full);
+    background: var(--gsv-white);
+    color: var(--gsv-primary);
+    font-size: 14.5px;
+    font-weight: 500;
+    line-height: 1.2;
+    text-decoration: none;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .explorer__chips a:hover {
+    border-color: var(--gsv-secondary-l-4);
+    background: var(--gsv-primary-l-6);
+    color: var(--gsv-secondary);
+  }
+  .explorer__chips a[aria-current='page'] {
+    border-color: var(--gsv-primary);
+    background: var(--gsv-primary);
+    color: var(--gsv-white);
+  }
+</style>

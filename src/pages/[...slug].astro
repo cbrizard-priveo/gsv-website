@@ -1,12 +1,11 @@
 ---
 import WpPage, { type WpPageData } from '../layouts/WpPage.astro';
 import pages from '../wp/pages.json';
+import { REBUILT } from '../lib/rebuilt';
 
 const bodies = import.meta.glob<string>('../wp/html/*.html', { query: '?raw', import: 'default' });
 
 export function getStaticPaths() {
-  // Pages rebuilt as components have their own route files.
-  const REBUILT = new Set(['/', '/en/']);
   return (pages as WpPageData[])
     .filter((page) => !REBUILT.has(page.route))
     .map((page) => ({
