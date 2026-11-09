@@ -13,6 +13,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import crypto from 'node:crypto';
 import * as cheerio from 'cheerio';
+import { brandElementorCss } from '../theme/brand.mjs';
 
 const ORIGIN = 'https://cliniquesantevoyage.com';
 const ROOT = path.resolve(import.meta.dirname, '../..');
@@ -406,4 +407,5 @@ for (let pending = chunkAssets(); pending.length; pending = chunkAssets()) {
   pending.forEach((p) => assets.add(p));
   await downloadAssets();
 }
+console.log(`rebranded ${brandElementorCss(ROOT)} stylesheets`);
 console.log(`wrote ${manifest.length} pages`);

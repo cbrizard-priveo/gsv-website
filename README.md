@@ -22,6 +22,15 @@ The pages are imported from the live WordPress/Elementor site so they match it e
 - `src/pages/[...slug].astro` renders every route through `src/layouts/WpPage.astro`.
 - `src/components/ThirdParty.astro` adds Google Tag Manager/Analytics, Crisp chat and the Concord cookie banner in production builds only.
 
+## Design
+
+The look follows dev.priveosante.com, with `#014A97` as the primary blue:
+
+- `src/components/Header.astro`, `src/components/Footer.astro`: the site's own header and footer; their links live in `src/data/site.ts`.
+- `src/styles/tokens.css`: colors, fonts (Lora, Plus Jakarta Sans), radii.
+- `src/styles/theme.css`: restyles the imported Elementor pages (buttons, banners, cards, archive lists). `src/lib/theme.ts` tags each page's title banner for it.
+- `scripts/theme/brand.mjs`: swaps the old colors and fonts in the Elementor stylesheets; the importer runs it after each import.
+
 To re-import after the live site changes:
 
 ```bash

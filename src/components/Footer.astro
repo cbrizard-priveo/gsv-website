@@ -1,12 +1,246 @@
 ---
-import fr from '../wp/footer-fr.html?raw';
-import en from '../wp/footer-en.html?raw';
+// Site footer, after dev.priveosante.com's: brand and contact column, one column per menu, legal bar.
+import '../styles/tokens.css';
+import { CONTACT, SOCIAL, footers, menus, type Dropdown, type Lang } from '../data/site';
 
 interface Props {
-  lang: 'fr' | 'en';
+  lang: Lang;
 }
 
 const { lang } = Astro.props;
+const t = footers[lang];
+const columns = menus[lang].items.filter((item): item is Dropdown => 'links' in item);
+const home = lang === 'fr' ? '/' : '/en/';
+const year = new Date().getFullYear();
 ---
 
-<Fragment set:html={lang === 'fr' ? fr : en} />
+<footer class="gsv-footer">
+  <div class="gsv-footer__inner">
+    <div class="gsv-footer__brand">
+      <a class="gsv-footer__logo" href={home}>
+        <img src="/wp-content/uploads/2021/11/voyage-6-300x171.png" alt="Groupe Santé Voyage, propulsé par Priveo" width="300" height="171" loading="lazy" />
+      </a>
+      <p class="gsv-footer__about">{t.about}</p>
+      <p class="gsv-footer__title">{t.contactTitle}</p>
+      <ul class="gsv-footer__contact">
+        <li>
+          <a href={`tel:+1${CONTACT.phone.replaceAll('-', '')}`}>
+            {CONTACT.phone}
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z" /></svg>
+            </span>
+          </a>
+        </li>
+        <li>
+          <a href={`mailto:${CONTACT.email}`}>
+            {CONTACT.email}
+            <span aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 5h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2Zm0 2v.5l8 5 8-5V7H4Zm16 2.8-7.5 4.7a1 1 0 0 1-1 0L4 9.8V17h16V9.8Z" /></svg>
+            </span>
+          </a>
+        </li>
+      </ul>
+      <p class="gsv-footer__hours">{CONTACT.hours[lang]}</p>
+    </div>
+
+    {
+      columns.map((column) => (
+        <nav class="gsv-footer__column" aria-label={column.label}>
+          <p class="gsv-footer__title">{column.label}</p>
+          <ul>
+            {column.links.map((link) => (
+              <li>
+                <a href={link.href}>{link.label}</a>
+              </li>
+            ))}
+          </ul>
+        </nav>
+      ))
+    }
+  </div>
+
+  <div class="gsv-footer__legal">
+    <div class="gsv-footer__legal-inner">
+      <p>© {year} Groupe Santé Voyage. {t.rights}</p>
+      <a href={t.privacy.href}>{t.privacy.label}</a>
+      <ul class="gsv-footer__social" aria-label={t.social}>
+        <li>
+          <a href={SOCIAL.facebook} aria-label="Facebook">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M13.5 21v-7.5h2.5l.4-3h-2.9V8.6c0-.9.3-1.5 1.5-1.5h1.5V4.4a20 20 0 0 0-2.2-.1c-2.2 0-3.8 1.4-3.8 3.9v2.3H8v3h2.5V21h3Z" /></svg>
+          </a>
+        </li>
+        <li>
+          <a href={SOCIAL.instagram} aria-label="Instagram">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.2" cy="6.8" r="0.6" fill="currentColor" /></svg>
+          </a>
+        </li>
+        <li>
+          <a href={SOCIAL.linkedin} aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5a2 2 0 1 1 0 4 2 2 0 0 1 0-4ZM3.2 9h3.6v11.5H3.2V9Zm5.9 0h3.4v1.6h.1c.5-.9 1.7-1.9 3.4-1.9 3.7 0 4.4 2.4 4.4 5.5v6.3h-3.6v-5.6c0-1.3 0-3-1.9-3s-2.1 1.4-2.1 2.9v5.7H9.1V9Z" /></svg>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</footer>
+
+<style is:global>
+  /* Prefixed selectors on purpose: they must win over the imported Elementor/theme styles. */
+  .gsv-footer {
+    background: var(--gsv-primary);
+    color: rgba(255, 255, 255, 0.86);
+    font: 400 15px/1.6 var(--gsv-font-sans);
+  }
+  .gsv-footer *,
+  .gsv-footer *::before,
+  .gsv-footer *::after {
+    box-sizing: border-box;
+  }
+  .gsv-footer ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .gsv-footer p {
+    margin: 0;
+  }
+  .gsv-footer a {
+    color: rgba(255, 255, 255, 0.86);
+    text-decoration: none;
+    transition: color 0.15s, background-color 0.15s;
+  }
+  .gsv-footer a:hover {
+    color: var(--gsv-white);
+  }
+  .gsv-footer a:focus-visible {
+    outline: 2px solid var(--gsv-white);
+    outline-offset: 2px;
+  }
+  .gsv-footer .gsv-footer__inner {
+    display: grid;
+    grid-template-columns: minmax(260px, 1.6fr) repeat(4, minmax(0, 1fr));
+    gap: 48px 32px;
+    max-width: var(--gsv-content-width);
+    margin: 0 auto;
+    padding: 64px 24px 56px;
+  }
+  .gsv-footer .gsv-footer__logo {
+    display: inline-flex;
+    margin-bottom: 20px;
+    padding: 6px 12px;
+    border-radius: var(--gsv-radius-m);
+    background: var(--gsv-white);
+  }
+  .gsv-footer .gsv-footer__logo img {
+    display: block;
+    width: auto;
+    height: 64px;
+  }
+  .gsv-footer .gsv-footer__about {
+    max-width: 36ch;
+    margin-bottom: 32px;
+  }
+  .gsv-footer .gsv-footer__title {
+    margin-bottom: 16px;
+    color: var(--gsv-white);
+    font-weight: 600;
+  }
+  .gsv-footer .gsv-footer__contact {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .gsv-footer .gsv-footer__contact a {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 6px 6px 6px 16px;
+    border-radius: var(--gsv-radius-full);
+    background: rgba(255, 255, 255, 0.08);
+    color: var(--gsv-white);
+    font-size: 14px;
+  }
+  .gsv-footer .gsv-footer__contact a:hover {
+    background: rgba(255, 255, 255, 0.15);
+  }
+  .gsv-footer .gsv-footer__contact span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background: var(--gsv-secondary);
+  }
+  .gsv-footer .gsv-footer__contact svg {
+    width: 15px;
+    height: 15px;
+  }
+  .gsv-footer .gsv-footer__hours {
+    margin-top: 14px;
+    font-size: 14px;
+  }
+  .gsv-footer .gsv-footer__column ul {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .gsv-footer .gsv-footer__column a {
+    font-size: 14px;
+  }
+  .gsv-footer .gsv-footer__legal {
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+  .gsv-footer .gsv-footer__legal-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 32px;
+    max-width: var(--gsv-content-width);
+    margin: 0 auto;
+    padding: 24px;
+    font-size: 13px;
+  }
+  .gsv-footer .gsv-footer__social {
+    display: flex;
+    gap: 8px;
+    margin-left: auto;
+  }
+  .gsv-footer .gsv-footer__social a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+  .gsv-footer .gsv-footer__social a:hover {
+    background: rgba(255, 255, 255, 0.1);
+  }
+  .gsv-footer .gsv-footer__social svg {
+    width: 18px;
+    height: 18px;
+  }
+
+  @media (max-width: 1024px) {
+    .gsv-footer .gsv-footer__inner {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .gsv-footer .gsv-footer__brand {
+      grid-column: 1 / -1;
+    }
+  }
+  @media (max-width: 480px) {
+    .gsv-footer .gsv-footer__inner {
+      padding: 48px 16px 40px;
+      gap: 40px 24px;
+    }
+    .gsv-footer .gsv-footer__legal-inner {
+      padding: 20px 16px;
+    }
+    .gsv-footer .gsv-footer__social {
+      margin-left: 0;
+    }
+  }
+</style>

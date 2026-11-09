@@ -1,0 +1,278 @@
+/*
+ * Site-wide theme over the imported Elementor markup, after dev.priveosante.com.
+ * Linked after the Elementor stylesheets. Elementor sets most styles per element id, so the
+ * shape-level rules (buttons, hero) need !important; colors come from scripts/theme/brand.mjs.
+ */
+
+/* Elementor global colors and fonts (the kit class sits on <body>) */
+body.elementor-kit-9 {
+  --e-global-color-primary: #014a97;
+  --e-global-color-secondary: #3c70c3;
+  --e-global-color-accent: #3c70c3;
+  --e-global-color-text: #3a4f6e;
+  --e-global-color-4f925cc: #5499e8;
+  --e-global-typography-primary-font-family: 'Lora';
+  --e-global-typography-primary-font-weight: 500;
+  --e-global-typography-secondary-font-family: 'Lora';
+  --e-global-typography-secondary-font-weight: 500;
+  --e-global-typography-07ee36d-font-family: 'Lora';
+  --e-global-typography-07ee36d-font-weight: 500;
+  --e-global-typography-0a48a63-font-family: 'Lora';
+  --e-global-typography-0a48a63-font-weight: 500;
+  background-color: var(--gsv-surface-l-4);
+  -webkit-font-smoothing: antialiased;
+}
+
+body.elementor-kit-9 .elementor-heading-title {
+  text-transform: none;
+}
+
+/* Buttons: Priveo's compact 12px-radius shape */
+body.elementor-kit-9 .elementor-button {
+  background-color: var(--gsv-primary);
+}
+body.elementor-kit-9 :is(.elementor-button, input[type='submit'], input[type='button']) {
+  padding: 13px 22px !important;
+  border-radius: var(--gsv-radius-m) !important;
+  font-family: var(--gsv-font-sans) !important;
+  font-size: 15px !important;
+  font-weight: 500 !important;
+  line-height: 1.2 !important;
+  letter-spacing: normal !important;
+  text-transform: none !important;
+  transition: background-color 0.15s, color 0.15s, border-color 0.15s;
+}
+
+/* Panels: columns that carry a background get Priveo's rounded corners */
+body.elementor-kit-9 .elementor-column > .elementor-widget-wrap.elementor-element-populated {
+  border-radius: 20px;
+}
+
+/* Images and post cards */
+body.elementor-kit-9 :is(.elementor-widget-image, .elementor-widget-theme-post-featured-image, .elementor-post__thumbnail) img {
+  border-radius: 20px;
+}
+body.elementor-kit-9 .elementor-post__card {
+  overflow: hidden;
+  border: 1px solid var(--gsv-border-subtle) !important;
+  border-radius: 20px !important;
+  background: var(--gsv-white) !important;
+  box-shadow: 0 1px 2px rgba(27, 30, 44, 0.04) !important;
+}
+body.elementor-kit-9 .elementor-post__card .elementor-post__thumbnail img {
+  border-radius: 0;
+}
+
+/* Post lists (classic skin): white cards with a cropped image on top */
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post {
+  overflow: hidden;
+  border: 1px solid var(--gsv-border-subtle);
+  border-radius: 20px;
+  background: var(--gsv-white);
+  box-shadow: 0 1px 2px rgba(27, 30, 44, 0.04);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post:hover {
+  box-shadow: 0 12px 32px -12px rgba(1, 42, 86, 0.2);
+  transform: translateY(-2px);
+}
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post__thumbnail__link {
+  width: 100% !important;
+  margin: 0 !important;
+}
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post__thumbnail {
+  padding-bottom: 62.5% !important;
+}
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post__thumbnail img {
+  position: absolute !important;
+  top: 0 !important;
+  left: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  border-radius: 0;
+  object-fit: cover;
+  transform: none !important;
+}
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post__text {
+  padding: 20px 24px 24px;
+}
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post__title,
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post__title a {
+  color: var(--gsv-primary) !important;
+  font: 500 18px/1.35 var(--gsv-font-sans) !important;
+  letter-spacing: -0.2px;
+}
+body.elementor-kit-9 .elementor-posts--skin-classic .elementor-post__read-more {
+  color: var(--gsv-secondary) !important;
+  font: 500 14px/1.4 var(--gsv-font-sans) !important;
+}
+
+/* Form fields */
+body.elementor-kit-9 .elementor-field-group :is(input:not([type='checkbox'], [type='radio'], [type='submit']), textarea, select) {
+  border: 1px solid var(--gsv-border-subtle) !important;
+  border-radius: 10px !important;
+  background-color: var(--gsv-white) !important;
+  color: var(--gsv-primary) !important;
+  font-family: var(--gsv-font-sans) !important;
+}
+
+/* Page-title banner (tagged by src/lib/theme.ts): a rounded, inset hero */
+body.elementor-kit-9 .gsv-hero {
+  margin: 16px 24px 0 !important;
+  overflow: hidden;
+  border-radius: 24px;
+}
+body.elementor-kit-9 :is(.gsv-hero--photo, .gsv-hero--light) {
+  padding: 56px 32px !important;
+}
+body.elementor-kit-9 .gsv-hero > .elementor-background-overlay {
+  border-radius: inherit;
+}
+body.elementor-kit-9 .gsv-hero--photo > .elementor-container {
+  min-height: 240px !important;
+}
+body.elementor-kit-9 .gsv-hero--light > .elementor-container {
+  min-height: 180px !important;
+}
+body.elementor-kit-9 .gsv-hero:not(.gsv-hero--home) .elementor-element {
+  text-align: left !important;
+}
+body.elementor-kit-9 .gsv-hero--home .elementor-heading-title {
+  font-family: var(--gsv-font-serif) !important;
+  font-weight: 500 !important;
+  letter-spacing: -0.5px !important;
+}
+body.elementor-kit-9 .gsv-hero:not(.gsv-hero--home) .elementor-heading-title {
+  max-width: 22ch;
+  color: var(--gsv-white) !important;
+  font-family: var(--gsv-font-serif) !important;
+  font-size: clamp(32px, 4vw, 52px) !important;
+  font-weight: 500 !important;
+  line-height: 1.12 !important;
+  letter-spacing: -0.5px !important;
+  text-align: left !important;
+}
+
+/* Photo banners: darken from the left so the title reads, like Priveo's home hero */
+body.elementor-kit-9 :is(.gsv-hero--photo, .gsv-hero--home) > .elementor-background-overlay {
+  background: linear-gradient(90deg, rgba(1, 42, 86, 0.88) 0%, rgba(1, 42, 86, 0.62) 45%, rgba(1, 42, 86, 0.12) 100%) !important;
+  opacity: 1 !important;
+}
+
+/* Breadcrumbs become a glass pill above the title */
+body.elementor-kit-9 .gsv-hero .elementor-widget-breadcrumbs {
+  order: -1;
+  width: auto !important;
+  margin-bottom: 18px !important;
+}
+body.elementor-kit-9 .gsv-hero .elementor-widget-breadcrumbs .elementor-widget-container {
+  display: inline-block;
+  padding: 6px 16px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: var(--gsv-radius-full);
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.1));
+  backdrop-filter: blur(8px);
+}
+body.elementor-kit-9 .gsv-hero .elementor-widget-breadcrumbs :is(p, span, a) {
+  margin: 0;
+  color: var(--gsv-white) !important;
+  font: 500 13px/1.4 var(--gsv-font-sans) !important;
+  text-align: left !important;
+}
+
+/* Light banners (posts and vaccines): Priveo's pale-blue sub-page hero */
+body.elementor-kit-9 .gsv-hero--light {
+  background: linear-gradient(135deg, var(--gsv-primary-l-6) 0%, var(--gsv-primary-l-5) 100%) !important;
+}
+body.elementor-kit-9 .gsv-hero--light > .elementor-background-overlay {
+  display: none;
+}
+body.elementor-kit-9 .gsv-hero.gsv-hero--light .elementor-heading-title {
+  color: var(--gsv-primary) !important;
+}
+body.elementor-kit-9 .gsv-hero--light .elementor-icon-list-items {
+  justify-content: flex-start !important;
+}
+body.elementor-kit-9 .gsv-hero--light :is(.elementor-icon-list-text, .elementor-icon-list-text a, .elementor-icon-list-icon i) {
+  color: var(--gsv-text-body) !important;
+  font-family: var(--gsv-font-sans) !important;
+}
+body.elementor-kit-9 .gsv-hero--light .elementor-icon-list-icon svg {
+  fill: var(--gsv-text-body) !important;
+}
+
+/* Archive pages (date, category, author) use the plain theme template, not Elementor */
+body.elementor-kit-9 main.site-main {
+  padding-bottom: 64px;
+}
+body.elementor-kit-9 main.site-main > .page-header {
+  margin: 16px 0 40px;
+  padding: 56px 40px;
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--gsv-primary-l-6) 0%, var(--gsv-primary-l-5) 100%);
+}
+body.elementor-kit-9 main.site-main > .page-header .entry-title {
+  margin: 0;
+  color: var(--gsv-primary);
+  font: 500 clamp(30px, 3.6vw, 46px) / 1.15 var(--gsv-font-serif);
+  letter-spacing: -0.5px;
+}
+body.elementor-kit-9 main.site-main > .page-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 24px;
+}
+body.elementor-kit-9 main.site-main article.post {
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid var(--gsv-border-subtle);
+  border-radius: 20px;
+  background: var(--gsv-white);
+  box-shadow: 0 1px 2px rgba(27, 30, 44, 0.04);
+}
+body.elementor-kit-9 main.site-main article.post > a:has(img) {
+  order: -1;
+}
+body.elementor-kit-9 main.site-main article.post img {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+}
+body.elementor-kit-9 main.site-main article.post .entry-title {
+  margin: 20px 24px 8px;
+  font: 500 18px/1.35 var(--gsv-font-sans);
+}
+body.elementor-kit-9 main.site-main article.post .entry-title a {
+  color: var(--gsv-primary);
+}
+body.elementor-kit-9 main.site-main article.post p {
+  margin: 0 24px 24px;
+  color: var(--gsv-text-body);
+  font-size: 14px;
+  line-height: 1.6;
+}
+body.elementor-kit-9 main.site-main .pagination {
+  grid-column: 1 / -1;
+  margin-top: 32px;
+  font-family: var(--gsv-font-sans);
+}
+
+@media (max-width: 767px) {
+  body.elementor-kit-9 .gsv-hero {
+    margin: 8px 12px 0 !important;
+    border-radius: 18px;
+  }
+  body.elementor-kit-9 :is(.gsv-hero--photo, .gsv-hero--light) {
+    padding: 32px 12px !important;
+  }
+  body.elementor-kit-9 :is(.gsv-hero--photo, .gsv-hero--light) > .elementor-container {
+    min-height: 160px !important;
+  }
+  body.elementor-kit-9 :is(.gsv-hero--photo, .gsv-hero--home) > .elementor-background-overlay {
+    background: linear-gradient(180deg, rgba(1, 42, 86, 0.55) 0%, rgba(1, 42, 86, 0.85) 100%) !important;
+  }
+}
