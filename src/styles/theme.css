@@ -202,27 +202,27 @@ body.elementor-kit-9 .gsv-hero--light .elementor-icon-list-icon svg {
 }
 
 /* Archive pages (date, category, author) use the plain theme template, not Elementor */
-body.elementor-kit-9 main.site-main {
+body.elementor-kit-9.archive main.site-main {
   padding-bottom: 64px;
 }
-body.elementor-kit-9 main.site-main > .page-header {
+body.elementor-kit-9.archive main.site-main > .page-header {
   margin: 16px 0 40px;
   padding: 56px 40px;
   border-radius: 24px;
   background: linear-gradient(135deg, var(--gsv-primary-l-6) 0%, var(--gsv-primary-l-5) 100%);
 }
-body.elementor-kit-9 main.site-main > .page-header .entry-title {
+body.elementor-kit-9.archive main.site-main > .page-header .entry-title {
   margin: 0;
   color: var(--gsv-primary);
   font: 500 clamp(30px, 3.6vw, 46px) / 1.15 var(--gsv-font-serif);
   letter-spacing: -0.5px;
 }
-body.elementor-kit-9 main.site-main > .page-content {
+body.elementor-kit-9.archive main.site-main > .page-content {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   gap: 24px;
 }
-body.elementor-kit-9 main.site-main article.post {
+body.elementor-kit-9.archive main.site-main article.post {
   display: flex;
   flex-direction: column;
   margin: 0;
@@ -232,30 +232,30 @@ body.elementor-kit-9 main.site-main article.post {
   background: var(--gsv-white);
   box-shadow: 0 1px 2px rgba(27, 30, 44, 0.04);
 }
-body.elementor-kit-9 main.site-main article.post > a:has(img) {
+body.elementor-kit-9.archive main.site-main article.post > a:has(img) {
   order: -1;
 }
-body.elementor-kit-9 main.site-main article.post img {
+body.elementor-kit-9.archive main.site-main article.post img {
   display: block;
   width: 100%;
   height: auto;
   aspect-ratio: 16 / 10;
   object-fit: cover;
 }
-body.elementor-kit-9 main.site-main article.post .entry-title {
+body.elementor-kit-9.archive main.site-main article.post .entry-title {
   margin: 20px 24px 8px;
   font: 500 18px/1.35 var(--gsv-font-sans);
 }
-body.elementor-kit-9 main.site-main article.post .entry-title a {
+body.elementor-kit-9.archive main.site-main article.post .entry-title a {
   color: var(--gsv-primary);
 }
-body.elementor-kit-9 main.site-main article.post p {
+body.elementor-kit-9.archive main.site-main article.post p {
   margin: 0 24px 24px;
   color: var(--gsv-text-body);
   font-size: 14px;
   line-height: 1.6;
 }
-body.elementor-kit-9 main.site-main .pagination {
+body.elementor-kit-9.archive main.site-main .pagination {
   grid-column: 1 / -1;
   margin-top: 32px;
   font-family: var(--gsv-font-sans);
