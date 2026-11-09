@@ -1,15 +1,711 @@
 ---
-import fr from '../wp/header-fr.html?raw';
-import en from '../wp/header-en.html?raw';
+// Site header, after dev.priveosante.com's: dropdown panels on desktop, full-screen menu on mobile.
+import '../styles/tokens.css';
 
 interface Props {
   lang: 'fr' | 'en';
   /** Same page in the other language, for the FR/EN switcher. */
   alt: string | null;
+  /** Current route, to mark the active menu item. */
+  route: string;
 }
 
-const { lang, alt } = Astro.props;
-const html = (lang === 'fr' ? fr : en).replaceAll('{{ALT_URL}}', alt ?? (lang === 'fr' ? '/en/' : '/'));
+interface Link {
+  label: string;
+  href: string;
+}
+
+interface Dropdown {
+  label: string;
+  group: string;
+  links: Link[];
+  intro: { title: string; text: string; cta: Link };
+}
+
+type Item = Link | Dropdown;
+
+const BOOKING = 'https://appointment.priveosante.com/booking?t=s&uuid=34440e80-bf1a-4f3b-b815-888d4b8d7bf2';
+const PRIVEO = 'https://priveosante.com';
+
+const menus: Record<'fr' | 'en', { items: Item[]; book: string; menu: string; openMenu: string; closeMenu: string }> = {
+  fr: {
+    book: 'Prendre rendez-vous',
+    menu: 'Menu principal',
+    openMenu: 'Ouvrir le menu',
+    closeMenu: 'Fermer le menu',
+    items: [
+      { label: 'Santé-voyage', href: '/clinique-du-voyageur/' },
+      {
+        label: 'Vaccination',
+        group: 'Vaccination',
+        links: [
+          { label: 'Vaccination générale', href: '/vaccination-generale/' },
+          { label: 'Vaccination pédiatrique', href: '/vaccination-infantile/' },
+          { label: 'Vaccination voyage', href: '/vaccination/' },
+          { label: 'Vaccination en entreprise', href: '/vaccination-en-entreprise/' },
+        ],
+        intro: {
+          title: 'Vaccination',
+          text: 'Des vaccins pour les adultes, les enfants, les voyageurs et les entreprises, offerts dans nos cliniques.',
+          cta: { label: 'Prendre rendez-vous', href: BOOKING },
+        },
+      },
+      {
+        label: 'Cliniques',
+        group: 'Nos cliniques',
+        links: [
+          { label: 'Laval', href: `${PRIVEO}/cliniques/laval/` },
+          { label: 'Montréal', href: `${PRIVEO}/cliniques/montreal/` },
+          { label: 'Longueuil', href: `${PRIVEO}/cliniques/longueuil/` },
+          { label: 'Blainville', href: `${PRIVEO}/cliniques/blainville/` },
+        ],
+        intro: {
+          title: 'Cliniques',
+          text: 'Quatre cliniques dans la grande région de Montréal, avec stationnement gratuit.',
+          cta: { label: 'Nos cliniques', href: `${PRIVEO}/cliniques/` },
+        },
+      },
+      {
+        label: 'À propos',
+        group: 'Découvrir',
+        links: [
+          { label: 'À propos', href: '/a-propos/' },
+          { label: 'Équipe médicale', href: `${PRIVEO}/equipe/` },
+          { label: 'Abonnement', href: `${PRIVEO}/abonnement/` },
+          { label: 'Carrières', href: '/carriere/' },
+          { label: 'Blogue', href: '/info-sante/' },
+          { label: 'Nous joindre', href: '/contact/' },
+        ],
+        intro: {
+          title: 'À propos',
+          text: 'Groupe Santé Voyage fait partie de Priveo Santé, une clinique médicale privée.',
+          cta: { label: 'Qui nous sommes', href: '/a-propos/' },
+        },
+      },
+    ],
+  },
+  en: {
+    book: 'Book an appointment',
+    menu: 'Main menu',
+    openMenu: 'Open menu',
+    closeMenu: 'Close menu',
+    items: [
+      { label: 'Travel health', href: '/en/travellers-clinic/' },
+      {
+        label: 'Vaccination',
+        group: 'Vaccination',
+        links: [
+          { label: 'General vaccination', href: '/en/general-vaccination/' },
+          { label: 'Pediatric vaccination', href: '/en/infant-vaccination/' },
+          { label: 'Travel vaccination', href: '/en/pre-travel-vaccination-clinic/' },
+          { label: 'Workplace vaccination', href: '/en/vaccination-in-the-workplace/' },
+        ],
+        intro: {
+          title: 'Vaccination',
+          text: 'Vaccines for adults, children, travellers and businesses, offered in our clinics.',
+          cta: { label: 'Book an appointment', href: BOOKING },
+        },
+      },
+      {
+        label: 'Clinics',
+        group: 'Our clinics',
+        links: [
+          { label: 'Laval', href: `${PRIVEO}/en/clinics/laval/` },
+          { label: 'Montréal', href: `${PRIVEO}/en/clinics/montreal/` },
+          { label: 'Longueuil', href: `${PRIVEO}/en/clinics/longueuil/` },
+          { label: 'Blainville', href: `${PRIVEO}/en/clinics/blainville/` },
+        ],
+        intro: {
+          title: 'Clinics',
+          text: 'Four clinics in the Greater Montréal area, with free parking.',
+          cta: { label: 'Our clinics', href: `${PRIVEO}/en/clinics/` },
+        },
+      },
+      {
+        label: 'About',
+        group: 'Discover',
+        links: [
+          { label: 'About us', href: '/en/about-us/' },
+          { label: 'Medical team', href: `${PRIVEO}/en/team/` },
+          { label: 'Membership', href: `${PRIVEO}/en/membership/` },
+          { label: 'Careers', href: '/en/career/' },
+          { label: 'Blog', href: '/en/info-sante/' },
+          { label: 'Contact us', href: '/en/contact/' },
+        ],
+        intro: {
+          title: 'About',
+          text: 'Groupe Santé Voyage is part of Priveo Santé, a private medical clinic.',
+          cta: { label: 'Who we are', href: '/en/about-us/' },
+        },
+      },
+    ],
+  },
+};
+
+const { lang, alt, route } = Astro.props;
+const menu = menus[lang];
+const home = lang === 'fr' ? '/' : '/en/';
+const other = lang === 'fr' ? { label: 'EN', name: 'English', lang: 'en' } : { label: 'FR', name: 'Français', lang: 'fr' };
+const altHref = alt ?? (lang === 'fr' ? '/en/' : '/');
+const isDropdown = (item: Item): item is Dropdown => 'links' in item;
+const current = (href: string) => (href === route ? 'page' : undefined);
 ---
 
-<Fragment set:html={html} />
+<header class="gsv-header" id="gsv-header">
+  <div class="gsv-header__inner">
+    <a class="gsv-header__logo" href={home} aria-current={current(home)}>
+      <img src="/wp-content/uploads/2023/08/Logo_GSV_FR.png" alt="Groupe Santé Voyage" width="350" height="175" />
+    </a>
+
+    <nav class="gsv-nav" id="gsv-nav" aria-label={menu.menu}>
+      <ul class="gsv-nav__items">
+        {
+          menu.items.map((item, i) =>
+            isDropdown(item) ? (
+              <li class:list={['gsv-nav__dropdown', { 'is-current': item.links.some((l) => l.href === route) }]}>
+                <button class="gsv-nav__toggle" type="button" aria-expanded="false" aria-controls={`gsv-panel-${i}`}>
+                  {item.label}
+                  <svg aria-hidden="true" viewBox="0 0 12 12" fill="none">
+                    <path d="M1.5 4 6 8l4.5-4" stroke="currentColor" stroke-width="1.5" />
+                  </svg>
+                </button>
+                <div class="gsv-panel" id={`gsv-panel-${i}`}>
+                  <div class="gsv-panel__col">
+                    <p class="gsv-panel__eyebrow">{item.group}</p>
+                    <ul class="gsv-panel__links">
+                      {item.links.map((link) => (
+                        <li>
+                          <a href={link.href} aria-current={current(link.href)}>
+                            {link.label}
+                          </a>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div class="gsv-panel__intro">
+                    <p class="gsv-panel__title">{item.intro.title}</p>
+                    <p class="gsv-panel__text">{item.intro.text}</p>
+                    <a class="gsv-panel__cta" href={item.intro.cta.href}>
+                      {item.intro.cta.label}
+                      <svg aria-hidden="true" viewBox="0 0 12 12" fill="none">
+                        <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </li>
+            ) : (
+              <li>
+                <a class:list={['gsv-nav__link', { 'is-current': item.href === route }]} href={item.href} aria-current={current(item.href)}>
+                  {item.label}
+                </a>
+              </li>
+            ),
+          )
+        }
+      </ul>
+      <a class="gsv-nav__lang" href={altHref} hreflang={other.lang} lang={other.lang}>{other.name}</a>
+    </nav>
+
+    <div class="gsv-header__actions">
+      <a class="gsv-header__lang" href={altHref} hreflang={other.lang} lang={other.lang} aria-label={other.name}>{other.label}</a>
+      <a class="gsv-btn" href={BOOKING}>{menu.book}</a>
+      <button
+        class="gsv-header__burger"
+        type="button"
+        aria-expanded="false"
+        aria-controls="gsv-nav"
+        aria-label={menu.openMenu}
+        data-open-label={menu.openMenu}
+        data-close-label={menu.closeMenu}
+      >
+        <span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  (() => {
+    const header = document.getElementById('gsv-header');
+    const burger = header.querySelector('.gsv-header__burger');
+    const dropdowns = [...header.querySelectorAll('.gsv-nav__dropdown')];
+    const desktop = matchMedia('(min-width: 1025px)');
+    const canHover = matchMedia('(hover: hover)');
+
+    const setOpen = (li, open) => {
+      li.classList.toggle('is-open', open);
+      li.querySelector('.gsv-nav__toggle').setAttribute('aria-expanded', String(open));
+    };
+    const closeAll = (except) => dropdowns.forEach((li) => li !== except && setOpen(li, false));
+
+    dropdowns.forEach((li) => {
+      let timer;
+      li.querySelector('.gsv-nav__toggle').addEventListener('click', () => {
+        const open = !li.classList.contains('is-open');
+        if (desktop.matches) closeAll(li);
+        setOpen(li, open);
+      });
+      li.addEventListener('mouseenter', () => {
+        if (!desktop.matches || !canHover.matches) return;
+        clearTimeout(timer);
+        closeAll(li);
+        setOpen(li, true);
+      });
+      li.addEventListener('mouseleave', () => {
+        if (!desktop.matches || !canHover.matches) return;
+        timer = setTimeout(() => setOpen(li, false), 150);
+      });
+    });
+
+    const setMenu = (open) => {
+      header.classList.toggle('is-menu-open', open);
+      document.documentElement.classList.toggle('gsv-menu-open', open);
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? burger.dataset.closeLabel : burger.dataset.openLabel);
+    };
+    burger.addEventListener('click', () => setMenu(!header.classList.contains('is-menu-open')));
+    desktop.addEventListener('change', () => {
+      setMenu(false);
+      closeAll();
+    });
+
+    document.addEventListener('click', (e) => {
+      if (desktop.matches && !header.contains(e.target)) closeAll();
+    });
+    document.addEventListener('keydown', (e) => {
+      if (e.key !== 'Escape') return;
+      const open = dropdowns.find((li) => li.classList.contains('is-open'));
+      if (open && desktop.matches) {
+        setOpen(open, false);
+        open.querySelector('.gsv-nav__toggle').focus();
+      } else if (header.classList.contains('is-menu-open')) {
+        setMenu(false);
+        burger.focus();
+      }
+    });
+
+    const onScroll = () => header.classList.toggle('is-scrolled', scrollY > 0);
+    addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+<style is:global>
+  /* Prefixed selectors on purpose: they must win over the imported Elementor/theme styles. */
+  .gsv-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--gsv-white);
+    font-family: var(--gsv-font-sans);
+    transition: background-color 0.2s, box-shadow 0.2s;
+  }
+  .gsv-header.is-scrolled {
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 2px 4px -1px rgba(27, 30, 44, 0.06);
+  }
+  .gsv-header *,
+  .gsv-header *::before,
+  .gsv-header *::after {
+    box-sizing: border-box;
+  }
+  .gsv-header .gsv-header__inner {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+    max-width: var(--gsv-content-width);
+    min-height: var(--gsv-header-height);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+  .gsv-header .gsv-header__logo {
+    display: flex;
+    flex-shrink: 0;
+  }
+  .gsv-header .gsv-header__logo img {
+    display: block;
+    width: auto;
+    height: 60px;
+  }
+  .gsv-header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .gsv-header p {
+    margin: 0;
+  }
+  .gsv-header a {
+    text-decoration: none;
+  }
+  .gsv-header svg {
+    flex-shrink: 0;
+  }
+
+  /* Top-level items */
+  .gsv-header .gsv-nav {
+    flex-grow: 1;
+  }
+  .gsv-header .gsv-nav__items {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .gsv-header .gsv-nav__dropdown {
+    position: relative;
+  }
+  .gsv-header .gsv-nav__link,
+  .gsv-header .gsv-nav__toggle {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin: 0;
+    padding: 8px 12px;
+    border: 0;
+    border-radius: var(--gsv-radius-s);
+    background: transparent;
+    color: var(--gsv-primary);
+    font: 500 15px/1.4 var(--gsv-font-sans);
+    letter-spacing: normal;
+    text-transform: none;
+    cursor: pointer;
+    transition: color 0.15s, background-color 0.15s;
+  }
+  .gsv-header .gsv-nav__link:hover,
+  .gsv-header .gsv-nav__toggle:hover,
+  .gsv-header .gsv-nav__dropdown.is-open > .gsv-nav__toggle {
+    background: var(--gsv-surface-l-4);
+    color: var(--gsv-secondary);
+  }
+  .gsv-header .gsv-nav__link.is-current,
+  .gsv-header .gsv-nav__dropdown.is-current > .gsv-nav__toggle {
+    color: var(--gsv-secondary);
+  }
+  .gsv-header .gsv-nav__toggle:focus-visible,
+  .gsv-header a:focus-visible,
+  .gsv-header button:focus-visible {
+    outline: 2px solid var(--gsv-secondary);
+    outline-offset: 2px;
+  }
+  .gsv-header .gsv-nav__toggle svg {
+    width: 12px;
+    height: 12px;
+    transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  .gsv-header .gsv-nav__dropdown.is-open > .gsv-nav__toggle svg {
+    transform: rotate(180deg);
+  }
+
+  /* Dropdown panels */
+  .gsv-header .gsv-panel {
+    position: absolute;
+    top: calc(100% + 12px);
+    left: 0;
+    display: grid;
+    grid-template-columns: minmax(200px, auto) 260px;
+    column-gap: 56px;
+    padding: 32px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: var(--gsv-radius-m);
+    background: var(--gsv-white);
+    box-shadow: 0 16px 40px -12px rgba(1, 42, 86, 0.18);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
+  }
+  /* Keeps the panel open while the pointer crosses the gap below the toggle. */
+  .gsv-header .gsv-panel::before {
+    content: '';
+    position: absolute;
+    inset: -13px 0 auto;
+    height: 13px;
+  }
+  .gsv-header .gsv-nav__dropdown.is-open > .gsv-panel {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  .gsv-header .gsv-panel__eyebrow {
+    margin-bottom: 12px;
+    color: var(--gsv-text-muted);
+    font: 600 12px/1.4 var(--gsv-font-sans);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+  .gsv-header .gsv-panel__links {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .gsv-header .gsv-panel__links a {
+    display: block;
+    margin: 0 -12px;
+    padding: 8px 12px;
+    border-radius: var(--gsv-radius-s);
+    color: var(--gsv-primary);
+    font: 500 15px/1.4 var(--gsv-font-sans);
+    white-space: nowrap;
+    transition: color 0.15s, background-color 0.15s;
+  }
+  .gsv-header .gsv-panel__links a:hover,
+  .gsv-header .gsv-panel__links a[aria-current='page'] {
+    background: var(--gsv-primary-l-6);
+    color: var(--gsv-secondary);
+  }
+  .gsv-header .gsv-panel__intro {
+    display: flex;
+    flex-direction: column;
+  }
+  .gsv-header .gsv-panel__title {
+    margin-bottom: 10px;
+    color: var(--gsv-primary);
+    font: 500 22px/1.3 var(--gsv-font-serif);
+  }
+  .gsv-header .gsv-panel__text {
+    margin-bottom: 20px;
+    color: var(--gsv-text-body);
+    font: 400 14px/1.6 var(--gsv-font-sans);
+  }
+  .gsv-header .gsv-panel__cta {
+    display: inline-flex;
+    align-self: flex-start;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding: 9px 16px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: var(--gsv-radius-full);
+    color: var(--gsv-primary);
+    font: 500 14px/1.4 var(--gsv-font-sans);
+    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
+  }
+  .gsv-header .gsv-panel__cta svg {
+    width: 11px;
+    height: 11px;
+    transition: transform 0.15s;
+  }
+  .gsv-header .gsv-panel__cta:hover {
+    border-color: var(--gsv-primary-l-5);
+    background: var(--gsv-primary-l-6);
+    color: var(--gsv-secondary);
+  }
+  .gsv-header .gsv-panel__cta:hover svg {
+    transform: translateX(3px);
+  }
+
+  /* Actions */
+  .gsv-header .gsv-header__actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+  }
+  .gsv-header .gsv-header__lang {
+    color: var(--gsv-primary);
+    font: 500 15px/1.4 var(--gsv-font-sans);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+  }
+  .gsv-header .gsv-header__lang:hover {
+    color: var(--gsv-secondary);
+  }
+  .gsv-header .gsv-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 11px 18px;
+    border-radius: var(--gsv-radius-m);
+    background: var(--gsv-primary);
+    color: var(--gsv-white);
+    font: 500 15px/1.2 var(--gsv-font-sans);
+    white-space: nowrap;
+    transition: background-color 0.15s;
+  }
+  .gsv-header .gsv-btn:hover {
+    background: var(--gsv-primary-d-1);
+    color: var(--gsv-white);
+  }
+  .gsv-header .gsv-nav__lang,
+  .gsv-header .gsv-header__burger {
+    display: none;
+  }
+
+  /* Mobile and tablet: full-screen menu under the header */
+  @media (max-width: 1024px) {
+    .gsv-header .gsv-header__inner {
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 64px;
+      padding: 0 16px;
+    }
+    .gsv-header .gsv-header__logo img {
+      height: 52px;
+    }
+    .gsv-header .gsv-header__lang {
+      display: none;
+    }
+    .gsv-header .gsv-btn {
+      padding: 10px 14px;
+      font-size: 14px;
+    }
+    .gsv-header .gsv-header__burger {
+      position: relative;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      margin: 0 -8px 0 0;
+      padding: 0;
+      border: 0;
+      border-radius: var(--gsv-radius-s);
+      background: transparent;
+      color: var(--gsv-primary);
+      cursor: pointer;
+    }
+    .gsv-header .gsv-header__burger span,
+    .gsv-header .gsv-header__burger span::before,
+    .gsv-header .gsv-header__burger span::after {
+      position: absolute;
+      width: 26px;
+      height: 2px;
+      border-radius: 2px;
+      background: currentColor;
+      transition: transform 0.25s, opacity 0.25s;
+    }
+    .gsv-header .gsv-header__burger span::before,
+    .gsv-header .gsv-header__burger span::after {
+      content: '';
+      left: 0;
+    }
+    .gsv-header .gsv-header__burger span::before {
+      transform: translateY(-8px);
+    }
+    .gsv-header .gsv-header__burger span::after {
+      transform: translateY(8px);
+    }
+    .gsv-header.is-menu-open .gsv-header__burger span {
+      background: transparent;
+    }
+    .gsv-header.is-menu-open .gsv-header__burger span::before {
+      background: var(--gsv-primary);
+      transform: rotate(45deg);
+    }
+    .gsv-header.is-menu-open .gsv-header__burger span::after {
+      background: var(--gsv-primary);
+      transform: rotate(-45deg);
+    }
+
+    .gsv-header .gsv-nav {
+      position: fixed;
+      inset: 64px 0 0;
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      padding: 16px 16px calc(32px + env(safe-area-inset-bottom, 0px));
+      overflow-y: auto;
+      background: var(--gsv-white);
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.2s, visibility 0.2s;
+    }
+    .gsv-header.is-menu-open .gsv-nav {
+      opacity: 1;
+      visibility: visible;
+    }
+    .gsv-header .gsv-nav__items {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 0;
+    }
+    .gsv-header .gsv-nav__items > li {
+      border-bottom: 1px solid var(--gsv-border-subtle);
+    }
+    .gsv-header .gsv-nav__link,
+    .gsv-header .gsv-nav__toggle {
+      justify-content: space-between;
+      width: 100%;
+      padding: 18px 4px;
+      border-radius: 0;
+      font-size: 18px;
+    }
+    .gsv-header .gsv-nav__link:hover,
+    .gsv-header .gsv-nav__toggle:hover,
+    .gsv-header .gsv-nav__dropdown.is-open > .gsv-nav__toggle {
+      background: transparent;
+    }
+    .gsv-header .gsv-nav__toggle svg {
+      width: 14px;
+      height: 14px;
+    }
+    .gsv-header .gsv-panel {
+      position: static;
+      display: none;
+      padding: 0 4px 16px;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      transition: none;
+    }
+    .gsv-header .gsv-panel::before {
+      content: none;
+    }
+    .gsv-header .gsv-nav__dropdown.is-open > .gsv-panel {
+      display: block;
+    }
+    .gsv-header .gsv-panel__eyebrow,
+    .gsv-header .gsv-panel__title,
+    .gsv-header .gsv-panel__text {
+      display: none;
+    }
+    .gsv-header .gsv-panel__links a {
+      margin: 0;
+      padding: 12px;
+      font-size: 16px;
+      white-space: normal;
+    }
+    .gsv-header .gsv-panel__cta {
+      margin: 8px 0 0;
+      padding: 12px;
+      border: 0;
+      border-radius: 0;
+    }
+    .gsv-header .gsv-panel__cta:hover {
+      background: transparent;
+    }
+    .gsv-header .gsv-nav__lang {
+      display: block;
+      align-self: flex-start;
+      color: var(--gsv-primary);
+      font: 500 16px/1.4 var(--gsv-font-sans);
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+    html.gsv-menu-open,
+    html.gsv-menu-open body {
+      overflow: hidden;
+    }
+  }
+
+  @media (max-width: 400px) {
+    .gsv-header .gsv-header__logo img {
+      height: 44px;
+    }
+    .gsv-header .gsv-btn {
+      padding: 9px 12px;
+      font-size: 13px;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .gsv-header,
+    .gsv-header * {
+      transition: none !important;
+    }
+  }
+</style>
