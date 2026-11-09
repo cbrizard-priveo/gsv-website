@@ -1,0 +1,156 @@
+---
+// Full-bleed photo hero with a cross-fading slideshow, after Priveo's home hero.
+import Icon from '../Icon.astro';
+import type { HomeContent } from '../../data/home';
+
+interface Props {
+  content: HomeContent['hero'];
+}
+
+const { content } = Astro.props;
+const slides = [3, 4, 1, 2, 5].map((n) => `/wp-content/uploads/2025/04/slider-travel_${n}.jpg`);
+---
+
+<section class="hero">
+  <div class="hero__media" aria-hidden="true">
+    {slides.map((src, i) => <img src={src} alt="" loading={i === 0 ? 'eager' : 'lazy'} fetchpriority={i === 0 ? 'high' : undefined} style={`--i: ${i}`} />)}
+  </div>
+  <div class="hero__overlay" aria-hidden="true"></div>
+  <div class="gsv-container hero__content">
+    <p class="hero__badge"><span aria-hidden="true"></span>{content.badge}</p>
+    <h1 class="gsv-h1 hero__title">{content.title} <em>{content.titleEm}</em></h1>
+    <p class="hero__text">{content.text}</p>
+    <div class="hero__actions">
+      <a class="gsv-button" href={content.primary.href}>{content.primary.label}<Icon name="arrow-right" /></a>
+      <a class="gsv-button gsv-button--light" href={content.secondary.href}>{content.secondary.label}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    min-height: min(820px, calc(100vh - var(--gsv-header-height)));
+    overflow: hidden;
+    background: var(--gsv-primary-d-2);
+    isolation: isolate;
+  }
+  .hero__media,
+  .hero__overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+  }
+  .hero__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    animation: hero-slide 35s infinite;
+    /* Shifted by the fade-in time so the first slide is fully shown on load. */
+    animation-delay: calc(var(--i) * 7s - 1.4s);
+  }
+  /* Each slide: fade in, hold, slow zoom, fade out; five slides of 7s each. */
+  @keyframes hero-slide {
+    0% {
+      opacity: 0;
+      transform: scale(1.06);
+    }
+    4% {
+      opacity: 1;
+    }
+    20% {
+      opacity: 1;
+    }
+    25% {
+      opacity: 0;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+    }
+  }
+  .hero__overlay {
+    background:
+      linear-gradient(90deg, rgba(1, 26, 54, 0.74) 0%, rgba(1, 26, 54, 0.38) 46%, rgba(1, 26, 54, 0) 74%),
+      linear-gradient(180deg, rgba(1, 26, 54, 0) 55%, rgba(1, 26, 54, 0.45) 100%);
+  }
+  .hero__content {
+    padding-top: 120px;
+    padding-bottom: 96px;
+  }
+  .hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 24px;
+    padding: 6px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: var(--gsv-radius-full);
+    background: linear-gradient(135deg, rgba(1, 26, 54, 0.55), rgba(1, 26, 54, 0.4));
+    box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.18), 0 2px 10px rgba(1, 26, 54, 0.28);
+    backdrop-filter: blur(20px);
+    color: var(--gsv-white);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  .hero__badge span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #6fb1ff;
+    box-shadow: 0 0 0 3px rgba(111, 177, 255, 0.25);
+  }
+  .hero__title {
+    max-width: 15ch;
+    color: var(--gsv-white);
+    font: 500 clamp(40px, 5vw, 64px) / 1.08 var(--gsv-font-serif);
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .hero__text {
+    max-width: 560px;
+    margin-top: 22px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .hero__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 36px;
+  }
+  .hero__actions .gsv-button {
+    padding: 17px 30px;
+    font-size: 16px;
+  }
+
+  @media (max-width: 767px) {
+    .hero {
+      min-height: 640px;
+    }
+    .hero__overlay {
+      background: linear-gradient(180deg, rgba(1, 26, 54, 0.2) 0%, rgba(1, 26, 54, 0.82) 70%);
+    }
+    .hero__content {
+      padding-bottom: 48px;
+    }
+    .hero__actions .gsv-button {
+      width: 100%;
+    }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .hero__media img {
+      animation: none;
+    }
+    .hero__media img:first-child {
+      opacity: 1;
+    }
+  }
+</style>

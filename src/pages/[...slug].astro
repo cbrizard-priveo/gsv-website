@@ -5,10 +5,14 @@ import pages from '../wp/pages.json';
 const bodies = import.meta.glob<string>('../wp/html/*.html', { query: '?raw', import: 'default' });
 
 export function getStaticPaths() {
-  return (pages as WpPageData[]).map((page) => ({
-    params: { slug: page.route === '/' ? undefined : page.route.slice(1, -1) },
-    props: { page },
-  }));
+  // Pages rebuilt as components have their own route files.
+  const REBUILT = new Set(['/', '/en/']);
+  return (pages as WpPageData[])
+    .filter((page) => !REBUILT.has(page.route))
+    .map((page) => ({
+      params: { slug: page.route.slice(1, -1) },
+      props: { page },
+    }));
 }
 
 const { page } = Astro.props;

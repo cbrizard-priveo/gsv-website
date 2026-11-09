@@ -1,0 +1,36 @@
+---
+// The homepage, built from Priveo-style sections. SEO tags come from the imported WordPress page.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import type { WpPageData } from '../layouts/WpPage.astro';
+import Hero from '../components/home/Hero.astro';
+import Audience from '../components/home/Audience.astro';
+import About from '../components/home/About.astro';
+import Points from '../components/home/Points.astro';
+import Team from '../components/home/Team.astro';
+import Testimonials from '../components/home/Testimonials.astro';
+import Blog from '../components/home/Blog.astro';
+import Clinics from '../components/home/Clinics.astro';
+import { home } from '../data/home';
+import type { Lang } from '../data/site';
+import pages from '../wp/pages.json';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const route = lang === 'fr' ? '/' : '/en/';
+const page = (pages as WpPageData[]).find((p) => p.route === route)!;
+const content = home[lang];
+---
+
+<BaseLayout lang={lang} htmlLang={page.htmlLang} title={page.title} head={page.head} route={route} alt={page.alt}>
+  <Hero content={content.hero} />
+  <Audience content={content.audience} />
+  <About content={content.about} />
+  <Points content={content.points} />
+  <Team content={content.team} />
+  <Testimonials content={content.testimonials} />
+  <Blog content={content.blog} lang={lang} />
+  <Clinics content={content.clinics} lang={lang} />
+</BaseLayout>

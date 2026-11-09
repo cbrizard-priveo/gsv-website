@@ -1,0 +1,155 @@
+---
+// Latest three posts as cards.
+import Icon from '../Icon.astro';
+import type { HomeContent } from '../../data/home';
+import type { Lang } from '../../data/site';
+import { latestPosts } from '../../lib/posts';
+
+interface Props {
+  content: HomeContent['blog'];
+  lang: Lang;
+}
+
+const { content, lang } = Astro.props;
+const posts = latestPosts(lang);
+const date = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-CA' : 'en-CA', { dateStyle: 'long', timeZone: 'America/Montreal' });
+---
+
+<section class="gsv-section blog">
+  <div class="gsv-container">
+    <div class="blog__header">
+      <header class="gsv-section-header gsv-section-header--left">
+        <span class="gsv-eyebrow">{content.eyebrow}</span>
+        <h2 class="gsv-h2">{content.title}</h2>
+      </header>
+      <a class="gsv-button gsv-button--outline" href={content.cta.href}>{content.cta.label}<Icon name="arrow-right" /></a>
+    </div>
+    <ul class="blog__cards">
+      {
+        posts.map((post) => (
+          <li>
+            <article class="blog__card">
+              <img src={post.image} alt="" loading="lazy" />
+              <div class="blog__body">
+                <time datetime={post.date.toISOString()}>{date.format(post.date)}</time>
+                <h3>
+                  <a href={post.route}>{post.title}</a>
+                </h3>
+                <p>{post.excerpt}</p>
+                <span class="blog__more" aria-hidden="true">
+                  {content.readMore}
+                  <Icon name="arrow-right" />
+                </span>
+              </div>
+            </article>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .blog__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .blog__header .gsv-section-header {
+    margin-bottom: 0;
+  }
+  .blog__header .gsv-button {
+    flex-shrink: 0;
+  }
+  .blog__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+  }
+  .blog__card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: 20px;
+    background: var(--gsv-white);
+    transition: box-shadow 0.2s, transform 0.2s;
+  }
+  .blog__card:hover {
+    box-shadow: 0 16px 40px -20px rgba(1, 42, 86, 0.3);
+    transform: translateY(-3px);
+  }
+  .blog__card img {
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    object-fit: cover;
+  }
+  .blog__body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    gap: 10px;
+    padding: 22px 24px 24px;
+  }
+  .blog__body time {
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+  }
+  .blog__body h3 {
+    color: var(--gsv-primary);
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.35;
+    letter-spacing: -0.015em;
+  }
+  .blog__body h3 a {
+    text-decoration: none;
+  }
+  /* The whole card is clickable through the title link. */
+  .blog__body h3 a::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+  }
+  .blog__body p {
+    display: -webkit-box;
+    overflow: hidden;
+    font-size: 14.5px;
+    line-height: 1.6;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+  }
+  .blog__more {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 6px;
+    color: var(--gsv-secondary);
+    font-size: 14px;
+    font-weight: 500;
+  }
+  .blog__more :global(svg) {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.15s;
+  }
+  .blog__card:hover .blog__more :global(svg) {
+    transform: translateX(3px);
+  }
+
+  @media (max-width: 1024px) {
+    .blog__cards {
+      grid-template-columns: 1fr;
+      max-width: 560px;
+    }
+    .blog__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+</style>

@@ -6,10 +6,13 @@
   --gsv-primary-l-5: #dbe6f3;
   --gsv-primary-l-6: #eef3f9;
   --gsv-secondary: #3c70c3;
+  --gsv-secondary-l-4: #d1e4f5;
+  --gsv-secondary-l-5: #e0eefb;
+  --gsv-warning: #fbc546;
   --gsv-surface: #e6e4de;
   --gsv-surface-l-4: #faf9f7;
   --gsv-white: #fff;
-  --gsv-text-body: rgba(1, 74, 151, 0.86);
+  --gsv-text-body: rgba(1, 42, 86, 0.86);
   --gsv-text-muted: #6b7686;
   --gsv-border-subtle: #dfe3e8;
 

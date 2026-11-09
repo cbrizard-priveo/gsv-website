@@ -1,0 +1,141 @@
+/* Base styles for pages built from components (not imported from WordPress), after dev.priveosante.com. */
+.gsv-page {
+  margin: 0;
+  background: var(--gsv-surface-l-4);
+  color: var(--gsv-text-body);
+  font: 400 16px/1.6 var(--gsv-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+.gsv-page *,
+.gsv-page *::before,
+.gsv-page *::after {
+  box-sizing: border-box;
+}
+.gsv-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.gsv-page :where(h1, h2, h3, h4, p, ul, figure, blockquote) {
+  margin: 0;
+}
+.gsv-page :where(ul) {
+  padding: 0;
+  list-style: none;
+}
+.gsv-page :where(a) {
+  color: inherit;
+}
+.gsv-page :where(a, button):focus-visible {
+  outline: 2px solid var(--gsv-secondary);
+  outline-offset: 3px;
+}
+
+.gsv-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.gsv-section {
+  padding: 100px 0;
+}
+.gsv-section-header {
+  max-width: 780px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.gsv-section-header--left {
+  margin-left: 0;
+  text-align: left;
+}
+.gsv-eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--gsv-text-body);
+  font: 500 12.5px/1.5 var(--gsv-font-sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.gsv-h2 {
+  color: var(--gsv-primary);
+  font: 500 clamp(30px, 3.2vw, 42px) / 1.12 var(--gsv-font-serif);
+  letter-spacing: -0.75px;
+  text-wrap: balance;
+}
+.gsv-h2 em,
+.gsv-h1 em {
+  font-style: italic;
+  font-weight: 400;
+}
+.gsv-lede {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.gsv-section-header .gsv-lede {
+  margin-inline: auto;
+  max-width: 64ch;
+}
+
+.gsv-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 26px;
+  border: 1.5px solid var(--gsv-primary);
+  border-radius: var(--gsv-radius-m);
+  background: var(--gsv-primary);
+  color: var(--gsv-white);
+  font: 500 15px/1.2 var(--gsv-font-sans);
+  letter-spacing: -0.15px;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.gsv-button:hover {
+  border-color: var(--gsv-primary-d-1);
+  background: var(--gsv-primary-d-1);
+}
+.gsv-button--outline {
+  background: transparent;
+  color: var(--gsv-primary);
+}
+.gsv-button--outline:hover {
+  border-color: var(--gsv-primary);
+  background: var(--gsv-primary-l-6);
+}
+.gsv-button--light {
+  border-color: var(--gsv-white);
+  background: transparent;
+  color: var(--gsv-white);
+}
+.gsv-button--light:hover {
+  border-color: var(--gsv-white);
+  background: rgba(255, 255, 255, 0.14);
+}
+.gsv-button svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.15s;
+}
+.gsv-button:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+  .gsv-section {
+    padding: 80px 0;
+  }
+}
+@media (max-width: 767px) {
+  .gsv-container {
+    padding: 0 20px;
+  }
+  .gsv-section {
+    padding: 64px 0;
+  }
+  .gsv-section-header {
+    margin-bottom: 36px;
+  }
+}

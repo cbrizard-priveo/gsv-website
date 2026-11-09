@@ -190,3 +190,37 @@ export const footers: Record<Lang, { about: string; contactTitle: string; privac
     social: 'Social media',
   },
 };
+
+export interface Clinic {
+  city: string;
+  address: string;
+  locality: string;
+  href: Record<Lang, string>;
+}
+
+export const CLINICS: Clinic[] = [
+  {
+    city: 'Laval',
+    address: '1435, boul. Saint-Martin Ouest, suite 425',
+    locality: 'Laval (Québec) H7S 2C6',
+    href: { fr: `${PRIVEO}/cliniques/laval/`, en: `${PRIVEO}/en/clinics/laval/` },
+  },
+  {
+    city: 'Montréal (Outremont)',
+    address: '2645, avenue Van Horne, suite 206',
+    locality: 'Montréal (Québec) H3S 1P6',
+    href: { fr: `${PRIVEO}/cliniques/montreal/`, en: `${PRIVEO}/en/clinics/montreal/` },
+  },
+  {
+    city: 'Longueuil',
+    address: '5125, boulevard Cousineau, suite 206',
+    locality: 'Longueuil (Québec) J3Y 3K7',
+    href: { fr: `${PRIVEO}/cliniques/longueuil/`, en: `${PRIVEO}/en/clinics/longueuil/` },
+  },
+  {
+    city: 'Blainville',
+    address: '1099, boul. du Curé-Labelle, suite 201',
+    locality: 'Blainville (Québec) J7C 2M8',
+    href: { fr: `${PRIVEO}/cliniques/blainville/`, en: `${PRIVEO}/en/clinics/blainville/` },
+  },
+];
