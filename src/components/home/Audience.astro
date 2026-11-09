@@ -21,7 +21,6 @@ const { content } = Astro.props;
             <a class="audience__card" href={card.href}>
               <img src={card.image} alt="" loading="lazy" />
               <span class="audience__label">
-                <span class="audience__badge">{card.badge}</span>
                 <span class="audience__title">{card.title}</span>
               </span>
             </a>
@@ -73,16 +72,6 @@ const { content } = Astro.props;
     border-radius: 16px;
     background: rgba(255, 255, 255, 0.66);
     backdrop-filter: blur(10px) saturate(1.4);
-  }
-  .audience__badge {
-    padding: 6px 12px;
-    border: 1px solid rgba(255, 255, 255, 0.7);
-    border-radius: var(--gsv-radius-full);
-    background: rgba(255, 255, 255, 0.85);
-    color: var(--gsv-primary);
-    font-size: 12.5px;
-    font-weight: 500;
-    line-height: 1.1;
   }
   .audience__title {
     color: var(--gsv-primary);

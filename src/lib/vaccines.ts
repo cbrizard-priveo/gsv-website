@@ -36,6 +36,9 @@ export function vaccineList(lang: Lang): { route: string; name: string }[] {
     .sort((a, b) => a.name.localeCompare(b.name, lang));
 }
 
+/** Every vaccine page, both languages. */
+export const vaccineRoutes = vaccinePages.map((p) => p.route);
+
 export function vaccinePage(route: string): WpPageData | undefined {
   return vaccinePages.find((p) => p.route === route);
 }
@@ -63,9 +66,11 @@ export async function vaccine(page: WpPageData): Promise<Vaccine> {
   const source = sourceEl.length ? sourceEl.text().replace(/^\s*source\s*:\s*/i, '').trim() : null;
   sourceEl.remove();
 
-  const ledeEl = content.children('p').first();
-  const lede = ledeEl.html()?.trim() ?? '';
-  ledeEl.remove();
+  // The opening paragraph becomes the hero's intro, unless the text starts with something else
+  // (e.g. a "Description" heading), which must stay with the paragraph it introduces.
+  const first = content.children().first();
+  const lede = first.is('p') ? (first.html()?.trim() ?? '') : '';
+  if (lede) first.remove();
 
   return {
     page,

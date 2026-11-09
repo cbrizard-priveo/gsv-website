@@ -30,7 +30,7 @@ const places = CLINICS.map((c) => c.city.replace(/\s*\(.*\)$/, ''));
     </nav>
     <span class="sub-hero__badge"><span aria-hidden="true"></span>{badge}</span>
     <h1 class="sub-hero__title">{title}</h1>
-    <p class="sub-hero__lede" set:html={lede} />
+    {lede && <p class="sub-hero__lede" set:html={lede} />}
     <a class="gsv-button" href={cta.href}>{cta.label}<Icon name="arrow-right" /></a>
   </div>
   <div class="sub-hero__media">

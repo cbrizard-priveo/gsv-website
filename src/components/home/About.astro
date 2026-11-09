@@ -17,7 +17,7 @@ const { content } = Astro.props;
     </figure>
     <div class="about__text">
       <span class="gsv-eyebrow">{content.eyebrow}</span>
-      <h2 class="gsv-h2">{content.title} <em>{content.titleEm}</em></h2>
+      <h2 class="gsv-h2">{content.title}{content.titleEm && <> <em>{content.titleEm}</em></>}</h2>
       {content.paragraphs.map((p) => <p class="gsv-lede" set:html={p} />)}
       <a class="gsv-button gsv-button--outline" href={content.cta.href}>{content.cta.label}<Icon name="arrow-right" /></a>
     </div>

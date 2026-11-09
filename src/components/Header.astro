@@ -60,7 +60,6 @@ const current = (href: string) => (href === route ? 'page' : undefined);
                   </div>
                   <div class="gsv-panel__intro">
                     <p class="gsv-panel__title">{item.intro.title}</p>
-                    <p class="gsv-panel__text">{item.intro.text}</p>
                     <a class="gsv-panel__cta" href={item.intro.cta.href}>
                       {item.intro.cta.label}
                       <svg aria-hidden="true" viewBox="0 0 12 12" fill="none">
@@ -280,7 +279,7 @@ const current = (href: string) => (href === route ? 'page' : undefined);
     top: calc(100% + 12px);
     left: 0;
     display: grid;
-    grid-template-columns: minmax(200px, auto) 260px;
+    grid-template-columns: minmax(200px, auto) minmax(180px, auto);
     column-gap: 56px;
     padding: 32px;
     border: 1px solid var(--gsv-border-subtle);
@@ -336,14 +335,9 @@ const current = (href: string) => (href === route ? 'page' : undefined);
     flex-direction: column;
   }
   .gsv-header .gsv-panel__title {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     color: var(--gsv-primary);
     font: 500 22px/1.3 var(--gsv-font-serif);
-  }
-  .gsv-header .gsv-panel__text {
-    margin-bottom: 20px;
-    color: var(--gsv-text-body);
-    font: 400 14px/1.6 var(--gsv-font-sans);
   }
   .gsv-header .gsv-panel__cta {
     display: inline-flex;
@@ -356,6 +350,7 @@ const current = (href: string) => (href === route ? 'page' : undefined);
     border-radius: var(--gsv-radius-full);
     color: var(--gsv-primary);
     font: 500 14px/1.4 var(--gsv-font-sans);
+    white-space: nowrap;
     transition: color 0.15s, background-color 0.15s, border-color 0.15s;
   }
   .gsv-header .gsv-panel__cta svg {
@@ -535,8 +530,7 @@ const current = (href: string) => (href === route ? 'page' : undefined);
       display: block;
     }
     .gsv-header .gsv-panel__eyebrow,
-    .gsv-header .gsv-panel__title,
-    .gsv-header .gsv-panel__text {
+    .gsv-header .gsv-panel__title {
       display: none;
     }
     .gsv-header .gsv-panel__links a {

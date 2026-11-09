@@ -1,24 +1,31 @@
 ---
 // The vaccine's text, with a booking card that stays in view beside it.
 import Icon from '../Icon.astro';
-import { BOOKING, CONTACT } from '../../data/site';
+import { BOOKING, CONTACT, type Lang } from '../../data/site';
 import type { VaccineCopy } from '../../data/vaccine';
 
 interface Props {
   body: string;
   source: string | null;
   copy: VaccineCopy;
+  lang: Lang;
 }
 
-const { body, source, copy } = Astro.props;
+const { body, source, copy, lang } = Astro.props;
 ---
 
 <section class="gsv-section article">
   <div class="gsv-container article__grid">
     <div class="article__body">
-      <span class="gsv-eyebrow">{copy.about.eyebrow}</span>
-      <h2 class="gsv-h2 article__title">{copy.about.title}</h2>
-      <div class="prose" set:html={body} />
+      {
+        body && (
+          <>
+            <span class="gsv-eyebrow">{copy.about.eyebrow}</span>
+            <h2 class="gsv-h2 article__title">{copy.about.title}</h2>
+            <div class="prose" set:html={body} />
+          </>
+        )
+      }
       {
         source && (
           <p class="article__source">
@@ -29,11 +36,17 @@ const { body, source, copy } = Astro.props;
     </div>
     <aside class="article__card">
       <h2>{copy.card.title}</h2>
-      <p>{copy.card.text}</p>
-      <a class="gsv-button" href={BOOKING}>{copy.book}<Icon name="arrow-right" /></a>
-      <p class="article__call">
-        {copy.card.call} <a href={`tel:+1${CONTACT.phone.replaceAll('-', '')}`}>{CONTACT.phone}</a>
-      </p>
+      <a class="gsv-button" href={BOOKING}>{copy.card.button}<Icon name="arrow-right" /></a>
+      <dl class="article__contact">
+        <div>
+          <dt>{copy.card.call}</dt>
+          <dd><a href={`tel:+1${CONTACT.phone.replaceAll('-', '')}`}>{CONTACT.phone}</a></dd>
+        </div>
+        <div>
+          <dt>{copy.card.hours}</dt>
+          <dd>{CONTACT.hours[lang]}</dd>
+        </div>
+      </dl>
     </aside>
   </div>
 </section>
@@ -135,14 +148,26 @@ const { body, source, copy } = Astro.props;
   .article__card .gsv-button {
     margin-top: 8px;
   }
-  .article__call {
-    text-align: center;
+  .article__contact {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 8px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--gsv-border-subtle);
   }
-  .article__call a {
+  .article__contact dt {
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+  }
+  .article__contact dd {
+    margin: 2px 0 0;
     color: var(--gsv-primary);
+    font-size: 15px;
     font-weight: 600;
+  }
+  .article__contact a {
     text-decoration: none;
-    white-space: nowrap;
   }
 
   @media (max-width: 1024px) {

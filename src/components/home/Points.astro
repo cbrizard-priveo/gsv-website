@@ -24,10 +24,7 @@ const { content } = Astro.props;
             <span class="points__icon">
               <Icon name={item.icon} />
             </span>
-            <div>
-              <h3 class="points__title">{item.title}</h3>
-              <p class="points__text">{item.text}</p>
-            </div>
+            <p class="points__text">{item.text}</p>
           </li>
         ))
       }
@@ -78,15 +75,11 @@ const { content } = Astro.props;
     width: 28px;
     height: 28px;
   }
-  .points__title {
-    margin-bottom: 8px;
-    color: var(--gsv-primary);
-    font-size: 20px;
-    font-weight: 600;
-    line-height: 1.3;
-    letter-spacing: -0.02em;
+  .points__item {
+    align-items: center;
   }
   .points__text {
+    font-size: 17px;
     line-height: 1.65;
   }
 

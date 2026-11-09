@@ -1,4 +1,5 @@
-// Navigation and contact details shared by the header and footer.
+// Navigation and contact details shared by the header and footer. Contact details are verbatim from the
+// site's contact page and footer; medical site, so don't add descriptive copy here.
 
 export interface Link {
   label: string;
@@ -9,7 +10,7 @@ export interface Dropdown {
   label: string;
   group: string;
   links: Link[];
-  intro: { title: string; text: string; cta: Link };
+  intro: { title: string; cta: Link };
 }
 
 export type Item = Link | Dropdown;
@@ -37,7 +38,6 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'Santé-voyage',
-          text: 'Consultation, vaccins et prescriptions adaptés à votre destination, avant votre départ.',
           cta: { label: 'Clinique du voyageur', href: '/clinique-du-voyageur/' },
         },
       },
@@ -52,7 +52,6 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'Vaccination',
-          text: 'Des vaccins pour les adultes, les enfants, les voyageurs et les entreprises, offerts dans nos cliniques.',
           cta: { label: 'Prendre rendez-vous', href: BOOKING },
         },
       },
@@ -67,7 +66,6 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'Cliniques',
-          text: 'Quatre cliniques dans la grande région de Montréal, avec stationnement gratuit.',
           cta: { label: 'Nos cliniques', href: `${PRIVEO}/cliniques/` },
         },
       },
@@ -84,7 +82,6 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'À propos',
-          text: 'Groupe Santé Voyage fait partie de Priveo Santé, une clinique médicale privée.',
           cta: { label: 'Qui nous sommes', href: '/a-propos/' },
         },
       },
@@ -107,7 +104,6 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'Travel health',
-          text: 'Consultation, vaccines and prescriptions suited to your destination, before you leave.',
           cta: { label: "Traveller's clinic", href: '/en/travellers-clinic/' },
         },
       },
@@ -122,7 +118,6 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'Vaccination',
-          text: 'Vaccines for adults, children, travellers and businesses, offered in our clinics.',
           cta: { label: 'Book an appointment', href: BOOKING },
         },
       },
@@ -137,7 +132,6 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'Clinics',
-          text: 'Four clinics in the Greater Montréal area, with free parking.',
           cta: { label: 'Our clinics', href: `${PRIVEO}/en/clinics/` },
         },
       },
@@ -154,7 +148,6 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'About',
-          text: 'Groupe Santé Voyage is part of Priveo Santé, a private medical clinic.',
           cta: { label: 'Who we are', href: '/en/about-us/' },
         },
       },
@@ -165,7 +158,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
 export const CONTACT = {
   phone: '855-582-2246',
   email: 'info@cliniquesantevoyage.com',
-  hours: { fr: 'Lundi au vendredi : 8 h 30 à 16 h 30', en: 'Monday to Friday: 8:30 a.m. to 4:30 p.m.' },
+  hours: { fr: 'Lundi au Vendredi : 8:30AM – 4:30PM', en: '8:30 to 16:30, Monday to Friday' },
 };
 
 export const SOCIAL = {
@@ -176,14 +169,15 @@ export const SOCIAL = {
 
 export const footers: Record<Lang, { about: string; contactTitle: string; privacy: Link; rights: string; social: string }> = {
   fr: {
-    about: 'Consultations santé-voyage, vaccins et prescriptions, en clinique et en télémédecine. Groupe Santé Voyage est propulsé par Priveo Santé.',
+    // The homepage's meta description.
+    about: 'Médecins et infirmières spécialisées en santé-voyage et en vaccination depuis 1997 à Montréal, Laval, Longueuil et Blainville',
     contactTitle: 'Contactez-nous',
     privacy: { label: 'Politique de confidentialité', href: '/politique-confidentialite/' },
     rights: 'Tous droits réservés.',
     social: 'Réseaux sociaux',
   },
   en: {
-    about: 'Travel health consultations, vaccines and prescriptions, in clinic and by telemedicine. Groupe Santé Voyage is powered by Priveo Santé.',
+    about: 'Doctors and nurses specializing in travel health and vaccination since 1997 in Montreal, Laval, Longueuil and Blainville',
     contactTitle: 'Contact us',
     privacy: { label: 'Privacy policy', href: '/en/privacy-policy/' },
     rights: 'All rights reserved.',
@@ -201,26 +195,26 @@ export interface Clinic {
 export const CLINICS: Clinic[] = [
   {
     city: 'Laval',
-    address: '1435, boul. Saint-Martin Ouest, suite 425',
-    locality: 'Laval (Québec) H7S 2C6',
+    address: '1435 Boul. Saint-Martin Ouest, suite 425',
+    locality: 'Laval, H7S 2C6',
     href: { fr: `${PRIVEO}/cliniques/laval/`, en: `${PRIVEO}/en/clinics/laval/` },
   },
   {
     city: 'Montréal (Outremont)',
-    address: '2645, avenue Van Horne, suite 206',
-    locality: 'Montréal (Québec) H3S 1P6',
+    address: '2645 Avenue Van Horne, suite 206',
+    locality: 'Montréal H3S 1P6',
     href: { fr: `${PRIVEO}/cliniques/montreal/`, en: `${PRIVEO}/en/clinics/montreal/` },
   },
   {
     city: 'Longueuil',
-    address: '5125, boulevard Cousineau, suite 206',
-    locality: 'Longueuil (Québec) J3Y 3K7',
+    address: '5125 Boulevard Cousineau, Suite 206',
+    locality: 'Longueuil, J3Y 3K7',
     href: { fr: `${PRIVEO}/cliniques/longueuil/`, en: `${PRIVEO}/en/clinics/longueuil/` },
   },
   {
     city: 'Blainville',
-    address: '1099, boul. du Curé-Labelle, suite 201',
-    locality: 'Blainville (Québec) J7C 2M8',
+    address: '1099 Boul Curé-Labelle, suite 201',
+    locality: 'Blainville J7C 2M8',
     href: { fr: `${PRIVEO}/cliniques/blainville/`, en: `${PRIVEO}/en/clinics/blainville/` },
   },
 ];

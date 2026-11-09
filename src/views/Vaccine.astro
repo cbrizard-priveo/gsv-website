@@ -4,7 +4,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import type { WpPageData } from '../layouts/WpPage.astro';
 import SubHero from '../components/vaccine/SubHero.astro';
 import Article from '../components/vaccine/Article.astro';
-import Steps from '../components/vaccine/Steps.astro';
 import Explorer from '../components/vaccine/Explorer.astro';
 import Clinics from '../components/home/Clinics.astro';
 import { home } from '../data/home';
@@ -24,8 +23,7 @@ const crumbs = [{ label: copy.home, href: page.lang === 'fr' ? '/' : '/en/' }, c
 
 <BaseLayout lang={page.lang} htmlLang={page.htmlLang} title={page.title} head={page.head} route={page.route} alt={page.alt}>
   <SubHero title={v.title} lede={v.lede} image={v.image} badge={copy.badge} crumbs={crumbs} crumbsLabel={copy.crumbs} cta={{ label: copy.book, href: BOOKING }} />
-  <Article body={v.body} source={v.source} copy={copy} />
-  <Steps copy={copy} />
+  <Article body={v.body} source={v.source} copy={copy} lang={page.lang} />
   <Explorer copy={copy} vaccines={vaccineList(page.lang)} current={page.route} />
   <Clinics content={home[page.lang].clinics} lang={page.lang} />
 </BaseLayout>
