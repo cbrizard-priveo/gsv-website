@@ -5,6 +5,8 @@ import { countryCopy } from '../data/country';
 import type { Lang } from '../data/site';
 import { REGIONS, countries, countryPath, hubPath } from '../lib/countries';
 import { seoHead } from '../lib/seo';
+import Icon from '../components/Icon.astro';
+import { BOOKING } from '../data/site';
 
 interface Props {
   lang: Lang;
@@ -13,7 +15,7 @@ interface Props {
 const { lang } = Astro.props;
 const t = countryCopy[lang];
 const path = hubPath(lang);
-const head = seoHead({ title: t.hubSeoTitle, description: `${t.hubTitle}. ${t.hubLede}`, path, lang, alternates: { fr: hubPath('fr'), en: hubPath('en') } });
+const head = seoHead({ title: t.hubSeoTitle, description: t.hubDescription, path, lang, alternates: { fr: hubPath('fr'), en: hubPath('en') } });
 const regions = REGIONS.map((r) => ({
   ...r,
   countries: countries.filter((c) => c.region === r.id).sort((a, b) => a.name[lang].localeCompare(b.name[lang], lang)),
@@ -25,6 +27,7 @@ const regions = REGIONS.map((r) => ({
     <div class="gsv-container">
       <h1 class="gsv-h2">{t.hubTitle}</h1>
       <p class="gsv-lede">{t.hubLede}</p>
+      <a class="gsv-button hub-hero__cta" href={BOOKING}>{t.book}<Icon name="arrow-right" /></a>
     </div>
   </section>
   <section class="gsv-section hub">
@@ -48,6 +51,9 @@ const regions = REGIONS.map((r) => ({
 </BaseLayout>
 
 <style>
+  .hub-hero__cta {
+    margin-top: 24px;
+  }
   .hub-hero {
     padding: 72px 0 56px;
     background: linear-gradient(135deg, var(--gsv-secondary-l-5) 0%, var(--gsv-primary-l-6) 50%, var(--gsv-secondary-l-5) 100%);

@@ -22,6 +22,7 @@ export const countryCopy: Record<Lang, {
   hubTitle: string;
   hubLede: string;
   hubSeoTitle: string;
+  hubDescription: string;
 }> = {
   fr: {
     home: 'Accueil',
@@ -42,9 +43,11 @@ export const countryCopy: Record<Lang, {
     title: (name) => `${name} : vaccins et santé-voyage | Groupe Santé Voyage`,
     description: (name, diseases) =>
       `${name} : vaccins recommandés et risques pour la santé des voyageurs (${diseases.join(', ')}…), selon l’INSPQ. Clinique santé-voyage à Laval, Montréal, Longueuil et Blainville.`,
-    hubTitle: 'Vaccins et santé-voyage par pays',
-    hubLede: 'Les recommandations de l’INSPQ pour chaque destination.',
-    hubSeoTitle: 'Vaccins et santé-voyage par pays | Groupe Santé Voyage',
+    // Title, H1 and description from the SEO expert's recommendations.
+    hubTitle: 'Vaccination recommandée par pays et régions',
+    hubLede: 'Les vaccins recommandés varient selon le pays. Consultez les recommandations de l’INSPQ pour votre destination, puis préparez votre voyage lors d’une consultation pré-voyage.',
+    hubSeoTitle: 'Vaccination recommandée par pays & régions | Santé Voyage',
+    hubDescription: 'Découvrez les recommandations de vaccination par pays et préparez votre voyage avec l’aide de nos spécialistes en santé des voyageurs.',
   },
   en: {
     home: 'Home',
@@ -65,8 +68,9 @@ export const countryCopy: Record<Lang, {
     title: (name) => `${name}: vaccines and travel health | Groupe Santé Voyage`,
     description: (name, diseases) =>
       `${name}: recommended vaccines and health risks for travellers (${diseases.join(', ')}…), based on the INSPQ. Travel health clinic in Laval, Montréal, Longueuil and Blainville.`,
-    hubTitle: 'Vaccines and travel health by country',
-    hubLede: 'INSPQ recommendations for each destination.',
-    hubSeoTitle: 'Vaccines and travel health by country | Groupe Santé Voyage',
+    hubTitle: 'Travel Vaccination by Country and Region',
+    hubLede: 'Recommended vaccines vary by country. See the INSPQ recommendations for your destination, then prepare for your trip at a pre-travel consultation.',
+    hubSeoTitle: 'Travel Vaccination by Country & Region | Travel Health',
+    hubDescription: 'Discover travel vaccine recommendations by country and prepare for your trip with the support of our travel health specialists.',
   },
 };

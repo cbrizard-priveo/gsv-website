@@ -1,13 +1,15 @@
 // Homepage copy, French and English: verbatim from the original site (homepage, its meta description,
 // and page titles), plus neutral section labels. Medical site: do not add or rephrase content here.
+// Exceptions, from the SEO expert's recommendations: the English hero title, the clinics heading and its
+// first sentence, and the image descriptions (alt).
 import { BOOKING, type Lang } from './site';
 
 type Icon = 'compass' | 'clipboard' | 'globe';
 
 export interface HomeContent {
   hero: { badge: string; title: string; titleEm: string; text: string; primary: { label: string; href: string }; secondary: { label: string; href: string } };
-  audience: { title: string; cards: { title: string; href: string; image: string }[] };
-  about: { eyebrow: string; title: string; titleEm?: string; paragraphs: string[]; cta: { label: string; href: string }; image: string };
+  audience: { title: string; cards: { title: string; href: string; image: string; alt: string }[] };
+  about: { eyebrow: string; title: string; titleEm?: string; paragraphs: string[]; cta: { label: string; href: string }; image: string; imageAlt: string };
   points: { eyebrow: string; title: string; items: { icon: Icon; text: string }[]; cta: { label: string; href: string } };
   team: { eyebrow: string; title: string; text: string; members: { name: string; role: string }[]; cta: { label: string; href: string } };
   testimonials: { eyebrow: string; title: string; previous: string; next: string; items: { quote: string; name: string; role: string }[] };
@@ -32,9 +34,9 @@ export const home: Record<Lang, HomeContent> = {
       title: 'Nos services',
       // Card titles are the page titles.
       cards: [
-        { title: 'Clinique du voyageur', href: '/clinique-du-voyageur/', image: '/images/home/travel-main.jpg' },
-        { title: 'Vaccination générale', href: '/vaccination-generale/', image: '/images/home/vaccination.jpg' },
-        { title: 'Vaccination en entreprise', href: '/vaccination-en-entreprise/', image: '/images/home/service-entreprise.jpg' },
+        { title: 'Clinique du voyageur', href: '/clinique-du-voyageur/', image: '/images/home/travel-main.jpg', alt: 'Voyageur qui consulte une carte avant une randonnée' },
+        { title: 'Vaccination générale', href: '/vaccination-generale/', image: '/images/home/vaccination.jpg', alt: 'Professionnel de la santé qui administre un vaccin dans le bras d’une patiente' },
+        { title: 'Vaccination en entreprise', href: '/vaccination-en-entreprise/', image: '/images/home/service-entreprise.jpg', alt: 'Employés au travail dans un café' },
       ],
     },
     about: {
@@ -47,6 +49,7 @@ export const home: Record<Lang, HomeContent> = {
       ],
       cta: { label: 'Découvrir le groupe', href: '/a-propos/' },
       image: `${IMG}/2021/11/groupe-sante-voyage-tout-en-un.jpg`,
+      imageAlt: 'Rencontre en clinique du voyageur avec une spécialiste en santé-voyage',
     },
     points: {
       eyebrow: 'Notre expertise',
@@ -86,8 +89,8 @@ export const home: Record<Lang, HomeContent> = {
     blog: { eyebrow: 'Info Santé', title: 'Notre blog', cta: { label: 'Voir tous les articles', href: '/info-sante/' }, readMore: 'En savoir plus' },
     clinics: {
       eyebrow: 'Nos cliniques',
-      title: 'Trouver une de nos cliniques santé-voyage',
-      text: 'Le Groupe Santé Voyage met plusieurs points de service à la disposition des personnes qui souhaitent voyager. De la Rive-Nord à la Rive-Sud de Montréal, les différentes zones que nous couvrons nous permettent de vous faciliter l’accès à des conseils santé-voyage de qualité.',
+      title: 'Groupe Santé Voyage dessert tout le Grand Montréal',
+      text: 'Nos cliniques sont situées à Laval, Montréal, Blainville et Longueuil. Le Groupe Santé Voyage met plusieurs points de service à la disposition des personnes qui souhaitent voyager. De la Rive-Nord à la Rive-Sud de Montréal, les différentes zones que nous couvrons nous permettent de vous faciliter l’accès à des conseils santé-voyage de qualité.',
       parking: 'Stationnement gratuit',
       details: 'Voir la clinique',
       cta: { label: 'Trouver une clinique', href: '/contact/' },
@@ -96,7 +99,7 @@ export const home: Record<Lang, HomeContent> = {
   en: {
     hero: {
       badge: 'Groupe Santé Voyage',
-      title: 'Your travel partner',
+      title: 'Your travel clinic',
       titleEm: 'since 1997',
       text: 'Doctors and nurses specializing in travel health and vaccination since 1997 in Montreal, Laval, Longueuil and Blainville',
       primary: { label: 'Book an appointment', href: BOOKING },
@@ -105,9 +108,9 @@ export const home: Record<Lang, HomeContent> = {
     audience: {
       title: 'Our services',
       cards: [
-        { title: 'Traveller’s clinic', href: '/en/travellers-clinic/', image: '/images/home/travel-main.jpg' },
-        { title: 'General vaccination', href: '/en/general-vaccination/', image: '/images/home/vaccination.jpg' },
-        { title: 'Vaccination in the workplace', href: '/en/vaccination-in-the-workplace/', image: '/images/home/service-entreprise.jpg' },
+        { title: 'Traveller’s clinic', href: '/en/travellers-clinic/', image: '/images/home/travel-main.jpg', alt: 'Traveller looking at a map before a hike' },
+        { title: 'General vaccination', href: '/en/general-vaccination/', image: '/images/home/vaccination.jpg', alt: 'Health professional giving a patient a vaccine in the arm' },
+        { title: 'Vaccination in the workplace', href: '/en/vaccination-in-the-workplace/', image: '/images/home/service-entreprise.jpg', alt: 'Employees at work in a café' },
       ],
     },
     about: {
@@ -119,6 +122,7 @@ export const home: Record<Lang, HomeContent> = {
       ],
       cta: { label: 'Discover the group', href: '/en/about-us/' },
       image: `${IMG}/2021/11/groupe-sante-voyage-tout-en-un.jpg`,
+      imageAlt: 'Meeting with a travel health specialist at the travel clinic',
     },
     points: {
       eyebrow: 'Our expertise',
@@ -158,8 +162,8 @@ export const home: Record<Lang, HomeContent> = {
     blog: { eyebrow: 'Health info', title: 'Our blog', cta: { label: 'See all articles', href: '/en/info-sante/' }, readMore: 'Read more' },
     clinics: {
       eyebrow: 'Our clinics',
-      title: 'Find one of our travel health clinics',
-      text: 'Groupe Santé Voyage offers several points of service for people who want to travel. From the North Shore to the South Shore of Montreal, the different areas we cover give us easy access to quality travel health advice.',
+      title: 'Groupe Santé Voyage serves all of Greater Montreal',
+      text: 'Our clinics are located in Laval, Montreal, Blainville and Longueuil. Groupe Santé Voyage offers several points of service for people who want to travel. From the North Shore to the South Shore of Montreal, the different areas we cover give us easy access to quality travel health advice.',
       parking: 'Free parking',
       details: 'View the clinic',
       cta: { label: 'Find a clinic', href: '/en/contact/' },

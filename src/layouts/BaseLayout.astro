@@ -7,6 +7,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import ThirdParty from '../components/ThirdParty.astro';
 import type { Lang } from '../data/site';
+import { withSeo } from '../lib/seo-overrides';
 
 interface Props {
   lang: Lang;
@@ -18,7 +19,9 @@ interface Props {
   alt: string | null;
 }
 
-const { lang, htmlLang, title, head, route, alt } = Astro.props;
+const { lang, htmlLang, route, alt } = Astro.props;
+// SEO recommendations (src/data/seo.ts) replace the imported title and description.
+const { title, head } = withSeo(route, Astro.props.title, Astro.props.head);
 ---
 
 <!doctype html>

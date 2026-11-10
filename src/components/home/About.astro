@@ -13,7 +13,7 @@ const { content } = Astro.props;
 <section class="gsv-section about">
   <div class="gsv-container about__grid">
     <figure class="about__media">
-      <img src={content.image} alt="" loading="lazy" width="625" height="400" />
+      <img src={content.image} alt={content.imageAlt} loading="lazy" width="625" height="400" />
     </figure>
     <div class="about__text">
       <span class="gsv-eyebrow">{content.eyebrow}</span>

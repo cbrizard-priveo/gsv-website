@@ -5,6 +5,8 @@ import { CLINICS } from '../../data/site';
 
 interface Props {
   title: string;
+  /** Where the service is offered, right under the H1. */
+  served?: string;
   lede: string;
   image: string;
   badge: string;
@@ -13,7 +15,7 @@ interface Props {
   cta: { label: string; href: string };
 }
 
-const { title, lede, image, badge, crumbs, crumbsLabel, cta } = Astro.props;
+const { title, served, lede, image, badge, crumbs, crumbsLabel, cta } = Astro.props;
 const places = CLINICS.map((c) => c.city.replace(/\s*\(.*\)$/, ''));
 ---
 
@@ -30,6 +32,14 @@ const places = CLINICS.map((c) => c.city.replace(/\s*\(.*\)$/, ''));
     </nav>
     <span class="sub-hero__badge"><span aria-hidden="true"></span>{badge}</span>
     <h1 class="sub-hero__title">{title}</h1>
+    {
+      served && (
+        <p class="sub-hero__served">
+          <Icon name="map-pin" />
+          {served}
+        </p>
+      )
+    }
     {lede && <p class="sub-hero__lede" set:html={lede} />}
     <a class="gsv-button" href={cta.href}>{cta.label}<Icon name="arrow-right" /></a>
   </div>
@@ -110,6 +120,20 @@ const places = CLINICS.map((c) => c.city.replace(/\s*\(.*\)$/, ''));
     font: 500 clamp(34px, 3.4vw, 46px) / 1.15 var(--gsv-font-sans);
     letter-spacing: -0.02em;
     text-wrap: balance;
+  }
+  .sub-hero__served {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: -6px;
+    color: var(--gsv-primary);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .sub-hero__served :global(svg) {
+    flex: none;
+    width: 16px;
+    height: 16px;
   }
   .sub-hero__lede {
     max-width: 600px;

@@ -7,16 +7,21 @@ import { CLINICS, type Lang } from '../../data/site';
 interface Props {
   content: HomeContent['clinics'];
   lang: Lang;
+  /** Replaces the section title and button, e.g. "Où obtenir le vaccin … ?" on vaccine pages. */
+  title?: string;
+  cta?: { label: string; href: string };
 }
 
 const { content, lang } = Astro.props;
+const title = Astro.props.title ?? content.title;
+const cta = Astro.props.cta ?? content.cta;
 ---
 
 <section class="gsv-section clinics">
   <div class="gsv-container">
     <header class="gsv-section-header">
       <span class="gsv-eyebrow">{content.eyebrow}</span>
-      <h2 class="gsv-h2">{content.title}</h2>
+      <h2 class="gsv-h2">{title}</h2>
       <p class="gsv-lede">{content.text}</p>
     </header>
     <ul class="clinics__cards">
@@ -45,7 +50,7 @@ const { content, lang } = Astro.props;
       }
     </ul>
     <div class="clinics__cta">
-      <a class="gsv-button" href={content.cta.href}>{content.cta.label}<Icon name="arrow-right" /></a>
+      <a class="gsv-button" href={cta.href}>{cta.label}<Icon name="arrow-right" /></a>
     </div>
   </div>
 </section>

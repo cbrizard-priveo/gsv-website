@@ -1,3 +1,5 @@
 {
-  "/vaccination/rage-2/": "/vaccination/rage/"
+  "/vaccination/rage-2/": "/vaccination/rage/",
+  "/regions-du-monde/": "/pays/",
+  "/en/recommended-vaccination-by-world-region/": "/en/countries/"
 }

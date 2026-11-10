@@ -1,7 +1,7 @@
 ---
 // Site footer, after dev.priveosante.com's: brand and contact column, one column per menu, legal bar.
 import '../styles/tokens.css';
-import { CONTACT, SOCIAL, footers, menus, type Dropdown, type Lang } from '../data/site';
+import { CLINICS, CONTACT, SOCIAL, footers, menus, type Dropdown, type Lang } from '../data/site';
 
 interface Props {
   lang: Lang;
@@ -11,6 +11,8 @@ const { lang } = Astro.props;
 const t = footers[lang];
 const columns = menus[lang].items.filter((item): item is Dropdown => 'links' in item);
 const home = lang === 'fr' ? '/' : '/en/';
+// The clinics column lists each address (SEO recommendation: the locations on every page).
+const clinicsLabel = menus[lang].items[2].label;
 const year = new Date().getFullYear();
 ---
 
@@ -47,13 +49,28 @@ const year = new Date().getFullYear();
       columns.map((column) => (
         <nav class="gsv-footer__column" aria-label={column.label}>
           <p class="gsv-footer__title">{column.label}</p>
-          <ul>
-            {column.links.map((link) => (
-              <li>
-                <a href={link.href}>{link.label}</a>
-              </li>
-            ))}
-          </ul>
+          {column.label === clinicsLabel ? (
+            <ul class="gsv-footer__clinics">
+              {CLINICS.map((clinic) => (
+                <li>
+                  <a href={clinic.href[lang]}>{clinic.city}</a>
+                  <address>
+                    {clinic.address}
+                    <br />
+                    {clinic.locality}
+                  </address>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <ul>
+              {column.links.map((link) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          )}
         </nav>
       ))
     }
@@ -176,6 +193,20 @@ const year = new Date().getFullYear();
   .gsv-footer .gsv-footer__contact svg {
     width: 15px;
     height: 15px;
+  }
+  .gsv-footer .gsv-footer__clinics {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .gsv-footer .gsv-footer__clinics a {
+    font-weight: 600;
+  }
+  .gsv-footer .gsv-footer__clinics address {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 13px;
+    font-style: normal;
+    line-height: 1.5;
   }
   .gsv-footer .gsv-footer__hours {
     margin-top: 14px;
