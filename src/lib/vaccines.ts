@@ -65,6 +65,11 @@ export async function vaccine(page: WpPageData): Promise<Vaccine> {
       if (!['href', 'src', 'alt'].includes(name)) $(el).removeAttr(name);
     }
   });
+  // Some texts separate paragraphs with double line breaks inside one <p>; make them real paragraphs.
+  content.find('p').each((_, el) => {
+    const parts = ($(el).html() ?? '').split(/(?:\s*<br\s*\/?>\s*){2,}/i);
+    if (parts.length > 1) $(el).replaceWith(parts.map((part) => `<p>${part.trim()}</p>`).join('\n'));
+  });
   content.find('p').each((_, el) => {
     if (!$(el).text().replace(/ /g, ' ').trim() && !$(el).find('img').length) $(el).remove();
   });
