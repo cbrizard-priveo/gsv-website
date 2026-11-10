@@ -3,6 +3,7 @@ import * as cheerio from 'cheerio';
 import pages from '../wp/pages.json';
 import type { WpPageData } from '../layouts/WpPage.astro';
 import type { Lang } from '../data/site';
+import { vaccineTexts } from '../data/vaccine-texts';
 
 export interface Vaccine {
   page: WpPageData;
@@ -12,21 +13,17 @@ export interface Vaccine {
   image: string;
   lede: string;
   body: string;
-  source: string | null;
+  source: { label: string; href?: string } | null;
 }
 
 const bodies = import.meta.glob<string>('../wp/html/*.html', { query: '?raw', import: 'default' });
 
 const FALLBACK_IMAGE = '/images/home/vaccination.jpg';
-// Pages whose text comes from another page. /vaccination/rage-2/ holds the updated rabies text
-// (INSPQ 2025), chosen by the client over the 2019 Santé Canada text; its own title, image and
-// meta description were copied from the hepatitis A page, so only its text is used. It redirects
-// to /vaccination/rage/ (astro.config.mjs).
-const TEXT_FROM: Record<string, string> = { '/vaccination/rage/': '/vaccination/rage-2/' };
-const TEXT_ONLY = new Set(Object.values(TEXT_FROM));
+// /vaccination/rage-2/ was an unfinished rabies page (its image and meta description came from the
+// hepatitis A page); it redirects to /vaccination/rage/ (src/data/redirects.json).
+const EXCLUDED = new Set(['/vaccination/rage-2/']);
 
-const allPages = pages as WpPageData[];
-const vaccinePages = allPages.filter((p) => /\bsingle-vaccination\b/.test(p.bodyClass) && !TEXT_ONLY.has(p.route));
+const vaccinePages = (pages as WpPageData[]).filter((p) => /\bsingle-vaccination\b/.test(p.bodyClass) && !EXCLUDED.has(p.route));
 
 const shortName = (title: string) =>
   title
@@ -49,12 +46,19 @@ export function vaccinePage(route: string): WpPageData | undefined {
 }
 
 export async function vaccine(page: WpPageData): Promise<Vaccine> {
-  let $ = cheerio.load(await bodies[`../wp/html/${page.file}`](), null, false);
+  const $ = cheerio.load(await bodies[`../wp/html/${page.file}`](), null, false);
   const title = $('[data-widget_type="theme-page-title.default"] .elementor-heading-title').first().text().trim();
   const image = $('[data-widget_type="theme-post-featured-image.default"] img').attr('src') ?? null;
+  const base = {
+    page,
+    title: title || page.title.replace(/\s*\|\s*Groupe Santé Voyage$/, ''),
+    name: shortName(title),
+    image: image ?? FALLBACK_IMAGE,
+  };
 
-  const textPage = TEXT_FROM[page.route] && allPages.find((p) => p.route === TEXT_FROM[page.route]);
-  if (textPage) $ = cheerio.load(await bodies[`../wp/html/${textPage.file}`](), null, false);
+  // Updated texts (src/data/vaccine-texts.ts) replace the imported one.
+  const text = vaccineTexts[page.route];
+  if (text) return { ...base, lede: text.lede, body: text.body.trim(), source: text.source };
 
   const content = $('[data-widget_type="theme-post-content.default"] .elementor-widget-container').first();
   content.find('span, div, font').each((_, el) => {
@@ -76,7 +80,7 @@ export async function vaccine(page: WpPageData): Promise<Vaccine> {
 
   const paragraphs = content.children('p');
   const sourceEl = paragraphs.filter((_, el) => /^\s*source\s*:/i.test($(el).text())).last();
-  const source = sourceEl.length ? sourceEl.text().replace(/^\s*source\s*:\s*/i, '').trim() : null;
+  const source = sourceEl.length ? { label: sourceEl.text().replace(/^\s*source\s*:\s*/i, '').trim() } : null;
   sourceEl.remove();
 
   // The opening paragraph becomes the hero's intro, unless the text starts with something else
@@ -86,10 +90,7 @@ export async function vaccine(page: WpPageData): Promise<Vaccine> {
   if (lede) first.remove();
 
   return {
-    page,
-    title: title || page.title.replace(/\s*\|\s*Groupe Santé Voyage$/, ''),
-    name: shortName(title),
-    image: image ?? FALLBACK_IMAGE,
+    ...base,
     lede,
     body: content.html()?.trim() ?? '',
     source,

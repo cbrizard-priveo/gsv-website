@@ -6,7 +6,7 @@ import type { VaccineCopy } from '../../data/vaccine';
 
 interface Props {
   body: string;
-  source: string | null;
+  source: { label: string; href?: string } | null;
   copy: VaccineCopy;
   lang: Lang;
 }
@@ -29,7 +29,7 @@ const { body, source, copy, lang } = Astro.props;
       {
         source && (
           <p class="article__source">
-            {copy.source} {source}
+            {copy.source} {source.href ? <a href={source.href}>{source.label}</a> : source.label}
           </p>
         )
       }
@@ -114,6 +114,10 @@ const { body, source, copy, lang } = Astro.props;
   }
   .prose :global(img) {
     border-radius: 16px;
+  }
+  .article__source a {
+    color: inherit;
+    text-underline-offset: 3px;
   }
   .article__source {
     max-width: 68ch;
