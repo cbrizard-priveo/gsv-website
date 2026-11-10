@@ -139,3 +139,64 @@
     margin-bottom: 36px;
   }
 }
+
+/* Long-form text (vaccine and country pages). */
+.gsv-prose {
+  max-width: 68ch;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.gsv-prose > * + *,
+.gsv-prose li > ul {
+  margin-top: 1.1em;
+}
+.gsv-prose :is(h2, h3) {
+  margin-top: 1.8em;
+  color: var(--gsv-primary);
+  font: 600 21px/1.35 var(--gsv-font-sans);
+  letter-spacing: -0.02em;
+}
+.gsv-prose strong {
+  color: var(--gsv-primary);
+  font-weight: 600;
+}
+.gsv-prose a {
+  color: var(--gsv-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--gsv-primary-l-5);
+  text-underline-offset: 3px;
+}
+.gsv-prose a:hover {
+  text-decoration-color: var(--gsv-primary);
+}
+.gsv-prose ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+.gsv-prose li {
+  position: relative;
+  padding-left: 30px;
+}
+.gsv-prose li::before {
+  content: '';
+  position: absolute;
+  top: 0.55em;
+  left: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gsv-secondary-l-4);
+  box-shadow: 0 0 0 4px var(--gsv-primary-l-6);
+}
+.gsv-prose img {
+  border-radius: 16px;
+}
+@media (max-width: 767px) {
+  .gsv-prose {
+    font-size: 16px;
+  }
+}

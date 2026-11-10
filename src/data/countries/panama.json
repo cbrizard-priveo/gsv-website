@@ -1,0 +1,205 @@
+{
+  "slug": "panama",
+  "region": "amerique-centrale",
+  "name": {
+    "fr": "Panama",
+    "en": "Panama"
+  },
+  "slugEn": "panama",
+  "inspq": {
+    "url": "https://www.inspq.qc.ca/sante-voyage/guide/pays/panama",
+    "updated": "2026-03-19",
+    "checked": "2026-11-10"
+  },
+  "diseases": [
+    {
+      "id": "chikungunya",
+      "name": {
+        "fr": "Chikungunya",
+        "en": "Chikungunya"
+      },
+      "text": {
+        "fr": "<p>Présent au pays.</p><ul><li>Se protéger contre les piqûres de moustiques.</li></ul>",
+        "en": "<p>Present in the country.</p><ul><li>Protect yourself against mosquito bites.</li></ul>"
+      }
+    },
+    {
+      "id": "fievre-jaune",
+      "name": {
+        "fr": "Fièvre jaune",
+        "en": "Yellow fever"
+      },
+      "text": {
+        "fr": "<p><strong>Exigence à l’entrée :</strong> un certificat de vaccination est exigé des voyageurs de 1 an et plus qui arrivent d’un pays à risque de transmission.</p><p><strong>Vaccination recommandée :</strong></p><ul><li>Recommandée pour tous les voyageurs de 9 mois et plus qui se rendent dans les zones continentales à l’est de la zone du canal de Panama : l’ensemble des comarques d’Embera et de Kuna Yala, la province de Darien et certaines zones des provinces de Colón et de Panama situées à l’est du canal.</li><li>Pour un séjour dans la zone située immédiatement à l’est du canal (à titre indicatif, à moins de 50 km), le vaccin est recommandé pour les séjours en zones rurales.</li><li>Non recommandée si l’itinéraire se limite : aux zones à l’ouest du canal de Panama; à la ville de Panama; à la zone du canal; aux îles Balboa (Pearl Islands) et San Blas; aux villes et aux stations balnéaires situées immédiatement à l’est du canal de Panama.</li></ul>",
+        "en": "<p><strong>Entry requirement:</strong> a vaccination certificate is required for travellers aged 1 year and older arriving from a country with a risk of transmission.</p><p><strong>Recommended vaccination:</strong></p><ul><li>Recommended for all travellers aged 9 months and older going to mainland areas east of the Panama Canal Zone: all of the comarcas of Embera and Kuna Yala, Darien Province and some areas of the provinces of Colón and Panama located east of the canal.</li><li>For a stay in the area immediately east of the canal (as a guide, within 50 km), the vaccine is recommended for stays in rural areas.</li><li>Not recommended if the itinerary is limited to: areas west of the Panama Canal; Panama City; the Canal Zone; the Balboa Islands (Pearl Islands) and San Blas; cities and beach resorts located immediately east of the Panama Canal.</li></ul>"
+      }
+    },
+    {
+      "id": "hepatite-a",
+      "name": {
+        "fr": "Hépatite A",
+        "en": "Hepatitis A"
+      },
+      "text": {
+        "fr": "<p>Prévalence élevée.</p><ul><li>Vaccin recommandé pour tous les voyageurs.</li></ul>",
+        "en": "<p>High prevalence.</p><ul><li>Vaccine recommended for all travellers.</li></ul>"
+      }
+    },
+    {
+      "id": "hepatite-b",
+      "name": {
+        "fr": "Hépatite B",
+        "en": "Hepatitis B"
+      },
+      "text": {
+        "fr": "<p>Prévalence faible.</p><ul><li>Vaccin recommandé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b/immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Low prevalence.</p><ul><li>Vaccine recommended for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b/immunisation\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "influenza",
+      "name": {
+        "fr": "Influenza (grippe)",
+        "en": "Influenza (flu)"
+      },
+      "text": {
+        "fr": "<p>Risque présent toute l’année.</p><ul><li>Vaccin recommandé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza/immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Risk present all year.</p><ul><li>Vaccine recommended for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza/immunisation\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "mpox",
+      "name": {
+        "fr": "Mpox",
+        "en": "Mpox"
+      },
+      "text": {
+        "fr": "<p>Le risque d’exposition est surtout lié aux contacts sexuels.</p><ul><li>Mesures de protection personnelle (voir la page <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/mpox\">Mpox de l’INSPQ</a>).</li><li>Vaccination si le voyageur correspond au premier groupe d’indications du <a href=\"https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/variole-vaccin-contre-variole-et-contre-mpox-variole-simienne/\">Protocole d’immunisation du Québec</a>.</li></ul>",
+        "en": "<p>The exposure risk is mainly linked to sexual contact.</p><ul><li>Personal protection measures (see the INSPQ <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/mpox\">Mpox page</a>, in French).</li><li>Vaccination if the traveller meets the first group of indications in the <a href=\"https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/variole-vaccin-contre-variole-et-contre-mpox-variole-simienne/\">Québec Immunization Protocol</a>.</li></ul>"
+      }
+    },
+    {
+      "id": "paludisme",
+      "name": {
+        "fr": "Paludisme (malaria)",
+        "en": "Malaria"
+      },
+      "text": {
+        "fr": "<p>Présent dans les provinces et territoires autochtones (comarcas) suivants : Panama (à l’est du canal), Kuna Yala, Darién (y compris Emberá) et Ngöbe-Bublé.</p><ul><li>Risque plus faible le long de la côte des Caraïbes et du Costa Rica : Bocas del Toro, Veraguas, Colon, Chiriqui.</li><li>Aucun risque dans la province de Panama à l’ouest du canal, à Panama City ni dans la zone du canal.</li><li>Les cas augmentent depuis 2020, surtout dans les provinces de Kuna Yala, Darién, Ngöbe Bublé et Panama (à l’est du canal).</li><li>Espèce : <em>P. falciparum</em> dans 3 % des cas, résistant à la chloroquine.</li><li>Médicament préventif : prophylaxie adaptée aux zones de résistance à la chloroquine pour les provinces de Darién (y compris Emberá), Ngöbe-Bublé, Panama (à l’est du canal) et Kuna Yala.</li><li>Autres provinces à risque : mesures de protection personnelle contre les moustiques.</li></ul>",
+        "en": "<p>Present in the following provinces and Indigenous territories (comarcas): Panama (east of the canal), Kuna Yala, Darién (including Emberá) and Ngöbe-Bublé.</p><ul><li>Lower risk along the Caribbean coast and Costa Rica: Bocas del Toro, Veraguas, Colon, Chiriqui.</li><li>No risk in Panama Province west of the canal, in Panama City or in the Canal Zone.</li><li>Cases have been increasing since 2020, especially in the provinces of Kuna Yala, Darién, Ngöbe Bublé and Panama (east of the canal).</li><li>Species: <em>P. falciparum</em> in 3% of cases, resistant to chloroquine.</li><li>Preventive medication: prophylaxis suited to areas of chloroquine resistance for the provinces of Darién (including Emberá), Ngöbe-Bublé, Panama (east of the canal) and Kuna Yala.</li><li>Other risk provinces: personal protection measures against mosquitoes.</li></ul>"
+      }
+    },
+    {
+      "id": "poliomyelite",
+      "name": {
+        "fr": "Poliomyélite",
+        "en": "Polio"
+      },
+      "text": {
+        "fr": "<p>Éliminée.</p><ul><li>Vaccination de base (primo-immunisation) pour les voyageurs de moins de 18 ans.</li></ul>",
+        "en": "<p>Eliminated.</p><ul><li>Primary vaccination series for travellers under 18 years of age.</li></ul>"
+      }
+    },
+    {
+      "id": "rage",
+      "name": {
+        "fr": "Rage",
+        "en": "Rabies"
+      },
+      "text": {
+        "fr": "<p>Risque modéré.</p><ul><li><strong>Vaccination avant le départ :</strong> peut être envisagée pour les voyageurs qui seront probablement exposés aux chauves-souris ou aux animaux sauvages (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage#groupes_rage\">groupes particuliers définis par l’INSPQ</a>).</li><li><strong>Traitement après une exposition :</strong> selon l’évaluation individuelle.</li><li><strong>Disponibilité au pays :</strong> vaccin en disponibilité limitée; immunoglobulines antirabiques difficiles à obtenir.</li></ul>",
+        "en": "<p>Moderate risk.</p><ul><li><strong>Vaccination before departure:</strong> may be considered for travellers who will probably be exposed to bats or wild animals (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage#groupes_rage\">specific groups defined by the INSPQ</a>).</li><li><strong>Treatment after an exposure:</strong> based on individual assessment.</li><li><strong>Availability in the country:</strong> the vaccine has limited availability; rabies immunoglobulins are not easily available.</li></ul>"
+      }
+    },
+    {
+      "id": "rougeole",
+      "name": {
+        "fr": "Rougeole",
+        "en": "Measles"
+      },
+      "text": {
+        "fr": "<p>Éliminée.</p><ul><li>Vaccination de base.</li></ul>",
+        "en": "<p>Eliminated.</p><ul><li>Routine vaccination.</li></ul>"
+      }
+    },
+    {
+      "id": "tuberculose",
+      "name": {
+        "fr": "Tuberculose",
+        "en": "Tuberculosis"
+      },
+      "text": {
+        "fr": "<p>Incidence : 50 à 99 cas par 100 000 habitants par année.</p>",
+        "en": "<p>Incidence: 50 to 99 cases per 100,000 people per year.</p>"
+      }
+    },
+    {
+      "id": "typhoide",
+      "name": {
+        "fr": "Typhoïde",
+        "en": "Typhoid"
+      },
+      "text": {
+        "fr": "<p>Risque de transmission faible.</p><ul><li>Le vaccin peut être envisagé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Low transmission risk.</p><ul><li>The vaccine may be considered for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    }
+  ],
+  "otherRisks": [
+    {
+      "id": "arthropodes",
+      "name": {
+        "fr": "Insectes et autres arthropodes",
+        "en": "Insects and other arthropods"
+      },
+      "text": {
+        "fr": "<ul><li>Dengue : <strong>hausse des cas (2025)</strong>.</li><li>Fièvre Oropouche : <strong>éclosion en cours dans la province de Darién et à East Panama (2025)</strong>.</li><li>Trypanosomiase américaine (maladie de Chagas).</li><li>Zika.</li></ul>",
+        "en": "<ul><li>Dengue: <strong>rise in cases (2025)</strong>.</li><li>Oropouche fever: <strong>ongoing outbreak in Darién Province and East Panama (2025)</strong>.</li><li>American trypanosomiasis (Chagas disease).</li><li>Zika.</li></ul>"
+      }
+    },
+    {
+      "id": "eau-aliments",
+      "name": {
+        "fr": "Eau et aliments",
+        "en": "Water and food"
+      },
+      "text": {
+        "fr": "<ul><li>Précautions à prendre avec l’eau et les aliments.</li></ul>",
+        "en": "<ul><li>Take precautions with water and food.</li></ul>"
+      }
+    },
+    {
+      "id": "environnement",
+      "name": {
+        "fr": "Environnement",
+        "en": "Environment"
+      },
+      "text": {
+        "fr": "<ul><li>Accidents.</li><li>Baignade en eau douce : leptospirose.</li><li>Pesticides dans les chambres d’hôtel.</li></ul>",
+        "en": "<ul><li>Accidents.</li><li>Swimming in fresh water: leptospirosis.</li><li>Pesticides in hotel rooms.</li></ul>"
+      }
+    },
+    {
+      "id": "sante-sexuelle",
+      "name": {
+        "fr": "Santé sexuelle",
+        "en": "Sexual health"
+      },
+      "text": {
+        "fr": "<ul><li>Privilégier des pratiques sexuelles protégées (voir <a href=\"https://www.canada.ca/fr/sante-publique/services/maladies/infections-transmissibles-sexuellement.html\">Santé sexuelle et voyage</a>, Agence de la santé publique du Canada).</li><li>Des contraintes de voyage peuvent s’appliquer aux personnes vivant avec le VIH (voir <a href=\"https://www.cocqsida.com/vih-info-droits/voyager-avec-le-vih/\">COCQ-SIDA</a>).</li></ul>",
+        "en": "<ul><li>Use protected sexual practices (see <a href=\"https://www.canada.ca/en/public-health/services/diseases/sexually-transmitted-infections.html\">Sexual health and travel</a>, Public Health Agency of Canada).</li><li>Travel restrictions may apply to people living with HIV (see <a href=\"https://www.cocqsida.com/vih-info-droits/voyager-avec-le-vih/\">COCQ-SIDA</a>, in French).</li></ul>"
+      }
+    },
+    {
+      "id": "securite",
+      "name": {
+        "fr": "Sécurité",
+        "en": "Safety"
+      },
+      "text": {
+        "fr": "<ul><li>Consulter les <a href=\"https://voyage.gc.ca/\">conseils aux voyageurs du gouvernement du Canada</a>.</li></ul>",
+        "en": "<ul><li>See the <a href=\"https://travel.gc.ca/\">Government of Canada travel advice</a>.</li></ul>"
+      }
+    }
+  ]
+}

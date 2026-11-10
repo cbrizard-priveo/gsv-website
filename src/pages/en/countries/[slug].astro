@@ -1,0 +1,12 @@
+---
+import Country from '../../../views/Country.astro';
+import { countries } from '../../../lib/countries';
+
+export function getStaticPaths() {
+  return countries.map((country) => ({ params: { slug: country.slugEn }, props: { country } }));
+}
+
+const { country } = Astro.props;
+---
+
+<Country country={country} lang="en" />

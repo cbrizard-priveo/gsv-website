@@ -1,0 +1,418 @@
+---
+// A country page: INSPQ recommendations (our wording), booking card, other destinations, clinics.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import BookingCard from '../components/BookingCard.astro';
+import Clinics from '../components/home/Clinics.astro';
+import { home } from '../data/home';
+import { BOOKING, type Lang } from '../data/site';
+import { countryCopy } from '../data/country';
+import { DISEASE_PAGES, REGIONS, countries, countryPath, formatDate, hubPath, type Country } from '../lib/countries';
+import { absolute, seoHead } from '../lib/seo';
+
+interface Props {
+  country: Country;
+  lang: Lang;
+}
+
+const { country, lang } = Astro.props;
+const t = countryCopy[lang];
+const name = country.name[lang];
+const region = REGIONS.find((r) => r.id === country.region)!;
+const path = countryPath(country, lang);
+const updated = formatDate(country.inspq.updated, lang);
+const checked = formatDate(country.inspq.checked, lang);
+const neighbours = countries.filter((c) => c.region === country.region);
+const anchor = (id: string) => `risque-${id}`;
+
+const title = t.title(name);
+const head = seoHead({
+  title,
+  description: t.description(name, country.diseases.slice(0, 3).map((d) => d.name[lang].toLowerCase())),
+  path,
+  lang,
+  alternates: { fr: countryPath(country, 'fr'), en: countryPath(country, 'en') },
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalWebPage',
+    name: title,
+    url: absolute(path),
+    inLanguage: lang === 'fr' ? 'fr-CA' : 'en-CA',
+    about: { '@type': 'Country', name },
+    audience: { '@type': 'Audience', audienceType: lang === 'fr' ? 'Voyageurs' : 'Travellers' },
+    dateModified: country.inspq.checked,
+    citation: {
+      '@type': 'CreativeWork',
+      name: `Recommandations par pays : ${country.name.fr}`,
+      url: country.inspq.url,
+      dateModified: country.inspq.updated,
+      publisher: { '@type': 'GovernmentOrganization', name: 'Institut national de santé publique du Québec (INSPQ)' },
+    },
+    publisher: { '@type': 'MedicalClinic', name: 'Groupe Santé Voyage', url: absolute(lang === 'fr' ? '/' : '/en/') },
+  },
+});
+---
+
+<BaseLayout lang={lang} htmlLang={lang === 'fr' ? 'fr-CA' : 'en-CA'} title={title} head={head} route={path} alt={countryPath(country, lang === 'fr' ? 'en' : 'fr')}>
+  <section class="c-hero">
+    <div class="gsv-container c-hero__grid">
+      <div class="c-hero__text">
+        <nav aria-label={t.crumbs}>
+          <ol class="c-crumbs">
+            <li><a href={lang === 'fr' ? '/' : '/en/'}>{t.home}</a></li>
+            <li><a href={hubPath(lang)}>{t.hub}</a></li>
+            <li><span aria-current="page">{name}</span></li>
+          </ol>
+        </nav>
+        <span class="c-badge"><span aria-hidden="true"></span>{region.name[lang]}</span>
+        <h1>{name}</h1>
+        <p class="c-hero__lede">{t.lede}</p>
+        <p class="c-hero__date">{t.updated} <time datetime={country.inspq.updated}>{updated}</time></p>
+        <a class="gsv-button" href={BOOKING}>{t.book}<Icon name="arrow-right" /></a>
+      </div>
+      <nav class="c-toc" aria-label={t.onPage}>
+        <p>{t.onPage}</p>
+        <ul>
+          {
+            country.diseases.map((d) => (
+              <li>
+                <a href={`#${anchor(d.id)}`}>{d.name[lang]}</a>
+              </li>
+            ))
+          }
+          {country.otherRisks.length > 0 && <li><a href="#autres-risques">{t.othersTitle}</a></li>}
+        </ul>
+      </nav>
+    </div>
+  </section>
+
+  <section class="gsv-section c-body">
+    <div class="gsv-container c-body__grid">
+      <div>
+        <span class="gsv-eyebrow">{t.diseasesEyebrow}</span>
+        <h2 class="gsv-h2 c-body__title">{t.diseasesTitle}</h2>
+        <ul class="c-items">
+          {
+            country.diseases.map((d) => (
+              <li class="c-item" id={anchor(d.id)}>
+                <div class="c-item__head">
+                  <h3>{d.name[lang]}</h3>
+                  {DISEASE_PAGES[d.id] && (
+                    <a href={DISEASE_PAGES[d.id][lang]}>
+                      {t.more}
+                      <Icon name="arrow-right" />
+                    </a>
+                  )}
+                </div>
+                <div class="gsv-prose c-item__text" set:html={d.text[lang]} />
+              </li>
+            ))
+          }
+        </ul>
+
+        {
+          country.otherRisks.length > 0 && (
+            <>
+              <h2 class="gsv-h2 c-body__title c-body__title--others" id="autres-risques">{t.othersTitle}</h2>
+              <ul class="c-others">
+                {country.otherRisks.map((r) => (
+                  <li class="c-other">
+                    <h3>{r.name[lang]}</h3>
+                    <div class="gsv-prose c-item__text" set:html={r.text[lang]} />
+                  </li>
+                ))}
+              </ul>
+            </>
+          )
+        }
+
+        <div class="c-source">
+          <p>
+            {lang === 'fr' ? 'Source :' : 'Source:'} <a href={country.inspq.url}>{t.sourceLabel(country.name.fr, formatDate(country.inspq.updated, 'fr'))}</a>. {t.checked} <time datetime={country.inspq.checked}>{checked}</time>.
+          </p>
+          <p>{t.disclaimer}</p>
+        </div>
+      </div>
+      <BookingCard lang={lang} />
+    </div>
+  </section>
+
+  {
+    neighbours.length > 1 && (
+      <section class="gsv-section c-region">
+        <div class="gsv-container">
+          <h2 class="gsv-h2">{t.region(region.name[lang])}</h2>
+          <ul class="c-chips">
+            {neighbours.map((c) => (
+              <li>
+                <a href={countryPath(c, lang)} aria-current={c.slug === country.slug ? 'page' : undefined}>
+                  {c.name[lang]}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+    )
+  }
+
+  <Clinics content={home[lang].clinics} lang={lang} />
+</BaseLayout>
+
+<style>
+  .c-hero {
+    padding: 64px 0 72px;
+    background:
+      radial-gradient(at 70% 40%, rgba(255, 255, 255, 0.35) 0%, transparent 50%),
+      linear-gradient(135deg, var(--gsv-secondary-l-5) 0%, var(--gsv-primary-l-6) 35%, var(--gsv-secondary-l-5) 65%, var(--gsv-primary-l-6) 100%);
+  }
+  .c-hero__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    align-items: center;
+    gap: 80px;
+  }
+  .c-hero__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+  }
+  .c-crumbs {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+  }
+  .c-crumbs li:not(:last-child)::after {
+    content: '/';
+    margin: 0 8px;
+    opacity: 0.5;
+  }
+  .c-crumbs a {
+    text-decoration: none;
+  }
+  .c-crumbs a:hover {
+    color: var(--gsv-primary);
+    text-decoration: underline;
+  }
+  .c-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--gsv-radius-full);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
+    color: var(--gsv-primary);
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+  .c-badge span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gsv-secondary);
+  }
+  .c-hero h1 {
+    color: var(--gsv-primary);
+    font: 500 clamp(38px, 4.4vw, 56px) / 1.08 var(--gsv-font-serif);
+    letter-spacing: -0.01em;
+  }
+  .c-hero__lede {
+    max-width: 560px;
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .c-hero__date {
+    color: var(--gsv-text-muted);
+    font-size: 14px;
+  }
+  .c-hero__date time {
+    color: var(--gsv-primary);
+    font-weight: 600;
+  }
+  .c-toc {
+    padding: 28px;
+    border: 1px solid rgba(255, 255, 255, 0.7);
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 16px 40px -24px rgba(1, 42, 86, 0.25);
+    backdrop-filter: blur(10px);
+  }
+  .c-toc p {
+    margin-bottom: 14px;
+    color: var(--gsv-text-muted);
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+  .c-toc ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .c-toc a {
+    display: inline-flex;
+    padding: 7px 13px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: var(--gsv-radius-full);
+    background: var(--gsv-white);
+    color: var(--gsv-primary);
+    font-size: 13.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s, border-color 0.15s;
+  }
+  .c-toc a:hover {
+    border-color: var(--gsv-secondary-l-4);
+    background: var(--gsv-primary-l-6);
+  }
+
+  .c-body__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    align-items: start;
+    gap: 80px;
+  }
+  .c-body__title {
+    margin-bottom: 32px;
+  }
+  .c-body__title--others {
+    margin-top: 72px;
+  }
+  .c-items {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+  .c-item {
+    padding: 26px 28px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: 20px;
+    background: var(--gsv-white);
+    scroll-margin-top: calc(var(--gsv-header-height) + 24px);
+  }
+  .c-item__head {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 8px 24px;
+    margin-bottom: 14px;
+  }
+  .c-item h3,
+  .c-other h3 {
+    color: var(--gsv-primary);
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: -0.02em;
+  }
+  .c-item__head a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--gsv-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .c-item__head a :global(svg) {
+    width: 13px;
+    height: 13px;
+    transition: transform 0.15s;
+  }
+  .c-item__head a:hover :global(svg) {
+    transform: translateX(3px);
+  }
+  .c-item__text {
+    max-width: none;
+    font-size: 15.5px;
+    line-height: 1.65;
+  }
+  .c-others {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .c-other {
+    padding: 24px;
+    border-radius: 20px;
+    background: var(--gsv-primary-l-6);
+  }
+  .c-other h3 {
+    margin-bottom: 12px;
+    font-size: 17px;
+  }
+  .c-source {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-top: 48px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gsv-border-subtle);
+    color: var(--gsv-text-muted);
+    font-size: 14px;
+    line-height: 1.6;
+  }
+  .c-source a {
+    color: inherit;
+    text-underline-offset: 3px;
+  }
+
+  .c-region {
+    background: var(--gsv-white);
+  }
+  .c-region .gsv-h2 {
+    margin-bottom: 28px;
+  }
+  .c-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  .c-chips a {
+    display: inline-flex;
+    padding: 9px 16px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: var(--gsv-radius-full);
+    background: var(--gsv-white);
+    color: var(--gsv-primary);
+    font-size: 14.5px;
+    font-weight: 500;
+    text-decoration: none;
+    transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+  }
+  .c-chips a:hover {
+    border-color: var(--gsv-secondary-l-4);
+    background: var(--gsv-primary-l-6);
+    color: var(--gsv-secondary);
+  }
+  .c-chips a[aria-current='page'] {
+    border-color: var(--gsv-primary);
+    background: var(--gsv-primary);
+    color: var(--gsv-white);
+  }
+
+  @media (max-width: 1024px) {
+    .c-hero__grid,
+    .c-body__grid {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+  @media (max-width: 767px) {
+    .c-hero {
+      padding: 40px 0 48px;
+    }
+    .c-item {
+      padding: 20px;
+    }
+    .c-others {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

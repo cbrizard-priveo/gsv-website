@@ -1,0 +1,216 @@
+{
+  "slug": "tchad",
+  "region": "afrique",
+  "name": {
+    "fr": "Tchad",
+    "en": "Chad"
+  },
+  "slugEn": "chad",
+  "inspq": {
+    "url": "https://www.inspq.qc.ca/sante-voyage/guide/pays/tchad",
+    "updated": "2026-03-23",
+    "checked": "2026-11-10"
+  },
+  "diseases": [
+    {
+      "id": "cholera",
+      "name": {
+        "fr": "Choléra",
+        "en": "Cholera"
+      },
+      "text": {
+        "fr": "<p>Présent au pays.</p><ul><li>Le vaccin peut être envisagé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera#gp-cholera\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Present in the country.</p><ul><li>The vaccine may be considered for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera#gp-cholera\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "fievre-jaune",
+      "name": {
+        "fr": "Fièvre jaune",
+        "en": "Yellow fever"
+      },
+      "text": {
+        "fr": "<p><strong>Exigence à l’entrée :</strong> un certificat de vaccination est exigé des voyageurs de 9 mois et plus qui arrivent d’un pays à risque de transmission.</p><p><strong>Vaccination recommandée :</strong></p><ul><li>Pour tous les voyageurs de 9 mois et plus qui se rendent dans la zone au sud du désert du Sahara.</li><li>Non recommandée si l’itinéraire se limite au désert du Sahara.</li></ul>",
+        "en": "<p><strong>Entry requirement:</strong> a vaccination certificate is required for travellers aged 9 months and older arriving from a country with a risk of transmission.</p><p><strong>Recommended vaccination:</strong></p><ul><li>For all travellers aged 9 months and older going to the area south of the Sahara Desert.</li><li>Not recommended if the itinerary is limited to the Sahara Desert.</li></ul>"
+      }
+    },
+    {
+      "id": "hepatite-a",
+      "name": {
+        "fr": "Hépatite A",
+        "en": "Hepatitis A"
+      },
+      "text": {
+        "fr": "<p>Prévalence très élevée.</p><ul><li>Vaccin recommandé pour tous les voyageurs.</li></ul>",
+        "en": "<p>Very high prevalence.</p><ul><li>Vaccine recommended for all travellers.</li></ul>"
+      }
+    },
+    {
+      "id": "hepatite-b",
+      "name": {
+        "fr": "Hépatite B",
+        "en": "Hepatitis B"
+      },
+      "text": {
+        "fr": "<p>Prévalence élevée.</p><ul><li>Vaccin recommandé pour tous les voyageurs.</li></ul>",
+        "en": "<p>High prevalence.</p><ul><li>Vaccine recommended for all travellers.</li></ul>"
+      }
+    },
+    {
+      "id": "meningocoque",
+      "name": {
+        "fr": "Infection invasive à méningocoque",
+        "en": "Invasive meningococcal disease"
+      },
+      "text": {
+        "fr": "<p><strong>Moitié sud du pays</strong> (région située dans la ceinture africaine de la méningite) :</p><ul><li>Vaccin recommandé pour tous durant la saison sèche (novembre à juin).</li><li>Peut être envisagé pour certains voyageurs, selon leur situation, en dehors de la saison sèche (juillet à octobre).</li></ul><p><strong>Reste du pays :</strong></p><ul><li>Peut être envisagé pour certains voyageurs, selon leur situation.</li></ul>",
+        "en": "<p><strong>Southern half of the country</strong> (area within the African meningitis belt):</p><ul><li>Vaccine recommended for everyone during the dry season (November to June).</li><li>May be considered for some travellers, depending on their situation, outside the dry season (July to October).</li></ul><p><strong>Rest of the country:</strong></p><ul><li>May be considered for some travellers, depending on their situation.</li></ul>"
+      }
+    },
+    {
+      "id": "influenza",
+      "name": {
+        "fr": "Influenza (grippe)",
+        "en": "Influenza (flu)"
+      },
+      "text": {
+        "fr": "<p>Risque présent toute l’année.</p><ul><li>Vaccin recommandé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza/immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Risk present all year.</p><ul><li>Vaccine recommended for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza/immunisation\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "mpox",
+      "name": {
+        "fr": "Mpox",
+        "en": "Mpox"
+      },
+      "text": {
+        "fr": "<p>Le risque d’exposition existe surtout par voie sexuelle.</p><ul><li>Mesures de protection personnelle (voir la page <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/mpox\">Mpox de l’INSPQ</a>).</li><li>Vaccination si le voyageur correspond au premier groupe d’indications du <a href=\"https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/variole-vaccin-contre-variole-et-contre-mpox-variole-simienne/\">Protocole d’immunisation du Québec</a>.</li></ul>",
+        "en": "<p>Exposure can occur mainly through sexual contact.</p><ul><li>Personal protection measures (see the INSPQ <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/mpox\">Mpox page</a>, in French).</li><li>Vaccination if the traveller falls within the first group of indications of the <a href=\"https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/variole-vaccin-contre-variole-et-contre-mpox-variole-simienne/\">Québec Immunization Protocol</a>.</li></ul>"
+      }
+    },
+    {
+      "id": "paludisme",
+      "name": {
+        "fr": "Paludisme (malaria)",
+        "en": "Malaria"
+      },
+      "text": {
+        "fr": "<p>Présent dans les zones urbaines et rurales de tout le pays.</p><ul><li>Espèce : majoritairement <em>P. falciparum</em>, résistant à la chloroquine.</li><li>Médicament préventif : prophylaxie adaptée aux zones de résistance à la chloroquine.</li></ul>",
+        "en": "<p>Present in urban and rural areas throughout the country.</p><ul><li>Species: mostly <em>P. falciparum</em>, resistant to chloroquine.</li><li>Preventive medication: prophylaxis suited to areas of chloroquine resistance.</li></ul>"
+      }
+    },
+    {
+      "id": "poliomyelite",
+      "name": {
+        "fr": "Poliomyélite",
+        "en": "Polio"
+      },
+      "text": {
+        "fr": "<p>Des cas ont été déclarés ou du poliovirus d’origine vaccinale de type 3 a été détecté.</p><ul><li>Vaccination de base (primo-immunisation) recommandée pour tous.</li><li>Rappel unique pour les voyageurs de 18 ans et plus, 10 ans après la dernière dose de la primo-immunisation.</li><li>Pour un séjour de 4 semaines ou plus, une dose de rappel est <strong>exigée</strong> de 4 semaines à 12 mois avant le départ. La preuve doit être inscrite dans le <a href=\"https://voyage.gc.ca/voyager/documents/vaccination\">Certificat international de vaccination ou de prophylaxie</a> (voir les <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite/immunisation#recommandations-temporaires-OMS\">recommandations temporaires de l’OMS</a>).</li></ul>",
+        "en": "<p>Cases have been reported or vaccine-derived type 3 poliovirus has been detected.</p><ul><li>Primary vaccination series recommended for everyone.</li><li>A single booster for travellers aged 18 and older, 10 years after the last dose of the primary series.</li><li>For stays of 4 weeks or more, a booster dose is <strong>required</strong> 4 weeks to 12 months before departure. Proof must be recorded in the <a href=\"https://travel.gc.ca/travelling/documents/vaccination\">International Certificate of Vaccination or Prophylaxis</a> (see the <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite/immunisation#recommandations-temporaires-OMS\">WHO temporary recommendations</a>, in French).</li></ul>"
+      }
+    },
+    {
+      "id": "rage",
+      "name": {
+        "fr": "Rage",
+        "en": "Rabies"
+      },
+      "text": {
+        "fr": "<p>Risque élevé.</p><ul><li><strong>Vaccination avant le départ :</strong> peut être envisagée pour les voyageurs susceptibles d’être exposés aux chauves-souris, aux animaux sauvages ou aux animaux domestiques, surtout les chiens (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage#groupes_rage\">groupes particuliers définis par l’INSPQ</a>).</li><li><strong>Traitement après une exposition :</strong> selon l’évaluation individuelle (voir la section <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage/immunisation#postexposition\">Rage, prévention et immunisation de l’INSPQ</a>).</li><li><strong>Disponibilité au pays :</strong> vaccin : disponibilité limitée; immunoglobulines antirabiques : pas facilement disponible.</li></ul>",
+        "en": "<p>High risk.</p><ul><li><strong>Vaccination before departure:</strong> may be considered for travellers likely to be exposed to bats, wild animals or domestic animals, especially dogs (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage#groupes_rage\">specific groups defined by the INSPQ</a>).</li><li><strong>Treatment after an exposure:</strong> based on individual assessment (see the INSPQ section <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage/immunisation#postexposition\">Rabies, prevention and immunization</a>, in French).</li><li><strong>Availability in the country:</strong> vaccine: limited availability; rabies immunoglobulins: not readily available.</li></ul>"
+      }
+    },
+    {
+      "id": "rougeole",
+      "name": {
+        "fr": "Rougeole",
+        "en": "Measles"
+      },
+      "text": {
+        "fr": "<p>Endémique.</p><ul><li>Vaccination de base, et vaccination des enfants de 6 à 11 mois.</li></ul>",
+        "en": "<p>Endemic.</p><ul><li>Routine vaccination, and vaccination of children aged 6 to 11 months.</li></ul>"
+      }
+    },
+    {
+      "id": "tuberculose",
+      "name": {
+        "fr": "Tuberculose",
+        "en": "Tuberculosis"
+      },
+      "text": {
+        "fr": "<p>Incidence : 100 à 199 cas par 100 000 habitants par année.</p><ul><li>Test cutané (TCT) après le voyage si : séjour de 12 mois ou plus; ou travail d’environ 1 mois ou plus avec un risque élevé d’exposition à une personne atteinte de tuberculose contagieuse.</li><li>Test cutané avant le voyage : lorsque le test après le voyage est recommandé, selon l’évaluation individuelle.</li></ul>",
+        "en": "<p>Incidence: 100 to 199 cases per 100,000 people per year.</p><ul><li>Tuberculin skin test (TST) after the trip if: stay of 12 months or more; or work of about 1 month or more with a high risk of exposure to a person with contagious tuberculosis.</li><li>Skin test before the trip: when the post-travel test is recommended, based on individual assessment.</li></ul>"
+      }
+    },
+    {
+      "id": "typhoide",
+      "name": {
+        "fr": "Typhoïde",
+        "en": "Typhoid"
+      },
+      "text": {
+        "fr": "<p>Risque de transmission intermédiaire.</p><ul><li>Le vaccin peut être envisagé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Intermediate transmission risk.</p><ul><li>The vaccine may be considered for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    }
+  ],
+  "otherRisks": [
+    {
+      "id": "arthropodes",
+      "name": {
+        "fr": "Insectes et autres arthropodes",
+        "en": "Insects and other arthropods"
+      },
+      "text": {
+        "fr": "<ul><li>Dengue : <strong>éclosion en cours (2026)</strong>.</li></ul>",
+        "en": "<ul><li>Dengue: <strong>ongoing outbreak (2026)</strong>.</li></ul>"
+      }
+    },
+    {
+      "id": "eau-aliments",
+      "name": {
+        "fr": "Eau et aliments",
+        "en": "Water and food"
+      },
+      "text": {
+        "fr": "<ul><li>Précautions à prendre avec l’eau et les aliments.</li></ul>",
+        "en": "<ul><li>Take precautions with water and food.</li></ul>"
+      }
+    },
+    {
+      "id": "environnement",
+      "name": {
+        "fr": "Environnement",
+        "en": "Environment"
+      },
+      "text": {
+        "fr": "<ul><li>Accidents.</li><li>Baignade en eau douce : leptospirose et schistosomiase.</li><li>Pesticides dans les chambres d’hôtel.</li></ul>",
+        "en": "<ul><li>Accidents.</li><li>Swimming in fresh water: leptospirosis and schistosomiasis.</li><li>Pesticides in hotel rooms.</li></ul>"
+      }
+    },
+    {
+      "id": "sante-sexuelle",
+      "name": {
+        "fr": "Santé sexuelle",
+        "en": "Sexual health"
+      },
+      "text": {
+        "fr": "<ul><li>Privilégier des pratiques sexuelles protégées (voir <a href=\"https://www.canada.ca/fr/sante-publique/services/maladies/infections-transmissibles-sexuellement.html\">Santé sexuelle et voyage</a>, Agence de la santé publique du Canada).</li><li>Des contraintes de voyage peuvent s’appliquer aux personnes vivant avec le VIH (voir <a href=\"https://www.cocqsida.com/vih-info-droits/voyager-avec-le-vih/\">COCQ-SIDA</a>).</li></ul>",
+        "en": "<ul><li>Use protected sexual practices (see <a href=\"https://www.canada.ca/en/public-health/services/diseases/sexually-transmitted-infections.html\">Sexual health and travel</a>, Public Health Agency of Canada).</li><li>Travel restrictions may apply to people living with HIV (see <a href=\"https://www.cocqsida.com/vih-info-droits/voyager-avec-le-vih/\">COCQ-SIDA</a>, in French).</li></ul>"
+      }
+    },
+    {
+      "id": "securite",
+      "name": {
+        "fr": "Sécurité",
+        "en": "Safety"
+      },
+      "text": {
+        "fr": "<ul><li>Consulter les <a href=\"https://voyage.gc.ca/\">conseils aux voyageurs du gouvernement du Canada</a>.</li></ul>",
+        "en": "<ul><li>See the <a href=\"https://travel.gc.ca/\">Government of Canada travel advice</a>.</li></ul>"
+      }
+    }
+  ]
+}

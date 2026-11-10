@@ -1,0 +1,87 @@
+---
+// Booking card shown beside page content: online booking, phone and hours (verbatim from the site).
+import Icon from './Icon.astro';
+import { BOOKING, CONTACT, type Lang } from '../data/site';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const copy = {
+  fr: { title: 'Prendre rendez-vous', button: 'Réserver en ligne', call: 'Par téléphone', hours: 'Heures de service' },
+  en: { title: 'Book an appointment', button: 'Book online', call: 'By phone', hours: 'Hours of operation' },
+}[lang];
+---
+
+<aside class="booking-card">
+  <h2>{copy.title}</h2>
+  <a class="gsv-button" href={BOOKING}>{copy.button}<Icon name="arrow-right" /></a>
+  <dl>
+    <div>
+      <dt>{copy.call}</dt>
+      <dd><a href={`tel:+1${CONTACT.phone.replaceAll('-', '')}`}>{CONTACT.phone}</a></dd>
+    </div>
+    <div>
+      <dt>{copy.hours}</dt>
+      <dd>{CONTACT.hours[lang]}</dd>
+    </div>
+  </dl>
+</aside>
+
+<style>
+  .booking-card {
+    position: sticky;
+    top: calc(var(--gsv-header-height) + 24px);
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    padding: 32px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: 24px;
+    background:
+      radial-gradient(at 100% 0%, rgba(255, 255, 255, 0.8) 0%, transparent 60%),
+      linear-gradient(160deg, var(--gsv-primary-l-6), var(--gsv-secondary-l-5));
+  }
+  .booking-card h2 {
+    color: var(--gsv-primary);
+    font: 500 26px/1.2 var(--gsv-font-serif);
+    letter-spacing: -0.02em;
+  }
+  .booking-card .gsv-button {
+    margin-top: 8px;
+  }
+  .booking-card dl {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    margin: 8px 0 0;
+    padding-top: 20px;
+    border-top: 1px solid var(--gsv-border-subtle);
+  }
+  .booking-card dt {
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+  }
+  .booking-card dd {
+    margin: 2px 0 0;
+    color: var(--gsv-primary);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .booking-card dd a {
+    text-decoration: none;
+  }
+
+  @media (max-width: 1024px) {
+    .booking-card {
+      position: static;
+      max-width: 560px;
+    }
+  }
+  @media (max-width: 767px) {
+    .booking-card {
+      padding: 24px;
+    }
+  }
+</style>
