@@ -1,8 +1,8 @@
 // Clinic pages. Details (phone, fax, email, hours, amenities, access) are copied from Priveo Santé's
 // clinic pages (priveosante.com/cliniques/…, checked 2026-11-10), as the client asked; the access
 // sentence restates Priveo's in our words. Titles and H1s from the SEO expert's sheet.
-// Priveo's English Montréal page gives a different address (3550 Côte-des-Neiges): we follow the
-// French page, which matches this site (Outremont).
+// Montréal: the clinic is on Van Horne (Outremont) with a pharmacy in the building, as the client
+// confirmed 2026-11-10 (Priveo's English page still shows an older Côte-des-Neiges address).
 import type { Lang } from './site';
 
 type Amenity = 'fr' | 'en' | 'elevator' | 'parking' | 'pharmacy' | 'radiology';
@@ -54,7 +54,7 @@ export const clinicPages: ClinicPage[] = [
       fr: 'La clinique est dans le quartier Outremont, à quelques minutes des stations de métro de la ligne bleue et du REM.',
       en: 'The clinic is in the Outremont neighbourhood, a few minutes from blue line metro stations and the REM.',
     },
-    amenities: ['fr', 'en', 'parking', 'elevator'],
+    amenities: ['fr', 'en', 'parking', 'elevator', 'pharmacy'],
     map: 'https://www.google.com/maps/search/?api=1&query=2645%20Avenue%20Van%20Horne%20suite%20206%2C%20Montr%C3%A9al%2C%20QC%2C%20Canada',
   },
   {

@@ -47,6 +47,16 @@ export function withSeoBody(html: string, route: string, redirects: Record<strin
   let out = html;
   for (const [from, to] of Object.entries(redirects)) out = out.split(`href="${from}"`).join(`href="${to}"`);
 
+  // There are four clinics; the client confirmed there is no Pointe-Claire (West Island) clinic any more.
+  // Dated blog posts that mention it are left as written.
+  if (out.includes('Pointe-Claire')) {
+    const $$ = cheerio.load(out, null, false);
+    $$('.elementor-icon-list-item, option')
+      .filter((_, el) => /^Pointe-Claire\b/.test($$(el).text().trim()))
+      .remove();
+    out = $$.html();
+  }
+
   const seo = seoFor(route);
   if (!seo) return out;
   const $ = cheerio.load(out, null, false);
