@@ -59,14 +59,14 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         label: 'Cliniques',
         group: 'Nos cliniques',
         links: [
-          { label: 'Laval', href: `${PRIVEO}/cliniques/laval/` },
-          { label: 'Montréal', href: `${PRIVEO}/cliniques/montreal/` },
-          { label: 'Longueuil', href: `${PRIVEO}/cliniques/longueuil/` },
-          { label: 'Blainville', href: `${PRIVEO}/cliniques/blainville/` },
+          { label: 'Laval', href: '/cliniques/laval/' },
+          { label: 'Montréal', href: '/cliniques/montreal/' },
+          { label: 'Longueuil', href: '/cliniques/longueuil/' },
+          { label: 'Blainville', href: '/cliniques/blainville/' },
         ],
         intro: {
           title: 'Cliniques',
-          cta: { label: 'Nos cliniques', href: `${PRIVEO}/cliniques/` },
+          cta: { label: 'Nos cliniques', href: '/contact/' },
         },
       },
       {
@@ -125,14 +125,14 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         label: 'Clinics',
         group: 'Our clinics',
         links: [
-          { label: 'Laval', href: `${PRIVEO}/en/clinics/laval/` },
-          { label: 'Montréal', href: `${PRIVEO}/en/clinics/montreal/` },
-          { label: 'Longueuil', href: `${PRIVEO}/en/clinics/longueuil/` },
-          { label: 'Blainville', href: `${PRIVEO}/en/clinics/blainville/` },
+          { label: 'Laval', href: '/en/clinics/laval/' },
+          { label: 'Montréal', href: '/en/clinics/montreal/' },
+          { label: 'Longueuil', href: '/en/clinics/longueuil/' },
+          { label: 'Blainville', href: '/en/clinics/blainville/' },
         ],
         intro: {
           title: 'Clinics',
-          cta: { label: 'Our clinics', href: `${PRIVEO}/en/clinics/` },
+          cta: { label: 'Our clinics', href: '/en/contact/' },
         },
       },
       {
@@ -197,24 +197,24 @@ export const CLINICS: Clinic[] = [
     city: 'Laval',
     address: '1435 Boul. Saint-Martin Ouest, suite 425',
     locality: 'Laval, H7S 2C6',
-    href: { fr: `${PRIVEO}/cliniques/laval/`, en: `${PRIVEO}/en/clinics/laval/` },
+    href: { fr: '/cliniques/laval/', en: '/en/clinics/laval/' },
   },
   {
     city: 'Montréal (Outremont)',
     address: '2645 Avenue Van Horne, suite 206',
     locality: 'Montréal H3S 1P6',
-    href: { fr: `${PRIVEO}/cliniques/montreal/`, en: `${PRIVEO}/en/clinics/montreal/` },
+    href: { fr: '/cliniques/montreal/', en: '/en/clinics/montreal/' },
   },
   {
     city: 'Longueuil',
     address: '5125 Boulevard Cousineau, Suite 206',
     locality: 'Longueuil, J3Y 3K7',
-    href: { fr: `${PRIVEO}/cliniques/longueuil/`, en: `${PRIVEO}/en/clinics/longueuil/` },
+    href: { fr: '/cliniques/longueuil/', en: '/en/clinics/longueuil/' },
   },
   {
     city: 'Blainville',
     address: '1099 Boul Curé-Labelle, suite 201',
     locality: 'Blainville J7C 2M8',
-    href: { fr: `${PRIVEO}/cliniques/blainville/`, en: `${PRIVEO}/en/clinics/blainville/` },
+    href: { fr: '/cliniques/blainville/', en: '/en/clinics/blainville/' },
   },
 ];

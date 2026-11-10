@@ -27,13 +27,18 @@ Source: "Recommandations SEO - Groupe Santé Voyage.xlsx" (27 rows). Titles, des
   - Links to the old pages were pointed to the hubs.
 - **Image descriptions (alt):** the homepage photos, written from what each photo shows. The hero slideshow stays decorative, as it should for accessibility.
 
+- **Clinic pages (4 of the 5 rows):**
+  - Laval, Montréal (Outremont), Longueuil and Blainville, in French at `/cliniques/…/` and English at `/en/clinics/…/`.
+  - Each uses the recommended title and H1. Blainville's H1 says "Rive-Nord", correcting the sheet's "Rive Sud".
+  - Details are copied from Priveo's pages: phone, fax, email, hours, amenities, directions link, and the access sentence in our own words.
+  - The menu, the clinic cards and the footer now link to these pages instead of priveosante.com.
+  - Two Priveo inconsistencies to fix on their side:
+    - Priveo's English Montréal page gives a downtown address (3550 Côte-des-Neiges) and an on-site pharmacy. We follow the French page (Outremont, no pharmacy).
+    - Priveo's French Montréal page doesn't list Vaccination or Santé Voyage among its services.
+
 ## Not applied: needs your input
 
-1. **Clinic pages (5 rows, priority 5):**
-   - They would need each clinic's own facts: phone, hours, access, amenities. The priveosante.com pages have them, but with Priveo's phone numbers.
-   - Which details should these pages use?
-   - **West Island / Pointe-Claire:** our site lists four clinics, but the telemedicine page also lists Pointe-Claire. Is there a West Island clinic?
-   - The Blainville H1 in the sheet says "Rive Sud"; it should be Rive-Nord.
+1. **West Island / Pointe-Claire clinic page:** our site lists four clinics, but the telemedicine page also lists Pointe-Claire. Is there a West Island clinic?
 2. **"Clinique de vaccination voyage" section on the homepage:** it should feature "the most used and quasi-exclusive vaccines" at GSV. Only the clinic knows which ones these are.
 3. **Vaccine page sections 1–6** (what it is, who it's for, doses, side effects, price and insurance, monograph):
    - This is new medical content for about 50 pages.

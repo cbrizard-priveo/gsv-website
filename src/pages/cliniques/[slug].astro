@@ -1,0 +1,12 @@
+---
+import Clinic from '../../views/Clinic.astro';
+import { clinicPages } from '../../data/clinics';
+
+export function getStaticPaths() {
+  return clinicPages.map((clinic) => ({ params: { slug: clinic.slug.fr }, props: { clinic } }));
+}
+
+const { clinic } = Astro.props;
+---
+
+<Clinic clinic={clinic} lang="fr" />
