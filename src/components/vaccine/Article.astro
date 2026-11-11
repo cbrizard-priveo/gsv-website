@@ -3,15 +3,16 @@
 import BookingCard from '../BookingCard.astro';
 import type { Lang } from '../../data/site';
 import type { VaccineCopy } from '../../data/vaccine';
+import type { Source } from '../../data/vaccine-texts';
 
 interface Props {
   body: string;
-  source: { label: string; href?: string } | null;
+  sources: Source[];
   copy: VaccineCopy;
   lang: Lang;
 }
 
-const { body, source, copy, lang } = Astro.props;
+const { body, sources, copy, lang } = Astro.props;
 ---
 
 <section class="gsv-section article">
@@ -27,10 +28,15 @@ const { body, source, copy, lang } = Astro.props;
         )
       }
       {
-        source && (
-          <p class="article__source">
-            {copy.source} {source.href ? <a href={source.href}>{source.label}</a> : source.label}
-          </p>
+        sources.length > 0 && (
+          <div class="article__source">
+            <p>{sources.length > 1 ? copy.sources : copy.source}</p>
+            <ul>
+              {sources.map((s) => (
+                <li>{s.href ? <a href={s.href}>{s.label}</a> : s.label}</li>
+              ))}
+            </ul>
+          </div>
         )
       }
     </div>
@@ -55,6 +61,11 @@ const { body, source, copy, lang } = Astro.props;
     border-top: 1px solid var(--gsv-border-subtle);
     color: var(--gsv-text-muted);
     font-size: 14px;
+  }
+  .article__source ul {
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
   }
   .article__source a {
     color: inherit;

@@ -3,7 +3,7 @@ import * as cheerio from 'cheerio';
 import pages from '../wp/pages.json';
 import type { WpPageData } from '../layouts/WpPage.astro';
 import type { Lang } from '../data/site';
-import { vaccineTexts } from '../data/vaccine-texts';
+import { vaccineTexts, type Source } from '../data/vaccine-texts';
 
 export interface Vaccine {
   page: WpPageData;
@@ -13,7 +13,7 @@ export interface Vaccine {
   image: string;
   lede: string;
   body: string;
-  source: { label: string; href?: string } | null;
+  sources: Source[];
 }
 
 const bodies = import.meta.glob<string>('../wp/html/*.html', { query: '?raw', import: 'default' });
@@ -58,7 +58,7 @@ export async function vaccine(page: WpPageData): Promise<Vaccine> {
 
   // Updated texts (src/data/vaccine-texts.ts) replace the imported one.
   const text = vaccineTexts[page.route];
-  if (text) return { ...base, lede: text.lede, body: text.body.trim(), source: text.source };
+  if (text) return { ...base, lede: text.lede, body: text.body.trim(), sources: [text.source].flat() };
 
   const content = $('[data-widget_type="theme-post-content.default"] .elementor-widget-container').first();
   content.find('span, div, font').each((_, el) => {
@@ -93,6 +93,6 @@ export async function vaccine(page: WpPageData): Promise<Vaccine> {
     ...base,
     lede,
     body: content.html()?.trim() ?? '',
-    source,
+    sources: source ? [source] : [],
   };
 }

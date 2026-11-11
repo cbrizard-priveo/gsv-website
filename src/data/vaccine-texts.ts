@@ -2,15 +2,29 @@
 // facts stated by its source; the client asked for INSPQ content (2026-11-10). Medical site: do not add
 // anything that isn't in the source, and have the medical team review changes before publishing.
 
+export interface Source {
+  label: string;
+  href?: string;
+}
+
 export interface VaccineText {
   lede: string;
   body: string;
-  source: { label: string; href: string };
+  source: Source | Source[];
 }
+
+// One file per topic in src/data/vaccines/ (FR and EN), from INSPQ or, for routine vaccines that
+// INSPQ's travel guide doesn't cover, the Gouvernement du Québec (Québec.ca / PIQ).
+interface TopicFile {
+  routes: { fr: string; en: string };
+  fr: { lede: string; body: string; sources: Source[] };
+  en: { lede: string; body: string; sources: Source[] };
+}
+const topics = import.meta.glob<TopicFile>('./vaccines/*.json', { eager: true, import: 'default' });
 
 const INSPQ_RAGE = 'https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage';
 
-export const vaccineTexts: Record<string, VaccineText> = {
+const rabies: Record<string, VaccineText> = {
   // Source: INSPQ, Guide d'intervention santé-voyage, « Rage », last updated 2026-05-28.
   '/vaccination/rage/': {
     lede: 'La rage est une infection causée par un virus du genre <em>Lyssavirus</em>. Elle se transmet surtout par la salive d’un mammifère infecté, le plus souvent lors d’une morsure. Une fois les symptômes apparus, elle est mortelle dans 100 % des cas.',
@@ -68,3 +82,10 @@ export const vaccineTexts: Record<string, VaccineText> = {
     source: { label: 'INSPQ, Guide d’intervention santé-voyage, “Rage” (updated May 28, 2026)', href: INSPQ_RAGE },
   },
 };
+
+export const vaccineTexts: Record<string, VaccineText> = { ...rabies };
+for (const t of Object.values(topics)) {
+  for (const lang of ['fr', 'en'] as const) {
+    vaccineTexts[t.routes[lang]] = { lede: t[lang].lede, body: t[lang].body, source: t[lang].sources };
+  }
+}

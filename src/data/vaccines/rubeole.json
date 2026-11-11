@@ -1,0 +1,54 @@
+{
+  "routes": {
+    "fr": "/vaccination/rubeole/",
+    "en": "/en/vaccination/rubella-vaccination/"
+  },
+  "fr": {
+    "lede": "La rubéole est une maladie très contagieuse causée par un virus, habituellement bénigne. Elle se transmet par les sécrétions du nez et de la gorge d’une personne infectée. Pendant la grossesse, elle peut causer une fausse couche ou des malformations chez le bébé.",
+    "body": "<p>La rubéole demeure fréquente dans plusieurs pays, alors que le risque de l’attraper au Canada est très faible. Elle survient surtout en hiver et au printemps et se transmet facilement au sein d’une famille, d’un service de garde ou d’une école. Le virus traverse le placenta : une femme enceinte infectée peut le transmettre à son fœtus.</p>\n<p>Certaines personnes n’ont aucun symptôme. Chez les autres, ils apparaissent de 2 à 3 semaines après le début de l’infection et durent environ une semaine : rougeurs sur la peau qui commencent au visage puis s’étendent au reste du corps (pendant environ 3 jours), légère fièvre (moins de 39 °C), nausées et yeux rouges. Les adolescents et les adultes peuvent aussi avoir les ganglions enflés derrière les oreilles et dans le cou, des symptômes semblables à ceux du rhume avant les rougeurs, et des douleurs aux articulations.</p>\n<p>Les complications possibles sont l’arthrite, surtout chez la femme, ainsi que la fausse couche et les malformations chez le bébé lorsque l’infection survient pendant la grossesse. Plus rarement, la rubéole peut causer une encéphalite ou une baisse temporaire des cellules du sang qui aident à la coagulation, pouvant mener à une hémorragie interne. Il n’existe pas de traitement particulier, et les antibiotiques sont inutiles.</p>\n<h3>Qui devrait être vacciné</h3>\n<p>Le vaccin contre la rubéole fait partie du calendrier régulier de vaccination du Québec : les enfants le reçoivent à 12 mois et à 18 mois, dans un vaccin combiné qui protège aussi contre la rougeole, les oreillons et la varicelle (RRO-Var).</p>\n<p>Toute personne qui n’est pas vaccinée ou qui n’a jamais eu la rubéole peut l’attraper. Si vous prévoyez une grossesse, assurez-vous d’être protégée. Selon le Protocole d’immunisation du Québec, sont considérées comme protégées les personnes qui ont une preuve écrite d’avoir reçu une dose de vaccin, ou une analyse sanguine montrant des anticorps à un titre égal ou supérieur à 10 UI/ml. Avoir eu la rubéole sans confirmation par un laboratoire ne prouve pas qu’on est immunisé. Les personnes qui ne sont pas considérées comme protégées devraient être vaccinées.</p>\n<h3>Le vaccin</h3>\n<p>Le vaccin contre la rubéole est un vaccin combiné à virus vivants atténués. Au Canada, les vaccins RRO (rougeole, rubéole, oreillons) distribués sont M-M-R II et Priorix. Après 1 dose, plus de 97 % des personnes développent des anticorps protecteurs, et selon le gouvernement du Québec, la protection dure toute la vie. Depuis l’arrivée de la vaccination gratuite au Canada, le nombre de cas a diminué de près de 99 %.</p>\n<p>Le vaccin est contre-indiqué pendant la grossesse et chez les personnes immunodéprimées. Il faut éviter de devenir enceinte dans le mois qui suit la vaccination : aucun cas n’a été rapporté, mais il existe un risque théorique de transmission au fœtus.</p>\n<h3>Autres précautions</h3>\n<p>Une personne atteinte, enfant ou adulte, devrait rester à la maison jusqu’à 7 jours après l’apparition des rougeurs et éviter les jeunes enfants et les femmes enceintes. Une femme enceinte qui a été en contact avec une personne atteinte devrait consulter son médecin.</p>",
+    "seoLead": "Pendant la grossesse, la rubéole peut causer une fausse couche ou des malformations.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Rubéole » (mis à jour le 20 juin 2019)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/rubeole"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la rougeole, la rubéole et les oreillons (RRO) » (mis à jour le 30 mai 2019)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+      },
+      {
+        "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « RRO : vaccin contre la rougeole, la rubéole et les oreillons » (mis à jour le 24 septembre 2026)",
+        "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+      }
+    ]
+  },
+  "en": {
+    "lede": "Rubella (German measles) is a highly contagious disease caused by a virus, and is usually mild. It spreads through secretions from the nose and throat of an infected person. During pregnancy, it can cause miscarriage or malformations in the baby.",
+    "body": "<p>Rubella remains common in several countries, while the risk of catching it in Canada is very low. It occurs mainly in winter and spring and spreads easily within a family, a daycare or a school. The virus crosses the placenta: an infected pregnant woman can pass it on to her fetus.</p>\n<p>Some people have no symptoms. In others, symptoms appear 2 to 3 weeks after infection begins and last about a week: a red rash that starts on the face and then spreads to the rest of the body (lasting about 3 days), a mild fever (below 39 °C), nausea and red eyes. Teenagers and adults may also have swollen lymph nodes behind the ears and in the neck, cold-like symptoms before the rash, and joint pain.</p>\n<p>Possible complications are arthritis, especially in women, as well as miscarriage and malformations in the baby when infection occurs during pregnancy. More rarely, rubella can cause encephalitis or a temporary drop in the blood cells that help blood clot, which can lead to internal bleeding. There is no specific treatment, and antibiotics are useless.</p>\n<h3>Who should be vaccinated</h3>\n<p>The rubella vaccine is part of Québec’s regular vaccination schedule: children receive it at 12 months and 18 months, in a combined vaccine that also protects against measles, mumps and chickenpox (RRO-Var, known in English as MMRV).</p>\n<p>Anyone who is not vaccinated or has never had rubella can catch it. If you are planning a pregnancy, make sure you are protected. According to the Protocole d’immunisation du Québec, people are considered protected if they have written proof of having received one dose of vaccine, or a blood test showing antibodies at a titre of 10 IU/ml or more. Having had rubella without laboratory confirmation does not prove immunity. People who are not considered protected should be vaccinated.</p>\n<h3>The vaccine</h3>\n<p>The rubella vaccine is a combined live attenuated vaccine. In Canada, the MMR (measles, mumps, rubella) vaccines distributed are M-M-R II and Priorix. After 1 dose, more than 97% of people develop protective antibodies, and according to the Gouvernement du Québec, protection lasts a lifetime. Since free vaccination was introduced in Canada, the number of cases has dropped by almost 99%.</p>\n<p>The vaccine must not be given during pregnancy or to people who are immunocompromised. Avoid becoming pregnant during the month after vaccination: no cases have been reported, but there is a theoretical risk of transmission to the fetus.</p>\n<h3>Other precautions</h3>\n<p>A person with rubella, child or adult, should stay home until 7 days after the rash appears and avoid young children and pregnant women. A pregnant woman who has been in contact with someone who has rubella should see her doctor.</p>",
+    "seoLead": "Rubella during pregnancy can cause miscarriage or malformations in the baby.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Rubéole” (updated June 20, 2019)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/rubeole"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Vaccin contre la rougeole, la rubéole et les oreillons (RRO)” (updated May 30, 2019)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Programme québécois d’immunisation” (updated June 30, 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+      },
+      {
+        "label": "MSSS, Protocole d’immunisation du Québec (PIQ), “RRO : vaccin contre la rougeole, la rubéole et les oreillons” (updated September 24, 2026)",
+        "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+      }
+    ]
+  },
+  "hasVaccine": true,
+  "notes": "Québec.ca and the PIQ were used because INSPQ’s travel guide has no chapter on this vaccine. No adult or traveller booster is mentioned for rubella in any source read; protection is described as lifelong (Québec.ca RRO page, dated May 30, 2019). The PIQ protection criteria (one documented dose, or serology ≥ 10 UI/ml) were included because they tell an adult traveller whether they need the vaccine; the PIQ also notes that the Québec program aims mainly at preventing rubella during pregnancy (not repeated). The Québec.ca rubella page is dated June 20, 2019; it says cases dropped ~99% “au Canada” (the mumps page says “au Québec”) — kept as written. Left out: home-care and medication advice (acetaminophen/ibuprofen, Reye syndrome), congenital rubella transmission via urine, side-effects table, free-of-charge mention. Verification (2026-11-10): “not vaccinated AND never had rubella” changed to “not vaccinated OR never had rubella”, as Québec.ca writes it; French seoLead now keeps the “during pregnancy” condition (matches the lede and the English). The English gloss “known in English as MMRV” is a plain translation of RRO-Var and was kept. Everything else and the four source dates checked against the pages."
+}

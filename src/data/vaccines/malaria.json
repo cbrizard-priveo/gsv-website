@@ -1,0 +1,70 @@
+{
+  "routes": {
+    "fr": "/vaccination/malaria/",
+    "en": "/en/vaccination/malaria/"
+  },
+  "fr": {
+    "lede": "Le paludisme (malaria) est une maladie grave, potentiellement mortelle, causée par des parasites du genre <em>Plasmodium</em> et transmise par la piqûre de moustiques anophèles. Malgré des progrès importants dans de nombreux pays, il demeure une cause majeure de décès évitables dans le monde.",
+    "body": "<p>Des cinq espèces de parasites en cause chez l’humain, <em>P. falciparum</em> est la plus dangereuse : c’est elle qui cause les formes mortelles. Le risque varie d’une région à l’autre et même à l’intérieur d’un pays : la transmission est rare au-delà de 2 500 m d’altitude et plus élevée pendant la saison des pluies. Les personnes qui retournent visiter leur famille dans leur pays d’origine représentent plus de la moitié des cas signalés au Québec : l’immunité acquise se perd très vite.</p><p>Les symptômes, surtout la fièvre, peuvent apparaître dès une semaine après la première exposition, ou des mois, voire des années plus tard (surtout avec <em>P. vivax</em> ou <em>P. ovale</em>). Avec <em>P. falciparum</em>, la plupart des voyageurs ont des symptômes dans les 3 mois.</p><h3>Prévention : les « 4 C »</h3><ul><li><strong>Connaître</strong> le risque de paludisme à destination.</li><li>Se protéger <strong>contre</strong> les moustiques.</li><li>Prendre une <strong>chimioprophylaxie</strong> (médicament préventif) si elle est recommandée.</li><li><strong>Consulter</strong> d’urgence en cas de fièvre et demander un frottis sanguin pour le paludisme.</li></ul><p>Selon la destination, le type de voyage, les activités, la durée du séjour et votre tolérance aux médicaments, on recommandera soit la protection contre les moustiques seulement, soit la protection contre les moustiques et une chimioprophylaxie; en Afrique subsaharienne, par exemple, les deux sont recommandées, même pour un court séjour.</p><h3>Médicaments préventifs (chimioprophylaxie)</h3><p>Pris régulièrement et adaptés à la destination, ces médicaments préviennent de 90 à 95 % des cas de paludisme à <em>P. falciparum</em>, mais aucun ne protège à 100 %. Le choix dépend notamment de la résistance aux médicaments dans la région visitée. Les antipaludéens nommés par l’INSPQ sont la chloroquine (ou l’hydroxychloroquine), l’atovaquone-proguanil (Malarone®), la doxycycline, la méfloquine (Lariam®) et la primaquine (seulement si le dosage de G-6-PD est normal). Après avoir quitté la zone à risque, il faut continuer le traitement 4 semaines avec la méfloquine, la chloroquine (ou l’hydroxychloroquine) ou la doxycycline, et 7 jours avec l’atovaquone-proguanil ou la primaquine.</p><p>Pendant la grossesse, le paludisme augmente les risques pour la mère et le bébé; il est préférable d’éviter les zones à risque, surtout là où <em>P. falciparum</em> résiste aux médicaments. Les bébés, y compris ceux qui sont allaités, et les enfants exposés doivent eux aussi prendre un antipaludéen.</p><h3>Se protéger des piqûres</h3><ul><li>Si possible, limitez le temps passé dehors en soirée et la nuit : les anophèles piquent surtout du crépuscule à l’aube.</li><li>Portez des vêtements longs, amples et de couleur pâle.</li><li>Appliquez un insectifuge sur la peau exposée; chez l’adulte et l’enfant de 12 ans et plus, les premiers choix sont le DEET 30 % ou l’icaridine 20 %.</li><li>Dormez sous une moustiquaire, de préférence imprégnée d’insecticide (par exemple, perméthrine ou deltaméthrine), bien bordée sous le matelas.</li></ul><h3>En cas de fièvre</h3><p>En voyage, consultez en moins de 24 heures si vous faites de la fièvre, même si vous prenez une chimioprophylaxie; repérez à l’avance où obtenir des soins. Au retour d’une région où le paludisme est présent, même à faible risque, rendez-vous à l’urgence en cas de fièvre pour écarter ce diagnostic. Une femme enceinte doit voir un médecin le jour même. Si l’accès aux soins sera difficile, un autotraitement de réserve peut être prescrit avant le départ; il s’agit d’une mesure d’urgence qui ne remplace pas la consultation.</p>",
+    "seoLead": "Le paludisme demeure une cause majeure de décès évitables dans le monde.",
+    "sources": [
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : situation et définition » (aucune date de mise à jour indiquée)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/situation"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : prévention » (aucune date de mise à jour indiquée)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/prevention"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : chimioprophylaxie » (aucune date de mise à jour indiquée)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/chimioprophylaxie"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : médication » (aucune date de mise à jour indiquée)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/medication"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : autotraitement et autodiagnostic » (aucune date de mise à jour indiquée)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/autotraitement"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+      }
+    ]
+  },
+  "en": {
+    "lede": "Malaria is a serious, potentially fatal disease caused by parasites of the genus <em>Plasmodium</em> and transmitted by the bite of <em>Anopheles</em> mosquitoes. Despite major progress in many countries, it remains a leading cause of preventable deaths worldwide.",
+    "body": "<p>Of the five parasite species involved in humans, <em>P. falciparum</em> is the most dangerous: it causes the fatal forms. The risk varies from one region to another and even within a country: transmission is rare above 2,500 m of altitude and higher during the rainy season. People returning to visit family in their country of origin account for more than half of the cases reported in Québec: acquired immunity is lost very quickly.</p><p>Symptoms, mainly fever, can appear as early as one week after the first exposure, or months or even years later (especially with <em>P. vivax</em> or <em>P. ovale</em>). With <em>P. falciparum</em>, most travellers develop symptoms within 3 months.</p><h3>Prevention: the “4 Cs”</h3><ul><li><strong>Consider</strong> the malaria risk at your destination.</li><li><strong>Cover up</strong>: protect yourself against mosquitoes.</li><li><strong>Chemoprophylaxis</strong>: take preventive medication if it is recommended.</li><li><strong>Consult</strong> urgently if you have a fever and ask for a blood smear for malaria.</li></ul><p>Depending on the destination, the type of trip, activities, length of stay and how well you tolerate medication, the recommendation will be either protection against mosquitoes alone, or protection against mosquitoes plus chemoprophylaxis; in sub-Saharan Africa, for example, both are recommended, even for a short stay.</p><h3>Preventive medication (chemoprophylaxis)</h3><p>Taken regularly and suited to the destination, these medications prevent 90 to 95% of <em>P. falciparum</em> malaria cases, but none protects 100%. The choice depends in particular on drug resistance in the region visited. The antimalarials named by the INSPQ are chloroquine (or hydroxychloroquine), atovaquone-proguanil (Malarone®), doxycycline, mefloquine (Lariam®) and primaquine (only if the G6PD test is normal). After leaving the risk area, the medication must be continued for 4 weeks with mefloquine, chloroquine (or hydroxychloroquine) or doxycycline, and for 7 days with atovaquone-proguanil or primaquine.</p><p>During pregnancy, malaria increases the risks for both mother and baby; it is preferable to avoid risk areas, especially where <em>P. falciparum</em> is drug-resistant. Babies, including breastfed babies, and children who are exposed must also take an antimalarial.</p><h3>Protecting yourself from bites</h3><ul><li>If possible, limit time spent outdoors in the evening and at night: <em>Anopheles</em> mosquitoes bite mainly from dusk to dawn.</li><li>Wear long, loose, light-coloured clothing.</li><li>Apply insect repellent to exposed skin; for adults and children 12 and older, the first choices are DEET 30% or icaridin 20%.</li><li>Sleep under a bed net, preferably treated with insecticide (for example, permethrin or deltamethrin), tucked in under the mattress.</li></ul><h3>If you have a fever</h3><p>While travelling, see a doctor within 24 hours if you have a fever, even if you are taking chemoprophylaxis; find out ahead of time where to get care. After returning from a region where malaria is present, even at low risk, go to the emergency department if you have a fever to rule out this diagnosis. A pregnant woman must see a doctor the same day. If access to care will be difficult, a stand-by emergency treatment may be prescribed before departure; it is an emergency measure and does not replace seeing a doctor.</p>",
+    "seoLead": "Malaria remains a leading cause of preventable deaths worldwide.",
+    "sources": [
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, “Paludisme / Malaria : situation et définition” (no update date shown)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/situation"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, “Paludisme / Malaria : prévention” (no update date shown)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/prevention"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, “Paludisme / Malaria : chimioprophylaxie” (no update date shown)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/chimioprophylaxie"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, “Paludisme / Malaria : médication” (no update date shown)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/medication"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, “Paludisme / Malaria : autotraitement et autodiagnostic” (no update date shown)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/autotraitement"
+      },
+      {
+        "label": "INSPQ, Guide d’intervention santé-voyage, “Arthropodes” (updated December 22, 2023)",
+        "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+      }
+    ]
+  },
+  "hasVaccine": false,
+  "notes": "No « Dernière mise à jour » date is shown on any of the five INSPQ malaria pages (labels say so). The malaria chapter itself does not say who transmits malaria; the Anopheles link and biting times come from the INSPQ « Arthropodes » chapter (table 1). The INSPQ malaria chapter says nothing about a vaccine, so hasVaccine is false and no vaccine is mentioned. The 190 million / 584 000 / 90 % figures are old INSPQ figures (the 90 % refers to the 2013 estimate); the clinic may want to check whether INSPQ updates them. Left out on purpose (length): the beach-resort vs. backpacker example, the Mexico/Central America low-risk example, the warning about counterfeit drugs abroad, the list of diseases malaria can mimic; dosage tables, drug side effects and contraindications, the region-by-region drug table, terminal prophylaxis, HIV interactions, self-diagnosis tests (INSPQ says they are usually not recommended), detailed pregnancy/breastfeeding drug choices. The « 4 C » mnemonic is INSPQ’s (Connaissance, Contre les moustiques, Chimioprophylaxie, Consulter); in English it was rendered as “4 Cs” with equivalent words. The INSPQ map also mentions mefloquine-resistant areas (borders of Thailand, Laos, Cambodia, Myanmar, Viet Nam) — not included. Verification (2026-11-10): all five malaria pages and « Arthropodes » re-read in the browser; no « Dernière mise à jour » shown on the malaria pages (labels correct), Arthropodes 22 décembre 2023 (correct). Removed the old global figures (190 million cases / 584 000 deaths per year, and the 2013 estimate that 90 % of cases and deaths were in sub-Saharan Africa) from lede and body; new lede sentence and seoLead restate INSPQ’s lasting statement that malaria remains a major cause of preventable death despite progress in many countries. Added hydroxychloroquine to the 4-week continuation list (INSPQ medication table). Added « si possible » to the outdoor-exposure advice, as in INSPQ. Everything else matched the sources. For the medical reviewer: the INSPQ malaria pages are old (references up to 2016, no update date); the « Situation » page itself still cites the 2013 figures."
+}

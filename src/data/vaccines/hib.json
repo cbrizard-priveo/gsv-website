@@ -1,0 +1,46 @@
+{
+  "routes": {
+    "fr": "/vaccination/infections-graves-a-haemophilus-influenza-de-type-b-hib/",
+    "en": "/en/vaccination/vaccination-severe-haemophilus-influenza-type-b-hib-infections/"
+  },
+  "fr": {
+    "lede": "Les infections graves à <em>Hæmophilus influenzæ</em> de type b (Hib) peuvent causer une épiglottite (enflure importante de la gorge), une pneumonie ou une méningite. Elles peuvent laisser des séquelles comme la surdité ou une déficience intellectuelle, et la méningite à Hib entraîne le décès dans 5 % des cas.",
+    "body": "<p>Pour éviter les infections graves à Hib et leurs complications, la vaccination reste la protection la plus efficace.</p>\n<h3>Qui devrait se faire vacciner</h3>\n<p>Ce vaccin s’adresse aux enfants de moins de 5 ans. Les personnes de tout âge dont l’état de santé accroît le risque d’infection grave à Hib le reçoivent aussi.</p>\n<h3>Le vaccin</h3>\n<p>Chez l’enfant, le vaccin contre Hib est habituellement combiné aux vaccins contre la diphtérie, la coqueluche, le tétanos, l’hépatite B et la poliomyélite. Le Programme québécois d’immunisation prévoit :</p>\n<ul>\n<li>un vaccin DCaT-HB-VPI-Hib à 2 mois et à 4 mois;</li>\n<li>un vaccin DCaT-VPI-Hib à 1 an.</li>\n</ul>\n<p>L’enfant n’est pleinement protégé contre ces maladies qu’après avoir reçu toutes les doses du calendrier régulier.</p>\n<p>Le vaccin contre Hib est sécuritaire et, dans la majorité des cas, ne cause aucune réaction. Il peut survenir de la douleur, de la rougeur ou de l’enflure au point d’injection; moins de 10 % des enfants font de la fièvre.</p>",
+    "seoLead": "Les infections graves à Hib peuvent causer épiglottite, pneumonie et méningite.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Infections graves à Hæmophilus influenzæ de type B (Hib) » (mis à jour le 22 octobre 2015)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/infections-a-hamophilus-influenza-de-type-b"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Vaccin conjugué contre Hæmophilus influenzæ de type b (Hib) » (mis à jour le 9 avril 2015)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-conjugue-hamophilus-influenza-de-type-b"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre la diphtérie, la coqueluche, le tétanos, l’hépatite B, la poliomyélite et les infections à Hib (DCaT-HB-VPI-Hib ou DCaT-VPI-Hib) » (mis à jour le 22 juin 2023)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccins-combines-dcat-hb-vpi-hib-ou-dcat-vpi-hib"
+      }
+    ]
+  },
+  "en": {
+    "lede": "Serious <em>Hæmophilus influenzæ</em> type b (Hib) infections can cause epiglottitis (severe swelling of the throat), pneumonia or meningitis. They can leave after-effects such as deafness or intellectual disability, and Hib meningitis is fatal in 5% of cases.",
+    "body": "<p>To avoid serious Hib infections and their complications, vaccination remains the most effective protection.</p>\n<h3>Who should be vaccinated</h3>\n<p>This vaccine is for children under 5 years of age. People of any age whose health condition increases the risk of serious Hib infection also receive it.</p>\n<h3>The vaccine</h3>\n<p>In children, the Hib vaccine is usually combined with the vaccines against diphtheria, whooping cough, tetanus, hepatitis B and polio. The Québec Immunization Program provides:</p>\n<ul>\n<li>a DTaP-HB-IPV-Hib vaccine at 2 months and at 4 months;</li>\n<li>a DTaP-IPV-Hib vaccine at 1 year.</li>\n</ul>\n<p>A child is fully protected against these diseases only after receiving all the doses in the regular schedule.</p>\n<p>The Hib vaccine is safe and, in most cases, causes no reaction. Pain, redness or swelling may occur at the injection site; fewer than 10% of children develop a fever.</p>",
+    "seoLead": "Serious Hib infections can cause epiglottitis, pneumonia and meningitis.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Infections graves à Hæmophilus influenzæ de type B (Hib)” (updated October 22, 2015)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/infections-a-hamophilus-influenza-de-type-b"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Vaccin conjugué contre Hæmophilus influenzæ de type b (Hib)” (updated April 9, 2015)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-conjugue-hamophilus-influenza-de-type-b"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Vaccins contre la diphtérie, la coqueluche, le tétanos, l’hépatite B, la poliomyélite et les infections à Hib (DCaT-HB-VPI-Hib ou DCaT-VPI-Hib)” (updated June 22, 2023)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccins-combines-dcat-hb-vpi-hib-ou-dcat-vpi-hib"
+      }
+    ]
+  },
+  "hasVaccine": true,
+  "notes": "Québec.ca has very little public content on Hib: the disease page (2015-10-22, marked 'Page en cours d’amélioration') only lists signs, complications and vaccines; the vaccine page dates from 2015-04-09. The page is therefore short (~200 words) and has no paragraph on transmission or on what Hib is (the pages do not even say it is a bacterium, so the text doesn't either). The pages do not say who gets it free or that others must pay, so nothing on cost. Schedule (2 and 4 months DCaT-HB-VPI-Hib, 1 year DCaT-VPI-Hib) is from the combined-vaccine page (2023-06-22). This differs from the old FR page, which gave doses at 2, 4 and 6 months with a booster at 12–18 months, '>95 % efficacy' and examples of high-risk conditions (splenectomy, cochlear implant, immunodeficiency); none of that is on the Québec.ca pages, so it was removed. The source's 'retard mental' is rendered 'déficience intellectuelle' (FR) and 'intellectual disability' (EN). The PIQ was not used. The English page was previously empty; this fills it. Verification (2026-11-10): all three pages re-read; dates confirmed (22 octobre 2015, 9 avril 2015, 22 juin 2023). Replaced 'retard mental' with 'déficience intellectuelle' (current term; same fact). Reworded the 'best protection', 'who is vaccinated' and 'full protection' sentences (too close to the source). Corrected 'parfois de la fièvre' to 'moins de 10 % des enfants' (the source lists fever in children as 'souvent, moins de 10 %'; 'parfois' means <1 % in Québec tables). Open for the medical team: the disease and Hib-vaccine pages are from 2015 (disease page marked 'Page en cours d’amélioration'); the 5 % meningitis lethality comes from that 2015 page."
+}

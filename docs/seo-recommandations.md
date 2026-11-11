@@ -39,7 +39,7 @@ Source: "Recommandations SEO - Groupe Santé Voyage.xlsx" (27 rows). Titles, des
 ## Not applied: needs your input
 
 2. **"Clinique de vaccination voyage" section on the homepage:** it should feature "the most used and quasi-exclusive vaccines" at GSV. Only the clinic knows which ones these are.
-3. **Vaccine page sections 1–6** (what it is, who it's for, doses, side effects, price and insurance, monograph):
+3. **Vaccine page sections 1–6** (what it is, who it's for, doses, side effects, price and insurance, monograph). Update 2026-11-10: every vaccine page now has a new text from INSPQ / Québec.ca covering what the source says (see docs/vaccine-pages-report.md); price, insurance and monograph remain:
    - This is new medical content for about 50 pages.
    - It can be written like the country pages: facts from the PIQ/INSPQ, our own wording, independent verification, source cited.
    - Price and insurance coverage have to come from the clinic.
@@ -49,4 +49,4 @@ Source: "Recommandations SEO - Groupe Santé Voyage.xlsx" (27 rows). Titles, des
 
 ## Found while applying
 
-- The English dengue, malaria and zika pages contain "Lorem Ipsum" placeholder text, copied from the live site. They should be written or hidden before publishing.
+- The English dengue, malaria and zika pages contained "Lorem Ipsum" placeholder text copied from the live site. They now have real text (see docs/vaccine-pages-report.md).
