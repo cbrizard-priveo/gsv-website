@@ -1,0 +1,67 @@
+/* Fits Priveo's page sections (./priveo/sections.css, src/components/priveo/) into this site. */
+@layer priveo-foundations, priveo, gsv;
+
+/*
+ * Priveo's rules sit in cascade layers, which any unlayered page style would beat. Inside a Priveo section,
+ * drop the page's styles so only the layers apply, as for the header (header.css). Left alone: the icons
+ * (their stroke comes from SVG attributes) and the map, which Leaflet styles with its own stylesheet.
+ */
+.pv,
+.pv *:not(svg, svg *, .clinic-map__canvas, .clinic-map__canvas *) {
+  all: revert-layer;
+}
+
+@layer gsv {
+  /* Priveo's icons are an icon font sized by font-size; ours are SVGs, sized the same way. */
+  .pv :is(.contact-coords__icon, .amenities-tile__icon, .callout-band__check, .btn) svg {
+    width: 1.15em;
+    height: 1.15em;
+    flex: none;
+  }
+  .pv .callout-band__check svg {
+    width: 1em;
+    height: 1em;
+  }
+
+  /* Priveo's service cards are tall to hold a photo; this site's have none yet. */
+  .pv .card--service:not(:has(.card__media)) {
+    min-height: 0;
+  }
+  .pv .card--service:not(:has(.card__media)) .card__content {
+    gap: 1.5rem;
+  }
+
+  /* Priveo ends its primary buttons with an arrow from its icon font, which this site doesn't load: the
+     same arrow, drawn as a mask. Only sizes the pseudo-element Priveo's rule creates; adds none. */
+  .pv .btn--primary::after {
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    font-size: 0;
+    vertical-align: -0.05rem;
+    background: currentColor;
+    -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+    mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 12h14M13 6l6 6-6 6'/%3E%3C/svg%3E") center / contain no-repeat;
+  }
+
+  /* The map: OpenStreetMap through Leaflet, in place of Priveo's Google map. Its pins are Priveo's buttons,
+     placed by Leaflet instead of Priveo's script. */
+  .pv .clinic-map__canvas {
+    font: inherit;
+  }
+  .pv .clinic-map__marker {
+    background: none;
+    border: 0;
+  }
+  .pv .clinic-map__marker .clinic-map__pin {
+    --x: 0;
+    --y: 0;
+  }
+  /* Softer tiles, closer to Priveo's pale map. */
+  .pv .clinic-map__canvas .leaflet-tile-pane {
+    filter: saturate(0.35) brightness(1.04);
+  }
+  .pv .clinic-map__canvas .leaflet-control-attribution {
+    font-size: 0.6875rem;
+  }
+}

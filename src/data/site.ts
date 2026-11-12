@@ -67,7 +67,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'Cliniques',
-          cta: { label: 'Nos cliniques', href: '/contact/' },
+          cta: { label: 'Nos cliniques', href: '/cliniques/' },
         },
       },
       {
@@ -134,7 +134,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
         ],
         intro: {
           title: 'Clinics',
-          cta: { label: 'Our clinics', href: '/en/contact/' },
+          cta: { label: 'Our clinics', href: '/en/clinics/' },
         },
       },
       {

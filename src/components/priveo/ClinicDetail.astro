@@ -1,0 +1,107 @@
+---
+// Priveo's clinic details (web-priveo-sante: sections/ClinicList.astro, layout « detail »): contact details,
+// opening hours and what's on site, in three cards.
+import Icon from '../Icon.astro';
+import { BOOKING, CLINICS, type Lang } from '../../data/site';
+import { CLINIC_CONTACT, clinicCopy, type ClinicPage } from '../../data/clinics';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  clinic: ClinicPage;
+  lang: Lang;
+}
+
+const { clinic, lang } = Astro.props;
+const t = clinicCopy[lang];
+const place = CLINICS[clinic.index];
+const hours = lang === 'fr' ? '8 h 30 – 16 h 30' : '8:30 a.m. – 4:30 p.m.';
+const tel = (n: string) => `tel:+1${n.replaceAll('-', '')}`;
+const ICONS = { parking: 'parking', pharmacy: 'pharmacy', radiology: 'radiology', elevator: 'elevator' } as const;
+// Languages first, in one tile, as on Priveo.
+const langs = clinic.amenities.filter((a) => a === 'fr' || a === 'en').map((a) => t.amenities[a]);
+const tiles = [
+  ...(langs.length ? [{ icon: 'language' as const, label: langs.join(' & ') }] : []),
+  ...clinic.amenities.filter((a) => a !== 'fr' && a !== 'en').map((a) => ({ icon: ICONS[a as keyof typeof ICONS], label: t.amenities[a] })),
+];
+---
+
+<div class="pv">
+<section class="layout-section section section--compact">
+  <div class="layout-element layout-container container">
+    <div class="layout-element layout-stack section-header section-header--left">
+      <span class="layout-element text-inline section-header__tagline">{t.clinic.contactEyebrow}</span>
+      <h2 class="layout-element typography-heading section-header__title font-secondary">{t.clinic.findUs(clinic.short)}</h2>
+    </div>
+    <div class="layout-element layout-stack card-grid card-grid--3">
+      <div class="layout-element layout-stack card card--elevated">
+        <div class="layout-element layout-stack card__content">
+          <h3 class="layout-element typography-heading card__title">{t.clinic.reach}</h3>
+          <ul class="contact-coords">
+            <li class="contact-coords__item">
+              <span class="contact-coords__icon"><Icon name="map-pin" /></span>
+              <div class="contact-coords__text">
+                <span class="contact-coords__label">{t.clinic.address}</span>
+                <address class="contact-coords__value">{place.address}<br />{place.locality}</address>
+              </div>
+            </li>
+            <li class="contact-coords__item">
+              <span class="contact-coords__icon"><Icon name="phone" /></span>
+              <div class="contact-coords__text">
+                <span class="contact-coords__label">{t.clinic.phone}</span>
+                <a class="contact-coords__value contact-coords__link" href={tel(CLINIC_CONTACT.phone)}>{CLINIC_CONTACT.phone}</a>
+              </div>
+            </li>
+            <li class="contact-coords__item">
+              <span class="contact-coords__icon"><Icon name="fax" /></span>
+              <div class="contact-coords__text">
+                <span class="contact-coords__label">{t.clinic.fax}</span>
+                <span class="contact-coords__value">{CLINIC_CONTACT.fax}</span>
+              </div>
+            </li>
+            <li class="contact-coords__item">
+              <span class="contact-coords__icon"><Icon name="mail" /></span>
+              <div class="contact-coords__text">
+                <span class="contact-coords__label">{t.clinic.email}</span>
+                <a class="contact-coords__value contact-coords__link" href={`mailto:${CLINIC_CONTACT.email}`}>{CLINIC_CONTACT.email}</a>
+              </div>
+            </li>
+          </ul>
+          <a class="layout-element action-button btn btn--ghost btn--card button-base contact-coords__map" href={clinic.map} target="_blank" rel="noopener">{t.clinic.directions}<Icon name="arrow-right" /></a>
+        </div>
+      </div>
+      <div class="layout-element layout-stack card card--elevated">
+        <div class="layout-element layout-stack card__content">
+          <h3 class="layout-element typography-heading card__title">{t.clinic.hours}</h3>
+          <div class="layout-element layout-stack price-card__pane">
+            <div class="layout-element layout-stack price-card__row">
+              <div class="layout-element layout-stack price-card__info"><span class="layout-element text-inline price-card__name">{t.clinic.weekdays}</span></div>
+              <span class="layout-element text-inline price-card__duration">{hours}</span>
+            </div>
+            <div class="layout-element layout-stack price-card__row">
+              <div class="layout-element layout-stack price-card__info"><span class="layout-element text-inline price-card__name">{t.clinic.weekend}</span></div>
+              <span class="layout-element text-inline price-card__duration">{t.clinic.closed}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="layout-element layout-stack card card--elevated">
+        <div class="layout-element layout-stack card__content">
+          <h3 class="layout-element typography-heading card__title">{t.clinic.onSite}</h3>
+          <div class="layout-element layout-stack amenities-grid">
+            {
+              tiles.map((a) => (
+                <div class="amenities-tile">
+                  <span class="amenities-tile__icon"><Icon name={a.icon} /></span>
+                  <span class="layout-element text-inline amenities-tile__label">{a.label}</span>
+                </div>
+              ))
+            }
+          </div>
+          <a class="layout-element action-button btn btn--primary button-base amenities-card__cta" href={BOOKING} target="_blank" rel="noopener">{t.book}</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+</div>

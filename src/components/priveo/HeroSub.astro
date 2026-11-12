@@ -1,0 +1,33 @@
+---
+// Priveo's sub-page hero (web-priveo-sante: frames/ClinicFrame.astro, service/hero-sub).
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  tagline: string;
+  title: string;
+  description?: string;
+  cta: { label: string; href: string };
+  image?: { src: string; alt: string; width: number; height: number };
+}
+
+const { tagline, title, description, cta, image } = Astro.props;
+---
+
+<div class="pv">
+<section class="layout-element layout-section hero hero--sub">
+  <div class="layout-element layout-container hero-sub__grid">
+    <div class="layout-element layout-stack hero-sub__content">
+      <p class="layout-element text-inline hero__tagline">{tagline}</p>
+      <h1 class="layout-element typography-heading hero-sub__title">{title}</h1>
+      {description && <p class="layout-element text-inline hero-sub__description">{description}</p>}
+      <div class="layout-element layout-box hero__actions">
+        <a class="layout-element action-button btn btn--primary button-base" href={cta.href} target="_blank" rel="noopener">{cta.label}</a>
+      </div>
+    </div>
+    <div class="layout-element layout-stack hero-sub__media">
+      {image && <img width={image.width} height={image.height} src={image.src} class="layout-element media-image hero-sub__image css-filter size-large" alt={image.alt} loading="eager" decoding="async" fetchpriority="high" />}
+    </div>
+  </div>
+</section>
+</div>

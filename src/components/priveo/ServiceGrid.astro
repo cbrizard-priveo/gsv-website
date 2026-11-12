@@ -1,0 +1,41 @@
+---
+// Priveo's « care offered here » grid (web-priveo-sante: frames/ClinicFrame.astro, pages/service-grid).
+// Priveo's cards have a photo and a short text; this site's services have neither yet, so only the title.
+import Icon from '../Icon.astro';
+import type { Lang } from '../../data/site';
+import { clinicCopy } from '../../data/clinics';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  name: string;
+  lang: Lang;
+}
+
+const { name, lang } = Astro.props;
+const t = clinicCopy[lang];
+---
+
+<div class="pv">
+<section class="layout-element layout-section section">
+  <div class="layout-element layout-container container">
+    <div class="layout-element layout-stack section-header section-header--center">
+      <p class="layout-element text-inline section-header__tagline">{t.clinic.servicesEyebrow}</p>
+      <h2 class="layout-element typography-heading section-header__title font-secondary">{t.clinic.servicesTitle(name)}</h2>
+      <p class="layout-element text-inline section-header__description">{t.clinic.servicesLede}</p>
+    </div>
+    <div class="layout-element layout-container card-grid card-grid--4">
+      {
+        t.services.map((s) => (
+          <article class="layout-element layout-container card card--service expand-click">
+            <div class="layout-element layout-stack card__content">
+              <h3 class="layout-element typography-heading card__title">{s.title}</h3>
+              <a class="layout-element action-button btn btn--ghost btn--card button-base" href={s.href} aria-label={`${t.more} : ${s.title}`}>{t.more}<Icon name="arrow-right" /></a>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+</div>

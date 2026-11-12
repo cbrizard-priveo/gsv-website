@@ -1,0 +1,38 @@
+---
+// Priveo's callout band (web-priveo-sante: sections/Cta.astro, the « callout-band » layout).
+import Icon from '../Icon.astro';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  badge: string;
+  title: string;
+  text: string;
+  cta: { label: string; href: string };
+  asideTitle: string;
+  items: string[];
+}
+
+const { badge, title, text, cta, asideTitle, items } = Astro.props;
+---
+
+<div class="pv">
+<section class="layout-section section callout-band callout-band--cool">
+  <div class="layout-element layout-container container">
+    <div class="callout-band__card">
+      <div class="callout-band__main">
+        <span class="layout-element text-inline badge badge--pill badge-glass callout-band__badge">{badge}</span>
+        <h2 class="layout-element typography-heading callout-band__title">{title}</h2>
+        <div class="layout-element text-flow callout-band__text"><p>{text}</p></div>
+        <a class="action-button btn btn--primary button-base" href={cta.href}>{cta.label}</a>
+      </div>
+      <aside class="callout-band__aside">
+        <p class="callout-band__aside-title">{asideTitle}</p>
+        <ul class="callout-band__list">
+          {items.map((item) => <li class="callout-band__item"><i class="callout-band__check" aria-hidden="true"><Icon name="check-circle" /></i><span>{item}</span></li>)}
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+</div>

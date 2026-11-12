@@ -1,0 +1,38 @@
+---
+// Priveo's booking steps (web-priveo-sante: the « Étapes de réservation » reusable block, as rendered on
+// dev.priveosante.com).
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  tagline: string;
+  title: string;
+  steps: { title: string; text: string }[];
+  cta: { label: string; href: string };
+}
+
+const { tagline, title, steps, cta } = Astro.props;
+---
+
+<div class="pv">
+<section class="layout-section section booking-steps">
+  <div class="layout-element layout-container steps-section__inner">
+    <div class="layout-element layout-stack section-header section-header--center">
+      <span class="layout-element text-inline section-header__tagline">{tagline}</span>
+      <h2 class="layout-element typography-heading section-header__title heading-2xl font-secondary">{title}</h2>
+    </div>
+    <ol class="layout-element layout-stack booking-steps__track">
+      {
+        steps.map((step, i) => (
+          <li class="layout-element layout-stack booking-steps__step">
+            <span class="booking-steps__num">{String(i + 1).padStart(2, '0')}</span>
+            <h3 class="layout-element typography-heading booking-steps__title">{step.title}</h3>
+            <p class="layout-element text-inline booking-steps__text">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <a class="layout-element action-button btn btn--primary button-base" href={cta.href} target="_blank" rel="noopener">{cta.label}</a>
+  </div>
+</section>
+</div>

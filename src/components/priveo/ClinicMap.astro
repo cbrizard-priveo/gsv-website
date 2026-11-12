@@ -1,0 +1,141 @@
+---
+// Priveo's clinic map (web-priveo-sante: sections/ClinicList.astro, layout « map »): a map with a pin per
+// clinic, the chosen clinic's card, and a button per city. Priveo draws a Google map; here it is
+// OpenStreetMap through Leaflet (no key, no cookie), with Priveo's pins and cards.
+import { BOOKING, CLINICS, type Lang } from '../../data/site';
+import { clinicCopy, clinicPages, clinicPath } from '../../data/clinics';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  lang: Lang;
+  id?: string;
+}
+
+const { lang, id = 'clinics' } = Astro.props;
+const t = clinicCopy[lang];
+const start = 0; // Laval, as on Priveo
+const clinics = clinicPages.map((c) => ({ ...c, place: CLINICS[c.index] }));
+const data = clinics.map((c) => ({ name: c.short, lat: c.position[0], lng: c.position[1], below: c.slug.fr === 'longueuil' }));
+---
+
+<div class="pv">
+<section class="layout-section section locations clinic-map" id={id} data-clinic-map>
+  <div class="layout-element layout-container locations__container">
+    <div class="layout-element layout-stack section-header section-header--center">
+      <p class="layout-element text-inline section-header__tagline">{t.map.eyebrow}</p>
+      <h2 class="layout-element typography-heading section-header__title font-secondary">{t.map.title}</h2>
+      <p class="layout-element text-inline section-header__description">{t.map.lede}</p>
+    </div>
+    <div class="clinic-map__grid">
+      <div class="clinic-map__map">
+        <div class="clinic-map__canvas" role="region" aria-label={t.map.mapLabel} data-clinics={JSON.stringify(data)} data-start={start}></div>
+      </div>
+      <div class="clinic-map__cards">
+        {
+          clinics.map((c, i) => (
+            <article class={`clinic-map__card${i === start ? ' is-active' : ''}`} data-clinic={i} hidden={i !== start}>
+              <div class="clinic-map__media">
+                <img class="clinic-map__photo" src={c.photo} alt={c.short} loading="lazy" decoding="async" />
+                <span class="clinic-map__status">{t.map.status}</span>
+              </div>
+              <div class="clinic-map__body">
+                <h3 class="clinic-map__name">{c.name}</h3>
+                <p class="clinic-map__address">
+                  {c.place.address}
+                  <br />
+                  {c.place.locality}
+                </p>
+                <p class="clinic-map__label">{t.map.services}</p>
+                <div class="clinic-map__chips">{t.services.map((s) => <span>{s.title}</span>)}</div>
+                <div class="clinic-map__ctas">
+                  <a class="btn btn--primary" href={BOOKING} target="_blank" rel="noopener">{t.book}</a>
+                  <a class="btn btn--outline" href={clinicPath(c, lang)}>{t.map.view}</a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+    <div class="clinic-map__cities" role="group" aria-label={t.map.choose}>
+      {
+        clinics.map((c, i) => (
+          <button type="button" class={`clinic-map__city${i === start ? ' is-active' : ''}`} data-clinic={i} aria-pressed={i === start ? 'true' : 'false'}>
+            {c.short}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+  import 'leaflet/dist/leaflet.css';
+
+  interface Pin {
+    name: string;
+    lat: number;
+    lng: number;
+    below: boolean;
+  }
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-clinic-map]')) {
+    const canvas = root.querySelector<HTMLElement>('.clinic-map__canvas')!;
+    const pins: Pin[] = JSON.parse(canvas.dataset.clinics!);
+    const cards = [...root.querySelectorAll<HTMLElement>('.clinic-map__card')];
+    const cities = [...root.querySelectorAll<HTMLButtonElement>('.clinic-map__city')];
+    let markers: HTMLButtonElement[] = [];
+    let focus: ((i: number) => void) | null = null;
+
+    // The chosen clinic: its card, its city button and its pin.
+    const select = (i: number) => {
+      cards.forEach((card, j) => {
+        card.classList.toggle('is-active', j === i);
+        card.hidden = j !== i;
+      });
+      for (const group of [cities, markers]) {
+        group.forEach((el, j) => {
+          el.classList.toggle('is-active', j === i);
+          el.setAttribute('aria-pressed', String(j === i));
+        });
+      }
+      focus?.(i);
+    };
+    cities.forEach((button, i) => button.addEventListener('click', () => select(i)));
+
+    // The map loads when it comes near the screen, so pages that don't show it don't fetch it.
+    const load = async () => {
+      const L = (await import('leaflet')).default;
+      const map = L.map(canvas, { scrollWheelZoom: false, attributionControl: true });
+      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+        maxZoom: 18,
+        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
+      }).addTo(map);
+      const bounds = L.latLngBounds(pins.map((p) => [p.lat, p.lng] as [number, number]));
+      map.fitBounds(bounds, { padding: [48, 48] });
+      markers = pins.map((p, i) => {
+        const html = `<button type="button" class="clinic-map__pin${p.below ? ' clinic-map__pin--below' : ''}" aria-pressed="false" aria-label="${p.name}"><span class="clinic-map__tag">${p.name}</span></button>`;
+        const marker = L.marker([p.lat, p.lng], { icon: L.divIcon({ className: 'clinic-map__marker', html, iconSize: [0, 0] }), keyboard: false }).addTo(map);
+        const button = marker.getElement()!.querySelector('button')!;
+        button.addEventListener('click', () => select(i));
+        return button;
+      });
+      focus = (i) => map.panTo([pins[i].lat, pins[i].lng]);
+      // The frame changes size with the layout (it is square on phones): keep the map filling it.
+      new ResizeObserver(() => {
+        map.invalidateSize();
+        map.fitBounds(bounds, { padding: [48, 48] });
+      }).observe(canvas);
+      select(cards.findIndex((c) => c.classList.contains('is-active')));
+    };
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some((e) => e.isIntersecting)) {
+        io.disconnect();
+        load();
+      }
+    }, { rootMargin: '200px' });
+    io.observe(canvas);
+  }
+</script>

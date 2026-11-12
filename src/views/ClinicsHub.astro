@@ -1,0 +1,53 @@
+---
+// « Nos cliniques », in the order of Priveo's page (dev.priveosante.com/cliniques/): hero → clinic map →
+// telemedicine band → booking steps. Priveo's FAQ is left out until there is validated content for it.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSub from '../components/priveo/HeroSub.astro';
+import ClinicMap from '../components/priveo/ClinicMap.astro';
+import CalloutBand from '../components/priveo/CalloutBand.astro';
+import BookingSteps from '../components/priveo/BookingSteps.astro';
+import { BOOKING, CLINICS, type Lang } from '../data/site';
+import { CLINIC_CONTACT, clinicCopy, clinicPages, clinicPath, clinicsHubPath } from '../data/clinics';
+import { absolute, seoHead } from '../lib/seo';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = clinicCopy[lang];
+const path = clinicsHubPath(lang);
+const book = { label: t.book, href: BOOKING };
+
+const head = seoHead({
+  title: t.hub.seoTitle,
+  description: t.hub.description,
+  path,
+  lang,
+  alternates: { fr: clinicsHubPath('fr'), en: clinicsHubPath('en') },
+  image: absolute('/images/clinics/reception.jpg'),
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'ItemList',
+    name: t.hub.title,
+    itemListElement: clinicPages.map((c, i) => ({
+      '@type': 'ListItem',
+      position: i + 1,
+      item: {
+        '@type': 'MedicalClinic',
+        name: `Groupe Santé Voyage – ${c.name}`,
+        url: absolute(clinicPath(c, lang)),
+        telephone: `+1-${CLINIC_CONTACT.phone}`,
+        address: { '@type': 'PostalAddress', streetAddress: CLINICS[c.index].address, addressRegion: 'QC', addressCountry: 'CA' },
+      },
+    })),
+  },
+});
+---
+
+<BaseLayout lang={lang} htmlLang={lang === 'fr' ? 'fr-CA' : 'en-CA'} title={t.hub.seoTitle} head={head} route={path} alt={clinicsHubPath(lang === 'fr' ? 'en' : 'fr')}>
+  <HeroSub tagline={t.hub.tagline} title={t.hub.title} description={t.hub.text} cta={book} image={{ src: '/images/clinics/reception.jpg', alt: t.hub.imageAlt, width: 1000, height: 1000 }} />
+  <ClinicMap lang={lang} />
+  <CalloutBand {...t.telemedicine} />
+  <BookingSteps tagline={t.steps.tagline} title={t.steps.title} steps={t.steps.items} cta={book} />
+</BaseLayout>

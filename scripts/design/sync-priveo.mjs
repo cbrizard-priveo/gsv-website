@@ -2,6 +2,7 @@
 //   src/styles/priveo/tokens.css   every design token (colors, spacing, type scale, radii, shadows…)
 //   src/styles/priveo/fonts.css    @font-face rules; the font files go to public/assets/fonts/
 //   src/styles/priveo/header.css   the header's rules, picked out of Priveo's stylesheets
+//   src/styles/priveo/sections.css the page sections this site reuses (clinic pages), picked out the same way
 //   public/assets/priveo/header.js the header's scripts, verbatim
 // Never edit those files: change Priveo's sources and run this again.
 //   node scripts/design/sync-priveo.mjs            (expects ../web-priveo-sante)
@@ -37,8 +38,11 @@ const FONT_FAMILIES = ['Lora', 'Plus Jakarta Sans'];
 const REM = 0.625;
 const toRem = (value) => value.replace(/(-?\d*\.?\d+)rem\b/g, (_, n) => `${+(n * REM).toFixed(4)}rem`);
 
-// ---- Header ------------------------------------------------------------------------------------------------
-// Where the header's elements live: the header itself and the copy of its buttons the script puts at the
+// ---- Parts -------------------------------------------------------------------------------------------------
+// Each part is a piece of Priveo's markup this site reuses: its rules are picked out of Priveo's stylesheets
+// (only those whose classes all exist in that markup) and scoped to where the part sits on this site.
+
+// Header. Where its elements live: the header itself and the copy of its buttons the script puts at the
 // bottom of the mobile menu. Wrapped in :where() so scoping a rule doesn't change its specificity.
 const SCOPE = ':where(#site-header, .breakin-container)';
 
@@ -70,6 +74,41 @@ const TAGS = new Set('a button ul li nav p span div svg path img i header'.split
 // Text settings Priveo puts on <body>; here they go on the header.
 const BODY_TEXT = /^(font|line-height|color$|letter-spacing|text-wrap|-webkit-font-smoothing|-moz-osx-font-smoothing)/;
 
+const HEADER = { scope: SCOPE, classes: CLASSES, ids: IDS, hook: HOOK, tags: TAGS };
+
+// Sections: Priveo's page sections, inside an element with the class `pv` (src/components/priveo/). Classes in
+// those components, plus the states their script sets. Keep in sync with them.
+const SECTIONS = {
+  scope: ':where(.pv)',
+  classes: new Set(
+    `layout-element layout-section layout-container layout-box layout-stack typography-heading text-inline text-flow
+    content-body rich-text font-secondary heading-2xl media-image css-filter size-large
+    action-button button-base btn btn--primary btn--outline btn--ghost btn--card
+    hero hero--sub hero-sub__grid hero-sub__content hero__tagline hero-sub__title hero-sub__description hero__actions
+    hero-sub__media hero-sub__image
+    section section--compact container section-header section-header--center section-header--left
+    section-header__tagline section-header__title section-header__description
+    locations locations__container clinic-map clinic-map__grid clinic-map__map clinic-map__canvas clinic-map__cards
+    clinic-map__card clinic-map__media clinic-map__photo clinic-map__status clinic-map__body clinic-map__name
+    clinic-map__address clinic-map__phone clinic-map__label clinic-map__chips clinic-map__ctas clinic-map__cities
+    clinic-map__city clinic-map__pin clinic-map__pin--below clinic-map__tag is-active
+    callout-band callout-band--cool callout-band__card callout-band__main badge badge--pill badge-glass
+    callout-band__badge callout-band__title callout-band__text callout-band__aside callout-band__aside-title
+    callout-band__list callout-band__item callout-band__check
+    booking-steps steps-section__inner booking-steps__track booking-steps__step booking-steps__num
+    booking-steps__title booking-steps__text
+    clinic-intro clinic-intro__grid clinic-intro__aside clinic-intro__title clinic-intro__body
+    card-grid card-grid--3 card-grid--4 card card--elevated card--service card__content card__title card__media card__image
+    card__text expand-click contact-coords contact-coords__item contact-coords__icon contact-coords__text
+    contact-coords__label contact-coords__value contact-coords__link contact-coords__map price-card__pane
+    price-card__row price-card__info price-card__name price-card__duration amenities-grid amenities-tile
+    amenities-tile__icon amenities-tile__label amenities-card__cta pv`.split(/\s+/),
+  ),
+  ids: new Set(),
+  hook: null,
+  tags: new Set('a button ul ol li p span div h1 h2 h3 img i address section article aside svg path'.split(' ')),
+};
+
 /** Splits `selector` around its `:name(...)` groups: the text outside them, and what each one holds. */
 function groups(selector, names) {
   const re = new RegExp(`:(?:${names})\\(`, 'g');
@@ -99,33 +138,35 @@ function alternatives(list) {
   return out;
 }
 
-/** Whether every class and id the selector needs exists in the header (`:not()` needs none). */
-function canMatch(selector) {
+/** Whether every class and id the selector needs exists in the part (`:not()` needs none). */
+function canMatch(part, selector) {
   const choice = groups(groups(selector.replace(/\[[^\]]*\]/g, ''), 'not').outer, 'is|where');
-  if (!choice.inner.every((list) => alternatives(list).some(canMatch))) return false;
-  for (const [, name] of choice.outer.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)) if (!CLASSES.has(name)) return false;
-  for (const [, name] of choice.outer.matchAll(/#([\w-]+)/g)) if (!IDS.has(name)) return false;
+  if (!choice.inner.every((list) => alternatives(list).some((alt) => canMatch(part, alt)))) return false;
+  for (const [, name] of choice.outer.matchAll(/\.(-?[_a-zA-Z][\w-]*)/g)) if (!part.classes.has(name)) return false;
+  for (const [, name] of choice.outer.matchAll(/#([\w-]+)/g)) if (!part.ids.has(name)) return false;
   return true;
 }
 
-/** A header selector, scoped where it could match elsewhere; null when it can't match the header. */
-function headerSelector(selector) {
-  if (selector.includes('%') || !canMatch(selector)) return null;
+/** A selector for the part, scoped where it could match elsewhere; null when it can't match the part. */
+function partSelector(part, selector) {
+  const SCOPE = part.scope;
+  if (selector.includes('%') || !canMatch(part, selector)) return null;
   const plain = groups(selector.replace(/\[[^\]]*\]/g, ''), 'not').outer;
-  if (HOOK.test(selector)) return selector;
+  if (part.hook?.test(selector)) return selector;
   if (/[.#]/.test(plain)) return `${SCOPE} ${selector}`;
 
   // Base rules on elements: only for the header's elements, and never the page's own.
   if (/\[type=|\[data-|placeholder|upload-button/.test(selector)) return null;
   const tags = [...selector.replace(/\[[^\]]*\]/g, '').replace(/:(?:where|is|not|has)\(/g, '(').replace(/::?[\w-]+/g, '').matchAll(/(?:^|[\s>+~,(])([a-z][a-z0-9]*)/g)].map((m) => m[1]);
-  if (tags.some((tag) => !TAGS.has(tag))) return null;
+  if (tags.some((tag) => !part.tags.has(tag))) return null;
   // A lone element or `*` (and its ::before/::after) also covers the header element itself.
   const lone = /^(\*|[a-z][a-z0-9]*)?(::?(?:before|after))?$/.exec(selector.trim());
   const self = lone && `${lone[1] && lone[1] !== '*' ? lone[1] : ''}${SCOPE}${lone[2] ?? ''}`;
   return `${SCOPE} ${selector}${self ? `, ${self}` : ''}`;
 }
 
-function buildHeader() {
+function buildPart(part) {
+  const { scope: SCOPE, hook: HOOK } = part;
   const layers = { 'priveo-foundations': postcss.root(), priveo: postcss.root() };
   const rootVars = [];
   const keyframes = new Map();
@@ -166,7 +207,7 @@ function buildHeader() {
         if (text.nodes.length) add(layer, wrappers, text);
         return;
       }
-      const selectors = rule.selectors.filter((s) => !/^(html|body|:root)(?![\w-])/.test(s) || HOOK.test(s)).map(headerSelector).filter(Boolean);
+      const selectors = rule.selectors.filter((s) => !/^(html|body|:root)(?![\w-])/.test(s) || HOOK?.test(s)).map((s) => partSelector(part, s)).filter(Boolean);
       if (!selectors.length) return;
       const kept = rule.clone();
       kept.selector = selectors.join(', ');
@@ -232,7 +273,8 @@ const banner = (what) => `/* ${what}. Generated by scripts/design/sync-priveo.mj
 fs.mkdirSync(OUT, { recursive: true });
 fs.writeFileSync(path.join(OUT, 'tokens.css'), banner("Priveo's design tokens (rem values converted to a 16px root)") + buildTokens());
 fs.writeFileSync(path.join(OUT, 'fonts.css'), banner("Priveo's self-hosted fonts") + buildFonts());
-fs.writeFileSync(path.join(OUT, 'header.css'), banner("Priveo's header styles, in its own cascade layers") + buildHeader());
+fs.writeFileSync(path.join(OUT, 'header.css'), banner("Priveo's header styles, in its own cascade layers") + buildPart(HEADER));
+fs.writeFileSync(path.join(OUT, 'sections.css'), banner("Priveo's page sections reused here (clinic pages), in its own cascade layers") + buildPart(SECTIONS));
 
 const js = path.join(ROOT, 'public/assets/priveo');
 fs.mkdirSync(js, { recursive: true });
@@ -241,6 +283,6 @@ fs.writeFileSync(
   banner("Priveo's header scripts") + SCRIPTS.map((f) => `/* ---- ${f} ---- */\n${fs.readFileSync(path.join(SITE, 'public/assets/js', f), 'utf8').trim()}\n`).join('\n'),
 );
 
-for (const f of ['tokens.css', 'fonts.css', 'header.css']) console.log(`src/styles/priveo/${f}  ${(fs.statSync(path.join(OUT, f)).size / 1024).toFixed(1)} kB`);
+for (const f of ['tokens.css', 'fonts.css', 'header.css', 'sections.css']) console.log(`src/styles/priveo/${f}  ${(fs.statSync(path.join(OUT, f)).size / 1024).toFixed(1)} kB`);
 console.log(`public/assets/priveo/header.js  ${(fs.statSync(path.join(js, 'header.js')).size / 1024).toFixed(1)} kB`);
 console.log(`from ${source}`);

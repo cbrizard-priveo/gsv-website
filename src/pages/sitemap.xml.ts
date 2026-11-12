@@ -5,7 +5,7 @@ import redirects from '../data/redirects.json';
 import type { WpPageData } from '../layouts/WpPage.astro';
 import { countries, countryPath, hubPath } from '../lib/countries';
 import { absolute } from '../lib/seo';
-import { clinicPages, clinicPath } from '../data/clinics';
+import { clinicPages, clinicPath, clinicsHubPath } from '../data/clinics';
 
 interface Entry {
   path: string;
@@ -35,6 +35,8 @@ export const GET: APIRoute = () => {
   }
   entries.push({ path: hubPath('fr'), alternates: { fr: hubPath('fr'), en: hubPath('en') } });
   entries.push({ path: hubPath('en'), alternates: { fr: hubPath('fr'), en: hubPath('en') } });
+  const hubs = { fr: clinicsHubPath('fr'), en: clinicsHubPath('en') };
+  entries.push({ path: hubs.fr, alternates: hubs }, { path: hubs.en, alternates: hubs });
   for (const c of clinicPages) {
     const alternates = { fr: clinicPath(c, 'fr'), en: clinicPath(c, 'en') };
     entries.push({ path: alternates.fr, alternates }, { path: alternates.en, alternates });

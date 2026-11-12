@@ -1,9 +1,13 @@
 ---
-// A clinic page, after Priveo's clinic pages: details card, travel health services, the other clinics.
+// A clinic page, in the order of Priveo's clinic pages (web-priveo-sante: frames/ClinicFrame.astro):
+// hero → contact details, hours and on-site amenities → the care offered there → the booking steps.
+// Priveo's « La clinique » presentation needs a longer text than this site has, so it's left out; the
+// clinic's access sentence is the hero's description, as Priveo uses the presentation's first sentence.
 import BaseLayout from '../layouts/BaseLayout.astro';
-import Icon from '../components/Icon.astro';
-import Clinics from '../components/home/Clinics.astro';
-import { home } from '../data/home';
+import HeroSub from '../components/priveo/HeroSub.astro';
+import ClinicDetail from '../components/priveo/ClinicDetail.astro';
+import ServiceGrid from '../components/priveo/ServiceGrid.astro';
+import BookingSteps from '../components/priveo/BookingSteps.astro';
 import { BOOKING, CLINICS, type Lang } from '../data/site';
 import { CLINIC_CONTACT, clinicCopy, clinicPath, type ClinicPage } from '../data/clinics';
 import { absolute, seoHead } from '../lib/seo';
@@ -17,8 +21,7 @@ const { clinic, lang } = Astro.props;
 const t = clinicCopy[lang];
 const place = CLINICS[clinic.index];
 const path = clinicPath(clinic, lang);
-const hours = lang === 'fr' ? '8 h 30 – 16 h 30' : '8:30 a.m. – 4:30 p.m.';
-const tel = (n: string) => `tel:+1${n.replaceAll('-', '')}`;
+const book = { label: t.book, href: BOOKING };
 
 const head = seoHead({
   title: clinic.title[lang],
@@ -26,11 +29,13 @@ const head = seoHead({
   path,
   lang,
   alternates: { fr: clinicPath(clinic, 'fr'), en: clinicPath(clinic, 'en') },
+  image: absolute(clinic.photo),
   jsonLd: {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
     name: `Groupe Santé Voyage – ${clinic.name}`,
     url: absolute(path),
+    image: absolute(clinic.photo),
     telephone: `+1-${CLINIC_CONTACT.phone}`,
     faxNumber: `+1-${CLINIC_CONTACT.fax}`,
     email: CLINIC_CONTACT.email,
@@ -42,6 +47,7 @@ const head = seoHead({
       addressRegion: 'QC',
       addressCountry: 'CA',
     },
+    geo: { '@type': 'GeoCoordinates', latitude: clinic.position[0], longitude: clinic.position[1] },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
@@ -54,310 +60,8 @@ const head = seoHead({
 ---
 
 <BaseLayout lang={lang} htmlLang={lang === 'fr' ? 'fr-CA' : 'en-CA'} title={clinic.title[lang]} head={head} route={path} alt={clinicPath(clinic, lang === 'fr' ? 'en' : 'fr')}>
-  <section class="clinic-hero">
-    <div class="gsv-container clinic-hero__grid">
-      <div class="clinic-hero__text">
-        <nav class="clinic-hero__crumbs" aria-label={t.crumbs}>
-          <ol>
-            <li><a href={lang === 'fr' ? '/' : '/en/'}>{t.home}</a></li>
-            <li><a href={t.section.href}>{t.section.label}</a></li>
-            <li><span aria-current="page">{clinic.name}</span></li>
-          </ol>
-        </nav>
-        <span class="clinic-hero__badge"><span aria-hidden="true"></span>{t.badge}</span>
-        <h1 class="clinic-hero__title">{clinic.h1[lang]}</h1>
-        <p class="clinic-hero__lede">{clinic.access[lang]}</p>
-        <div class="clinic-hero__actions">
-          <a class="gsv-button" href={BOOKING}>{t.book}<Icon name="arrow-right" /></a>
-          <a class="gsv-button gsv-button--outline" href={clinic.map} target="_blank" rel="noopener">{t.directions}<Icon name="map-pin" /></a>
-        </div>
-      </div>
-
-      <aside class="clinic-card">
-        <div class="clinic-card__block">
-          <span class="clinic-card__pin"><Icon name="map-pin" /></span>
-          <address>
-            <strong>{place.city}</strong>
-            {place.address}
-            <br />
-            {place.locality}
-          </address>
-        </div>
-        <dl class="clinic-card__list">
-          <div>
-            <dt>{t.phone}</dt>
-            <dd><a href={tel(CLINIC_CONTACT.phone)}>{CLINIC_CONTACT.phone}</a></dd>
-          </div>
-          <div>
-            <dt>{t.fax}</dt>
-            <dd>{CLINIC_CONTACT.fax}</dd>
-          </div>
-          <div>
-            <dt>{t.email}</dt>
-            <dd><a href={`mailto:${CLINIC_CONTACT.email}`}>{CLINIC_CONTACT.email}</a></dd>
-          </div>
-        </dl>
-        <p class="clinic-card__title">{t.hours}</p>
-        <dl class="clinic-card__list">
-          <div>
-            <dt>{t.weekdays}</dt>
-            <dd>{hours}</dd>
-          </div>
-          <div>
-            <dt>{t.weekend}</dt>
-            <dd>{t.closed}</dd>
-          </div>
-        </dl>
-        <p class="clinic-card__title">{t.amenitiesTitle}</p>
-        <ul class="clinic-card__chips">
-          {clinic.amenities.map((a) => <li>{t.amenities[a]}</li>)}
-        </ul>
-      </aside>
-    </div>
-  </section>
-
-  <section class="gsv-section clinic-services">
-    <div class="gsv-container">
-      <header class="gsv-section-header">
-        <span class="gsv-eyebrow">{t.servicesEyebrow}</span>
-        <h2 class="gsv-h2">{t.servicesTitle(clinic.name)}</h2>
-      </header>
-      <ul class="clinic-services__grid">
-        {
-          t.services.map((s) => (
-            <li>
-              <a href={s.href}>
-                <span>{s.title}</span>
-                <span class="clinic-services__more">
-                  {t.more}
-                  <Icon name="arrow-right" />
-                </span>
-              </a>
-            </li>
-          ))
-        }
-      </ul>
-    </div>
-  </section>
-
-  <Clinics content={home[lang].clinics} lang={lang} title={t.others} cta={{ label: t.book, href: BOOKING }} />
+  <HeroSub tagline={t.clinic.eyebrow} title={clinic.h1[lang]} description={clinic.access[lang]} cta={book} image={{ src: clinic.photo, alt: clinic.name, width: 1280, height: 853 }} />
+  <ClinicDetail clinic={clinic} lang={lang} />
+  <ServiceGrid name={clinic.short} lang={lang} />
+  <BookingSteps tagline={t.steps.tagline} title={t.steps.title} steps={t.steps.items} cta={book} />
 </BaseLayout>
-
-<style>
-  .clinic-hero {
-    padding: 56px 0 72px;
-    background:
-      radial-gradient(at 70% 40%, rgba(255, 255, 255, 0.35) 0%, transparent 50%),
-      linear-gradient(135deg, var(--gsv-secondary-l-5) 0%, var(--gsv-primary-l-6) 35%, var(--gsv-secondary-l-5) 65%, var(--gsv-primary-l-6) 100%);
-  }
-  .clinic-hero__grid {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 420px;
-    align-items: center;
-    gap: 64px;
-  }
-  .clinic-hero__text {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 20px;
-  }
-  .clinic-hero__crumbs ol {
-    display: flex;
-    flex-wrap: wrap;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-    font-size: 13px;
-  }
-  .clinic-hero__crumbs li:not(:last-child)::after {
-    content: '/';
-    margin: 0 8px;
-    opacity: 0.5;
-  }
-  .clinic-hero__crumbs a {
-    text-decoration: none;
-  }
-  .clinic-hero__crumbs a:hover {
-    color: var(--gsv-primary);
-    text-decoration: underline;
-  }
-  .clinic-hero__badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 16px;
-    border: 1px solid rgba(255, 255, 255, 0.6);
-    border-radius: var(--gsv-radius-full);
-    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
-    color: var(--gsv-primary);
-    font-size: 12.5px;
-    font-weight: 500;
-    letter-spacing: 0.03em;
-  }
-  .clinic-hero__badge span {
-    width: 6px;
-    height: 6px;
-    border-radius: 50%;
-    background: var(--gsv-secondary);
-  }
-  .clinic-hero__title {
-    color: var(--gsv-primary);
-    font: 500 clamp(32px, 3.4vw, 46px) / 1.15 var(--gsv-font-sans);
-    letter-spacing: -0.02em;
-    text-wrap: balance;
-  }
-  .clinic-hero__lede {
-    max-width: 600px;
-    font-size: 16.5px;
-    line-height: 1.65;
-  }
-  .clinic-hero__actions {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 12px;
-    margin-top: 8px;
-  }
-
-  .clinic-card {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-    padding: 32px;
-    border-radius: 20px;
-    background: var(--gsv-white);
-    box-shadow: 0 12px 32px -12px rgba(1, 42, 86, 0.18);
-  }
-  .clinic-card__block {
-    display: flex;
-    gap: 14px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--gsv-border-subtle);
-  }
-  .clinic-card__pin {
-    display: inline-flex;
-    flex: none;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    background: var(--gsv-secondary-l-4);
-    color: var(--gsv-primary);
-  }
-  .clinic-card address {
-    font-style: normal;
-    line-height: 1.55;
-  }
-  .clinic-card address strong {
-    display: block;
-    color: var(--gsv-primary);
-    font-size: 17px;
-  }
-  .clinic-card__title {
-    margin-top: 4px;
-    color: var(--gsv-primary);
-    font-weight: 600;
-  }
-  .clinic-card__list {
-    display: flex;
-    flex-direction: column;
-    gap: 6px;
-    margin: 0;
-    font-size: 15px;
-  }
-  .clinic-card__list div {
-    display: flex;
-    justify-content: space-between;
-    gap: 16px;
-  }
-  .clinic-card__list dt {
-    color: var(--gsv-text-muted);
-  }
-  .clinic-card__list dd {
-    margin: 0;
-    text-align: right;
-  }
-  .clinic-card__list a {
-    color: var(--gsv-primary);
-    text-underline-offset: 3px;
-  }
-  .clinic-card__chips {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .clinic-card__chips li {
-    padding: 6px 12px;
-    border-radius: var(--gsv-radius-full);
-    background: var(--gsv-secondary-l-5);
-    color: var(--gsv-primary);
-    font-size: 13px;
-    font-weight: 500;
-  }
-
-  .clinic-services__grid {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 20px;
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .clinic-services__grid a {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 24px;
-    height: 100%;
-    padding: 28px 24px 24px;
-    border: 1px solid var(--gsv-border-subtle);
-    border-radius: 20px;
-    background: var(--gsv-white);
-    color: var(--gsv-primary);
-    font-size: 18px;
-    font-weight: 600;
-    line-height: 1.35;
-    text-decoration: none;
-    transition: border-color 0.15s, box-shadow 0.15s;
-  }
-  .clinic-services__grid a:hover {
-    border-color: var(--gsv-secondary);
-    box-shadow: 0 12px 24px -12px rgba(1, 42, 86, 0.2);
-  }
-  .clinic-services__more {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    color: var(--gsv-secondary);
-    font-size: 14px;
-  }
-  .clinic-services__more :global(svg) {
-    width: 15px;
-    height: 15px;
-  }
-
-  @media (max-width: 1024px) {
-    .clinic-hero__grid {
-      grid-template-columns: 1fr;
-      gap: 40px;
-    }
-    .clinic-services__grid {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-    }
-  }
-  @media (max-width: 767px) {
-    .clinic-hero {
-      padding: 32px 0 48px;
-    }
-    .clinic-card {
-      padding: 24px 20px;
-    }
-    .clinic-services__grid {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
