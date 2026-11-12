@@ -1,0 +1,101 @@
+---
+// Key numbers under the homepage hero, counted up when they come into view. Computed from the site's own
+// data at build time; the page holds the final numbers, so they read right without the animation (no
+// script, or reduced motion).
+import type { Lang } from '../../data/site';
+import { FOUNDED, stats } from '../../data/home-tools';
+import { countries } from '../../lib/countries';
+import { vaccineList } from '../../lib/vaccines';
+import { clinicPages } from '../../data/clinics';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = stats[lang];
+const items = [
+  { value: new Date().getFullYear() - FOUNDED, label: t.years },
+  { value: countries.length, label: t.destinations },
+  { value: vaccineList(lang).length, label: t.topics },
+  { value: clinicPages.length, label: t.clinics },
+];
+const format = new Intl.NumberFormat(lang === 'fr' ? 'fr-CA' : 'en-CA');
+---
+
+<section class="stats" aria-label={t.label} data-stats>
+  <ul class="gsv-container stats__list">
+    {
+      items.map((item) => (
+        <li class="stats__item">
+          <span class="stats__value" data-value={item.value}>{format.format(item.value)}</span>
+          <span class="stats__label">{item.label}</span>
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (const root of document.querySelectorAll<HTMLElement>('[data-stats]')) {
+    if (reduce) continue;
+    const values = [...root.querySelectorAll<HTMLElement>('[data-value]')];
+    const format = new Intl.NumberFormat(document.documentElement.lang || undefined);
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        const start = performance.now();
+        const step = (now: number) => {
+          const k = Math.min((now - start) / 1400, 1);
+          const eased = 1 - (1 - k) ** 3;
+          for (const el of values) el.textContent = format.format(Math.round(Number(el.dataset.value) * eased));
+          if (k < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(root);
+  }
+</script>
+
+<style>
+  .stats {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--gsv-border-subtle);
+    background: var(--gsv-white);
+  }
+  .stats__list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0 auto;
+    list-style: none;
+  }
+  .stats__item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 20px;
+    border-left: 2px solid var(--gsv-secondary-l-4);
+  }
+  .stats__value {
+    color: var(--gsv-primary);
+    font: 500 clamp(34px, 3.4vw, 46px) / 1 var(--gsv-font-serif);
+    font-variant-numeric: tabular-nums;
+  }
+  .stats__label {
+    max-width: 22ch;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 1024px) {
+    .stats__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      row-gap: 28px;
+    }
+  }
+</style>
