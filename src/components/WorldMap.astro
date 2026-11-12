@@ -2,7 +2,7 @@
 // Interactive world map for the country hub. Drawn at build time (d3-geo + world-atlas), so the page
 // ships a plain SVG: each country with a page is a link; a little script adds the name tooltip and the
 // zoom by region. Small islands also get a dot so they can be clicked.
-import { geoNaturalEarth1, geoPath } from 'd3-geo';
+import { geoArea, geoNaturalEarth1, geoPath } from 'd3-geo';
 import { feature } from 'topojson-client';
 import type { Feature, FeatureCollection, Geometry, MultiPolygon, Polygon, Position } from 'geojson';
 import world110 from 'world-atlas/countries-110m.json';
@@ -40,8 +40,16 @@ type Topo = Parameters<typeof feature>[0];
 const toFeatures = (topo: unknown) =>
   (feature(topo as Topo, (topo as { objects: { countries: never } }).objects.countries) as unknown as FeatureCollection<Geometry, { name: string }>).features;
 const background = toFeatures(world110).filter((f) => f.id !== '010'); // without Antarctica
-const detailed = new Map(toFeatures(world50).map((f) => [String(f.id), f]));
-const byName = new Map([...detailed.values()].map((f) => [f.properties.name.toLowerCase(), String(f.id)]));
+// Some atlas ids are shared (e.g. Australia and the Ashmore and Cartier Islands are both 036): keep the
+// largest shape for each id, and look names up on every shape.
+const all50 = toFeatures(world50);
+const detailed = new Map<string, Feature<Geometry, { name: string }>>();
+for (const f of all50) {
+  const prev = detailed.get(String(f.id));
+  if (!prev || geoArea(f) > geoArea(prev)) detailed.set(String(f.id), f);
+}
+const simple = new Map(background.map((f) => [String(f.id), f]));
+const byName = new Map(all50.map((f) => [f.properties.name.toLowerCase(), String(f.id)]));
 
 const W = 1000;
 const projection = geoNaturalEarth1().fitWidth(W, { type: 'FeatureCollection', features: background } as FeatureCollection);
@@ -62,7 +70,14 @@ function clip(f: Feature<Geometry>, box?: [number, number, number, number]): Fea
 
 const shapes = countries.flatMap((c) => {
   const parts = MAP_PARTS[c.slug] ?? [{ id: byName.get(c.name.en.toLowerCase()) ?? '' }];
-  const geos = parts.map((p) => detailed.get(p.id) && clip(detailed.get(p.id)!, p.box)).filter((f): f is Feature<Geometry> => !!f);
+  // Large countries use the lighter 110m outline; small ones and islands the 50m one.
+  const pick = (id: string) => {
+    const light = simple.get(id);
+    return light && path.area(light) > 400 ? light : detailed.get(id);
+  };
+  const geos = parts
+    .map((p) => (p.point ? ({ type: 'Feature', properties: {}, geometry: { type: 'Point', coordinates: p.point } } as Feature<Geometry>) : p.box ? detailed.get(p.id) && clip(detailed.get(p.id)!, p.box) : pick(p.id)))
+    .filter((f): f is Feature<Geometry> => !!f);
   if (!geos.length) return [];
   const fc = { type: 'FeatureCollection', features: geos } as FeatureCollection;
   const [[x0, y0], [x1, y1]] = path.bounds(fc);
@@ -70,7 +85,8 @@ const shapes = countries.flatMap((c) => {
   const [cx, cy] = path.centroid(fc);
   // Tiny islands are hard to hit: give them a dot.
   const dot = area < 40 && Number.isFinite(cx) ? { cx: +cx.toFixed(1), cy: +cy.toFixed(1), area: +area.toFixed(2) } : null;
-  return [{ country: c, d: geos.map((g) => path(g)).join(''), bounds: [x0, y0, x1, y1], dot }];
+  const d = geos.filter((g) => g.geometry.type !== 'Point').map((g) => path(g)).join('');
+  return [{ country: c, d, bounds: [x0, y0, x1, y1], dot }];
 });
 const covered = new Set(shapes.flatMap((s) => (MAP_PARTS[s.country.slug] ?? [{ id: byName.get(s.country.name.en.toLowerCase()) }]).filter((p) => !p.box).map((p) => p.id)));
 const others = background.filter((f) => !covered.has(String(f.id))).map((f) => path(f)).filter(Boolean);
@@ -115,7 +131,7 @@ const regionViews = REGIONS.map((r) => {
         {
           shapes.map((s) => (
             <a href={countryPath(s.country, lang)} class="world-map__country" data-name={s.country.name[lang]} data-region={s.country.region} aria-label={s.country.name[lang]}>
-              <path d={s.d} />
+              {s.d && <path d={s.d} />}
               {s.dot && <circle class="world-map__dot" cx={s.dot.cx} cy={s.dot.cy} r="3.5" data-area={s.dot.area} />}
             </a>
           ))
@@ -172,7 +188,9 @@ const regionViews = REGIONS.map((r) => {
     for (const b of buttons) {
       b.addEventListener('click', () => {
         for (const o of buttons) o.setAttribute('aria-pressed', String(o === b));
-        root.dataset.region = b.dataset.region ?? '';
+        // The other regions' countries fade back.
+        for (const c of svg.querySelectorAll<SVGElement>('.world-map__country'))
+          c.classList.toggle('is-faded', !!b.dataset.region && c.dataset.region !== b.dataset.region);
         zoomTo(parse(b.dataset.view!));
       });
     }
@@ -282,12 +300,7 @@ const regionViews = REGIONS.map((r) => {
   .world-map__country:focus-visible {
     outline: none;
   }
-  /* When a region is shown, the other regions' countries fade back. */
-  .world-map[data-region='amerique-centrale'] .world-map__country:not([data-region='amerique-centrale']) path,
-  .world-map[data-region='amerique-du-sud'] .world-map__country:not([data-region='amerique-du-sud']) path,
-  .world-map[data-region='caraibes'] .world-map__country:not([data-region='caraibes']) path,
-  .world-map[data-region='afrique'] .world-map__country:not([data-region='afrique']) path,
-  .world-map[data-region='asie-du-sud-est'] .world-map__country:not([data-region='asie-du-sud-est']) path {
+  .world-map__country.is-faded path {
     fill: #9fbbe0;
   }
   .world-map__tip {

@@ -38,8 +38,25 @@ About 20 corrections across 113 countries, for example:
 
 INSPQ dates on these pages range from March to November 2026, and INSPQ publishes updates every 2–4 weeks (often a dozen countries at a time). The pages must be refreshed when INSPQ changes, or they become wrong. Next step proposed in the SEO plan: a weekly check of INSPQ's news feed and each page's "Dernière mise à jour" against the `inspq.updated` date in our data, listing the countries to update.
 
+## Update — November 12, 2026: every INSPQ country (218)
+
+- **105 new countries and territories** (210 pages): Europe (44), Middle East (14), Central Asia and the Caucasus (8), South Asia (8), East Asia (6), Oceania (21), North America (4: Canada, États-Unis, Mexique, Bermudes). The site now has every country in INSPQ's A–Z list. « Swaziland » is a duplicate of Eswatini and is not repeated.
+- **New regions** in the hub and on the map: Amérique du Nord, Europe, Moyen-Orient, Asie centrale et Caucase, Asie du Sud, Asie de l’Est, Océanie.
+- **Same method:** each page was read in full in a browser (rendered page, links included), written from the facts in our own words, then re-read against INSPQ, row by row, by a separate checker.
+- **Corrections applied to all 218 pages (old and new):**
+  - *Rabies:* INSPQ uses two different wordings for pre-departure vaccination: « qui seront probablement exposés » and « susceptibles d’être exposés ». Our pages had often merged them into « susceptibles », which widens the recommendation. An automated check of the 218 INSPQ pages found 63 differences, about 30 of them in the 113 earlier pages, and all were aligned with INSPQ.
+  - *Tick-borne encephalitis:* on INSPQ, a tooltip in this row says the vaccine is no longer available in Canada but is available in the United States and several European countries. It is now written in that row on the 45 pages where INSPQ shows it, including Tunisie, an earlier page.
+- **To review (medical team):**
+  1. *Monténégro:* INSPQ places tick-borne encephalitis cases « près de Belgrade », which is in Serbia, probably copied from the Serbie page.
+  2. *Pakistan:* the Japanese encephalitis row carries the tick-borne encephalitis tooltip and link (INSPQ error); we left both out.
+  3. *Allemagne, Tchéquie:* the tick-borne encephalitis tooltip is broken on INSPQ (it shows « Le vaccin n »); the full sentence, readable in the page code, was used.
+  4. *Inde (English):* INSPQ's « Guyane » in the yellow fever list is translated "Guyana", because the same list names French Guiana separately. Barbade keeps « Guyane » as written.
+  5. *Allemagne polio:* INSPQ calls Bayern, Hessen and Nordrhein-Westfalen « villes »; they are states. Kept as written.
+  6. *Old figures on recent pages:* Mexique malaria (2022–2023 figures, page updated May 2026).
+  7. *Not shown on our pages:* INSPQ's general tooltips (rabies availability levels "< 48 h", "transmission probablement interrompue" awaiting WHO confirmation). These are the same on every page; it's a site-wide decision whether to show them.
+  8. *Probable INSPQ typos kept as written:* Voralberg, Lappeerenta, Primorié/Primoré, St-Barthélémy, rivières Cayu; Finlande's « minicipalités » (a common word) was corrected.
+- **Map:** shapes from Natural Earth. Gibraltar and Tuvalu are too small for the atlas and appear as a dot. Greenland is linked to the Danemark page, which covers it. Areas with no INSPQ page stay grey (Western Sahara, Kosovo, Somaliland, Northern Cyprus).
+
 ## Not done yet
 
-- The menu's "Destinations" link still goes to the old `/regions-du-monde/` page; it could point to the new `/pays/` hub.
-- Other regions (Europe, Asia outside South-East Asia, Middle East, Oceania, North America) — about 106 more countries.
-- Disease pages and vaccine updates from the SEO plan.
+- A process to refresh pages when INSPQ updates them (see « Keeping it current »).

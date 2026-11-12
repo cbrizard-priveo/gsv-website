@@ -1,0 +1,238 @@
+{
+  "slug": "chine",
+  "region": "asie-de-l-est",
+  "name": {
+    "fr": "Chine",
+    "en": "China"
+  },
+  "slugEn": "china",
+  "inspq": {
+    "url": "https://www.inspq.qc.ca/sante-voyage/guide/pays/chine",
+    "updated": "2026-11-02",
+    "checked": "2026-11-12"
+  },
+  "diseases": [
+    {
+      "id": "chikungunya",
+      "name": {
+        "fr": "Chikungunya",
+        "en": "Chikungunya"
+      },
+      "text": {
+        "fr": "<p><strong>Chine :</strong> présent.</p><ul><li>Se protéger contre les piqûres de moustiques.</li></ul><p><strong>Hong Kong et Macao :</strong> présent.</p><ul><li>Se protéger contre les piqûres de moustiques.</li></ul>",
+        "en": "<p><strong>China:</strong> present.</p><ul><li>Protect yourself against mosquito bites.</li></ul><p><strong>Hong Kong and Macao:</strong> present.</p><ul><li>Protect yourself against mosquito bites.</li></ul>"
+      }
+    },
+    {
+      "id": "cholera",
+      "name": {
+        "fr": "Choléra",
+        "en": "Cholera"
+      },
+      "text": {
+        "fr": "<p>Présent au pays.</p><ul><li>Le vaccin peut être envisagé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera/epidemiologie#gp-cholera\">groupes particuliers définis par l’INSPQ</a>).</li></ul><p><strong>Hong Kong et Macao :</strong> présence indéterminée.</p><ul><li>Le vaccin peut être envisagé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera#gp-cholera\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Present in the country.</p><ul><li>The vaccine may be considered for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera/epidemiologie#gp-cholera\">specific groups defined by the INSPQ</a>).</li></ul><p><strong>Hong Kong and Macao:</strong> presence undetermined.</p><ul><li>The vaccine may be considered for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera#gp-cholera\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "encephalite-a-tiques",
+      "name": {
+        "fr": "Encéphalite à tiques",
+        "en": "Tick-borne encephalitis"
+      },
+      "text": {
+        "fr": "<p>Endémique dans certaines régions. Environ 90 % des cas viennent du nord-est de la Chine. L’endémicité est la plus élevée dans la région autonome de Mongolie-Intérieure (monts Daxing’an), dans la province du Heilongjiang (montagnes Xiaoxing’an) et dans la province du Jilin (montagnes Changbai). Une transmission est aussi rapportée dans le sud-ouest de la Chine (Tibet et Yunnan) et dans le nord-ouest, dans la région autonome de Xinjiang (montagnes de Tianshan et Altai). Un cas a déjà été rapporté chez un voyageur américain infecté dans la province de Tianjin.</p><ul><li>Vaccin recommandé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-a-tiques#prevention\">groupes particuliers définis par l’INSPQ</a>).</li><li>Le vaccin n’est plus offert au Canada, mais il l’est aux États-Unis et dans plusieurs pays européens.</li></ul>",
+        "en": "<p>Endemic in some regions. About 90% of cases come from northeastern China. Endemicity is highest in the Inner Mongolia Autonomous Region (Daxing’an Mountains), Heilongjiang Province (Xiaoxing’an Mountains) and Jilin Province (Changbai Mountains). Transmission has also been reported in southwestern China (Tibet and Yunnan) and in the northwest, in the Xinjiang Autonomous Region (Tianshan and Altai Mountains). A case was previously reported in an American traveller infected in Tianjin Province.</p><ul><li>Vaccine recommended for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-a-tiques#prevention\">specific groups defined by the INSPQ</a>).</li><li>The vaccine is no longer available in Canada, but it is available in the United States and in several European countries.</li></ul>"
+      }
+    },
+    {
+      "id": "encephalite-japonaise",
+      "name": {
+        "fr": "Encéphalite japonaise",
+        "en": "Japanese encephalitis"
+      },
+      "text": {
+        "fr": "<p>Présente dans toutes les provinces, sauf le Xinjiang et le Qinghai.</p><p>La transmission a lieu de mai à octobre.</p><ul><li>Vaccin recommandé pour certains voyageurs, selon leur situation, pendant la saison de transmission (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-japonaise#immunisation\">groupes particuliers définis par l’INSPQ</a>).</li><li>Vaccin non indiqué pour les séjours limités à Beijing, Shanghai, Kowloon et aux autres grandes villes.</li></ul><p><strong>Hong Kong et Macao :</strong> présente, mais le risque est faible.</p><ul><li>Vaccin généralement non indiqué.</li></ul>",
+        "en": "<p>Present in all provinces except Xinjiang and Qinghai.</p><p>Transmission occurs from May to October.</p><ul><li>Vaccine recommended for some travellers, depending on their situation, during the transmission season (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-japonaise#immunisation\">specific groups defined by the INSPQ</a>).</li><li>Vaccine not indicated for stays limited to Beijing, Shanghai, Kowloon and other large cities.</li></ul><p><strong>Hong Kong and Macao:</strong> present, but the risk is low.</p><ul><li>Vaccine generally not indicated.</li></ul>"
+      }
+    },
+    {
+      "id": "fievre-jaune",
+      "name": {
+        "fr": "Fièvre jaune",
+        "en": "Yellow fever"
+      },
+      "text": {
+        "fr": "<p><strong>Exigence à l’entrée :</strong> un certificat de vaccination est exigé de tous les voyageurs de 9 mois et plus qui arrivent d’un pays à risque de transmission, ou qui ont transité plus de 12 heures dans un aéroport d’un pays à risque de transmission. Aucune exigence pour Hong Kong, Macao et Taiwan.</p><p><strong>Vaccination recommandée :</strong> aucune.</p>",
+        "en": "<p><strong>Entry requirement:</strong> a vaccination certificate is required for all travellers aged 9 months and older arriving from a country with a risk of transmission, or who have spent more than 12 hours in transit at an airport in a country with a risk of transmission. No requirement for Hong Kong, Macao and Taiwan.</p><p><strong>Recommended vaccination:</strong> none.</p>"
+      }
+    },
+    {
+      "id": "hepatite-a",
+      "name": {
+        "fr": "Hépatite A",
+        "en": "Hepatitis A"
+      },
+      "text": {
+        "fr": "<p>Prévalence modérée.</p><ul><li>Vaccin recommandé pour tous les voyageurs.</li></ul>",
+        "en": "<p>Moderate prevalence.</p><ul><li>Vaccine recommended for all travellers.</li></ul>"
+      }
+    },
+    {
+      "id": "hepatite-b",
+      "name": {
+        "fr": "Hépatite B",
+        "en": "Hepatitis B"
+      },
+      "text": {
+        "fr": "<p>Prévalence élevée.</p><ul><li>Vaccin recommandé pour tous les voyageurs.</li></ul>",
+        "en": "<p>High prevalence.</p><ul><li>Vaccine recommended for all travellers.</li></ul>"
+      }
+    },
+    {
+      "id": "influenza",
+      "name": {
+        "fr": "Influenza (grippe)",
+        "en": "Influenza (flu)"
+      },
+      "text": {
+        "fr": "<p>Risque présent de novembre à mars au nord du 23e degré de latitude nord, et toute l’année dans le sud du pays.</p><ul><li>Vaccin recommandé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza/immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Risk present from November to March north of 23 degrees north latitude, and all year in the south of the country.</p><ul><li>Vaccine recommended for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza/immunisation\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "mpox",
+      "name": {
+        "fr": "Mpox",
+        "en": "Mpox"
+      },
+      "text": {
+        "fr": "<p>Le risque d’exposition existe surtout par voie sexuelle.</p><ul><li>Mesures de protection personnelle (voir la page <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/mpox\">Mpox de l’INSPQ</a>).</li><li>Vaccination si le voyageur correspond au premier groupe d’indications du <a href=\"https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/variole-vaccin-contre-variole-et-contre-mpox-variole-simienne/\">Protocole d’immunisation du Québec</a>.</li></ul>",
+        "en": "<p>Exposure risk is mainly through sexual contact.</p><ul><li>Personal protection measures (see the INSPQ <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/mpox\">Mpox page</a>, in French).</li><li>Vaccination if the traveller meets the first group of indications of the <a href=\"https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/variole-vaccin-contre-variole-et-contre-mpox-variole-simienne/\">Québec Immunization Protocol</a>.</li></ul>"
+      }
+    },
+    {
+      "id": "poliomyelite",
+      "name": {
+        "fr": "Poliomyélite",
+        "en": "Polio"
+      },
+      "text": {
+        "fr": "<p>Éliminée.</p><ul><li>Vaccination de base (primo-immunisation) pour les voyageurs de moins de 18 ans.</li></ul>",
+        "en": "<p>Eliminated.</p><ul><li>Primary vaccination series for travellers under 18 years of age.</li></ul>"
+      }
+    },
+    {
+      "id": "rage",
+      "name": {
+        "fr": "Rage",
+        "en": "Rabies"
+      },
+      "text": {
+        "fr": "<p>Risque élevé.</p><ul><li><strong>Vaccination avant le départ :</strong> peut être envisagée pour les voyageurs susceptibles d’être exposés aux chauves-souris, aux animaux sauvages ou aux animaux domestiques, surtout les chiens (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage#groupes_rage\">groupes particuliers définis par l’INSPQ</a>).</li><li><strong>Traitement après une exposition :</strong> voir <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage/immunisation#postexposition\">Rage, prévention et immunisation</a>.</li><li><strong>Disponibilité au pays :</strong> vaccin disponible; immunoglobulines antirabiques disponibles.</li></ul><p><strong>Hong Kong et Macao :</strong> risque faible.</p><ul><li><strong>Vaccination avant le départ :</strong> peut être envisagée pour les voyageurs qui seront probablement exposés aux chauves-souris (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage#groupes_rage\">groupes particuliers définis par l’INSPQ</a>).</li><li><strong>Traitement après une exposition :</strong> selon l’évaluation individuelle (voir <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage/immunisation#postexposition\">Rage, prévention et immunisation</a>).</li><li><strong>Disponibilité au pays :</strong> vaccin disponible; immunoglobulines antirabiques disponibles.</li></ul>",
+        "en": "<p>High risk.</p><ul><li><strong>Vaccination before departure:</strong> may be considered for travellers likely to be exposed to bats, wild animals or domestic animals, especially dogs (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage#groupes_rage\">specific groups defined by the INSPQ</a>).</li><li><strong>Treatment after an exposure:</strong> see <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage/immunisation#postexposition\">Rabies, prevention and immunization</a> (in French).</li><li><strong>Availability in the country:</strong> vaccine available; rabies immunoglobulins available.</li></ul><p><strong>Hong Kong and Macao:</strong> low risk.</p><ul><li><strong>Vaccination before departure:</strong> may be considered for travellers who will probably be exposed to bats (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage#groupes_rage\">specific groups defined by the INSPQ</a>).</li><li><strong>Treatment after an exposure:</strong> based on individual assessment (see <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage/immunisation#postexposition\">Rabies, prevention and immunization</a>, in French).</li><li><strong>Availability in the country:</strong> vaccine available; rabies immunoglobulins available.</li></ul>"
+      }
+    },
+    {
+      "id": "rougeole",
+      "name": {
+        "fr": "Rougeole",
+        "en": "Measles"
+      },
+      "text": {
+        "fr": "<p>Endémique.</p><ul><li>Vaccination de base, et vaccination des enfants de 6 à 11 mois.</li></ul><p><strong>Hong Kong et Macao :</strong> éliminée. Risque d’importation à partir de la Chine continentale.</p><ul><li>Vaccination de base.</li></ul>",
+        "en": "<p>Endemic.</p><ul><li>Routine vaccination, and vaccination of children aged 6 to 11 months.</li></ul><p><strong>Hong Kong and Macao:</strong> eliminated. Risk of importation from mainland China.</p><ul><li>Routine vaccination.</li></ul>"
+      }
+    },
+    {
+      "id": "tuberculose",
+      "name": {
+        "fr": "Tuberculose",
+        "en": "Tuberculosis"
+      },
+      "text": {
+        "fr": "<p>Incidence : moins de 50 cas par 100 000 habitants par année.</p>",
+        "en": "<p>Incidence: fewer than 50 cases per 100,000 people per year.</p>"
+      }
+    },
+    {
+      "id": "typhoide",
+      "name": {
+        "fr": "Typhoïde",
+        "en": "Typhoid"
+      },
+      "text": {
+        "fr": "<p>Risque de transmission intermédiaire en Chine continentale.</p><ul><li>Le vaccin peut être envisagé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul><p><strong>Hong Kong et Macao :</strong> risque de transmission très faible.</p><ul><li>Vaccin non recommandé.</li></ul>",
+        "en": "<p>Intermediate transmission risk in mainland China.</p><ul><li>The vaccine may be considered for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation\">specific groups defined by the INSPQ</a>).</li></ul><p><strong>Hong Kong and Macao:</strong> very low transmission risk.</p><ul><li>Vaccine not recommended.</li></ul>"
+      }
+    }
+  ],
+  "otherRisks": [
+    {
+      "id": "arthropodes",
+      "name": {
+        "fr": "Insectes et autres arthropodes",
+        "en": "Insects and other arthropods"
+      },
+      "text": {
+        "fr": "<ul><li>Dengue (y compris Hong Kong et Macao).</li><li>Maladie de Lyme.</li></ul>",
+        "en": "<ul><li>Dengue (including Hong Kong and Macao).</li><li>Lyme disease.</li></ul>"
+      }
+    },
+    {
+      "id": "eau-aliments",
+      "name": {
+        "fr": "Eau et aliments",
+        "en": "Water and food"
+      },
+      "text": {
+        "fr": "<ul><li>Précautions à prendre avec l’eau et les aliments.</li></ul>",
+        "en": "<ul><li>Take precautions with water and food.</li></ul>"
+      }
+    },
+    {
+      "id": "environnement",
+      "name": {
+        "fr": "Environnement",
+        "en": "Environment"
+      },
+      "text": {
+        "fr": "<ul><li>Accidents.</li><li>Baignade en eau douce : leptospirose et schistosomiase.</li><li><a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/altitude-acclimatation\">Haute altitude</a>.</li><li>Pesticides dans les chambres d’hôtel.</li></ul>",
+        "en": "<ul><li>Accidents.</li><li>Swimming in fresh water: leptospirosis and schistosomiasis.</li><li><a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/altitude-acclimatation\">High altitude</a> (in French).</li><li>Pesticides in hotel rooms.</li></ul>"
+      }
+    },
+    {
+      "id": "infections-respiratoires",
+      "name": {
+        "fr": "Infections respiratoires",
+        "en": "Respiratory infections"
+      },
+      "text": {
+        "fr": "<ul><li>Influenza aviaire : cas humains sporadiques (2025, 2026).</li></ul>",
+        "en": "<ul><li>Avian influenza: sporadic human cases (2025, 2026).</li></ul>"
+      }
+    },
+    {
+      "id": "sante-sexuelle",
+      "name": {
+        "fr": "Santé sexuelle",
+        "en": "Sexual health"
+      },
+      "text": {
+        "fr": "<ul><li>Privilégier des pratiques sexuelles protégées (voir <a href=\"https://www.canada.ca/fr/sante-publique/services/maladies/infections-transmissibles-sexuellement.html\">Santé sexuelle et voyage</a>, Agence de la santé publique du Canada).</li><li>Des contraintes de voyage peuvent s’appliquer aux personnes vivant avec le VIH (voir <a href=\"https://www.cocqsida.com/vih-info-droits/voyager-avec-le-vih/\">COCQ-SIDA</a>).</li></ul>",
+        "en": "<ul><li>Use protected sexual practices (see <a href=\"https://www.canada.ca/en/public-health/services/diseases/sexually-transmitted-infections.html\">Sexual health and travel</a>, Public Health Agency of Canada).</li><li>Travel restrictions may apply to people living with HIV (see <a href=\"https://www.cocqsida.com/vih-info-droits/voyager-avec-le-vih/\">COCQ-SIDA</a>, in French).</li></ul>"
+      }
+    },
+    {
+      "id": "securite",
+      "name": {
+        "fr": "Sécurité",
+        "en": "Safety"
+      },
+      "text": {
+        "fr": "<ul><li>Consulter les <a href=\"https://voyage.gc.ca/\">conseils aux voyageurs du gouvernement du Canada</a>.</li></ul>",
+        "en": "<ul><li>See the <a href=\"https://travel.gc.ca/\">Government of Canada travel advice</a>.</li></ul>"
+      }
+    }
+  ]
+}
