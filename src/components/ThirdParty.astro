@@ -1,0 +1,49 @@
+---
+// Services embedded on the live site: Google Tag Manager / Analytics, Crisp chat and the
+// Concord cookie banner. Loaded in production builds only, so local development doesn't
+// send traffic to the clinic's analytics or open chat sessions.
+const enabled = import.meta.env.PROD;
+---
+
+{
+  enabled && (
+    <>
+      <script is:inline async src="https://api.concord.tech/site-v1/43df2f3c-dd3e-4df1-860f-65829cd06283/site-client" />
+      <script is:inline>
+        (function (w, d, s, l, i) {
+          w[l] = w[l] || [];
+          w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+          var f = d.getElementsByTagName(s)[0],
+            j = d.createElement(s),
+            dl = l != 'dataLayer' ? '&l=' + l : '';
+          j.async = true;
+          j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+          f.parentNode.insertBefore(j, f);
+        })(window, document, 'script', 'dataLayer', 'GTM-53JTHFR');
+      </script>
+      <script is:inline async src="https://www.googletagmanager.com/gtag/js?id=G-VVCFPP5YN0" />
+      <script is:inline>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-VVCFPP5YN0');
+      </script>
+      <script is:inline>
+        window.$crisp = [];
+        window.CRISP_WEBSITE_ID = 'd3728f5f-0a24-4fbd-98aa-b532a9c2828a';
+        (function () {
+          var s = document.createElement('script');
+          s.src = 'https://client.crisp.chat/l.js';
+          s.async = 1;
+          document.getElementsByTagName('head')[0].appendChild(s);
+        })();
+        window.CRISP_READY_TRIGGER = function () {
+          $crisp.push(['set', 'session:data', [[['source', 'Clinique Santé Voyage']]]]);
+          $crisp.push(['set', 'session:segments', [['voyage'], false]]);
+        };
+      </script>
+    </>
+  )
+}

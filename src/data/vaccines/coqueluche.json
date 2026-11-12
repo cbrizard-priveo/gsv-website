@@ -1,0 +1,54 @@
+{
+  "routes": {
+    "fr": "/vaccination/coqueluche/",
+    "en": "/en/vaccination/whooping-cough-vaccination/"
+  },
+  "fr": {
+    "lede": "La coqueluche est une maladie très contagieuse causée par une bactérie. Elle se manifeste par des quintes de toux fortes et incontrôlables et se transmet par les gouttelettes venant du nez et de la gorge d’une personne infectée. Elle est plus grave chez les bébés de moins de 1 an.",
+    "body": "<p>La coqueluche circule au Québec, surtout au printemps et à l’automne, et revient par cycles tous les deux à cinq ans. Elle se transmet facilement au sein d’une famille, d’un service de garde ou d’une école.</p>\n<p>Au début, on observe en général une légère fièvre, un écoulement nasal, des yeux rouges et larmoyants et une faible toux. Dans les 7 à 14 jours qui suivent le début des symptômes, la toux devient plus forte et plus fréquente. Après une quinte, l’inspiration peut produire un bruit qui rappelle le chant du coq, d’où le nom de la maladie; la personne peut ensuite vomir ou arrêter de respirer quelques instants. Les symptômes apparaissent habituellement de 5 à 10 jours après la contamination (parfois jusqu’à 21 jours), et la maladie dure de 6 à 10 semaines.</p>\n<p>Les complications possibles sont l’otite, la pneumonie, les fractures des côtes, les hernies et les convulsions. Les bébés de moins de 3 mois ont les complications les plus graves et comptent pour presque tous les décès, qui restent toutefois rares.</p>\n<h3>Qui devrait être vacciné</h3>\n<p>Selon le gouvernement du Québec, la vaccination est le meilleur moyen de se protéger contre la coqueluche. Elle fait partie du calendrier régulier de vaccination du Québec :</p>\n<ul>\n<li><strong>Enfants</strong> : à 2, 4 et 12 mois, puis une dernière dose entre 4 et 6 ans.</li>\n<li><strong>Personnes enceintes</strong> : une dose à chaque grossesse, idéalement entre la 26e et la 32e semaine.</li>\n</ul>\n<p>Les anticorps produits pendant la grossesse passent au bébé par le placenta et le protègent dès la naissance, jusqu’à ce qu’il soit lui-même vacciné. Selon des études récentes, cette vaccination prévient environ 90 % des hospitalisations et 95 % des décès liés à la coqueluche chez les bébés de moins de 3 mois.</p>\n<p>Selon le Protocole d’immunisation du Québec, une personne de 18 ans ou plus qui est certaine de n’avoir jamais reçu de vaccin contre la coqueluche recevra une dose de vaccin dcaT.</p>\n<h3>Le vaccin</h3>\n<p>Le vaccin contre la coqueluche est un vaccin combiné qui protège contre plusieurs maladies; sa composition varie selon l’âge. Le vaccin dcaT, qui protège aussi contre la diphtérie et le tétanos, est donné aux personnes de 4 ans et plus. Pour ce groupe d’âge, les produits distribués au Canada sont Adacel et Boostrix, ainsi qu’Adacel-Polio et Boostrix-Polio, qui protègent en plus contre la poliomyélite.</p>\n<p>La protection contre l’infection dure quelques années après la dose de 4 à 6 ans. Chez l’adulte, l’efficacité d’un rappel ne durerait aussi que quelques années. Lorsque le vaccin n’empêche pas la maladie, il en réduit généralement la gravité et les complications.</p>\n<h3>Autres précautions</h3>\n<p>Une personne malade devrait appliquer les gestes qui limitent la transmission des infections respiratoires et éviter les bébés de moins de 1 an ainsi que les personnes enceintes non vaccinées dans leur dernier mois de grossesse. En cas de toux importante ou persistante, ou après un contact avec une personne atteinte, consultez un médecin ou appelez Info-Santé 811 : plus le traitement commence tôt, plus il est efficace.</p>",
+    "seoLead": "La coqueluche, très contagieuse, est plus grave chez les bébés de moins de 1 an.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Coqueluche » (mis à jour le 12 novembre 2025)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/coqueluche"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie, la coqueluche et le tétanos (dcaT) » (mis à jour le 12 juillet 2024)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-coqueluche-et-tetanos"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+      },
+      {
+        "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+        "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+      }
+    ]
+  },
+  "en": {
+    "lede": "Whooping cough (pertussis) is a highly contagious disease caused by a bacterium. It causes strong, uncontrollable coughing fits and spreads through droplets from the nose and throat of an infected person. It is more serious in babies under 1 year of age.",
+    "body": "<p>Whooping cough circulates in Québec, mainly in spring and fall, and comes back in cycles every two to five years. It spreads easily within a family, a daycare or a school.</p>\n<p>At first, there is usually a mild fever, a runny nose, red and watery eyes and a weak cough. Within 7 to 14 days of the first symptoms, the cough becomes stronger and more frequent. After a coughing fit, breathing in can make a sound like a crowing rooster (the origin of the French name, <em>coqueluche</em>); the person may then vomit or stop breathing for a few moments. Symptoms usually appear 5 to 10 days after infection (sometimes up to 21 days), and the illness lasts 6 to 10 weeks.</p>\n<p>Possible complications are ear infection, pneumonia, rib fractures, hernias and seizures. Babies under 3 months have the most serious complications and account for almost all deaths, which nevertheless remain rare.</p>\n<h3>Who should be vaccinated</h3>\n<p>According to the Gouvernement du Québec, vaccination is the best way to protect yourself against whooping cough. It is part of Québec’s regular vaccination schedule:</p>\n<ul>\n<li><strong>Children</strong>: at 2, 4 and 12 months, then a last dose between 4 and 6 years of age.</li>\n<li><strong>Pregnant people</strong>: one dose during each pregnancy, ideally between the 26th and 32nd week.</li>\n</ul>\n<p>Antibodies produced during pregnancy pass to the baby through the placenta and protect it from birth until it is vaccinated itself. According to recent studies, this vaccination prevents about 90% of hospitalizations and 95% of deaths from whooping cough in babies under 3 months.</p>\n<p>According to the Protocole d’immunisation du Québec, a person aged 18 or over who is certain they have never received a whooping cough vaccine will be given one dose of dcaT vaccine.</p>\n<h3>The vaccine</h3>\n<p>The whooping cough vaccine is a combined vaccine that protects against several diseases; its composition varies with age. The dcaT vaccine, which also protects against diphtheria and tetanus, is given to people aged 4 and over. For this age group, the products distributed in Canada are Adacel and Boostrix, as well as Adacel-Polio and Boostrix-Polio, which also protect against polio.</p>\n<p>Protection against infection lasts a few years after the dose given at 4 to 6 years. In adults, the effectiveness of a booster would also last only a few years. When the vaccine does not prevent the disease, it generally reduces its severity and complications.</p>\n<h3>Other precautions</h3>\n<p>A sick person should follow the measures that limit the spread of respiratory infections and avoid babies under 1 year of age and unvaccinated pregnant people in their last month of pregnancy. If you have a severe or persistent cough, or after contact with someone who has the disease, see a doctor or call Info-Santé 811: the earlier treatment starts, the more effective it is.</p>",
+    "seoLead": "Whooping cough is highly contagious and more serious in babies under 1 year old.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Coqueluche” (updated November 12, 2025)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/coqueluche"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Vaccin combiné contre la diphtérie, la coqueluche et le tétanos (dcaT)” (updated July 12, 2024)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-coqueluche-et-tetanos"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Programme québécois d’immunisation” (updated June 30, 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+      },
+      {
+        "label": "MSSS, Protocole d’immunisation du Québec (PIQ), “dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite” (updated January 29, 2026)",
+        "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+      }
+    ]
+  },
+  "hasVaccine": true,
+  "notes": "Québec.ca and the PIQ were used because INSPQ’s travel guide has no chapter on this vaccine. No adult booster for travellers is mentioned by the sources: in adults, the regular schedule lists pertussis vaccination only for pregnant people, and the PIQ gives one dcaT dose to adults 18+ certain they never had a pertussis vaccine. The 2, 4 and 12 month doses and the 4–6 year dose come from the dcaT page and the PQI calendar. Left out on purpose: contagious-period details, antibiotic treatment details, the Clic Santé booking/phone info and the fact that vaccination is free under the PQI (the brief excludes prices and calls to action), and the safety study on 53,885 pregnant people. Product names (Adacel, Boostrix, Adacel-Polio, Boostrix-Polio) are from the PIQ composition list. The dcaT page is dated July 12, 2024 and still speaks of a “recrudescence” of cases; not repeated. Verification (2026-11-10): removed the 2020–2023 average and 2024 case count (dated statistics); symptom timing now says 7 to 14 days after the first symptoms (as the source); product sentence limited to the 4-and-over products listed in the PIQ (infant combined vaccines also contain the pertussis component). All other statements and the four source dates checked against the pages. For the medical reviewer: the sentence that adults’ regular schedule includes pertussis only in pregnancy is read from the PQI adult calendar table. Review (2026-11-10): removed the sentence saying adults get the pertussis vaccine only during pregnancy; it was read from a schedule table, not stated by the source."
+}

@@ -1,0 +1,115 @@
+---
+// Team cards with organic portrait shapes, after Priveo's team showcase. No photos yet: initials stand in.
+import Icon from '../Icon.astro';
+import type { HomeContent } from '../../data/home';
+
+interface Props {
+  content: HomeContent['team'];
+}
+
+const { content } = Astro.props;
+const initials = (name: string) =>
+  name
+    .replace(/^(Dre?\.?|Dr\.)\s+/, '')
+    .split(/\s+/)
+    .map((w) => w[0])
+    .join('');
+const shapes = ['60% 40% 55% 45% / 50% 55% 45% 50%', '45% 55% 40% 60% / 55% 45% 55% 45%', '55% 45% 60% 40% / 45% 55% 50% 50%'];
+---
+
+<section class="gsv-section team">
+  <div class="gsv-container">
+    <div class="team__header">
+      <header class="gsv-section-header gsv-section-header--left">
+        <span class="gsv-eyebrow">{content.eyebrow}</span>
+        <h2 class="gsv-h2">{content.title}</h2>
+        <p class="gsv-lede">{content.text}</p>
+      </header>
+      <a class="gsv-button" href={content.cta.href}>{content.cta.label}<Icon name="arrow-right" /></a>
+    </div>
+    <ul class="team__cards">
+      {
+        content.members.map((member, i) => (
+          <li class="team__card">
+            <span class="team__portrait" style={`border-radius: ${shapes[i % shapes.length]}`} aria-hidden="true">
+              {initials(member.name)}
+            </span>
+            <h3 class="team__name">{member.name}</h3>
+            <p class="team__role">{member.role}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .team {
+    background: var(--gsv-white);
+  }
+  .team__header {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 56px;
+  }
+  .team__header .gsv-section-header {
+    margin-bottom: 0;
+  }
+  .team__header .gsv-button {
+    flex-shrink: 0;
+  }
+  .team__cards {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 32px;
+  }
+  .team__card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .team__portrait {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 200px;
+    aspect-ratio: 5 / 6;
+    margin-bottom: 24px;
+    background: linear-gradient(160deg, var(--gsv-secondary-l-5), var(--gsv-secondary-l-4));
+    color: var(--gsv-primary);
+    font: 500 56px/1 var(--gsv-font-serif);
+    letter-spacing: -0.02em;
+  }
+  .team__name {
+    color: var(--gsv-primary);
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.4;
+    letter-spacing: -0.02em;
+  }
+  .team__role {
+    max-width: 30ch;
+    margin-top: 6px;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1024px) {
+    .team__header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  @media (max-width: 767px) {
+    .team__cards {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .team__portrait {
+      width: 168px;
+    }
+  }
+</style>

@@ -1,0 +1,54 @@
+{
+  "routes": {
+    "fr": "/vaccination/oreillons/",
+    "en": "/en/vaccination/mumps-vaccination/"
+  },
+  "fr": {
+    "lede": "Les oreillons sont une maladie contagieuse causée par un virus qui fait enfler les glandes salivaires. Le virus se transmet par la salive, par les gouttelettes émises quand une personne infectée tousse ou éternue, et par les objets ou surfaces contaminés. Les complications sont plus graves et plus fréquentes chez l’adulte.",
+    "body": "<p>La maladie commence par une légère fièvre de 1 à 2 jours. Les glandes salivaires situées près de la mâchoire, devant les oreilles, enflent ensuite, et la mâchoire ou les oreilles deviennent douloureuses, d’un côté ou des deux. Les symptômes apparaissent de 12 à 25 jours après l’exposition et durent de 3 à 10 jours. Jusqu’à 1 personne infectée sur 3 n’a aucun symptôme, mais elle peut quand même transmettre le virus. Une personne est contagieuse de 2 jours avant l’enflure jusqu’à 5 jours après.</p>\n<p>Les complications possibles sont l’inflammation des testicules, des ovaires ou des seins, la méningite, l’encéphalite et une surdité temporaire aux sons très aigus. Très rarement, les oreillons peuvent causer une inflammation du pancréas ou de la thyroïde, de l’arthrite, la stérilité, une surdité permanente ou le décès. Chez la femme enceinte, ils augmentent le risque de fausse couche en début de grossesse, mais ne causent pas de malformations chez le fœtus. Il n’existe pas de traitement contre les oreillons; la plupart des personnes en bonne santé guérissent d’elles-mêmes.</p>\n<h3>Qui devrait être vacciné</h3>\n<p>Le vaccin contre les oreillons fait partie du calendrier régulier de vaccination du Québec : les enfants le reçoivent à 12 mois et à 18 mois, dans un vaccin combiné qui protège aussi contre la rougeole, la rubéole et la varicelle (RRO-Var).</p>\n<p>Toute personne qui n’est pas vaccinée ou qui n’a jamais eu les oreillons peut les attraper; les personnes nées après 1970 courent un risque plus élevé. Selon le Protocole d’immunisation du Québec, sont considérées comme protégées contre les oreillons :</p>\n<ul>\n<li>les personnes nées avant 1970;</li>\n<li>les personnes qui ont une preuve écrite d’avoir reçu une dose de vaccin;</li>\n<li>les personnes dont une analyse sanguine montre la présence d’anticorps contre les oreillons.</li>\n</ul>\n<p>Les personnes qui ne sont pas considérées comme protégées devraient être vaccinées.</p>\n<h3>Le vaccin</h3>\n<p>Le vaccin contre les oreillons est un vaccin combiné à virus vivants atténués. Au Canada, les vaccins RRO (rougeole, rubéole, oreillons) distribués sont M-M-R II et Priorix. Selon le gouvernement du Québec, la protection contre ces maladies dure toute la vie. Le vaccin n’est toutefois pas efficace à 100 % : son efficacité contre les oreillons est de 62 à 91 % après 1 dose et de 79 à 95 % après 2 doses, et il réduit les symptômes et les complications. Depuis l’arrivée de la vaccination gratuite au Québec, le nombre de cas a diminué de près de 99 %.</p>\n<p>Le vaccin est contre-indiqué pendant la grossesse et chez les personnes immunodéprimées. Une femme qui reçoit le vaccin doit éviter de devenir enceinte dans le mois qui suit.</p>\n<h3>Autres précautions</h3>\n<p>Une personne atteinte devrait rester à la maison dès que ses glandes salivaires commencent à enfler, et s’absenter de l’école ou du travail jusqu’à cinq jours après le début de l’enflure.</p>",
+    "seoLead": "Les oreillons, causés par un virus, font enfler les glandes salivaires.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Oreillons » (mis à jour le 20 juin 2019)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/oreillons"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la rougeole, la rubéole et les oreillons (RRO) » (mis à jour le 30 mai 2019)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+      },
+      {
+        "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « RRO : vaccin contre la rougeole, la rubéole et les oreillons » (mis à jour le 24 septembre 2026)",
+        "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+      }
+    ]
+  },
+  "en": {
+    "lede": "Mumps is a contagious disease caused by a virus that makes the salivary glands swell. The virus spreads through saliva, through droplets released when an infected person coughs or sneezes, and through contaminated objects or surfaces. Complications are more serious and more frequent in adults.",
+    "body": "<p>The illness starts with a mild fever lasting 1 to 2 days. The salivary glands near the jaw, in front of the ears, then swell, and the jaw or ears become painful, on one or both sides. Symptoms appear 12 to 25 days after exposure and last 3 to 10 days. Up to 1 in 3 infected people has no symptoms but can still pass on the virus. A person is contagious from 2 days before the swelling until 5 days after.</p>\n<p>Possible complications are inflammation of the testicles, ovaries or breasts, meningitis, encephalitis and temporary deafness to very high-pitched sounds. Very rarely, mumps can cause inflammation of the pancreas or thyroid, arthritis, sterility, permanent deafness or death. In pregnant women, it increases the risk of miscarriage in early pregnancy, but does not cause malformations in the fetus. There is no treatment for mumps; most healthy people recover on their own.</p>\n<h3>Who should be vaccinated</h3>\n<p>The mumps vaccine is part of Québec’s regular vaccination schedule: children receive it at 12 months and 18 months, in a combined vaccine that also protects against measles, rubella and chickenpox (RRO-Var, known in English as MMRV).</p>\n<p>Anyone who is not vaccinated or has never had mumps can catch it; people born after 1970 are at higher risk. According to the Protocole d’immunisation du Québec, the following people are considered protected against mumps:</p>\n<ul>\n<li>people born before 1970;</li>\n<li>people with written proof of having received one dose of vaccine;</li>\n<li>people whose blood test shows antibodies against mumps.</li>\n</ul>\n<p>People who are not considered protected should be vaccinated.</p>\n<h3>The vaccine</h3>\n<p>The mumps vaccine is a combined live attenuated vaccine. In Canada, the MMR (measles, mumps, rubella) vaccines distributed are M-M-R II and Priorix. According to the Gouvernement du Québec, protection against these diseases lasts a lifetime. However, the vaccine is not 100% effective: its effectiveness against mumps is 62 to 91% after 1 dose and 79 to 95% after 2 doses, and it reduces symptoms and complications. Since free vaccination was introduced in Québec, the number of cases has dropped by almost 99%.</p>\n<p>The vaccine must not be given during pregnancy or to people who are immunocompromised. A woman who receives the vaccine should avoid becoming pregnant during the following month.</p>\n<h3>Other precautions</h3>\n<p>A person with mumps should stay home as soon as their salivary glands start to swell, and stay away from school or work until five days after the swelling began.</p>",
+    "seoLead": "Mumps is caused by a virus that makes the salivary glands swell.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Oreillons” (updated June 20, 2019)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/oreillons"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Vaccin contre la rougeole, la rubéole et les oreillons (RRO)” (updated May 30, 2019)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Programme québécois d’immunisation” (updated June 30, 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+      },
+      {
+        "label": "MSSS, Protocole d’immunisation du Québec (PIQ), “RRO : vaccin contre la rougeole, la rubéole et les oreillons” (updated September 24, 2026)",
+        "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+      }
+    ]
+  },
+  "hasVaccine": true,
+  "notes": "Québec.ca and the PIQ were used because INSPQ’s travel guide has no chapter on this vaccine. No adult or traveller booster is mentioned for mumps in any source read. The PIQ’s “2 doses for travellers born 1970–1979” rule applies to MEASLES only, not mumps, so it was not used here; for mumps the PIQ protection criteria are: born before 1970, written proof of one dose, or antibodies. Small inconsistency on Québec.ca: the mumps page says people born after 1970 are at higher risk, and that people born “en 1970 ou après” can be vaccinated for free; kept as “after 1970” for the risk sentence, free-of-charge left out. The “lifelong protection” statement is from the Québec.ca RRO vaccine page (dated May 30, 2019); the effectiveness percentages are from the PIQ. The Québec.ca mumps page is dated June 20, 2019. Left out: home-care and medication advice (acetaminophen/ibuprofen, Reye syndrome), side-effects table. Verification (2026-11-10): “not vaccinated AND never had mumps” changed to “not vaccinated OR never had mumps”, as Québec.ca writes it. The English gloss “known in English as MMRV” is a plain translation of RRO-Var and was kept. Everything else and the four source dates checked against the pages. For the medical reviewer: the Québec.ca RRO page (2019) says protection lasts for life, while the PIQ gives mumps effectiveness of 62–91 % (1 dose) and 79–95 % (2 doses); both are on the page, the reviewer may want to drop “lifelong” for mumps."
+}

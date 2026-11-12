@@ -1,0 +1,202 @@
+/* Base styles for pages built from components (not imported from WordPress), after dev.priveosante.com. */
+.gsv-page {
+  margin: 0;
+  background: var(--gsv-surface-l-4);
+  color: var(--gsv-text-body);
+  font: 400 16px/1.6 var(--gsv-font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+.gsv-page *,
+.gsv-page *::before,
+.gsv-page *::after {
+  box-sizing: border-box;
+}
+.gsv-page img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+.gsv-page :where(h1, h2, h3, h4, p, ul, figure, blockquote) {
+  margin: 0;
+}
+.gsv-page :where(ul) {
+  padding: 0;
+  list-style: none;
+}
+.gsv-page :where(a) {
+  color: inherit;
+}
+.gsv-page :where(a, button):focus-visible {
+  outline: 2px solid var(--gsv-secondary);
+  outline-offset: 3px;
+}
+
+.gsv-container {
+  width: 100%;
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+.gsv-section {
+  padding: 100px 0;
+}
+.gsv-section-header {
+  max-width: 780px;
+  margin: 0 auto 56px;
+  text-align: center;
+}
+.gsv-section-header--left {
+  margin-left: 0;
+  text-align: left;
+}
+.gsv-eyebrow {
+  display: block;
+  margin-bottom: 14px;
+  color: var(--gsv-text-body);
+  font: 500 12.5px/1.5 var(--gsv-font-sans);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.gsv-h2 {
+  color: var(--gsv-primary);
+  font: 500 clamp(30px, 3.2vw, 42px) / 1.12 var(--gsv-font-serif);
+  letter-spacing: -0.75px;
+  text-wrap: balance;
+}
+.gsv-h2 em,
+.gsv-h1 em {
+  font-style: italic;
+  font-weight: 400;
+}
+.gsv-lede {
+  margin-top: 18px;
+  font-size: 16px;
+  line-height: 1.65;
+}
+.gsv-section-header .gsv-lede {
+  margin-inline: auto;
+  max-width: 64ch;
+}
+
+.gsv-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 15px 26px;
+  border: 1.5px solid var(--gsv-primary);
+  border-radius: var(--gsv-radius-m);
+  background: var(--gsv-primary);
+  color: var(--gsv-white);
+  font: 500 15px/1.2 var(--gsv-font-sans);
+  letter-spacing: -0.15px;
+  text-decoration: none;
+  transition: background-color 0.15s, border-color 0.15s, color 0.15s;
+}
+.gsv-button:hover {
+  border-color: var(--gsv-primary-d-1);
+  background: var(--gsv-primary-d-1);
+}
+.gsv-button--outline {
+  background: transparent;
+  color: var(--gsv-primary);
+}
+.gsv-button--outline:hover {
+  border-color: var(--gsv-primary);
+  background: var(--gsv-primary-l-6);
+}
+.gsv-button--light {
+  border-color: var(--gsv-white);
+  background: transparent;
+  color: var(--gsv-white);
+}
+.gsv-button--light:hover {
+  border-color: var(--gsv-white);
+  background: rgba(255, 255, 255, 0.14);
+}
+.gsv-button svg {
+  width: 14px;
+  height: 14px;
+  transition: transform 0.15s;
+}
+.gsv-button:hover svg {
+  transform: translateX(3px);
+}
+
+@media (max-width: 1024px) {
+  .gsv-section {
+    padding: 80px 0;
+  }
+}
+@media (max-width: 767px) {
+  .gsv-container {
+    padding: 0 20px;
+  }
+  .gsv-section {
+    padding: 64px 0;
+  }
+  .gsv-section-header {
+    margin-bottom: 36px;
+  }
+}
+
+/* Long-form text (vaccine and country pages). */
+.gsv-prose {
+  max-width: 68ch;
+  font-size: 17px;
+  line-height: 1.75;
+}
+.gsv-prose > * + *,
+.gsv-prose li > ul {
+  margin-top: 1.1em;
+}
+.gsv-prose :is(h2, h3) {
+  margin-top: 1.8em;
+  color: var(--gsv-primary);
+  font: 600 21px/1.35 var(--gsv-font-sans);
+  letter-spacing: -0.02em;
+}
+.gsv-prose strong {
+  color: var(--gsv-primary);
+  font-weight: 600;
+}
+.gsv-prose a {
+  color: var(--gsv-primary);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-color: var(--gsv-primary-l-5);
+  text-underline-offset: 3px;
+}
+.gsv-prose a:hover {
+  text-decoration-color: var(--gsv-primary);
+}
+.gsv-prose ul {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+.gsv-prose li {
+  position: relative;
+  padding-left: 30px;
+}
+.gsv-prose li::before {
+  content: '';
+  position: absolute;
+  top: 0.55em;
+  left: 4px;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: var(--gsv-secondary-l-4);
+  box-shadow: 0 0 0 4px var(--gsv-primary-l-6);
+}
+.gsv-prose img {
+  border-radius: 16px;
+}
+@media (max-width: 767px) {
+  .gsv-prose {
+    font-size: 16px;
+  }
+}

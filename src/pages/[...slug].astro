@@ -1,0 +1,22 @@
+---
+import WpPage, { type WpPageData } from '../layouts/WpPage.astro';
+import pages from '../wp/pages.json';
+import { REBUILT } from '../lib/rebuilt';
+
+const bodies = import.meta.glob<string>('../wp/html/*.html', { query: '?raw', import: 'default' });
+
+export function getStaticPaths() {
+  return (pages as WpPageData[])
+    // The importer also saved WordPress REST API responses (/wp-json/…); they aren't pages.
+    .filter((page) => !REBUILT.has(page.route) && !page.route.includes('/wp-json/'))
+    .map((page) => ({
+      params: { slug: page.route.slice(1, -1) },
+      props: { page },
+    }));
+}
+
+const { page } = Astro.props;
+const body = await bodies[`../wp/html/${page.file}`]();
+---
+
+<WpPage page={page} body={body} />

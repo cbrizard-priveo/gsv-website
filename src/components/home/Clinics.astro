@@ -1,0 +1,154 @@
+---
+// The four clinics on a pale-blue band, after Priveo's "Trouvez votre clinique".
+import Icon from '../Icon.astro';
+import type { HomeContent } from '../../data/home';
+import { CLINICS, type Lang } from '../../data/site';
+
+interface Props {
+  content: HomeContent['clinics'];
+  lang: Lang;
+  /** Replaces the section title and button, e.g. "Où obtenir le vaccin … ?" on vaccine pages. */
+  title?: string;
+  cta?: { label: string; href: string };
+}
+
+const { content, lang } = Astro.props;
+const title = Astro.props.title ?? content.title;
+const cta = Astro.props.cta ?? content.cta;
+---
+
+<section class="gsv-section clinics">
+  <div class="gsv-container">
+    <header class="gsv-section-header">
+      <span class="gsv-eyebrow">{content.eyebrow}</span>
+      <h2 class="gsv-h2">{title}</h2>
+      <p class="gsv-lede">{content.text}</p>
+    </header>
+    <ul class="clinics__cards">
+      {
+        CLINICS.map((clinic) => (
+          <li class="clinics__card">
+            <span class="clinics__pin">
+              <Icon name="map-pin" />
+            </span>
+            <h3>{clinic.city}</h3>
+            <address>
+              {clinic.address}
+              <br />
+              {clinic.locality}
+            </address>
+            <span class="clinics__badge">
+              <Icon name="parking" />
+              {content.parking}
+            </span>
+            <a href={clinic.href[lang]}>
+              {content.details}
+              <Icon name="arrow-right" />
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+    <div class="clinics__cta">
+      <a class="gsv-button" href={cta.href}>{cta.label}<Icon name="arrow-right" /></a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .clinics {
+    background: var(--gsv-secondary-l-5);
+  }
+  .clinics__cards {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 20px;
+  }
+  .clinics__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 28px 24px 24px;
+    border-radius: 20px;
+    background: var(--gsv-white);
+    box-shadow: 0 1px 2px rgba(27, 30, 44, 0.04);
+  }
+  .clinics__pin {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    margin-bottom: 6px;
+    border-radius: 50%;
+    background: var(--gsv-secondary-l-4);
+    color: var(--gsv-primary);
+  }
+  .clinics__pin :global(svg) {
+    width: 22px;
+    height: 22px;
+  }
+  .clinics__card h3 {
+    color: var(--gsv-primary);
+    font-size: 20px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+  }
+  .clinics__card address {
+    font-size: 14.5px;
+    font-style: normal;
+    line-height: 1.55;
+  }
+  .clinics__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 4px;
+    padding: 5px 10px;
+    border-radius: var(--gsv-radius-full);
+    background: var(--gsv-primary-l-6);
+    color: var(--gsv-primary);
+    font-size: 12.5px;
+    font-weight: 500;
+  }
+  .clinics__badge :global(svg) {
+    width: 14px;
+    height: 14px;
+  }
+  .clinics__card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: auto;
+    padding-top: 12px;
+    color: var(--gsv-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .clinics__card a :global(svg) {
+    width: 14px;
+    height: 14px;
+    transition: transform 0.15s;
+  }
+  .clinics__card a:hover :global(svg) {
+    transform: translateX(3px);
+  }
+  .clinics__cta {
+    display: flex;
+    justify-content: center;
+    margin-top: 48px;
+  }
+
+  @media (max-width: 1024px) {
+    .clinics__cards {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
+  @media (max-width: 560px) {
+    .clinics__cards {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

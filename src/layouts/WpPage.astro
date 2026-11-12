@@ -1,0 +1,79 @@
+---
+// Renders one page imported from the WordPress site (see scripts/wp-import/import.mjs).
+import Fonts from '../components/Fonts.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ThirdParty from '../components/ThirdParty.astro';
+import { themeBody } from '../lib/theme';
+import { redirects, withSeo, withSeoBody } from '../lib/seo-overrides';
+import '../styles/theme.css';
+
+export interface WpStyle {
+  href?: string;
+  media?: string;
+  css?: string;
+  id?: string;
+}
+
+export interface WpPageData {
+  route: string;
+  lang: 'fr' | 'en';
+  htmlLang: string;
+  title: string;
+  alt: string | null;
+  bodyClass: string;
+  head: string[];
+  styles: WpStyle[];
+  scripts: { src: string }[];
+  file: string;
+}
+
+interface Props {
+  page: WpPageData;
+  body: string;
+}
+
+const { page, body } = Astro.props;
+const [beforeHeader, rest = ''] = body.split('<!--wp:header-->');
+const [content, afterFooter = ''] = rest.split('<!--wp:footer-->');
+const main = withSeoBody(themeBody(content, page.route), page.route, redirects);
+const seo = withSeo(page.route, page.title, page.head);
+const hasChrome = body.includes('<!--wp:header-->');
+---
+
+<!doctype html>
+<html lang={page.htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{seo.title}</title>
+    <Fonts />
+    <Fragment set:html={seo.head.join('\n')} />
+    {
+      page.styles.map((style) =>
+        style.href ? (
+          <link rel="stylesheet" href={style.href} media={style.media} />
+        ) : (
+          <style is:inline id={style.id} set:html={style.css} />
+        ),
+      )
+    }
+  </head>
+  <body class={page.bodyClass}>
+    {
+      hasChrome ? (
+        <>
+          <Fragment set:html={beforeHeader} />
+          <Header lang={page.lang} alt={page.alt} route={page.route} />
+          <Fragment set:html={main} />
+          <Footer lang={page.lang} />
+          <Fragment set:html={afterFooter} />
+        </>
+      ) : (
+        <Fragment set:html={body} />
+      )
+    }
+    {page.scripts.map((script) => <script is:inline defer src={script.src} />)}
+    <ThirdParty />
+  </body>
+</html>

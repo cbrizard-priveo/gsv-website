@@ -1,0 +1,44 @@
+---
+// Layout for pages built from components rather than imported from WordPress.
+import '../styles/tokens.css';
+import '../styles/base.css';
+import Fonts from '../components/Fonts.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ThirdParty from '../components/ThirdParty.astro';
+import type { Lang } from '../data/site';
+import { withSeo } from '../lib/seo-overrides';
+
+interface Props {
+  lang: Lang;
+  htmlLang: string;
+  title: string;
+  /** SEO tags (description, canonical, hreflang, Open Graph, JSON-LD), kept from the WordPress page. */
+  head: string[];
+  route: string;
+  alt: string | null;
+}
+
+const { lang, htmlLang, route, alt } = Astro.props;
+// SEO recommendations (src/data/seo.ts) replace the imported title and description.
+const { title, head } = withSeo(route, Astro.props.title, Astro.props.head);
+---
+
+<!doctype html>
+<html lang={htmlLang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <Fragment set:html={head.join('\n')} />
+    <Fonts />
+  </head>
+  <body class="gsv-page">
+    <Header lang={lang} alt={alt} route={route} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer lang={lang} />
+    <ThirdParty />
+  </body>
+</html>

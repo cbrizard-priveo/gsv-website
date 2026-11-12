@@ -1,0 +1,54 @@
+{
+  "routes": {
+    "fr": "/vaccination/diphterie/",
+    "en": "/en/vaccination/diphtheria-vaccination/"
+  },
+  "fr": {
+    "lede": "La diphtérie se manifeste notamment par d’importants maux de gorge, une forte fièvre et des problèmes respiratoires et cardiaques. Elle peut entraîner une paralysie, et elle cause la mort dans 5 à 10 % des cas. Le vaccin fait partie du calendrier régulier de vaccination du Québec.",
+    "body": "<p>Avoir eu la diphtérie ne donne pas nécessairement d’immunité : les personnes qui l’ont eue doivent quand même être vaccinées.</p>\n<h3>Qui devrait être vacciné</h3>\n<p>La vaccination est le meilleur moyen de se protéger contre la diphtérie et ses complications. Elle fait partie du calendrier régulier de vaccination du Québec :</p>\n<ul>\n<li><strong>Enfants</strong> : à 2, 4 et 12 mois, puis entre 4 et 6 ans.</li>\n<li><strong>Adolescents</strong> : une dose en 3e année du secondaire (14 à 16 ans).</li>\n<li><strong>Adultes</strong> : une dose de rappel à 50 ans.</li>\n</ul>\n<p>Selon le Protocole d’immunisation du Québec, aucun rappel n’est nécessaire avant 50 ans si la vaccination de base est complète, ni si une dose a été reçue à partir de 40 ans. Dans des circonstances exceptionnelles, par exemple un séjour dans une région où l’accès aux soins de santé est limité, une personne de 18 ans ou plus peut recevoir une dose de vaccin dT si au moins 5 ans se sont écoulés depuis sa dernière dose.</p>\n<h3>Le vaccin</h3>\n<p>Le vaccin contre la diphtérie est offert dans des vaccins combinés dont la composition varie selon l’âge. Chez l’adolescent et l’adulte, on utilise le vaccin dT, qui protège contre la diphtérie et le tétanos (au Canada : Td Adsorbées). Le vaccin dcaT, qui protège en plus contre la coqueluche (Adacel, Boostrix), peut être donné à sa place de façon sécuritaire, même si la protection contre la coqueluche n’est pas requise.</p>\n<p>Le vaccin protège plus de 95 % des personnes adéquatement vaccinées, et la protection dure de nombreuses années après la vaccination de base. Il n’empêche toutefois pas de porter la bactérie sur la peau ou dans le nez et l’arrière-gorge (nasopharynx).</p>",
+    "seoLead": "La diphtérie peut causer une paralysie et la mort dans 5 à 10 % des cas.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Diphtérie » (mis à jour le 22 octobre 2015)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/diphterie"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie et le tétanos (dT) » (mis à jour le 30 janvier 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-et-tetanos"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+      },
+      {
+        "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+        "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+      }
+    ]
+  },
+  "en": {
+    "lede": "Diphtheria causes, among other things, a severe sore throat, a high fever, and breathing and heart problems. It can lead to paralysis, and it causes death in 5 to 10% of cases. The vaccine is part of Québec’s regular vaccination schedule.",
+    "body": "<p>Having had diphtheria does not necessarily give immunity: people who have had it must still be vaccinated.</p>\n<h3>Who should be vaccinated</h3>\n<p>Vaccination is the best way to protect yourself against diphtheria and its complications. It is part of Québec’s regular vaccination schedule:</p>\n<ul>\n<li><strong>Children</strong>: at 2, 4 and 12 months, then between 4 and 6 years of age.</li>\n<li><strong>Teenagers</strong>: one dose in Secondary III (14 to 16 years of age).</li>\n<li><strong>Adults</strong>: one booster dose at age 50.</li>\n</ul>\n<p>According to the Protocole d’immunisation du Québec, no booster is needed before age 50 if the primary series is complete, nor if a dose was received at age 40 or later. In exceptional circumstances, for example a stay in a region where access to health care is limited, a person aged 18 or over may receive one dose of dT vaccine if at least 5 years have passed since their last dose.</p>\n<h3>The vaccine</h3>\n<p>The diphtheria vaccine is given in combined vaccines whose composition varies with age. For teenagers and adults, the dT vaccine is used, which protects against diphtheria and tetanus (in Canada: Td Adsorbées). The dcaT vaccine, which also protects against whooping cough (Adacel, Boostrix), can safely be given instead, even if protection against whooping cough is not needed.</p>\n<p>The vaccine protects more than 95% of adequately vaccinated people, and protection lasts many years after the primary series. However, it does not prevent a person from carrying the bacterium on the skin or in the nose and back of the throat (nasopharynx).</p>",
+    "seoLead": "Diphtheria can cause paralysis, and death in 5 to 10% of cases.",
+    "sources": [
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Diphtérie” (updated October 22, 2015)",
+        "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/diphterie"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Vaccin combiné contre la diphtérie et le tétanos (dT)” (updated January 30, 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-et-tetanos"
+      },
+      {
+        "label": "Gouvernement du Québec, Québec.ca, “Programme québécois d’immunisation” (updated June 30, 2026)",
+        "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+      },
+      {
+        "label": "MSSS, Protocole d’immunisation du Québec (PIQ), “dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite” (updated January 29, 2026)",
+        "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+      }
+    ]
+  },
+  "hasVaccine": true,
+  "notes": "The Québec.ca “Diphtérie” page is very short (last updated October 22, 2015): it lists only signs/symptoms, complications and available vaccines. None of the sources read describe how diphtheria spreads or where it occurs, so the lede does not cover transmission (the brief asks for it) and the page is shorter than 250 words; the clinic may want a different official source for that. The PIQ wording on carriage (“portage de la bactérie”) is the only mention of a bacterium; the page does not otherwise state the cause. Traveller booster: only the PIQ “exceptional circumstances” rule (18+, limited access to care, ≥ 5 years since last dose) is stated. Left out: guidance for close contacts of a case, wound-related tetanus prophylaxis (on the tetanus page), side effects table, and free-of-charge mentions. Verification (2026-11-10): no change needed; every statement and the four source dates were checked against the pages (the dcaT-instead-of-dT statement is on the Québec.ca dT page). Still open for the medical reviewer: no source used here covers transmission or where diphtheria occurs."
+}

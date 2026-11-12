@@ -1,0 +1,215 @@
+---
+// Split hero: pale-blue text panel and a photo with the clinic locations, after Priveo's service pages.
+import Icon from '../Icon.astro';
+import { CLINICS } from '../../data/site';
+
+interface Props {
+  title: string;
+  /** Where the service is offered, right under the H1. */
+  served?: string;
+  lede: string;
+  image: string;
+  badge: string;
+  crumbs: { label: string; href?: string }[];
+  crumbsLabel: string;
+  cta: { label: string; href: string };
+}
+
+const { title, served, lede, image, badge, crumbs, crumbsLabel, cta } = Astro.props;
+const places = CLINICS.map((c) => c.city.replace(/\s*\(.*\)$/, ''));
+---
+
+<section class="sub-hero">
+  <div class="sub-hero__content">
+    <nav class="sub-hero__crumbs" aria-label={crumbsLabel}>
+      <ol>
+        {
+          crumbs.map((crumb) => (
+            <li>{crumb.href ? <a href={crumb.href}>{crumb.label}</a> : <span aria-current="page">{crumb.label}</span>}</li>
+          ))
+        }
+      </ol>
+    </nav>
+    <span class="sub-hero__badge"><span aria-hidden="true"></span>{badge}</span>
+    <h1 class="sub-hero__title">{title}</h1>
+    {
+      served && (
+        <p class="sub-hero__served">
+          <Icon name="map-pin" />
+          {served}
+        </p>
+      )
+    }
+    {lede && <p class="sub-hero__lede" set:html={lede} />}
+    <a class="gsv-button" href={cta.href}>{cta.label}<Icon name="arrow-right" /></a>
+  </div>
+  <div class="sub-hero__media">
+    <img src={image} alt="" fetchpriority="high" />
+    <ul class="sub-hero__places">
+      {
+        places.map((place) => (
+          <li>
+            <Icon name="map-pin" />
+            {place}
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .sub-hero {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    min-height: 500px;
+  }
+  .sub-hero__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 20px;
+    padding: 72px 72px 72px max(40px, calc((100vw - 1240px) / 2));
+    background:
+      radial-gradient(at 70% 40%, rgba(255, 255, 255, 0.35) 0%, transparent 50%),
+      linear-gradient(135deg, var(--gsv-secondary-l-5) 0%, var(--gsv-primary-l-6) 35%, var(--gsv-secondary-l-5) 65%, var(--gsv-primary-l-6) 100%);
+  }
+  .sub-hero__crumbs ol {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    font-size: 13px;
+  }
+  .sub-hero__crumbs li:not(:last-child)::after {
+    content: '/';
+    margin: 0 8px;
+    opacity: 0.5;
+  }
+  .sub-hero__crumbs a {
+    text-decoration: none;
+  }
+  .sub-hero__crumbs a:hover {
+    color: var(--gsv-primary);
+    text-decoration: underline;
+  }
+  .sub-hero__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 16px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--gsv-radius-full);
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.4));
+    box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.3), 0 2px 8px rgba(1, 42, 86, 0.05), 0 8px 24px rgba(1, 42, 86, 0.03);
+    color: var(--gsv-primary);
+    font-size: 12.5px;
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+  .sub-hero__badge span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--gsv-secondary);
+  }
+  .sub-hero__title {
+    color: var(--gsv-primary);
+    font: 500 clamp(34px, 3.4vw, 46px) / 1.15 var(--gsv-font-sans);
+    letter-spacing: -0.02em;
+    text-wrap: balance;
+  }
+  .sub-hero__served {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: -6px;
+    color: var(--gsv-primary);
+    font-size: 15px;
+    font-weight: 600;
+  }
+  .sub-hero__served :global(svg) {
+    flex: none;
+    width: 16px;
+    height: 16px;
+  }
+  .sub-hero__lede {
+    max-width: 600px;
+    font-size: 16.5px;
+    line-height: 1.65;
+  }
+  .sub-hero__content .gsv-button {
+    margin-top: 8px;
+  }
+  .sub-hero__media {
+    position: relative;
+    overflow: hidden;
+    background: var(--gsv-primary-l-5);
+  }
+  .sub-hero__media img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .sub-hero__places {
+    position: absolute;
+    right: 24px;
+    bottom: 24px;
+    left: 24px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .sub-hero__places li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 9px 15px 9px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: var(--gsv-radius-full);
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 8px 16px -4px rgba(27, 30, 44, 0.08), 0 4px 6px -2px rgba(27, 30, 44, 0.03);
+    backdrop-filter: blur(8px);
+    color: var(--gsv-primary);
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 1;
+  }
+  .sub-hero__places :global(svg) {
+    width: 15px;
+    height: 15px;
+  }
+
+  @media (max-width: 1024px) {
+    .sub-hero {
+      grid-template-columns: 1fr;
+    }
+    .sub-hero__content {
+      padding: 56px 40px;
+    }
+    .sub-hero__media {
+      min-height: 340px;
+    }
+  }
+  @media (max-width: 767px) {
+    .sub-hero__content {
+      padding: 40px 20px 44px;
+    }
+    .sub-hero__media {
+      min-height: 260px;
+    }
+    .sub-hero__places {
+      right: 16px;
+      bottom: 16px;
+      left: 16px;
+    }
+    .sub-hero__places li {
+      padding: 7px 12px 7px 10px;
+      font-size: 13px;
+    }
+  }
+</style>

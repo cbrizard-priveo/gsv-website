@@ -1,0 +1,81 @@
+---
+// The vaccine's text, with a booking card that stays in view beside it.
+import BookingCard from '../BookingCard.astro';
+import type { Lang } from '../../data/site';
+import type { VaccineCopy } from '../../data/vaccine';
+import type { Source } from '../../data/vaccine-texts';
+
+interface Props {
+  body: string;
+  sources: Source[];
+  copy: VaccineCopy;
+  lang: Lang;
+}
+
+const { body, sources, copy, lang } = Astro.props;
+---
+
+<section class="gsv-section article">
+  <div class="gsv-container article__grid">
+    <div class="article__body">
+      {
+        body && (
+          <>
+            <span class="gsv-eyebrow">{copy.about.eyebrow}</span>
+            <h2 class="gsv-h2 article__title">{copy.about.title}</h2>
+            <div class="gsv-prose" set:html={body} />
+          </>
+        )
+      }
+      {
+        sources.length > 0 && (
+          <div class="article__source">
+            <p>{sources.length > 1 ? copy.sources : copy.source}</p>
+            <ul>
+              {sources.map((s) => (
+                <li>{s.href ? <a href={s.href}>{s.label}</a> : s.label}</li>
+              ))}
+            </ul>
+          </div>
+        )
+      }
+    </div>
+    <BookingCard lang={lang} />
+  </div>
+</section>
+
+<style>
+  .article__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 380px;
+    align-items: start;
+    gap: 80px;
+  }
+  .article__title {
+    margin-bottom: 28px;
+  }
+  .article__source {
+    max-width: 68ch;
+    margin-top: 40px;
+    padding-top: 20px;
+    border-top: 1px solid var(--gsv-border-subtle);
+    color: var(--gsv-text-muted);
+    font-size: 14px;
+  }
+  .article__source ul {
+    margin: 4px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .article__source a {
+    color: inherit;
+    text-underline-offset: 3px;
+  }
+
+  @media (max-width: 1024px) {
+    .article__grid {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+  }
+</style>

@@ -1,0 +1,27 @@
+/* Design tokens, after dev.priveosante.com, with #014A97 as the primary blue. */
+:root {
+  --gsv-primary: #014a97;
+  --gsv-primary-d-1: #013a77;
+  --gsv-primary-d-2: #012a56;
+  --gsv-primary-l-5: #dbe6f3;
+  --gsv-primary-l-6: #eef3f9;
+  --gsv-secondary: #3c70c3;
+  --gsv-secondary-l-4: #d1e4f5;
+  --gsv-secondary-l-5: #e0eefb;
+  --gsv-warning: #fbc546;
+  --gsv-surface: #e6e4de;
+  --gsv-surface-l-4: #faf9f7;
+  --gsv-white: #fff;
+  --gsv-text-body: rgba(1, 42, 86, 0.86);
+  --gsv-text-muted: #6b7686;
+  --gsv-border-subtle: #dfe3e8;
+
+  --gsv-font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --gsv-font-serif: 'Lora', Georgia, serif;
+
+  --gsv-radius-s: 8px;
+  --gsv-radius-m: 12px;
+  --gsv-radius-full: 9999px;
+  --gsv-header-height: 72px;
+  --gsv-content-width: 1280px;
+}
