@@ -63,10 +63,10 @@ const { content } = Astro.props;
   .testimonials__track {
     display: flex;
     gap: 24px;
-    padding: 8px max(40px, calc((100vw - 1240px) / 2)) 24px;
+    padding: 8px max(var(--gutter), calc((100vw - var(--content-width)) / 2)) 24px;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: max(40px, calc((100vw - 1240px) / 2));
+    scroll-padding-inline: max(var(--gutter), calc((100vw - var(--content-width)) / 2));
     scrollbar-width: none;
   }
   .testimonials__track::-webkit-scrollbar {

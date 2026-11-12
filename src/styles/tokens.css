@@ -1,27 +1,62 @@
-/* Design tokens, after dev.priveosante.com, with #014A97 as the primary blue. */
+/*
+ * Design tokens. The system is Priveo's (./priveo/tokens.css, synced from web-priveo-sante by
+ * scripts/design/sync-priveo.mjs); this file holds only what Groupe Santé Voyage changes.
+ */
+@import './priveo/tokens.css';
+
 :root {
-  --gsv-primary: #014a97;
-  --gsv-primary-d-1: #013a77;
-  --gsv-primary-d-2: #012a56;
-  --gsv-primary-l-5: #dbe6f3;
-  --gsv-primary-l-6: #eef3f9;
-  --gsv-secondary: #3c70c3;
-  --gsv-secondary-l-4: #d1e4f5;
-  --gsv-secondary-l-5: #e0eefb;
-  --gsv-warning: #fbc546;
-  --gsv-surface: #e6e4de;
-  --gsv-surface-l-4: #faf9f7;
-  --gsv-white: #fff;
-  --gsv-text-body: rgba(1, 42, 86, 0.86);
-  --gsv-text-muted: #6b7686;
-  --gsv-border-subtle: #dfe3e8;
+  /* Brand blue #014A97 in place of Priveo's navy #1C3563: the same scale, re-derived for this blue. */
+  --primary: #014a97;
+  --primary-l-1: #346eac;
+  --primary-l-2: #5a89bb;
+  --primary-l-3: #80a5cb;
+  --primary-l-4: #b3c9e0;
+  --primary-l-5: #dbe6f3;
+  --primary-l-6: #eef3f9;
+  --primary-d-1: #013a77;
+  --primary-d-2: #012a56;
+  --primary-t-1: hsla(211, 99%, 30%, 0.14);
+  --primary-t-2: hsla(211, 99%, 30%, 0.29);
+  --primary-t-3: hsla(211, 99%, 30%, 0.43);
+  --primary-t-4: hsla(211, 99%, 30%, 0.57);
+  --primary-t-5: hsla(211, 99%, 30%, 0.71);
+  --primary-t-6: hsla(211, 99%, 30%, 0.86);
 
-  --gsv-font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --gsv-font-serif: 'Lora', Georgia, serif;
+  /* Priveo's body text is its navy at 86%; this blue is too bright for text, so the darkest shade stands in. */
+  --text-body: rgba(1, 42, 86, 0.86);
 
-  --gsv-radius-s: 8px;
-  --gsv-radius-m: 12px;
-  --gsv-radius-full: 9999px;
-  --gsv-header-height: 72px;
-  --gsv-content-width: 1280px;
+  /* Priveo's token still names Silka, which it no longer ships: its pages are set in Plus Jakarta Sans. */
+  --font-primary: 'Plus Jakarta Sans', system-ui, sans-serif;
+
+  /* Names used by this site's own components, mapped onto the system. */
+  --gsv-primary: var(--primary);
+  --gsv-primary-d-1: var(--primary-d-1);
+  --gsv-primary-d-2: var(--primary-d-2);
+  --gsv-primary-l-5: var(--primary-l-5);
+  --gsv-primary-l-6: var(--primary-l-6);
+  --gsv-secondary: var(--secondary);
+  --gsv-secondary-l-4: var(--secondary-l-4);
+  --gsv-secondary-l-5: var(--secondary-l-5);
+  --gsv-warning: var(--warning);
+  --gsv-surface: var(--surface);
+  --gsv-surface-l-4: var(--surface-l-4);
+  --gsv-white: var(--white);
+  --gsv-text-body: var(--text-body);
+  --gsv-text-muted: var(--text-muted);
+  --gsv-border-subtle: var(--border-subtle);
+
+  --gsv-font-sans: var(--font-primary);
+  --gsv-font-serif: var(--font-secondary);
+
+  --gsv-radius-s: var(--radius-s);
+  --gsv-radius-m: var(--radius-m);
+  --gsv-radius-full: var(--radius-full);
+  --gsv-header-height: var(--header-height);
+}
+
+/* Priveo's header is shorter below its 1200px menu breakpoint. */
+@media (max-width: 1200px) {
+  :root {
+    --gsv-header-height: var(--header-height-mobile);
+  }
 }

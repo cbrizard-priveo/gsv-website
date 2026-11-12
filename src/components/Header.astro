@@ -1,6 +1,10 @@
 ---
-// Site header, after dev.priveosante.com's: dropdown panels on desktop, full-screen menu on mobile.
+// Site header: Priveo's (web-priveo-sante, site/src/components/layout/Header.astro) with this site's menu.
+// The markup, class names, ids and data attributes are Priveo's and must stay so: its styles and scripts,
+// synced by scripts/design/sync-priveo.mjs, hook onto them. Classes added here also go in that script's list.
 import '../styles/tokens.css';
+import '../styles/priveo/header.css';
+import '../styles/header.css';
 import { BOOKING, menus, type Dropdown, type Item, type Lang } from '../data/site';
 
 interface Props {
@@ -14,568 +18,141 @@ interface Props {
 const { lang, alt, route } = Astro.props;
 const menu = menus[lang];
 const home = lang === 'fr' ? '/' : '/en/';
-const other = lang === 'fr' ? { label: 'EN', name: 'English', lang: 'en' } : { label: 'FR', name: 'Français', lang: 'fr' };
+const other = lang === 'fr' ? { code: 'EN', name: 'English', lang: 'en' } : { code: 'FR', name: 'Français', lang: 'fr' };
 const altHref = alt ?? (lang === 'fr' ? '/en/' : '/');
 const isDropdown = (item: Item): item is Dropdown => 'links' in item;
 const current = (href: string) => (href === route ? 'page' : undefined);
+
+// Priveo's styles address its first three dropdowns by these ids; a fourth takes the defaults, as on its site.
+const DROPDOWN_IDS = [
+  { li: '', script: 'vfoxgc', content: 'rrzhea', menu: 'jgxisu' },
+  { li: 'dsyywj', script: 'dsyywj', content: 'eslzdw', menu: 'jueqzb' },
+  { li: 'acbiak', script: 'acbiak', content: 'xrcgca', menu: 'kkoqyg' },
+];
+const NODE_LAYOUTS: Record<string, string> = {
+  acbiak: 'header__dropdown-layout',
+  dsyywj: 'header__dropdown-layout-2',
+  eslzdw: 'header__dropdown-content-layout',
+  rrzhea: 'header__dropdown-content-layout-2',
+  xrcgca: 'header__dropdown-content-layout-3',
+};
+const node = (id: string) => (id ? `layout-node-${id}` : undefined);
+// A group titled like its menu item is hidden on mobile, where the item's label already heads the list.
+const sameLabel = (a: string, b: string) => a.trim().toLocaleLowerCase(lang) === b.trim().toLocaleLowerCase(lang);
+
+const lastIndex = menu.items.length - 1;
+let dropdown = -1;
 ---
 
-<header class="gsv-header" id="gsv-header">
-  <div class="gsv-header__inner">
-    <a class="gsv-header__logo" href={home} aria-current={current(home)}>
-      <img
-        src="/wp-content/uploads/2021/11/voyage-6-300x171.png"
-        srcset="/wp-content/uploads/2021/11/voyage-6-300x171.png 300w, /wp-content/uploads/2021/11/voyage-6-768x439.png 768w"
-        sizes="140px"
-        alt="Groupe Santé Voyage, propulsé par Priveo"
-        width="300"
-        height="171"
-      />
-    </a>
-
-    <nav class="gsv-nav" id="gsv-nav" aria-label={menu.menu}>
-      <ul class="gsv-nav__items">
-        {
-          menu.items.map((item, i) =>
-            isDropdown(item) ? (
-              <li class:list={['gsv-nav__dropdown', { 'is-current': item.links.some((l) => l.href === route) }]}>
-                <button class="gsv-nav__toggle" type="button" aria-expanded="false" aria-controls={`gsv-panel-${i}`}>
-                  {item.label}
-                  <svg aria-hidden="true" viewBox="0 0 12 12" fill="none">
-                    <path d="M1.5 4 6 8l4.5-4" stroke="currentColor" stroke-width="1.5" />
-                  </svg>
-                </button>
-                <div class="gsv-panel" id={`gsv-panel-${i}`}>
-                  <div class="gsv-panel__col">
-                    <p class="gsv-panel__eyebrow">{item.group}</p>
-                    <ul class="gsv-panel__links">
-                      {item.links.map((link) => (
-                        <li>
-                          <a href={link.href} aria-current={current(link.href)}>
-                            {link.label}
-                          </a>
+<div id="site-header" class="ui-sticky">
+  <header id="header__inner" class="layout-element layout-section header">
+    <div class="layout-element layout-container header__container">
+      <a href={home} aria-current={current(home)} class="layout-element layout-box header__logo">
+        <img
+          class="layout-element media-vector"
+          src="/wp-content/uploads/2021/11/voyage-6-300x171.png"
+          srcset="/wp-content/uploads/2021/11/voyage-6-300x171.png 300w, /wp-content/uploads/2021/11/voyage-6-768x439.png 768w"
+          sizes="140px"
+          alt="Groupe Santé Voyage, propulsé par Priveo"
+          width="300"
+          height="171"
+        />
+      </a>
+      <div class="layout-element layout-box header__nav">
+        <nav id="layout-node-aseiog" data-script-id="aseiog" class="layout-element header__menu-layout navigation header__menu" aria-label={menu.menu} data-toggle="laptop">
+          <ul class="layout-element layout-stack header__items navigation__items">
+            {
+              menu.items.map((item, i) => {
+                const closeToggle = i === lastIndex && menu.items.length > 1 && (
+                  <li class="navigation__item">
+                    <button data-script-id="hdskss" class="layout-element navigation__toggle header__toggle navigation__toggle-icon" aria-label={menu.closeMenu} aria-expanded="false">
+                      <span class="toggle-animation-wrap">
+                        <span class="toggle-animation-inner" />
+                      </span>
+                    </button>
+                  </li>
+                );
+                if (!isDropdown(item)) {
+                  return (
+                    <>
+                      {closeToggle}
+                      <li class="navigation__item">
+                        <a class="layout-element action-link header__nav-link" href={item.href} aria-current={current(item.href)}>
+                          {item.label}
+                        </a>
+                      </li>
+                    </>
+                  );
+                }
+                dropdown += 1;
+                const ids = DROPDOWN_IDS[dropdown] ?? { li: '', script: `dd${dropdown}`, content: '', menu: '' };
+                return (
+                  <>
+                    {closeToggle}
+                    <li id={node(ids.li)} data-script-id={ids.script} class:list={['layout-element', NODE_LAYOUTS[ids.li], 'navigation__dropdown header__dropdown']} data-toggle="both">
+                      <div class="navigation__submenu-toggle">
+                        <span>{item.label}</span>
+                        <button aria-expanded="false" aria-label={`${menu.submenu} ${item.label}`}>
+                          <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" fill="none">
+                            <path d="M1.50002 4L6.00002 8L10.5 4" stroke-width="1.5" stroke="currentcolor" />
+                          </svg>
+                        </button>
+                      </div>
+                      <ul id={node(ids.content)} class:list={['layout-element', NODE_LAYOUTS[ids.content], 'layout-box header__dropdown-content navigation__submenu']}>
+                        <li class="navigation__item">
+                          <div class="layout-box header__dropdown-grid header__panel header__panel--2">
+                            <div class="layout-element layout-box header__dropdown-column">
+                              <p class:list={['layout-element typography-heading header__dropdown-title', { 'header__dropdown-title--redundant': sameLabel(item.group, item.label) }]}>{item.group}</p>
+                              <div id={node(ids.menu)} class="layout-element navigation__link-group header__nav-menu">
+                                <nav class="ui-nav-menu-wrapper never" aria-label={item.group}>
+                                  <ul class="navigation__links">
+                                    {item.links.map((link) => (
+                                      <li class="navigation__item ui-menu-item">
+                                        <a href={link.href} aria-current={current(link.href)}>
+                                          {link.label}
+                                        </a>
+                                      </li>
+                                    ))}
+                                  </ul>
+                                </nav>
+                              </div>
+                            </div>
+                            <div class="layout-element layout-box header__dropdown-column header__panel-intro">
+                              <p class="layout-element typography-heading header__dropdown-title header__panel-title">{item.intro.title}</p>
+                              <a class="header__panel-link" href={item.intro.cta.href}>
+                                {item.intro.cta.label}
+                                <i aria-hidden="true">
+                                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="1em" height="1em" fill="none">
+                                    <path d="M1 6h10M7 2l4 4-4 4" stroke="currentcolor" stroke-width="1.5" />
+                                  </svg>
+                                </i>
+                              </a>
+                            </div>
+                          </div>
                         </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div class="gsv-panel__intro">
-                    <p class="gsv-panel__title">{item.intro.title}</p>
-                    <a class="gsv-panel__cta" href={item.intro.cta.href}>
-                      {item.intro.cta.label}
-                      <svg aria-hidden="true" viewBox="0 0 12 12" fill="none">
-                        <path d="M1 6h10M7 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </li>
-            ) : (
-              <li>
-                <a class:list={['gsv-nav__link', { 'is-current': item.href === route }]} href={item.href} aria-current={current(item.href)}>
-                  {item.label}
-                </a>
-              </li>
-            ),
-          )
-        }
-      </ul>
-      <a class="gsv-nav__lang" href={altHref} hreflang={other.lang} lang={other.lang}>{other.name}</a>
-    </nav>
-
-    <div class="gsv-header__actions">
-      <a class="gsv-header__lang" href={altHref} hreflang={other.lang} lang={other.lang} aria-label={other.name}>{other.label}</a>
-      <a class="gsv-btn" href={BOOKING}>{menu.book}</a>
-      <button
-        class="gsv-header__burger"
-        type="button"
-        aria-expanded="false"
-        aria-controls="gsv-nav"
-        aria-label={menu.openMenu}
-        data-open-label={menu.openMenu}
-        data-close-label={menu.closeMenu}
-      >
-        <span></span>
-      </button>
+                      </ul>
+                    </li>
+                  </>
+                );
+              })
+            }
+          </ul>
+          <button data-script-id="aboapx" class="layout-element navigation__toggle header__toggle navigation__toggle--squeeze" aria-label={menu.openMenu} aria-expanded="false">
+            <span class="toggle-animation-wrap">
+              <span class="toggle-animation-inner"></span>
+            </span>
+          </button>
+        </nav>
+      </div>
+      <div class="layout-element layout-box header__actions" data-breakin="1200">
+        <div id="layout-node-sypygv" class="layout-element header__lang-layout embedded-widget header__lang">
+          <a class="header__language-link" href={altHref} hreflang={other.lang} lang={other.lang} aria-label={other.name} title={other.name}>{other.code}</a>
+        </div>
+        <a id="layout-node-jztazb" class="layout-element header__action-link-layout action-link btn btn--primary" href={BOOKING}>{menu.book}</a>
+      </div>
     </div>
-  </div>
-</header>
+  </header>
+</div>
+<div class="gsv-header-space"></div>
 
-<script is:inline>
-  (() => {
-    const header = document.getElementById('gsv-header');
-    const burger = header.querySelector('.gsv-header__burger');
-    const dropdowns = [...header.querySelectorAll('.gsv-nav__dropdown')];
-    const desktop = matchMedia('(min-width: 1025px)');
-    const canHover = matchMedia('(hover: hover)');
-
-    const setOpen = (li, open) => {
-      li.classList.toggle('is-open', open);
-      li.querySelector('.gsv-nav__toggle').setAttribute('aria-expanded', String(open));
-    };
-    const closeAll = (except) => dropdowns.forEach((li) => li !== except && setOpen(li, false));
-
-    dropdowns.forEach((li) => {
-      let timer;
-      li.querySelector('.gsv-nav__toggle').addEventListener('click', () => {
-        const open = !li.classList.contains('is-open');
-        if (desktop.matches) closeAll(li);
-        setOpen(li, open);
-      });
-      li.addEventListener('mouseenter', () => {
-        if (!desktop.matches || !canHover.matches) return;
-        clearTimeout(timer);
-        closeAll(li);
-        setOpen(li, true);
-      });
-      li.addEventListener('mouseleave', () => {
-        if (!desktop.matches || !canHover.matches) return;
-        timer = setTimeout(() => setOpen(li, false), 150);
-      });
-    });
-
-    const setMenu = (open) => {
-      header.classList.toggle('is-menu-open', open);
-      document.documentElement.classList.toggle('gsv-menu-open', open);
-      burger.setAttribute('aria-expanded', String(open));
-      burger.setAttribute('aria-label', open ? burger.dataset.closeLabel : burger.dataset.openLabel);
-    };
-    burger.addEventListener('click', () => setMenu(!header.classList.contains('is-menu-open')));
-    desktop.addEventListener('change', () => {
-      setMenu(false);
-      closeAll();
-    });
-
-    document.addEventListener('click', (e) => {
-      if (desktop.matches && !header.contains(e.target)) closeAll();
-    });
-    document.addEventListener('keydown', (e) => {
-      if (e.key !== 'Escape') return;
-      const open = dropdowns.find((li) => li.classList.contains('is-open'));
-      if (open && desktop.matches) {
-        setOpen(open, false);
-        open.querySelector('.gsv-nav__toggle').focus();
-      } else if (header.classList.contains('is-menu-open')) {
-        setMenu(false);
-        burger.focus();
-      }
-    });
-
-    const onScroll = () => header.classList.toggle('is-scrolled', scrollY > 0);
-    addEventListener('scroll', onScroll, { passive: true });
-    onScroll();
-  })();
-</script>
-
-<style is:global>
-  /* Prefixed selectors on purpose: they must win over the imported Elementor/theme styles. */
-  .gsv-header {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background: var(--gsv-white);
-    font-family: var(--gsv-font-sans);
-    transition: background-color 0.2s, box-shadow 0.2s;
-  }
-  .gsv-header.is-scrolled {
-    background: rgba(255, 255, 255, 0.92);
-    backdrop-filter: blur(12px);
-    box-shadow: 0 2px 4px -1px rgba(27, 30, 44, 0.06);
-  }
-  .gsv-header *,
-  .gsv-header *::before,
-  .gsv-header *::after {
-    box-sizing: border-box;
-  }
-  .gsv-header .gsv-header__inner {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-    max-width: var(--gsv-content-width);
-    min-height: var(--gsv-header-height);
-    margin: 0 auto;
-    padding: 0 24px;
-  }
-  .gsv-header .gsv-header__logo {
-    display: flex;
-    flex-shrink: 0;
-  }
-  .gsv-header .gsv-header__logo img {
-    display: block;
-    width: auto;
-    height: 68px;
-  }
-  .gsv-header ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-  }
-  .gsv-header p {
-    margin: 0;
-  }
-  .gsv-header a {
-    text-decoration: none;
-  }
-  .gsv-header svg {
-    flex-shrink: 0;
-  }
-
-  /* Top-level items */
-  .gsv-header .gsv-nav {
-    flex-grow: 1;
-  }
-  .gsv-header .gsv-nav__items {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-  }
-  .gsv-header .gsv-nav__dropdown {
-    position: relative;
-  }
-  .gsv-header .gsv-nav__link,
-  .gsv-header .gsv-nav__toggle {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    margin: 0;
-    padding: 8px 12px;
-    border: 0;
-    border-radius: var(--gsv-radius-s);
-    background: transparent;
-    color: var(--gsv-primary);
-    font: 500 15px/1.4 var(--gsv-font-sans);
-    letter-spacing: normal;
-    text-transform: none;
-    cursor: pointer;
-    transition: color 0.15s, background-color 0.15s;
-  }
-  .gsv-header .gsv-nav__link:hover,
-  .gsv-header .gsv-nav__toggle:hover,
-  .gsv-header .gsv-nav__dropdown.is-open > .gsv-nav__toggle {
-    background: var(--gsv-surface-l-4);
-    color: var(--gsv-secondary);
-  }
-  .gsv-header .gsv-nav__link.is-current,
-  .gsv-header .gsv-nav__dropdown.is-current > .gsv-nav__toggle {
-    color: var(--gsv-secondary);
-  }
-  .gsv-header .gsv-nav__toggle:focus-visible,
-  .gsv-header a:focus-visible,
-  .gsv-header button:focus-visible {
-    outline: 2px solid var(--gsv-secondary);
-    outline-offset: 2px;
-  }
-  .gsv-header .gsv-nav__toggle svg {
-    width: 12px;
-    height: 12px;
-    transition: transform 0.4s cubic-bezier(0.33, 1, 0.68, 1);
-  }
-  .gsv-header .gsv-nav__dropdown.is-open > .gsv-nav__toggle svg {
-    transform: rotate(180deg);
-  }
-
-  /* Dropdown panels */
-  .gsv-header .gsv-panel {
-    position: absolute;
-    top: calc(100% + 12px);
-    left: 0;
-    display: grid;
-    grid-template-columns: minmax(200px, auto) minmax(180px, auto);
-    column-gap: 56px;
-    padding: 32px;
-    border: 1px solid var(--gsv-border-subtle);
-    border-radius: var(--gsv-radius-m);
-    background: var(--gsv-white);
-    box-shadow: 0 16px 40px -12px rgba(1, 42, 86, 0.18);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-4px);
-    transition: opacity 0.2s, visibility 0.2s, transform 0.2s;
-  }
-  /* Keeps the panel open while the pointer crosses the gap below the toggle. */
-  .gsv-header .gsv-panel::before {
-    content: '';
-    position: absolute;
-    inset: -13px 0 auto;
-    height: 13px;
-  }
-  .gsv-header .gsv-nav__dropdown.is-open > .gsv-panel {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
-  .gsv-header .gsv-panel__eyebrow {
-    margin-bottom: 12px;
-    color: var(--gsv-text-muted);
-    font: 600 12px/1.4 var(--gsv-font-sans);
-    letter-spacing: 0.08em;
-    text-transform: uppercase;
-  }
-  .gsv-header .gsv-panel__links {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;
-  }
-  .gsv-header .gsv-panel__links a {
-    display: block;
-    margin: 0 -12px;
-    padding: 8px 12px;
-    border-radius: var(--gsv-radius-s);
-    color: var(--gsv-primary);
-    font: 500 15px/1.4 var(--gsv-font-sans);
-    white-space: nowrap;
-    transition: color 0.15s, background-color 0.15s;
-  }
-  .gsv-header .gsv-panel__links a:hover,
-  .gsv-header .gsv-panel__links a[aria-current='page'] {
-    background: var(--gsv-primary-l-6);
-    color: var(--gsv-secondary);
-  }
-  .gsv-header .gsv-panel__intro {
-    display: flex;
-    flex-direction: column;
-  }
-  .gsv-header .gsv-panel__title {
-    margin-bottom: 20px;
-    color: var(--gsv-primary);
-    font: 500 22px/1.3 var(--gsv-font-serif);
-  }
-  .gsv-header .gsv-panel__cta {
-    display: inline-flex;
-    align-self: flex-start;
-    align-items: center;
-    gap: 8px;
-    margin-top: auto;
-    padding: 9px 16px;
-    border: 1px solid var(--gsv-border-subtle);
-    border-radius: var(--gsv-radius-full);
-    color: var(--gsv-primary);
-    font: 500 14px/1.4 var(--gsv-font-sans);
-    white-space: nowrap;
-    transition: color 0.15s, background-color 0.15s, border-color 0.15s;
-  }
-  .gsv-header .gsv-panel__cta svg {
-    width: 11px;
-    height: 11px;
-    transition: transform 0.15s;
-  }
-  .gsv-header .gsv-panel__cta:hover {
-    border-color: var(--gsv-primary-l-5);
-    background: var(--gsv-primary-l-6);
-    color: var(--gsv-secondary);
-  }
-  .gsv-header .gsv-panel__cta:hover svg {
-    transform: translateX(3px);
-  }
-
-  /* Actions */
-  .gsv-header .gsv-header__actions {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    flex-shrink: 0;
-  }
-  .gsv-header .gsv-header__lang {
-    color: var(--gsv-primary);
-    font: 500 15px/1.4 var(--gsv-font-sans);
-    text-decoration: underline;
-    text-underline-offset: 4px;
-  }
-  .gsv-header .gsv-header__lang:hover {
-    color: var(--gsv-secondary);
-  }
-  .gsv-header .gsv-btn {
-    display: inline-flex;
-    align-items: center;
-    padding: 11px 18px;
-    border-radius: var(--gsv-radius-m);
-    background: var(--gsv-primary);
-    color: var(--gsv-white);
-    font: 500 15px/1.2 var(--gsv-font-sans);
-    white-space: nowrap;
-    transition: background-color 0.15s;
-  }
-  .gsv-header .gsv-btn:hover {
-    background: var(--gsv-primary-d-1);
-    color: var(--gsv-white);
-  }
-  .gsv-header .gsv-nav__lang,
-  .gsv-header .gsv-header__burger {
-    display: none;
-  }
-
-  /* Mobile and tablet: full-screen menu under the header */
-  @media (max-width: 1024px) {
-    .gsv-header .gsv-header__inner {
-      justify-content: space-between;
-      gap: 16px;
-      min-height: 64px;
-      padding: 0 16px;
-    }
-    .gsv-header .gsv-header__logo img {
-      height: 56px;
-    }
-    .gsv-header .gsv-header__lang {
-      display: none;
-    }
-    .gsv-header .gsv-btn {
-      padding: 10px 14px;
-      font-size: 14px;
-    }
-    .gsv-header .gsv-header__burger {
-      position: relative;
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 44px;
-      height: 44px;
-      margin: 0 -8px 0 0;
-      padding: 0;
-      border: 0;
-      border-radius: var(--gsv-radius-s);
-      background: transparent;
-      color: var(--gsv-primary);
-      cursor: pointer;
-    }
-    .gsv-header .gsv-header__burger span,
-    .gsv-header .gsv-header__burger span::before,
-    .gsv-header .gsv-header__burger span::after {
-      position: absolute;
-      width: 26px;
-      height: 2px;
-      border-radius: 2px;
-      background: currentColor;
-      transition: transform 0.25s, opacity 0.25s;
-    }
-    .gsv-header .gsv-header__burger span::before,
-    .gsv-header .gsv-header__burger span::after {
-      content: '';
-      left: 0;
-    }
-    .gsv-header .gsv-header__burger span::before {
-      transform: translateY(-8px);
-    }
-    .gsv-header .gsv-header__burger span::after {
-      transform: translateY(8px);
-    }
-    .gsv-header.is-menu-open .gsv-header__burger span {
-      background: transparent;
-    }
-    .gsv-header.is-menu-open .gsv-header__burger span::before {
-      background: var(--gsv-primary);
-      transform: rotate(45deg);
-    }
-    .gsv-header.is-menu-open .gsv-header__burger span::after {
-      background: var(--gsv-primary);
-      transform: rotate(-45deg);
-    }
-
-    .gsv-header .gsv-nav {
-      position: fixed;
-      inset: 64px 0 0;
-      display: flex;
-      flex-direction: column;
-      gap: 24px;
-      padding: 16px 16px calc(32px + env(safe-area-inset-bottom, 0px));
-      overflow-y: auto;
-      background: var(--gsv-white);
-      opacity: 0;
-      visibility: hidden;
-      transition: opacity 0.2s, visibility 0.2s;
-    }
-    .gsv-header.is-menu-open .gsv-nav {
-      opacity: 1;
-      visibility: visible;
-    }
-    .gsv-header .gsv-nav__items {
-      flex-direction: column;
-      align-items: stretch;
-      gap: 0;
-    }
-    .gsv-header .gsv-nav__items > li {
-      border-bottom: 1px solid var(--gsv-border-subtle);
-    }
-    .gsv-header .gsv-nav__link,
-    .gsv-header .gsv-nav__toggle {
-      justify-content: space-between;
-      width: 100%;
-      padding: 18px 4px;
-      border-radius: 0;
-      font-size: 18px;
-    }
-    .gsv-header .gsv-nav__link:hover,
-    .gsv-header .gsv-nav__toggle:hover,
-    .gsv-header .gsv-nav__dropdown.is-open > .gsv-nav__toggle {
-      background: transparent;
-    }
-    .gsv-header .gsv-nav__toggle svg {
-      width: 14px;
-      height: 14px;
-    }
-    .gsv-header .gsv-panel {
-      position: static;
-      display: none;
-      padding: 0 4px 16px;
-      border: 0;
-      border-radius: 0;
-      box-shadow: none;
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-      transition: none;
-    }
-    .gsv-header .gsv-panel::before {
-      content: none;
-    }
-    .gsv-header .gsv-nav__dropdown.is-open > .gsv-panel {
-      display: block;
-    }
-    .gsv-header .gsv-panel__eyebrow,
-    .gsv-header .gsv-panel__title {
-      display: none;
-    }
-    .gsv-header .gsv-panel__links a {
-      margin: 0;
-      padding: 12px;
-      font-size: 16px;
-      white-space: normal;
-    }
-    .gsv-header .gsv-panel__cta {
-      margin: 8px 0 0;
-      padding: 12px;
-      border: 0;
-      border-radius: 0;
-    }
-    .gsv-header .gsv-panel__cta:hover {
-      background: transparent;
-    }
-    .gsv-header .gsv-nav__lang {
-      display: block;
-      align-self: flex-start;
-      color: var(--gsv-primary);
-      font: 500 16px/1.4 var(--gsv-font-sans);
-      text-decoration: underline;
-      text-underline-offset: 4px;
-    }
-    html.gsv-menu-open,
-    html.gsv-menu-open body {
-      overflow: hidden;
-    }
-  }
-
-  @media (max-width: 400px) {
-    .gsv-header .gsv-header__logo img {
-      height: 44px;
-    }
-    .gsv-header .gsv-btn {
-      padding: 9px 12px;
-      font-size: 13px;
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    .gsv-header,
-    .gsv-header * {
-      transition: none !important;
-    }
-  }
-</style>
+<script is:inline src="/assets/priveo/header.js" defer></script>

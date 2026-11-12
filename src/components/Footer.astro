@@ -137,9 +137,9 @@ const year = new Date().getFullYear();
     display: grid;
     grid-template-columns: minmax(260px, 1.6fr) repeat(4, minmax(0, 1fr));
     gap: 48px 32px;
-    max-width: var(--gsv-content-width);
+    max-width: calc(var(--content-width) + 2 * var(--gutter));
     margin: 0 auto;
-    padding: 64px 24px 56px;
+    padding: 64px var(--gutter) 56px;
   }
   .gsv-footer .gsv-footer__logo {
     display: inline-flex;
@@ -228,9 +228,9 @@ const year = new Date().getFullYear();
     flex-wrap: wrap;
     align-items: center;
     gap: 12px 32px;
-    max-width: var(--gsv-content-width);
+    max-width: calc(var(--content-width) + 2 * var(--gutter));
     margin: 0 auto;
-    padding: 24px;
+    padding: 24px var(--gutter);
     font-size: 13px;
   }
   .gsv-footer .gsv-footer__social {
