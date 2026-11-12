@@ -1,7 +1,7 @@
 ---
 // Priveo's clinic map (web-priveo-sante: sections/ClinicList.astro, layout « map »): a map with a pin per
-// clinic, the chosen clinic's card, and a button per city. Priveo draws a Google map; here it is
-// OpenStreetMap through Leaflet (no key, no cookie), with Priveo's pins and cards.
+// clinic, the chosen clinic's card, and a button per city. Priveo draws a styled Google map; here the same
+// style is drawn with MapLibre from OpenStreetMap vector tiles (OpenFreeMap: no key, no cookie).
 import { BOOKING, CLINICS, type Lang } from '../../data/site';
 import { clinicCopy, clinicPages, clinicPath } from '../../data/clinics';
 import '../../styles/priveo/sections.css';
@@ -72,7 +72,7 @@ const data = clinics.map((c) => ({ name: c.short, lat: c.position[0], lng: c.pos
 </div>
 
 <script>
-  import 'leaflet/dist/leaflet.css';
+  import 'maplibre-gl/dist/maplibre-gl.css';
 
   interface Pin {
     name: string;
@@ -80,6 +80,36 @@ const data = clinics.map((c) => ({ name: c.short, lat: c.position[0], lng: c.pos
     lng: number;
     below: boolean;
   }
+
+  // Priveo's map style (web-priveo-sante: site/src/scripts/google-clinic-map.js), drawn from OpenStreetMap
+  // vector tiles: land, water, highways and arterial roads in its colours (--map-* on .clinic-map__map);
+  // no labels, places, buildings or borders.
+  const style = (colour: (name: string) => string) => ({
+    version: 8 as const,
+    sources: { osm: { type: 'vector' as const, url: 'https://tiles.openfreemap.org/planet' } },
+    layers: [
+      { id: 'land', type: 'background' as const, paint: { 'background-color': colour('--map-land') } },
+      { id: 'water', type: 'fill' as const, source: 'osm', 'source-layer': 'water', paint: { 'fill-color': colour('--map-water') } },
+      {
+        id: 'arterial',
+        type: 'line' as const,
+        source: 'osm',
+        'source-layer': 'transportation',
+        filter: ['in', ['get', 'class'], ['literal', ['trunk', 'primary']]],
+        layout: { 'line-cap': 'round' as const, 'line-join': 'round' as const },
+        paint: { 'line-color': colour('--map-arterial'), 'line-opacity': 0.75, 'line-width': ['interpolate', ['linear'], ['zoom'], 8, 0.25, 13, 1.1] },
+      },
+      {
+        id: 'highway',
+        type: 'line' as const,
+        source: 'osm',
+        'source-layer': 'transportation',
+        filter: ['==', ['get', 'class'], 'motorway'],
+        layout: { 'line-cap': 'round' as const, 'line-join': 'round' as const },
+        paint: { 'line-color': colour('--map-road'), 'line-width': ['interpolate', ['linear'], ['zoom'], 8, 0.8, 13, 2.4] },
+      },
+    ],
+  });
 
   for (const root of document.querySelectorAll<HTMLElement>('[data-clinic-map]')) {
     const canvas = root.querySelector<HTMLElement>('.clinic-map__canvas')!;
@@ -107,35 +137,65 @@ const data = clinics.map((c) => ({ name: c.short, lat: c.position[0], lng: c.pos
 
     // The map loads when it comes near the screen, so pages that don't show it don't fetch it.
     const load = async () => {
-      const L = (await import('leaflet')).default;
-      const map = L.map(canvas, { scrollWheelZoom: false, attributionControl: true });
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 18,
-        attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-      }).addTo(map);
-      const bounds = L.latLngBounds(pins.map((p) => [p.lat, p.lng] as [number, number]));
-      map.fitBounds(bounds, { padding: [48, 48] });
+      const { default: maplibregl } = await import('maplibre-gl');
+      const theme = getComputedStyle(canvas.parentElement!);
+      const lngs = pins.map((p) => p.lng);
+      const lats = pins.map((p) => p.lat);
+      const bounds: [[number, number], [number, number]] = [
+        [Math.min(...lngs), Math.min(...lats)],
+        [Math.max(...lngs), Math.max(...lats)],
+      ];
+      const fit = { padding: { top: 64, right: 72, bottom: 80, left: 72 }, animate: false };
+      const map = new maplibregl.Map({
+        container: canvas,
+        style: style((name) => theme.getPropertyValue(name).trim()),
+        bounds,
+        fitBoundsOptions: fit,
+        attributionControl: { compact: true },
+        dragRotate: false,
+        pitchWithRotate: false,
+      });
+      map.touchZoomRotate.disableRotation();
+      map.keyboard.disableRotation();
+      // As on Priveo: one level beyond the view of all the clinics keeps zooming out regional.
+      map.once('load', () => {
+        map.setMinZoom(Math.max(0, map.getZoom() - 1));
+        // The credits start open; fold them behind their « i » button so they don't cover the map.
+        canvas.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show');
+      });
+
       markers = pins.map((p, i) => {
-        const html = `<button type="button" class="clinic-map__pin${p.below ? ' clinic-map__pin--below' : ''}" aria-pressed="false" aria-label="${p.name}"><span class="clinic-map__tag">${p.name}</span></button>`;
-        const marker = L.marker([p.lat, p.lng], { icon: L.divIcon({ className: 'clinic-map__marker', html, iconSize: [0, 0] }), keyboard: false }).addTo(map);
-        const button = marker.getElement()!.querySelector('button')!;
-        button.addEventListener('click', () => select(i));
+        const el = document.createElement('div');
+        el.className = 'clinic-map__marker';
+        el.innerHTML = `<button type="button" class="clinic-map__pin${p.below ? ' clinic-map__pin--below' : ''}" aria-pressed="false" aria-label="${p.name}"><span class="clinic-map__tag">${p.name}</span></button>`;
+        new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat([p.lng, p.lat]).addTo(map);
+        const button = el.querySelector('button')!;
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+          select(i);
+        });
         return button;
       });
-      focus = (i) => map.panTo([pins[i].lat, pins[i].lng]);
-      // The frame changes size with the layout (it is square on phones): keep the map filling it.
+      // Pan only to a clinic that is out of view: with all of them shown, the map stays put.
+      focus = (i) => {
+        if (!map.getBounds().contains([pins[i].lng, pins[i].lat])) map.easeTo({ center: [pins[i].lng, pins[i].lat], duration: 400 });
+      };
+      // The frame changes size with the layout (it is square on phones): keep all the clinics in view.
       new ResizeObserver(() => {
-        map.invalidateSize();
-        map.fitBounds(bounds, { padding: [48, 48] });
+        map.resize();
+        map.fitBounds(bounds, fit);
       }).observe(canvas);
       select(cards.findIndex((c) => c.classList.contains('is-active')));
     };
-    const io = new IntersectionObserver((entries) => {
-      if (entries.some((e) => e.isIntersecting)) {
-        io.disconnect();
-        load();
-      }
-    }, { rootMargin: '200px' });
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          load();
+        }
+      },
+      { rootMargin: '200px' },
+    );
     io.observe(canvas);
   }
 </script>
