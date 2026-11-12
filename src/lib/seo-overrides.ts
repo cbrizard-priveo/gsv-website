@@ -1,10 +1,25 @@
 // Applies src/data/seo.ts to the SEO tags kept from the WordPress pages (meta, Open Graph, Yoast JSON-LD).
 import * as cheerio from 'cheerio';
 import { seoFor } from '../data/seo';
+import siteRedirects from '../data/redirects.json';
+import wpRedirects from '../wp/redirects.json';
+
+/** Both redirect lists: the WordPress ones and ours. */
+export const redirects: Record<string, string> = { ...wpRedirects, ...siteRedirects };
 
 const attr = (s: string) => s.replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;');
 
-export function withSeo(route: string, title: string, head: string[]): { title: string; head: string[] } {
+// Absolute URLs kept from WordPress (Yoast breadcrumbs, og:url) skip the redirects too. The JSON-LD may
+// escape slashes ("https:\/\/…"), so both forms are rewritten.
+const redirectUrls = (tag: string) =>
+  Object.entries(redirects).reduce((t, [from, to]) => {
+    const host = 'cliniquesantevoyage.com';
+    const esc = (s: string) => s.replaceAll('/', '\\/');
+    return t.split(`${host}${from}"`).join(`${host}${to}"`).split(`${host}${esc(from)}"`).join(`${host}${esc(to)}"`);
+  }, tag);
+
+export function withSeo(route: string, title: string, imported: string[]): { title: string; head: string[] } {
+  const head = imported.map(redirectUrls);
   const seo = seoFor(route);
   if (!seo) return { title, head };
   const description = seo.description;
@@ -44,7 +59,8 @@ export function withSeo(route: string, title: string, head: string[]): { title: 
  * if any), and links to redirected pages point straight at their target.
  */
 export function withSeoBody(html: string, route: string, redirects: Record<string, string>): string {
-  let out = html;
+  // Internal links need a trailing slash (trailingSlash: 'always'); files (with a dot) are left alone.
+  let out = html.replace(/href="(\/[^"?#.]*[^"?#./])([?#][^"]*)?"/g, (_, path, rest = '') => `href="${path}/${rest}"`);
   for (const [from, to] of Object.entries(redirects)) out = out.split(`href="${from}"`).join(`href="${to}"`);
 
   // There are four clinics; the client confirmed there is no Pointe-Claire (West Island) clinic any more.

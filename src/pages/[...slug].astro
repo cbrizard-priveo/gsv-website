@@ -7,7 +7,8 @@ const bodies = import.meta.glob<string>('../wp/html/*.html', { query: '?raw', im
 
 export function getStaticPaths() {
   return (pages as WpPageData[])
-    .filter((page) => !REBUILT.has(page.route))
+    // The importer also saved WordPress REST API responses (/wp-json/…); they aren't pages.
+    .filter((page) => !REBUILT.has(page.route) && !page.route.includes('/wp-json/'))
     .map((page) => ({
       params: { slug: page.route.slice(1, -1) },
       props: { page },

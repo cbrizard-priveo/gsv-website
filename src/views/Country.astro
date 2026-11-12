@@ -28,7 +28,7 @@ const anchor = (id: string) => `risque-${id}`;
 const title = t.title(name);
 const head = seoHead({
   title,
-  description: t.description(name, country.diseases.slice(0, 3).map((d) => d.name[lang].toLowerCase())),
+  description: t.description(name, country.diseases.slice(0, 3).map((d) => (lang === 'fr' ? d.name.fr.replace(/^(\p{Lu})(?=\p{Ll})/u, (c) => c.toLowerCase()) : d.name.en))),
   path,
   lang,
   alternates: { fr: countryPath(country, 'fr'), en: countryPath(country, 'en') },

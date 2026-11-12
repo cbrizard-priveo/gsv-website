@@ -13,14 +13,24 @@ interface Entry {
   lastmod?: string;
 }
 
-const isJunk = (route: string) => route.includes('/wp-json/') || route in redirects;
+const byRoute = new Map((pages as WpPageData[]).map((p) => [p.route, p]));
+// Not in the sitemap: REST API responses, redirected pages, date archives and anything marked noindex.
+const isJunk = (route: string) => {
+  const page = byRoute.get(route);
+  return (
+    route.includes('/wp-json/') ||
+    route in redirects ||
+    /^\/(en\/)?\d{4}\//.test(route) ||
+    !!page?.head.some((tag) => /<meta name="robots"[^>]*noindex/.test(tag))
+  );
+};
 
 export const GET: APIRoute = () => {
   const entries: Entry[] = [];
-  const byRoute = new Map((pages as WpPageData[]).map((p) => [p.route, p]));
   for (const p of pages as WpPageData[]) {
     if (isJunk(p.route)) continue;
-    const alt = p.alt && byRoute.has(p.alt) && !isJunk(p.alt) ? p.alt : null;
+    // hreflang pairs must point both ways.
+    const alt = p.alt && byRoute.get(p.alt)?.alt === p.route && !isJunk(p.alt) ? p.alt : null;
     entries.push({ path: p.route, alternates: alt ? (p.lang === 'fr' ? { fr: p.route, en: alt } : { fr: alt, en: p.route }) : undefined });
   }
   entries.push({ path: hubPath('fr'), alternates: { fr: hubPath('fr'), en: hubPath('en') } });
