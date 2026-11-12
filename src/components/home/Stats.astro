@@ -1,11 +1,8 @@
 ---
-// Key numbers under the homepage hero, counted up when they come into view. Computed from the site's own
-// data at build time; the page holds the final numbers, so they read right without the animation (no
-// script, or reduced motion).
+// Key numbers under the homepage hero, counted up when they come into view. The page holds the final
+// numbers, so they read right without the animation (no script, or reduced motion).
 import type { Lang } from '../../data/site';
-import { FOUNDED, stats } from '../../data/home-tools';
-import { countries } from '../../lib/countries';
-import { vaccineList } from '../../lib/vaccines';
+import { FOUNDED, TRAVELLERS, stats } from '../../data/home-tools';
 import { clinicPages } from '../../data/clinics';
 
 interface Props {
@@ -14,22 +11,30 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = stats[lang];
+const locale = lang === 'fr' ? 'fr-CA' : 'en-CA';
+// The year counts up from 1950, the others from 0; the year is written without a thousands separator.
+// « Au service des voyageurs depuis » comes before its year, in reading order too.
 const items = [
-  { value: new Date().getFullYear() - FOUNDED, label: t.years },
-  { value: countries.length, label: t.destinations },
-  { value: vaccineList(lang).length, label: t.topics },
-  { value: clinicPages.length, label: t.clinics },
+  { value: FOUNDED, from: 1950, grouping: false, label: t.founded, labelFirst: true },
+  { value: clinicPages.length, from: 0, grouping: true, label: t.clinics },
+  { value: TRAVELLERS, from: 0, grouping: true, suffix: '+', label: t.travellers },
 ];
-const format = new Intl.NumberFormat(lang === 'fr' ? 'fr-CA' : 'en-CA');
+const format = (n: number, grouping: boolean) => new Intl.NumberFormat(locale, { useGrouping: grouping }).format(n);
 ---
 
-<section class="stats" aria-label={t.label} data-stats>
+<section class="stats" aria-label={t.label} data-stats data-locale={locale}>
   <ul class="gsv-container stats__list">
     {
       items.map((item) => (
         <li class="stats__item">
-          <span class="stats__value" data-value={item.value}>{format.format(item.value)}</span>
-          <span class="stats__label">{item.label}</span>
+          {item.labelFirst && <span class="stats__label">{item.label}</span>}
+          <span class="stats__value">
+            <span data-value={item.value} data-from={item.from} data-grouping={String(item.grouping)}>
+              {format(item.value, item.grouping)}
+            </span>
+            {item.suffix}
+          </span>
+          {!item.labelFirst && <span class="stats__label">{item.label}</span>}
         </li>
       ))
     }
@@ -41,16 +46,19 @@ const format = new Intl.NumberFormat(lang === 'fr' ? 'fr-CA' : 'en-CA');
   for (const root of document.querySelectorAll<HTMLElement>('[data-stats]')) {
     if (reduce) continue;
     const values = [...root.querySelectorAll<HTMLElement>('[data-value]')];
-    const format = new Intl.NumberFormat(document.documentElement.lang || undefined);
+    const formats = values.map((el) => new Intl.NumberFormat(root.dataset.locale, { useGrouping: el.dataset.grouping === 'true' }));
     const io = new IntersectionObserver(
       (entries) => {
         if (!entries.some((e) => e.isIntersecting)) return;
         io.disconnect();
         const start = performance.now();
         const step = (now: number) => {
-          const k = Math.min((now - start) / 1400, 1);
+          const k = Math.min((now - start) / 1600, 1);
           const eased = 1 - (1 - k) ** 3;
-          for (const el of values) el.textContent = format.format(Math.round(Number(el.dataset.value) * eased));
+          values.forEach((el, i) => {
+            const from = Number(el.dataset.from);
+            el.textContent = formats[i].format(Math.round(from + (Number(el.dataset.value) - from) * eased));
+          });
           if (k < 1) requestAnimationFrame(step);
         };
         requestAnimationFrame(step);
@@ -69,7 +77,7 @@ const format = new Intl.NumberFormat(lang === 'fr' ? 'fr-CA' : 'en-CA');
   }
   .stats__list {
     display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 24px;
     margin: 0 auto;
     list-style: none;
@@ -87,15 +95,15 @@ const format = new Intl.NumberFormat(lang === 'fr' ? 'fr-CA' : 'en-CA');
     font-variant-numeric: tabular-nums;
   }
   .stats__label {
-    max-width: 22ch;
+    max-width: 24ch;
     font-size: 15px;
     line-height: 1.45;
   }
 
-  @media (max-width: 1024px) {
+  @media (max-width: 767px) {
     .stats__list {
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      row-gap: 28px;
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 24px;
     }
   }
 </style>

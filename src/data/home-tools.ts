@@ -22,6 +22,8 @@ export const planner: Record<
       today: string;
       past: string;
       source: { label: string; href: string };
+      /** The clinic's own message, shown apart from the government's advice and its source. */
+      neverTooLate: string;
     };
     book: string;
     results: (n: number) => string;
@@ -44,6 +46,7 @@ export const planner: Record<
       today: 'Départ aujourd’hui. Selon le gouvernement du Canada, même si la date approche, il vaut la peine de prendre rendez-vous.',
       past: 'Choisissez une date à venir.',
       source: { label: 'Source : gouvernement du Canada', href: 'https://voyage.gc.ca/voyager/sante-securite/vaccins' },
+      neverTooLate: 'Il n’est jamais trop tard pour une consultation.',
     },
     book: 'Prendre rendez-vous',
     results: (n) => `${n} résultat${n > 1 ? 's' : ''}`,
@@ -65,29 +68,29 @@ export const planner: Record<
       today: 'Leaving today. According to the Government of Canada, even if your travel date is coming up soon, it’s still worthwhile to make an appointment.',
       past: 'Choose a date in the future.',
       source: { label: 'Source: Government of Canada', href: 'https://travel.gc.ca/travelling/health-safety/vaccines' },
+      neverTooLate: 'It’s never too late for a consultation.',
     },
     book: 'Book an appointment',
     results: (n) => `${n} result${n > 1 ? 's' : ''}`,
   },
 };
 
-// Numbers drawn from the site itself: the founding year (« depuis 1997 », homepage), the country pages,
-// the vaccine and disease pages, and the clinics. Computed at build time (src/components/home/Stats.astro).
+// The numbers band (src/components/home/Stats.astro): the founding year (« depuis 1997 », homepage), the
+// number of clinics (src/data/clinics.ts) and the number of travellers, given by the client on 2026-11-12.
 export const FOUNDED = 1997;
+export const TRAVELLERS = 200_000;
 
-export const stats: Record<Lang, { label: string; years: string; destinations: string; topics: string; clinics: string }> = {
+export const stats: Record<Lang, { label: string; founded: string; clinics: string; travellers: string }> = {
   fr: {
     label: 'Groupe Santé Voyage en chiffres',
-    years: 'ans au service des voyageurs',
-    destinations: 'destinations avec les recommandations de l’INSPQ',
-    topics: 'fiches sur les vaccins et les maladies',
+    founded: 'Au service des voyageurs depuis',
     clinics: 'cliniques dans le Grand Montréal',
+    travellers: 'voyageurs',
   },
   en: {
     label: 'Groupe Santé Voyage in numbers',
-    years: 'years serving travellers',
-    destinations: 'destinations with INSPQ recommendations',
-    topics: 'vaccine and disease pages',
+    founded: 'Serving travellers since',
     clinics: 'clinics across Greater Montreal',
+    travellers: 'travellers',
   },
 };

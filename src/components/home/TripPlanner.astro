@@ -67,9 +67,10 @@ const messages = {
     <div class="planner__timing" hidden data-timing>
       <p data-timing-text></p>
       <a class="planner__source" href={t.timing.source.href} target="_blank" rel="noopener">{t.timing.source.label}</a>
+      <p class="planner__never" data-never>{t.timing.neverTooLate}</p>
     </div>
     <div class="planner__actions">
-      <a class="gsv-button gsv-button--light" href="#" hidden data-open>{t.preview.open}<Icon name="arrow-right" /></a>
+      <a class="gsv-button gsv-button--outline" href="#" hidden data-open>{t.preview.open}<Icon name="arrow-right" /></a>
       <a class="gsv-button" href={BOOKING}>{t.book}<Icon name="arrow-right" /></a>
     </div>
   </div>
@@ -197,6 +198,7 @@ const messages = {
           days < 0 ? m.past : days === 0 ? m.today : days >= weeks * 7 ? fill(m.ahead, { days, by }) : days === 1 ? m.soonOne : fill(m.soonMany, { days });
       }
       timing.hidden = !Number.isFinite(date);
+      (timing.querySelector('[data-never]') as HTMLElement).hidden = !Number.isFinite(date) || date < today();
       result.hidden = country.hidden && timing.hidden;
     };
     const choose = (d: Destination) => {
@@ -241,8 +243,8 @@ const messages = {
 
 <style>
   .planner {
-    max-width: 760px;
-    margin-top: 36px;
+    width: 100%;
+    max-width: 640px;
     padding: 20px;
     border: 1px solid rgba(255, 255, 255, 0.22);
     border-radius: 20px;
@@ -261,7 +263,7 @@ const messages = {
   }
   .planner__fields {
     display: grid;
-    grid-template-columns: minmax(0, 1.6fr) minmax(0, 1fr);
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
     gap: 12px;
   }
   .planner__field {
@@ -412,13 +414,15 @@ const messages = {
     font-size: 13px;
     text-underline-offset: 3px;
   }
+  .planner__never {
+    margin-top: 10px;
+    color: var(--gsv-primary);
+    font-weight: 600;
+  }
   .planner__actions {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-  }
-  .planner__actions .gsv-button--light {
-    border-color: var(--gsv-border-subtle);
   }
   [hidden] {
     display: none !important;
@@ -426,7 +430,6 @@ const messages = {
 
   @media (max-width: 767px) {
     .planner {
-      margin-top: 28px;
       padding: 16px;
     }
     .planner__fields {
