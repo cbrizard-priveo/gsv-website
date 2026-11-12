@@ -6,6 +6,7 @@ import type { Lang } from '../data/site';
 import { REGIONS, countries, countryPath, hubPath } from '../lib/countries';
 import { seoHead } from '../lib/seo';
 import Icon from '../components/Icon.astro';
+import WorldMap from '../components/WorldMap.astro';
 import { BOOKING } from '../data/site';
 
 interface Props {
@@ -31,6 +32,9 @@ const regions = REGIONS.map((r) => ({
     </div>
   </section>
   <section class="gsv-section hub">
+    <div class="gsv-container hub__map">
+      <WorldMap lang={lang} />
+    </div>
     <div class="gsv-container hub__regions">
       {
         regions.map((r) => (
@@ -63,6 +67,9 @@ const regions = REGIONS.map((r) => ({
   }
   .hub {
     padding-top: 64px;
+  }
+  .hub__map {
+    margin-bottom: 64px;
   }
   .hub__regions {
     display: flex;
