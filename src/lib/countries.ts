@@ -21,14 +21,33 @@ export interface Country {
   otherRisks: CountryItem[];
 }
 
-export type RegionId = 'amerique-centrale' | 'amerique-du-sud' | 'caraibes' | 'afrique' | 'asie-du-sud-est';
+export type RegionId =
+  | 'amerique-du-nord'
+  | 'amerique-centrale'
+  | 'amerique-du-sud'
+  | 'caraibes'
+  | 'europe'
+  | 'afrique'
+  | 'moyen-orient'
+  | 'asie-centrale'
+  | 'asie-du-sud'
+  | 'asie-de-l-est'
+  | 'asie-du-sud-est'
+  | 'oceanie';
 
 export const REGIONS: { id: RegionId; name: Text }[] = [
+  { id: 'amerique-du-nord', name: { fr: 'Amérique du Nord', en: 'North America' } },
   { id: 'amerique-centrale', name: { fr: 'Amérique centrale', en: 'Central America' } },
   { id: 'amerique-du-sud', name: { fr: 'Amérique du Sud', en: 'South America' } },
   { id: 'caraibes', name: { fr: 'Caraïbes', en: 'Caribbean' } },
+  { id: 'europe', name: { fr: 'Europe', en: 'Europe' } },
   { id: 'afrique', name: { fr: 'Afrique', en: 'Africa' } },
+  { id: 'moyen-orient', name: { fr: 'Moyen-Orient', en: 'Middle East' } },
+  { id: 'asie-centrale', name: { fr: 'Asie centrale et Caucase', en: 'Central Asia and the Caucasus' } },
+  { id: 'asie-du-sud', name: { fr: 'Asie du Sud', en: 'South Asia' } },
+  { id: 'asie-de-l-est', name: { fr: 'Asie de l’Est', en: 'East Asia' } },
   { id: 'asie-du-sud-est', name: { fr: 'Asie du Sud-Est', en: 'South-East Asia' } },
+  { id: 'oceanie', name: { fr: 'Océanie', en: 'Oceania' } },
 ];
 
 const files = import.meta.glob<Country>('../data/countries/*.json', { eager: true, import: 'default' });

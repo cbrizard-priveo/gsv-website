@@ -1,0 +1,238 @@
+{
+  "slug": "inde",
+  "region": "asie-du-sud",
+  "name": {
+    "fr": "Inde",
+    "en": "India"
+  },
+  "slugEn": "india",
+  "inspq": {
+    "url": "https://www.inspq.qc.ca/sante-voyage/guide/pays/inde",
+    "updated": "2026-11-02",
+    "checked": "2026-11-12"
+  },
+  "diseases": [
+    {
+      "id": "chikungunya",
+      "name": {
+        "fr": "Chikungunya",
+        "en": "Chikungunya"
+      },
+      "text": {
+        "fr": "<p>Présent au pays.</p><ul><li>Se protéger contre les piqûres de moustiques.</li></ul>",
+        "en": "<p>Present in the country.</p><ul><li>Protect yourself against mosquito bites.</li></ul>"
+      }
+    },
+    {
+      "id": "cholera",
+      "name": {
+        "fr": "Choléra",
+        "en": "Cholera"
+      },
+      "text": {
+        "fr": "<p>Présent au pays.</p><ul><li>Le vaccin peut être envisagé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera#gp-cholera\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Present in the country.</p><ul><li>The vaccine may be considered for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera#gp-cholera\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "encephalite-japonaise",
+      "name": {
+        "fr": "Encéphalite japonaise",
+        "en": "Japanese encephalitis"
+      },
+      "text": {
+        "fr": "<p><strong>Éclosion en cours en Assam (2026).</strong></p><p>Présente dans les États suivants : Andhra Pradesh, Arunachal Pradesh, Assam, Bengale occidental, Bihar, Chhattisgarh, Goa, Haryana, Jharkhand, Karnataka, Kerala, Madhya Pradesh, Maharashtra, Manipur, Meghalaya, Mizoram, Nagaland, Odisha, Pendjab, Tamil Nadu, Telangana, Tripura, Uttar Pradesh, Uttarakhand.</p><p>Incidence la plus élevée : Andhra Pradesh, Assam, Bihar, Goa, Haryana, Karnataka, Kerala, Tamil Nadu, Uttar Pradesh et Bengale occidental.</p><p>Transmission toute l’année, avec un pic de mai à novembre, surtout dans le nord du pays.</p><ul><li>Vaccin recommandé pour certains voyageurs qui séjournent dans les États nommés ci-dessus, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-japonaise#immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p><strong>Ongoing outbreak in Assam (2026).</strong></p><p>Present in the following states: Andhra Pradesh, Arunachal Pradesh, Assam, West Bengal, Bihar, Chhattisgarh, Goa, Haryana, Jharkhand, Karnataka, Kerala, Madhya Pradesh, Maharashtra, Manipur, Meghalaya, Mizoram, Nagaland, Odisha, Punjab, Tamil Nadu, Telangana, Tripura, Uttar Pradesh, Uttarakhand.</p><p>Highest incidence: Andhra Pradesh, Assam, Bihar, Goa, Haryana, Karnataka, Kerala, Tamil Nadu, Uttar Pradesh and West Bengal.</p><p>Transmission all year, with a peak from May to November, especially in the north of the country.</p><ul><li>Vaccine recommended for some travellers staying in the states listed above, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-japonaise#immunisation\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "fievre-jaune",
+      "name": {
+        "fr": "Fièvre jaune",
+        "en": "Yellow fever"
+      },
+      "text": {
+        "fr": "<p><strong>Exigence à l’entrée :</strong> le gouvernement indien exige que toute personne (sauf les enfants de moins de 9 mois) qui arrive par avion ou par bateau sans certificat de vaccination soit isolée pendant au plus 6 jours, si cette personne :</p><ul><li>arrive dans les 6 jours qui suivent son départ d’une zone à risque de transmission; ou</li><li>a transité par une région à risque de transmission (sauf les passagers et membres d’équipage qui sont restés dans l’enceinte de l’aéroport pendant ce transit et à qui l’officier de santé publique a accordé une exemption); ou</li><li>arrive à bord d’un navire qui, moins de 30 jours avant son arrivée en Inde, a quitté un port situé dans une zone à risque de transmission ou y a fait escale, sauf si ce navire a été désinsectisé selon la procédure de l’OMS; ou</li><li>arrive à bord d’un avion en provenance d’une zone à risque de transmission qui n’a pas été désinsectisé selon les normes des Indian Aircraft Public Health Rules 1954 ou selon la procédure de l’OMS.</li></ul><p>Pays considérés comme à risque de transmission :</p><ul><li>Amérique du Sud : Argentine, Bolivie, Brésil, Colombie, Équateur, Guyane, Guyane française, Panama, Paraguay, Pérou, Suriname, Trinité-et-Tobago (Trinité seulement) et Venezuela;</li><li>Afrique : Angola, Bénin, Burkina Faso, Burundi, Cameroun, Congo, Côte d’Ivoire, Éthiopie, Gabon, Gambie, Ghana, Guinée, Guinée-Bissau, Guinée équatoriale, Kenya, Libéria, Mali, Mauritanie, Niger, Nigéria, Ouganda, République centrafricaine, République démocratique du Congo, Rwanda, Sénégal, Sierra Leone, Soudan, Soudan du Sud, Tchad et Togo.</li></ul><p>Quand un cas de fièvre jaune est rapporté dans un pays, le gouvernement indien considère ce pays comme à risque de transmission et l’ajoute à la liste.</p><p><strong>Vaccination recommandée :</strong> aucune.</p>",
+        "en": "<p><strong>Entry requirement:</strong> the Government of India requires that anyone (except children under 9 months of age) arriving by air or by sea without a vaccination certificate be isolated for up to 6 days, if that person:</p><ul><li>arrives within 6 days of leaving an area with a risk of transmission; or</li><li>has been in transit through a region with a risk of transmission (except passengers and crew members who stayed within the airport during that transit and who were granted an exemption by the public health officer); or</li><li>arrives on a ship that, less than 30 days before its arrival in India, left or called at a port in an area with a risk of transmission, unless the ship was disinsected according to the WHO procedure; or</li><li>arrives on an aircraft coming from an area with a risk of transmission that was not disinsected according to the standards of the Indian Aircraft Public Health Rules 1954 or the WHO procedure.</li></ul><p>Countries considered at risk of transmission:</p><ul><li>South America: Argentina, Bolivia, Brazil, Colombia, Ecuador, Guyana, French Guiana, Panama, Paraguay, Peru, Suriname, Trinidad and Tobago (Trinidad only) and Venezuela;</li><li>Africa: Angola, Benin, Burkina Faso, Burundi, Cameroon, Congo, Côte d’Ivoire, Ethiopia, Gabon, Gambia, Ghana, Guinea, Guinea-Bissau, Equatorial Guinea, Kenya, Liberia, Mali, Mauritania, Niger, Nigeria, Uganda, Central African Republic, Democratic Republic of the Congo, Rwanda, Senegal, Sierra Leone, Sudan, South Sudan, Chad and Togo.</li></ul><p>When a case of yellow fever is reported in a country, the Government of India considers that country at risk of transmission and adds it to the list.</p><p><strong>Recommended vaccination:</strong> none.</p>"
+      }
+    },
+    {
+      "id": "hepatite-a",
+      "name": {
+        "fr": "Hépatite A",
+        "en": "Hepatitis A"
+      },
+      "text": {
+        "fr": "<p>Prévalence très élevée.</p><ul><li>Vaccin recommandé pour tous les voyageurs.</li></ul>",
+        "en": "<p>Very high prevalence.</p><ul><li>Vaccine recommended for all travellers.</li></ul>"
+      }
+    },
+    {
+      "id": "hepatite-b",
+      "name": {
+        "fr": "Hépatite B",
+        "en": "Hepatitis B"
+      },
+      "text": {
+        "fr": "<p>Prévalence modérée.</p><ul><li>Vaccin recommandé pour tous les voyageurs.</li></ul>",
+        "en": "<p>Moderate prevalence.</p><ul><li>Vaccine recommended for all travellers.</li></ul>"
+      }
+    },
+    {
+      "id": "influenza",
+      "name": {
+        "fr": "Influenza (grippe)",
+        "en": "Influenza (flu)"
+      },
+      "text": {
+        "fr": "<p>Risque présent de novembre à mars au nord du 23e degré de latitude nord, et toute l’année dans le sud du pays.</p><ul><li>Vaccin recommandé pour certains voyageurs, selon leur situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza/immunisation\">groupes particuliers définis par l’INSPQ</a>).</li></ul>",
+        "en": "<p>Risk present from November to March north of 23 degrees north latitude, and all year in the south of the country.</p><ul><li>Vaccine recommended for some travellers, depending on their situation (<a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza/immunisation\">specific groups defined by the INSPQ</a>).</li></ul>"
+      }
+    },
+    {
+      "id": "mpox",
+      "name": {
+        "fr": "Mpox",
+        "en": "Mpox"
+      },
+      "text": {
+        "fr": "<p>Le risque d’exposition existe surtout par voie sexuelle.</p><ul><li>Mesures de protection personnelle (voir la page <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/mpox\">Mpox de l’INSPQ</a>).</li><li>Vaccination si le voyageur correspond au premier groupe d’indications du <a href=\"https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/variole-vaccin-contre-variole-et-contre-mpox-variole-simienne/\">Protocole d’immunisation du Québec</a>.</li></ul>",
+        "en": "<p>Exposure risk is mainly through sexual contact.</p><ul><li>Personal protection measures (see the INSPQ <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/mpox\">Mpox page</a>, in French).</li><li>Vaccination if the traveller meets the first group of indications of the <a href=\"https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/variole-vaccin-contre-variole-et-contre-mpox-variole-simienne/\">Québec Immunization Protocol</a>.</li></ul>"
+      }
+    },
+    {
+      "id": "paludisme",
+      "name": {
+        "fr": "Paludisme (malaria)",
+        "en": "Malaria"
+      },
+      "text": {
+        "fr": "<p>Présent sous 2 000 mètres dans tout le pays. Le risque est plus élevé dans les États du nord-est et du centre. Il varie beaucoup selon la région et la saison, et même d’une année à l’autre. Des éclosions peuvent être signalées dans de grandes villes. Aucun risque au-dessus de 2 000 mètres dans les États suivants : Himachal Pradesh, Jammu, Kashmir et Sikkim.</p><ul><li>Espèce : <em>P. falciparum</em> dans plus de 40 % des cas, résistant à la chloroquine.</li><li>Médicament préventif :<ul><li>prophylaxie adaptée aux zones de résistance à la chloroquine;</li><li>dans le centre des villes d’Agra, Bangalore, Delhi, Kolkata, Mumbai, Nagpur, Nasik et Pune : mesures de protection personnelle contre les moustiques recommandées; si une éclosion survient dans ces zones urbaines, une chimioprophylaxie pourrait être envisagée;</li><li>au-dessus de 2 000 mètres dans les États d’Himachal Pradesh, Jammu, Kashmir et Sikkim : aucun.</li></ul></li></ul>",
+        "en": "<p>Present below 2,000 metres throughout the country. The risk is higher in the northeastern and central states. It varies greatly by region and season, and even from one year to the next. Outbreaks may be reported in large cities. No risk above 2,000 metres in the following states: Himachal Pradesh, Jammu, Kashmir and Sikkim.</p><ul><li>Species: <em>P. falciparum</em> in more than 40% of cases, resistant to chloroquine.</li><li>Preventive medication:<ul><li>prophylaxis suited to areas of chloroquine resistance;</li><li>in the centre of the cities of Agra, Bangalore, Delhi, Kolkata, Mumbai, Nagpur, Nasik and Pune: personal protection measures against mosquitoes are recommended; if an outbreak occurs in these urban areas, chemoprophylaxis could be considered;</li><li>above 2,000 metres in the states of Himachal Pradesh, Jammu, Kashmir and Sikkim: none.</li></ul></li></ul>"
+      }
+    },
+    {
+      "id": "poliomyelite",
+      "name": {
+        "fr": "Poliomyélite",
+        "en": "Polio"
+      },
+      "text": {
+        "fr": "<p>Éliminée.</p><ul><li>Vaccination de base (primo-immunisation) pour les voyageurs de moins de 18 ans.</li></ul><p>Une exigence d’entrée s’applique aux voyageurs qui arrivent de certains pays (voir <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite/immunisation#immunisation-comme-exigence-entree\">l’immunisation comme exigence d’entrée</a>).</p>",
+        "en": "<p>Eliminated.</p><ul><li>Primary vaccination series for travellers under 18 years of age.</li></ul><p>An entry requirement applies to travellers arriving from certain countries (see <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite/immunisation#immunisation-comme-exigence-entree\">immunization as an entry requirement</a>, in French).</p>"
+      }
+    },
+    {
+      "id": "rage",
+      "name": {
+        "fr": "Rage",
+        "en": "Rabies"
+      },
+      "text": {
+        "fr": "<p>Risque élevé.</p><ul><li><strong>Vaccination avant le départ :</strong> peut être envisagée pour les voyageurs susceptibles d’être exposés aux chauves-souris, aux animaux sauvages ou aux animaux domestiques, surtout les chiens (groupes particuliers définis par l’INSPQ).</li><li><strong>Traitement après une exposition :</strong> selon l’évaluation individuelle (voir <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage/immunisation#postexposition\">Rage, prévention et immunisation</a>).</li><li><strong>Disponibilité au pays :</strong> vaccin : disponible; immunoglobulines antirabiques : disponibles.</li></ul>",
+        "en": "<p>High risk.</p><ul><li><strong>Vaccination before departure:</strong> may be considered for travellers likely to be exposed to bats, wild animals or domestic animals, especially dogs (specific groups defined by the INSPQ).</li><li><strong>Treatment after an exposure:</strong> based on individual assessment (see <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage/immunisation#postexposition\">Rabies, prevention and immunization</a>, in French).</li><li><strong>Availability in the country:</strong> vaccine: available; rabies immunoglobulins: available.</li></ul>"
+      }
+    },
+    {
+      "id": "rougeole",
+      "name": {
+        "fr": "Rougeole",
+        "en": "Measles"
+      },
+      "text": {
+        "fr": "<p>Endémique.</p><ul><li>Vaccination de base, et vaccination des enfants de 6 à 11 mois.</li></ul>",
+        "en": "<p>Endemic.</p><ul><li>Routine vaccination, and vaccination of children aged 6 to 11 months.</li></ul>"
+      }
+    },
+    {
+      "id": "tuberculose",
+      "name": {
+        "fr": "Tuberculose",
+        "en": "Tuberculosis"
+      },
+      "text": {
+        "fr": "<p>Incidence : 100 à 199 cas par 100 000 habitants par année. Incidence élevée de tuberculose multirésistante.</p><ul><li>Test cutané (TCT) après le voyage si : séjour de 12 mois ou plus; ou travail d’environ 1 mois ou plus avec un risque élevé d’exposition à une personne atteinte de tuberculose contagieuse.</li><li>Test cutané avant le voyage : lorsque le test après le voyage est recommandé, selon l’évaluation individuelle (voir <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/tuberculose/depistage\">Tuberculose, dépistage</a>).</li></ul>",
+        "en": "<p>Incidence: 100 to 199 cases per 100,000 people per year. High incidence of multidrug-resistant tuberculosis.</p><ul><li>Tuberculin skin test (TST) after the trip if: stay of 12 months or more; or work of about 1 month or more with a high risk of exposure to a person with contagious tuberculosis.</li><li>Skin test before the trip: when the post-travel test is recommended, based on individual assessment (see <a href=\"https://www.inspq.qc.ca/sante-voyage/guide/risques/tuberculose/depistage\">Tuberculosis, screening</a>, in French).</li></ul>"
+      }
+    },
+    {
+      "id": "typhoide",
+      "name": {
+        "fr": "Typhoïde",
+        "en": "Typhoid"
+      },
+      "text": {
+        "fr": "<p>Risque de transmission élevé.</p><ul><li>Vaccin recommandé pour tous les voyageurs.</li></ul>",
+        "en": "<p>High transmission risk.</p><ul><li>Vaccine recommended for all travellers.</li></ul>"
+      }
+    }
+  ],
+  "otherRisks": [
+    {
+      "id": "arthropodes",
+      "name": {
+        "fr": "Insectes et autres arthropodes",
+        "en": "Insects and other arthropods"
+      },
+      "text": {
+        "fr": "<ul><li>Dengue : <strong>augmentation des cas au Kerala (2026)</strong>.</li><li>Zika.</li></ul>",
+        "en": "<ul><li>Dengue: <strong>increase in cases in Kerala (2026)</strong>.</li><li>Zika.</li></ul>"
+      }
+    },
+    {
+      "id": "eau-aliments",
+      "name": {
+        "fr": "Eau et aliments",
+        "en": "Water and food"
+      },
+      "text": {
+        "fr": "<ul><li>Précautions à prendre avec l’eau et les aliments.</li></ul>",
+        "en": "<ul><li>Take precautions with water and food.</li></ul>"
+      }
+    },
+    {
+      "id": "environnement",
+      "name": {
+        "fr": "Environnement",
+        "en": "Environment"
+      },
+      "text": {
+        "fr": "<ul><li>Accidents.</li><li>Baignade en eau douce : leptospirose et schistosomiase (transmission probablement interrompue).</li><li>Haute altitude.</li><li>Pesticides dans les chambres d’hôtel.</li><li>Virus Nipah : <strong>éclosion en cours au Bengale-occidental (2026)</strong>. La maladie et les mesures préventives sont décrites sur la <a href=\"https://www.who.int/fr/news-room/fact-sheets/detail/nipah-virus\">page de l’Organisation mondiale de la Santé</a>.</li></ul>",
+        "en": "<ul><li>Accidents.</li><li>Swimming in fresh water: leptospirosis and schistosomiasis (transmission probably interrupted).</li><li>High altitude.</li><li>Pesticides in hotel rooms.</li><li>Nipah virus: <strong>ongoing outbreak in West Bengal (2026)</strong>. The disease and preventive measures are described on the <a href=\"https://www.who.int/fr/news-room/fact-sheets/detail/nipah-virus\">World Health Organization page</a> (in French).</li></ul>"
+      }
+    },
+    {
+      "id": "infections-respiratoires",
+      "name": {
+        "fr": "Infections respiratoires",
+        "en": "Respiratory infections"
+      },
+      "text": {
+        "fr": "<ul><li>Influenza aviaire : cas humains sporadiques (2025, 2026).</li></ul>",
+        "en": "<ul><li>Avian influenza: sporadic human cases (2025, 2026).</li></ul>"
+      }
+    },
+    {
+      "id": "sante-sexuelle",
+      "name": {
+        "fr": "Santé sexuelle",
+        "en": "Sexual health"
+      },
+      "text": {
+        "fr": "<ul><li>Privilégier des pratiques sexuelles protégées (voir <a href=\"https://www.canada.ca/fr/sante-publique/services/maladies/infections-transmissibles-sexuellement.html\">Santé sexuelle et voyage</a>, Agence de la santé publique du Canada).</li><li>Des contraintes de voyage peuvent s’appliquer aux personnes vivant avec le VIH (voir <a href=\"https://www.cocqsida.com/vih-info-droits/voyager-avec-le-vih/\">COCQ-SIDA</a>).</li></ul>",
+        "en": "<ul><li>Use protected sexual practices (see <a href=\"https://www.canada.ca/en/public-health/services/diseases/sexually-transmitted-infections.html\">Sexual health and travel</a>, Public Health Agency of Canada).</li><li>Travel restrictions may apply to people living with HIV (see <a href=\"https://www.cocqsida.com/vih-info-droits/voyager-avec-le-vih/\">COCQ-SIDA</a>, in French).</li></ul>"
+      }
+    },
+    {
+      "id": "securite",
+      "name": {
+        "fr": "Sécurité",
+        "en": "Safety"
+      },
+      "text": {
+        "fr": "<ul><li>Consulter les <a href=\"https://voyage.gc.ca/\">conseils aux voyageurs du gouvernement du Canada</a>.</li></ul>",
+        "en": "<ul><li>See the <a href=\"https://travel.gc.ca/\">Government of Canada travel advice</a>.</li></ul>"
+      }
+    }
+  ]
+}
