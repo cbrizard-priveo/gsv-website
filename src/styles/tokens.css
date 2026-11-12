@@ -25,6 +25,11 @@
   /* Priveo's body text is its navy at 86%; this blue is too bright for text, so the darkest shade stands in. */
   --text-body: rgba(1, 42, 86, 0.86);
 
+  /* Muted text (dates, captions, hints): Priveo's --neutral reaches only 3.6:1 on the page background
+     and 3:1 on the light-blue sections, under the 4.5:1 minimum for normal text (WCAG AA). Its darker
+     step passes everywhere: 6:1 on the page, at least 5:1 on the blue sections. */
+  --text-muted: var(--neutral-d-1);
+
   /* Priveo's token still names Silka, which it no longer ships: its pages are set in Plus Jakarta Sans. */
   --font-primary: 'Plus Jakarta Sans', system-ui, sans-serif;
 
