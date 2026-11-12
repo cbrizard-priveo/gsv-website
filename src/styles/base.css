@@ -33,9 +33,10 @@
 
 .gsv-container {
   width: 100%;
-  max-width: 1320px;
+  /* Priveo's page width and side gutter, so sections line up with the header. */
+  max-width: calc(var(--content-width) + 2 * var(--gutter));
   margin: 0 auto;
-  padding: 0 40px;
+  padding: 0 var(--gutter);
 }
 .gsv-section {
   padding: 100px 0;
@@ -129,9 +130,6 @@
   }
 }
 @media (max-width: 767px) {
-  .gsv-container {
-    padding: 0 20px;
-  }
   .gsv-section {
     padding: 64px 0;
   }

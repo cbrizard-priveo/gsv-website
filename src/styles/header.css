@@ -1,0 +1,35 @@
+/* Fits Priveo's header (./priveo/header.css) into this site. */
+@layer priveo-foundations, priveo, gsv;
+
+/*
+ * Priveo's rules sit in cascade layers, which any unlayered page style would beat (the Elementor theme styles
+ * every link and button). Inside the header, and the copy of its buttons the script adds to the mobile menu,
+ * drop the page's styles so only the layers apply.
+ */
+:is(#site-header, .breakin-container),
+:is(#site-header, .breakin-container) * {
+  all: revert-layer;
+}
+
+/* The header is fixed: this keeps the page from starting under it (Priveo offsets its <main> instead). */
+.gsv-header-space {
+  height: var(--gsv-header-height);
+}
+
+@layer gsv {
+  /* The logo is a picture with its own margins, taller than Priveo's wordmark: sized to fill the bar. */
+  .header__logo img {
+    width: auto;
+    height: 4.25rem;
+  }
+  @media (min-width: 1201px) {
+    #site-header.pv-floating .header__logo img {
+      height: 3.25rem;
+    }
+  }
+  @media (max-width: 1200px) {
+    .header__logo img {
+      height: 3.5rem;
+    }
+  }
+}

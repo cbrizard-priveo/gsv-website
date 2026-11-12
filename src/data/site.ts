@@ -20,12 +20,13 @@ export const PRIVEO = 'https://priveosante.com';
 
 export type Lang = 'fr' | 'en';
 
-export const menus: Record<Lang, { items: Item[]; book: string; menu: string; openMenu: string; closeMenu: string }> = {
+export const menus: Record<Lang, { items: Item[]; book: string; menu: string; openMenu: string; closeMenu: string; submenu: string }> = {
   fr: {
     book: 'Prendre rendez-vous',
     menu: 'Menu principal',
     openMenu: 'Ouvrir le menu',
     closeMenu: 'Fermer le menu',
+    submenu: 'Ouvrir le sous-menu',
     items: [
       {
         label: 'Santé-voyage',
@@ -92,6 +93,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
     menu: 'Main menu',
     openMenu: 'Open menu',
     closeMenu: 'Close menu',
+    submenu: 'Open submenu',
     items: [
       {
         label: 'Travel health',

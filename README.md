@@ -24,10 +24,27 @@ The pages are imported from the live WordPress/Elementor site so they match it e
 
 ## Design
 
-The look follows dev.priveosante.com, with `#014A97` as the primary blue:
+The design system is Priveo's, taken from the [web-priveo-sante](https://github.com/priveo-sante/web-priveo-sante) repository (the site at dev.priveosante.com), with `#014A97` as the primary blue.
 
-- `src/components/Header.astro`, `src/components/Footer.astro`: the site's own header and footer; their links live in `src/data/site.ts`.
-- `src/styles/tokens.css`: colors, fonts (Lora, Plus Jakarta Sans), radii.
+`scripts/design/sync-priveo.mjs` copies it from a checkout of that repository next to this one:
+
+- `src/styles/priveo/tokens.css`: every token (colors, spacing, type scale, radii, shadows).
+- `src/styles/priveo/fonts.css` and `public/assets/fonts/`: Lora and Plus Jakarta Sans, self-hosted.
+- `src/styles/priveo/header.css` and `public/assets/priveo/header.js`: the header's styles and scripts.
+
+Don't edit those files. After Priveo's design changes, run:
+
+```bash
+node scripts/design/sync-priveo.mjs
+```
+
+Priveo sizes everything for a 10px root font size; the script converts its `rem` values to this site's 16px.
+
+What is this site's own:
+
+- `src/styles/tokens.css`: the blue and the few other values that differ from Priveo's, and the `--gsv-*` names the components use.
+- `src/components/Header.astro`: Priveo's header markup with this site's menu (`src/data/site.ts`). Its class names and ids must stay Priveo's. `src/styles/header.css` keeps the page's styles out of it and sizes the logo.
+- `src/components/Footer.astro`: written after Priveo's footer, not yet taken from its source.
 - `src/styles/theme.css`: restyles the imported Elementor pages (buttons, banners, cards, archive lists). `src/lib/theme.ts` tags each page's title banner for it.
 - `scripts/theme/brand.mjs`: swaps the old colors and fonts in the Elementor stylesheets; the importer runs it after each import.
 

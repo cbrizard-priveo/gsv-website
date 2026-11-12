@@ -70,7 +70,7 @@ const places = CLINICS.map((c) => c.city.replace(/\s*\(.*\)$/, ''));
     align-items: flex-start;
     justify-content: center;
     gap: 20px;
-    padding: 72px 72px 72px max(40px, calc((100vw - 1240px) / 2));
+    padding: 72px 72px 72px max(var(--gutter), calc((100vw - var(--content-width)) / 2));
     background:
       radial-gradient(at 70% 40%, rgba(255, 255, 255, 0.35) 0%, transparent 50%),
       linear-gradient(135deg, var(--gsv-secondary-l-5) 0%, var(--gsv-primary-l-6) 35%, var(--gsv-secondary-l-5) 65%, var(--gsv-primary-l-6) 100%);
