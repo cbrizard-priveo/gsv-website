@@ -10,7 +10,7 @@ type Text = Record<Lang, string>;
 
 export type Block =
   | { type: 'steps'; tagline: Text; title: Text; steps: { title: Text; text: Text }[] }
-  | { type: 'callout'; badge: Text; title: Text; text: Text; cta: { label: Text; href: Text }; asideTitle: Text; items: Text[]; source?: { label: Text; href: Text } }
+  | { type: 'callout'; image?: string; badge: Text; title: Text; text: Text; cta: { label: Text; href: Text }; asideTitle: Text; items: Text[]; source?: { label: Text; href: Text } }
   | { type: 'cards'; id?: string; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[]; source?: { label: Text; href: Text } }
   /** Vaccine cards with their lowest price; `topics` limits them to those pages (src/data/vaccines keys, or
    *  « rage »); `compact` shows small tiles with the name only (no price, no note). */
@@ -20,6 +20,8 @@ export type Block =
   | { type: 'country'; slug: string; tagline: Text; title: Text; lede: Text; rows: string[]; all: Text }
   | { type: 'clinics' }
   | { type: 'booking' }
+  /** Québec's vaccination schedule for children (src/data/calendar.ts). */
+  | { type: 'calendar'; id?: string; tagline: Text; title: Text; lede?: Text }
   /** A slim banner to another page (the photo is decorative). */
   | { type: 'banner'; title: Text; text: Text; cta: { label: Text; href: Text }; image: string };
 
@@ -591,6 +593,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         type: 'callout',
+        image: '/images/services/grippe.jpg',
         badge: { fr: 'Grippe', en: 'Flu' },
         title: { fr: 'La saison de la grippe approche et vous voulez éviter les files d’attente ?', en: 'Flu season is coming and you want to avoid the lines?' },
         text: { fr: 'Prenez rendez-vous dans l’une de nos quatre cliniques du Grand Montréal.', en: 'Book an appointment at one of our four clinics across Greater Montreal.' },
@@ -644,7 +647,7 @@ export const servicePages: ServicePage[] = [
               fr: '<p>Le ministère de la Santé et des Services sociaux recommande de faire vacciner les enfants selon le calendrier de vaccination officiel.</p>',
               en: '<p>Québec’s Ministry of Health and Social Services recommends vaccinating children according to the official vaccination schedule.</p>',
             },
-            href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/quebec-immunisation-program' },
+            href: { fr: '#calendrier', en: '#calendrier' },
             linkLabel: { fr: 'Voir le calendrier', en: 'See the schedule' },
           },
           {
@@ -658,6 +661,16 @@ export const servicePages: ServicePage[] = [
             linkLabel: more,
           },
         ],
+      },
+      {
+        type: 'calendar',
+        id: 'calendrier',
+        tagline: { fr: 'Calendrier de vaccination', en: 'Vaccination schedule' },
+        title: { fr: 'À quel âge vacciner votre enfant ?', en: 'When should your child be vaccinated?' },
+        lede: {
+          fr: 'Le calendrier de vaccination recommandé au Québec, de la naissance à la 3e année du secondaire.',
+          en: 'Québec’s recommended vaccination schedule, from birth to the 3rd year of high school.',
+        },
       },
       {
         type: 'cards',

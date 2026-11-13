@@ -11,6 +11,7 @@ import ClinicMap from '../components/priveo/ClinicMap.astro';
 import Faq from '../components/priveo/Faq.astro';
 import PromoBanner from '../components/priveo/PromoBanner.astro';
 import LinkTiles from '../components/priveo/LinkTiles.astro';
+import VaccinationCalendar from '../components/priveo/VaccinationCalendar.astro';
 import { BOOKING, type Lang } from '../data/site';
 import { clinicCopy } from '../data/clinics';
 import { serviceCopy, type ServicePage } from '../data/services';
@@ -99,6 +100,7 @@ const head = seoHead({
             cta={{ label: block.cta.label[lang], href: block.cta.href[lang] }}
             asideTitle={block.asideTitle[lang]}
             items={block.items.map((i) => i[lang])}
+            image={block.image}
             source={block.source && { prefix: lang === 'fr' ? 'Source :' : 'Source:', label: block.source.label[lang], href: block.source.href[lang] }}
           />
         );
@@ -151,6 +153,8 @@ const head = seoHead({
         );
       }
       if (block.type === 'faq') return <Faq title={faqCopy[lang].title} lede={faqCopy[lang].lede} items={faqItems(block.ids)} more={faqCopy[lang].more} />;
+      if (block.type === 'calendar')
+        return <VaccinationCalendar lang={lang} id={block.id} tagline={block.tagline[lang]} title={block.title[lang]} lede={block.lede?.[lang]} />;
       if (block.type === 'banner')
         return <PromoBanner title={block.title[lang]} text={block.text[lang]} cta={{ label: block.cta.label[lang], href: block.cta.href[lang] }} image={block.image} />;
       if (block.type === 'clinics') return <ClinicMap lang={lang} />;

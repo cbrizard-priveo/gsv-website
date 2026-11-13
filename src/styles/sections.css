@@ -38,6 +38,146 @@
     color: var(--primary);
     text-underline-offset: 3px;
   }
+  /* Vaccination schedule tables (src/components/priveo/VaccinationCalendar.astro). */
+  .pv .vax-cal {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    width: 100%;
+    gap: 24px;
+  }
+  .pv .vax-cal__list {
+    display: none;
+  }
+  .pv .vax-cal__card {
+    margin: 0;
+    padding: 24px;
+    border: 1px solid var(--border-subtle);
+    border-radius: 20px;
+    background: var(--white);
+  }
+  .pv .vax-cal__scroll {
+    overflow-x: auto;
+  }
+  .pv .vax-cal table {
+    width: 100%;
+    min-width: 640px;
+    border-collapse: collapse;
+    font-size: 0.9375rem;
+  }
+  .pv .vax-cal caption {
+    margin-bottom: 14px;
+    color: var(--primary);
+    font-size: 1.25rem;
+    font-weight: 500;
+    text-align: left;
+  }
+  .pv .vax-cal th,
+  .pv .vax-cal td {
+    padding: 12px 10px;
+    border-bottom: 1px solid var(--border-subtle);
+    text-align: center;
+    vertical-align: middle;
+  }
+  .pv .vax-cal thead th {
+    color: var(--primary);
+    font-size: 0.8125rem;
+    font-weight: 600;
+    background: var(--primary-l-6, #f4f8ff);
+  }
+  .pv .vax-cal thead th:first-child,
+  .pv .vax-cal tbody th {
+    text-align: left;
+  }
+  .pv .vax-cal tbody th {
+    font-weight: 500;
+  }
+  .pv .vax-cal tbody tr:last-child > * {
+    border-bottom: 0;
+  }
+  .pv .vax-cal__dose {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    color: var(--primary);
+  }
+  .pv .vax-cal__dose svg {
+    width: 22px;
+    height: 22px;
+  }
+  .pv .vax-cal__when {
+    font-size: 0.75rem;
+    color: var(--text-muted, #5f6063);
+  }
+  .pv .vax-cal__none {
+    color: var(--neutral-l-3, #c4c7cc);
+  }
+  .pv .vax-cal__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .pv .vax-cal__note {
+    margin-top: 14px;
+    color: var(--text-muted, #5f6063);
+    font-size: 0.8125rem;
+    line-height: 1.55;
+  }
+  .pv .callout-band__image {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 10;
+    margin-bottom: 18px;
+    border-radius: 16px;
+    object-fit: cover;
+  }
+  /* On phones, one short line per vaccine instead of the wide table (the table stays for screen readers). */
+  @media (max-width: 767px) {
+    .pv .vax-cal__card {
+      padding: 18px;
+    }
+    .pv .vax-cal__scroll {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      overflow: hidden;
+      clip-path: inset(50%);
+    }
+    .pv .vax-cal__list {
+      display: block;
+    }
+    .pv .vax-cal__list-title {
+      margin-bottom: 10px;
+      color: var(--primary);
+      font-size: 1.125rem;
+      font-weight: 500;
+    }
+    .pv .vax-cal__list ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    .pv .vax-cal__list li {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border-subtle);
+      font-size: 0.9375rem;
+    }
+    .pv .vax-cal__list li:last-child {
+      border-bottom: 0;
+    }
+    .pv .vax-cal__list strong {
+      font-weight: 500;
+    }
+    .pv .vax-cal__list span {
+      color: var(--primary);
+    }
+  }
   /* Small link tiles (src/components/priveo/LinkTiles.astro). */
   .pv .link-tiles {
     display: grid;

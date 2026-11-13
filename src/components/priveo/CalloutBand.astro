@@ -13,9 +13,11 @@ interface Props {
   items: string[];
   /** Where a fact in the text comes from, shown under it. */
   source?: { prefix: string; label: string; href: string };
+  /** A photo above the list on the right (decorative). */
+  image?: string;
 }
 
-const { badge, title, text, cta, asideTitle, items, source } = Astro.props;
+const { badge, title, text, cta, asideTitle, items, source, image } = Astro.props;
 ---
 
 <div class="pv">
@@ -29,6 +31,7 @@ const { badge, title, text, cta, asideTitle, items, source } = Astro.props;
         <a class="action-button btn btn--primary button-base" href={cta.href}>{cta.label}</a>
       </div>
       <aside class="callout-band__aside">
+        {image && <img class="callout-band__image" src={image} alt="" loading="lazy" decoding="async" />}
         <p class="callout-band__aside-title">{asideTitle}</p>
         <ul class="callout-band__list">
           {items.map((item) => <li class="callout-band__item"><i class="callout-band__check" aria-hidden="true"><Icon name="check-circle" /></i><span>{item}</span></li>)}
