@@ -16,7 +16,9 @@ export type Block =
   /** Rows of a country page (src/data/countries/<slug>.json), word for word, with the INSPQ source. */
   | { type: 'country'; slug: string; tagline: Text; title: Text; lede: Text; rows: string[]; all: Text }
   | { type: 'clinics' }
-  | { type: 'booking' };
+  | { type: 'booking' }
+  /** A slim banner to another page (the photo is decorative). */
+  | { type: 'banner'; title: Text; text: Text; cta: { label: Text; href: Text }; image: string };
 
 export interface ServicePage {
   route: Text;
@@ -28,6 +30,17 @@ const tele: Text = { fr: '/consultation-en-telemedecine/', en: '/en/telemedicine
 const faqPage: Text = { fr: '/foire-aux-questions-sur-la-clinique-voyage/', en: '/en/frequently-asked-questions-about-the-travel-clinic/' };
 const tarifs: Text = { fr: '/tarifs/', en: '/en/pricing/' };
 const more: Text = { fr: 'En savoir plus', en: 'Learn more' };
+// Banner to the Hajj and Umrah page (not in the menu), at the end of Consultation and Vaccination.
+const hajjBanner: Block = {
+  type: 'banner',
+  title: { fr: 'Vous partez pour le Hadj ou la Omra ?', en: 'Going on Hajj or Umrah?' },
+  text: {
+    fr: 'Le vaccin contre le méningocoque est exigé. Voyez les exigences et les recommandations de l’INSPQ pour l’Arabie saoudite.',
+    en: 'The meningococcal vaccine is required. See the INSPQ requirements and recommendations for Saudi Arabia.',
+  },
+  cta: { label: { fr: 'Préparer mon pèlerinage', en: 'Prepare my pilgrimage' }, href: { fr: '/pelerinage-hadj-omra/', en: '/en/hajj-umrah-pilgrimage/' } },
+  image: '/wp-content/uploads/2025/02/prophet-mohammed-mosque-al-masjid-an-nabawi-um-2023-11-27-05-14-01-utc-768x576.jpg',
+};
 const contact: Text = { fr: 'mailto:info@cliniquesantevoyage.com', en: 'mailto:info@cliniquesantevoyage.com' };
 
 export const servicePages: ServicePage[] = [
@@ -156,6 +169,7 @@ export const servicePages: ServicePage[] = [
       { type: 'faq', ids: ['quand-consulter-avant-depart', 'ou-consulter-reseau-public', 'rendez-vous', 'vaccins-meme-visite', 'quoi-apporter', 'medecin-ou-infirmiere', 'frais-consultation'] },
       { type: 'clinics' },
       { type: 'booking' },
+      hajjBanner,
     ],
   },
 
@@ -202,6 +216,7 @@ export const servicePages: ServicePage[] = [
       { type: 'faq', ids: ['vaccins-obligatoires-ou-recommandes', 'plusieurs-vaccins-meme-jour', 'effets-secondaires-vaccins', 'fievre-jaune-centre', 'rage-groupe', 'preuve-vaccination-certificat'] },
       { type: 'clinics' },
       { type: 'booking' },
+      hajjBanner,
     ],
   },
 
@@ -333,7 +348,7 @@ export const servicePages: ServicePage[] = [
         fr: 'Offrir la santé à vos employés, c’est possible, et nous nous déplaçons. Nous accompagnons aussi les écoles et les groupes de voyageurs.',
         en: 'Offering health to your employees is possible, and we come to you. We also serve schools and groups of travellers.',
       },
-      image: { src: '/images/home/service-entreprise.jpg', width: 1200, height: 800, alt: { fr: 'Employés au travail', en: 'Employees at work' } },
+      image: { src: '/wp-content/uploads/2024/11/medical-staff-vaccinates-a-patient-in-order-to-pre-2024-10-14-08-23-31-utc-1536x1024.jpg', width: 1536, height: 1024, alt: { fr: 'Une infirmière vaccine une patiente', en: 'A nurse vaccinating a patient' } },
     },
     blocks: [
       {
@@ -344,6 +359,7 @@ export const servicePages: ServicePage[] = [
         cards: [
           {
             title: { fr: 'Vaccination en entreprise', en: 'Workplace vaccination' },
+            image: '/wp-content/uploads/2021/12/groupe-sante-voyage-page-header-vaccination-pre-voyage-768x462.jpg',
             text: {
               fr: '<p>Toute la gamme de vaccins peut être donnée en entreprise. Nos professionnels de la santé se déplacent aux lieux et aux heures qui vous conviennent.</p>',
               en: '<p>The full range of vaccines can be given at your workplace. Our health professionals come to the place and at the time that suit you.</p>',
@@ -351,6 +367,7 @@ export const servicePages: ServicePage[] = [
           },
           {
             title: { fr: 'Vaccination contre la grippe', en: 'Flu vaccination' },
+            image: '/images/services/grippe.jpg',
             text: {
               fr: '<p>La saison de la grippe approche ? Faites vacciner vos employés sur place, sans file d’attente.</p>',
               en: '<p>Flu season is coming? Have your employees vaccinated on site, without lining up.</p>',
@@ -360,6 +377,7 @@ export const servicePages: ServicePage[] = [
           },
           {
             title: { fr: 'Employés qui voyagent à l’étranger', en: 'Employees travelling abroad' },
+            image: '/images/services/aeroport.jpg',
             text: {
               fr: '<p>Consultation santé-voyage et vaccins pour vos employés qui partent à l’international, en clinique ou en télémédecine ; les vaccins peuvent aussi être donnés dans vos locaux.</p>',
               en: '<p>Travel health consultations and vaccines for your employees going abroad, in clinic or by telemedicine; vaccines can also be given at your workplace.</p>',
@@ -369,6 +387,7 @@ export const servicePages: ServicePage[] = [
           },
           {
             title: { fr: 'Voyages scolaires et de groupe', en: 'School and group trips' },
+            image: '/wp-content/uploads/2023/08/group-travel-768x512.jpg',
             text: {
               fr: '<p>Une conférence santé-voyage pour les groupes de voyageurs (voyage étudiant, groupe organisé par une agence, gens d’affaires, etc.), à partir de 10 participants.</p>',
               en: '<p>A travel health talk for groups of travellers (student trips, groups organized by an agency, business travellers, etc.), from 10 participants.</p>',
@@ -376,6 +395,7 @@ export const servicePages: ServicePage[] = [
           },
           {
             title: { fr: 'Vaccination de groupe contre la rage', en: 'Group rabies vaccination' },
+            image: '/wp-content/uploads/2019/12/rage-2--768x512.jpg',
             text: {
               fr: '<p>Possible dans la majorité de nos cliniques. Un service qui permet d’économiser de façon importante sur les frais de vaccination.</p>',
               en: '<p>Available at most of our clinics. A service that lets you save significantly on vaccination costs.</p>',
@@ -385,6 +405,7 @@ export const servicePages: ServicePage[] = [
           },
           {
             title: { fr: 'Forfaits de groupe', en: 'Group packages' },
+            image: '/wp-content/uploads/2019/12/photo-1531206715517-5c0ba140b2b8-768x512.jpg',
             text: {
               fr: '<p>Des forfaits pour les entreprises, les écoles et les groupes de voyageurs. Écrivez-nous pour obtenir une offre.</p>',
               en: '<p>Packages for companies, schools and groups of travellers. Email us for an offer.</p>',

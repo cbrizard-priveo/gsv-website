@@ -9,6 +9,7 @@ import CalloutBand from '../components/priveo/CalloutBand.astro';
 import CardGrid from '../components/priveo/CardGrid.astro';
 import ClinicMap from '../components/priveo/ClinicMap.astro';
 import Faq from '../components/priveo/Faq.astro';
+import PromoBanner from '../components/priveo/PromoBanner.astro';
 import { BOOKING, type Lang } from '../data/site';
 import { clinicCopy } from '../data/clinics';
 import { serviceCopy, type ServicePage } from '../data/services';
@@ -133,6 +134,8 @@ const head = seoHead({
         );
       }
       if (block.type === 'faq') return <Faq title={faqCopy[lang].title} lede={faqCopy[lang].lede} items={faqItems(block.ids)} more={faqCopy[lang].more} />;
+      if (block.type === 'banner')
+        return <PromoBanner title={block.title[lang]} text={block.text[lang]} cta={{ label: block.cta.label[lang], href: block.cta.href[lang] }} image={block.image} />;
       if (block.type === 'clinics') return <ClinicMap lang={lang} />;
       return <BookingSteps tagline={steps.tagline} title={steps.title} steps={steps.items} cta={book} />;
     })

@@ -38,6 +38,48 @@
     color: var(--primary);
     text-underline-offset: 3px;
   }
+  /* Slim banner to another page (src/components/priveo/PromoBanner.astro). */
+  .pv .promo-banner {
+    padding-block: 0 4rem;
+  }
+  .pv .promo-banner__box {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem 1rem 1rem;
+    border-radius: 1rem;
+    background: var(--primary-l-5, #e8f0fa);
+  }
+  .pv .promo-banner__image {
+    width: 160px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+  }
+  .pv .promo-banner__title {
+    margin: 0 0 0.35rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .pv .promo-banner__text {
+    margin: 0;
+    line-height: 1.5;
+  }
+  @media (max-width: 767px) {
+    .pv .promo-banner__box {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 1rem;
+    }
+    .pv .promo-banner__image {
+      width: 100%;
+      height: 140px;
+    }
+    .pv .promo-banner__cta {
+      justify-self: start;
+    }
+  }
   /* Source and link under a country block on a service page (e.g. Hajj and Umrah). */
   .pv .service-source {
     max-width: 48rem;
