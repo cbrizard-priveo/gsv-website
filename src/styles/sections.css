@@ -173,13 +173,127 @@
     font-size: 0.8125rem;
     line-height: 1.55;
   }
-  .pv .callout-band__image {
-    display: block;
+  /* Callout with a photo (CalloutBand `image`): photo on one half, text on a deep blue panel. */
+  .pv .callout-media__card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);
+    overflow: hidden;
+    border-radius: 28px;
+    background: var(--primary);
+    color: var(--white);
+    box-shadow: 0 24px 48px -28px rgb(1 74 151 / 0.55);
+  }
+  .pv .callout-media__photo {
+    position: relative;
+    min-height: 380px;
+  }
+  .pv .callout-media__photo img {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    aspect-ratio: 16 / 10;
-    margin-bottom: 18px;
-    border-radius: 16px;
+    height: 100%;
     object-fit: cover;
+    object-position: 35% 30%;
+  }
+  .pv .callout-media__body {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 16px;
+    padding: 56px 56px 56px 52px;
+  }
+  .pv .callout-media__badge {
+    padding: 5px 14px;
+    border: 1px solid rgb(255 255 255 / 0.35);
+    border-radius: 999px;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+  .pv .callout-media__title {
+    margin: 0;
+    color: var(--white);
+    font-family: var(--font-secondary, inherit);
+    font-size: clamp(1.75rem, 2.6vw, 2.375rem);
+    font-weight: 500;
+    line-height: 1.15;
+    text-wrap: balance;
+  }
+  .pv .callout-media__text {
+    margin: 0;
+    color: rgb(255 255 255 / 0.85);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+  }
+  .pv .callout-media__source {
+    margin: 0;
+    font-size: 0.8125rem;
+    color: rgb(255 255 255 / 0.75);
+  }
+  .pv .callout-media__source a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .pv .callout-media__for {
+    margin: 8px 0 0;
+    color: rgb(255 255 255 / 0.75);
+    font-size: 0.875rem;
+  }
+  .pv .callout-media__chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin: -6px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .pv .callout-media__chips li {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 7px 14px 7px 10px;
+    border-radius: 999px;
+    background: rgb(255 255 255 / 0.12);
+    font-size: 0.9375rem;
+  }
+  .pv .callout-media__chips svg {
+    width: 16px;
+    height: 16px;
+  }
+  .pv .callout-media__cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 8px;
+    padding: 14px 24px;
+    border-radius: 12px;
+    background: var(--white);
+    color: var(--primary);
+    font-weight: 600;
+    text-decoration: none;
+    transition: transform 0.15s, box-shadow 0.15s;
+  }
+  .pv .callout-media__cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 20px -8px rgb(0 0 0 / 0.35);
+  }
+  .pv .callout-media__cta svg {
+    width: 16px;
+    height: 16px;
+  }
+  @media (max-width: 899px) {
+    .pv .callout-media__card {
+      grid-template-columns: minmax(0, 1fr);
+      border-radius: 22px;
+    }
+    .pv .callout-media__photo {
+      min-height: 220px;
+    }
+    .pv .callout-media__body {
+      padding: 32px 24px 36px;
+    }
   }
   /* On phones, one short line per vaccine instead of the wide table (the table stays for screen readers). */
   @media (max-width: 767px) {

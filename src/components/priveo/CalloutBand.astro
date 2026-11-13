@@ -13,7 +13,7 @@ interface Props {
   items: string[];
   /** Where a fact in the text comes from, shown under it. */
   source?: { prefix: string; label: string; href: string };
-  /** A photo above the list on the right (decorative). */
+  /** A photo: switches to the split layout (photo on one half, text on a deep blue panel). */
   image?: string;
 }
 
@@ -21,6 +21,28 @@ const { badge, title, text, cta, asideTitle, items, source, image } = Astro.prop
 ---
 
 <div class="pv">
+{image ? (
+<section class="layout-section section callout-media">
+  <div class="layout-element layout-container container">
+    <div class="callout-media__card">
+      <div class="callout-media__photo">
+        <img src={image} alt="" loading="lazy" decoding="async" />
+      </div>
+      <div class="callout-media__body">
+        <span class="callout-media__badge">{badge}</span>
+        <h2 class="callout-media__title">{title}</h2>
+        <p class="callout-media__text">{text}</p>
+        {source && <p class="callout-media__source">{source.prefix} <a href={source.href}>{source.label}</a></p>}
+        <p class="callout-media__for">{asideTitle}</p>
+        <ul class="callout-media__chips">
+          {items.map((item) => <li><Icon name="check-circle" /><span>{item}</span></li>)}
+        </ul>
+        <a class="callout-media__cta" href={cta.href}>{cta.label}<Icon name="arrow-right" /></a>
+      </div>
+    </div>
+  </div>
+</section>
+) : (
 <section class="layout-section section callout-band callout-band--cool">
   <div class="layout-element layout-container container">
     <div class="callout-band__card">
@@ -31,7 +53,6 @@ const { badge, title, text, cta, asideTitle, items, source, image } = Astro.prop
         <a class="action-button btn btn--primary button-base" href={cta.href}>{cta.label}</a>
       </div>
       <aside class="callout-band__aside">
-        {image && <img class="callout-band__image" src={image} alt="" loading="lazy" decoding="async" />}
         <p class="callout-band__aside-title">{asideTitle}</p>
         <ul class="callout-band__list">
           {items.map((item) => <li class="callout-band__item"><i class="callout-band__check" aria-hidden="true"><Icon name="check-circle" /></i><span>{item}</span></li>)}
@@ -40,4 +61,5 @@ const { badge, title, text, cta, asideTitle, items, source, image } = Astro.prop
     </div>
   </div>
 </section>
+)}
 </div>
