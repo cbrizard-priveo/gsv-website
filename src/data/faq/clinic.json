@@ -1,6 +1,132 @@
 {
-  "_comment": "Theme « la clinique »: practical answers restated from the clinic's own FAQ (/foire-aux-questions-sur-la-clinique-voyage/, as imported from the live site) and its telemedicine page. These are the clinic's facts, not medical advice: to be confirmed by the clinic before publishing (see docs/faq-report.md). Questions the site doesn't answer are in the questionnaire, not here.",
+  "_comment": "Theme « la clinique »: the clinic's practical answers — from its questionnaire answers (2026-11-12), its former FAQ (confirmed by the client the same day) and its telemedicine page. Not medical advice. The travel kits question was left out (not confirmed).",
   "items": [
+    {
+      "id": "rendez-vous",
+      "theme": "clinique",
+      "q": {
+        "fr": "Faut-il prendre rendez-vous ?",
+        "en": "Do I need an appointment?"
+      },
+      "a": {
+        "fr": "<p>Oui. Nous recevons les voyageurs sur rendez-vous seulement, dans nos cliniques ou en télémédecine.</p>",
+        "en": "<p>Yes. We see travellers by appointment only, at our clinics or by telemedicine.</p>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12: appointment only."
+    },
+    {
+      "id": "vaccins-meme-visite",
+      "theme": "clinique",
+      "q": {
+        "fr": "Les vaccins sont-ils donnés lors de la consultation ?",
+        "en": "Are vaccines given during the consultation?"
+      },
+      "a": {
+        "fr": "<p>Oui. Les vaccins recommandés vous sont donnés pendant le même rendez-vous que la consultation.</p>",
+        "en": "<p>Yes. The recommended vaccines are given during the same appointment as the consultation.</p>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12."
+    },
+    {
+      "id": "quoi-apporter",
+      "theme": "clinique",
+      "q": {
+        "fr": "Que dois-je apporter à mon rendez-vous ?",
+        "en": "What should I bring to my appointment?"
+      },
+      "a": {
+        "fr": "<ul><li>Votre carnet de vaccination ou tout document qui indique les vaccins que vous avez reçus.</li><li>L’itinéraire de votre voyage.</li><li>La liste des médicaments que vous prenez.</li></ul>",
+        "en": "<ul><li>Your vaccination booklet or any record of the vaccines you have received.</li><li>Your travel itinerary.</li><li>The list of medications you take.</li></ul>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12."
+    },
+    {
+      "id": "medecin-ou-infirmiere",
+      "theme": "clinique",
+      "q": {
+        "fr": "Qui me reçoit en consultation ?",
+        "en": "Who will I see at my appointment?"
+      },
+      "a": {
+        "fr": "<p>Les consultations sont faites par des infirmières spécialisées en santé-voyage. Au besoin, une consultation complémentaire avec un médecin vous est offerte, sans frais.</p>",
+        "en": "<p>Consultations are done by nurses who specialize in travel health. If needed, a follow-up consultation with a doctor is offered at no charge.</p>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12 (replaces the earlier homepage-based answer)."
+    },
+    {
+      "id": "enfants",
+      "theme": "clinique",
+      "q": {
+        "fr": "Recevez-vous les enfants et les bébés ?",
+        "en": "Do you see children and babies?"
+      },
+      "a": {
+        "fr": "<p>Oui. Nous recevons les voyageurs de tout âge, y compris les bébés.</p>",
+        "en": "<p>Yes. We see travellers of all ages, including babies.</p>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12."
+    },
+    {
+      "id": "famille-ensemble",
+      "theme": "clinique",
+      "q": {
+        "fr": "Peut-on consulter en famille ou en couple ?",
+        "en": "Can a family or a couple be seen together?"
+      },
+      "a": {
+        "fr": "<p>Oui. Les membres d’une famille ou un couple qui voyagent ensemble peuvent être vus lors d’un même rendez-vous.</p>",
+        "en": "<p>Yes. Family members or a couple travelling together can be seen during the same appointment.</p>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12."
+    },
+    {
+      "id": "frais-consultation",
+      "theme": "clinique",
+      "q": {
+        "fr": "Y a-t-il des frais de consultation en plus des vaccins ?",
+        "en": "Is there a consultation fee in addition to the vaccines?"
+      },
+      "a": {
+        "fr": "<p>Oui, des frais de consultation s’appliquent à la première visite. Si vous recevez chez nous les doses suivantes d’une série de vaccins, aucuns frais de consultation ne s’ajoutent pour ces visites.</p>",
+        "en": "<p>Yes, a consultation fee applies at the first visit. If you receive the later doses of a vaccine series with us, no consultation fee is added for those visits.</p>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12."
+    },
     {
       "id": "frais-ramq-assurances",
       "theme": "clinique",
@@ -12,8 +138,13 @@
         "fr": "<p>Non. Les consultations et la vaccination en santé-voyage ne sont pas couvertes par la Régie de l’assurance maladie du Québec (RAMQ). Plusieurs assureurs privés remboursent toutefois une partie ou la totalité des frais de vaccination : vérifiez auprès du vôtre. Nous vous remettons un reçu pour vos réclamations.</p>",
         "en": "<p>No. Travel health consultations and vaccination are not covered by the Régie de l’assurance maladie du Québec (RAMQ). Many private insurers, however, reimburse part or all of the vaccination costs: check with yours. We give you a receipt for your claims.</p>"
       },
-      "sources": [{ "label": "Groupe Santé Voyage, Foire aux questions", "href": "/foire-aux-questions-sur-la-clinique-voyage/" }],
-      "notes": "Clinic fact from its current FAQ: to confirm."
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage, Foire aux questions",
+          "href": "/foire-aux-questions-sur-la-clinique-voyage/"
+        }
+      ],
+      "notes": "Clinic fact from its current FAQ: to confirm. Confirmed by the client, 2026-11-12."
     },
     {
       "id": "modes-de-paiement",
@@ -26,50 +157,67 @@
         "fr": "<p>Vous pouvez payer par carte de débit (Interac), en argent comptant ou par carte de crédit Visa ou Mastercard. Les chèques ne sont pas acceptés.</p>",
         "en": "<p>You can pay by debit card (Interac), in cash, or by Visa or Mastercard credit card. Cheques are not accepted.</p>"
       },
-      "sources": [{ "label": "Groupe Santé Voyage, Foire aux questions", "href": "/foire-aux-questions-sur-la-clinique-voyage/" }],
-      "notes": "Clinic fact from its current FAQ: to confirm."
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage, Foire aux questions",
+          "href": "/foire-aux-questions-sur-la-clinique-voyage/"
+        }
+      ],
+      "notes": "Clinic fact from its current FAQ: to confirm. Confirmed by the client, 2026-11-12."
     },
     {
-      "id": "medecin-ou-infirmiere",
+      "id": "medicaments-habituels",
       "theme": "clinique",
       "q": {
-        "fr": "Qui me reçoit en consultation ?",
-        "en": "Who will I see at my appointment?"
+        "fr": "Puis-je faire renouveler mes médicaments habituels pendant la consultation ?",
+        "en": "Can I renew my usual medications during the consultation?"
       },
       "a": {
-        "fr": "<p>Nos médecins et nos infirmières sont spécialisés en santé-voyage et en vaccination, depuis 1997, dans nos cliniques de Montréal, Laval, Longueuil et Blainville.</p>",
-        "en": "<p>Our doctors and nurses have specialized in travel health and vaccination since 1997, at our clinics in Montreal, Laval, Longueuil and Blainville.</p>"
+        "fr": "<p>La consultation santé-voyage porte seulement sur les médicaments liés à votre voyage. Pour le renouvellement de vos médicaments habituels, vous pouvez prendre un autre rendez-vous avec un médecin ou une infirmière praticienne spécialisée (IPS).</p>",
+        "en": "<p>The travel health consultation covers only medications related to your trip. To renew your usual medications, you can book a separate appointment with a doctor or a nurse practitioner (IPS).</p>"
       },
-      "sources": [{ "label": "Groupe Santé Voyage, page d’accueil", "href": "/" }],
-      "notes": "Restates the homepage's description. Whether a visit is with a doctor or a nurse is in the questionnaire."
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12."
     },
     {
-      "id": "telemedecine",
+      "id": "fievre-jaune-centre",
       "theme": "clinique",
       "q": {
-        "fr": "Puis-je consulter sans me déplacer ?",
-        "en": "Can I have a consultation without coming in?"
+        "fr": "Peut-on recevoir le vaccin contre la fièvre jaune dans vos cliniques ?",
+        "en": "Can I get the yellow fever vaccine at your clinics?"
       },
       "a": {
-        "fr": "<p>Oui. Notre consultation en télémédecine vous permet de consulter un professionnel de la santé voyage de chez vous. Vous y recevrez une évaluation de votre itinéraire et des risques pour votre santé, des conseils pour votre voyage, des recommandations de vaccins et, au besoin, une prescription envoyée à votre pharmacie. Les vaccins peuvent ensuite être donnés à domicile ou dans l’une de nos cliniques. <a href=\"/consultation-en-telemedecine/\">En savoir plus sur la télémédecine</a>.</p>",
-        "en": "<p>Yes. Our telemedicine consultation lets you consult a travel health professional from home. You receive an assessment of your itinerary and the risks to your health, advice for your trip, vaccine recommendations and, if required, a prescription sent to your pharmacy. Vaccines can then be given at home or at one of our clinics. <a href=\"/en/telemedicine-consultation/\">More about telemedicine</a>.</p>"
+        "fr": "<p>Oui. Nos quatre cliniques, à Montréal, Laval, Longueuil et Blainville, sont des centres désignés de vaccination contre la fièvre jaune. <a href=\"/vaccination/fievre-jaune/\">En savoir plus sur la fièvre jaune</a>.</p>",
+        "en": "<p>Yes. Our four clinics, in Montreal, Laval, Longueuil and Blainville, are designated yellow fever vaccination centres. <a href=\"/en/vaccination/yellow-fever-vaccination/\">More about yellow fever</a>.</p>"
       },
-      "sources": [{ "label": "Groupe Santé Voyage, Consultation en télémédecine", "href": "/consultation-en-telemedecine/" }],
-      "notes": "From the site's telemedicine page."
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12: all four clinics are designated centres."
     },
     {
-      "id": "trousses-de-voyage",
+      "id": "rage-groupe",
       "theme": "clinique",
       "q": {
-        "fr": "Vendez-vous des trousses ou des produits pour le voyage ?",
-        "en": "Do you sell travel kits or products?"
+        "fr": "Peut-on se faire vacciner contre la rage en groupe ?",
+        "en": "Can we get the rabies vaccine as a group?"
       },
       "a": {
-        "fr": "<p>Oui. En plus de vos vaccins, notre équipe peut vous recommander des produits utiles pour votre voyage, par exemple une trousse de premiers soins, une trousse de seringues et d’aiguilles avec certificat de transport, un chasse-moustiques, une solution de réhydratation ou une solution désinfectante. Des trousses contenant certains de ces produits sont en vente dans nos cliniques.</p>",
-        "en": "<p>Yes. Besides your vaccines, our team may recommend products that are useful for your trip, for example a first aid kit, a syringe and needle kit with a transport certificate, insect repellent, a rehydration solution or a disinfectant. Kits containing some of these products are sold at our clinics.</p>"
+        "fr": "<p>Oui. La vaccination de groupe contre la rage est possible dans la majorité de nos cliniques. C’est un service qui permet d’économiser de façon importante sur les frais de vaccination. <a href=\"/vaccination/rage/\">En savoir plus sur la rage</a>.</p>",
+        "en": "<p>Yes. Group rabies vaccination is available at most of our clinics. It is a service that lets you save significantly on vaccination costs. <a href=\"/en/vaccination/rabies-vaccination/\">More about rabies</a>.</p>"
       },
-      "sources": [{ "label": "Groupe Santé Voyage, Foire aux questions", "href": "/foire-aux-questions-sur-la-clinique-voyage/" }],
-      "notes": "Clinic fact from its current FAQ (list shortened): to confirm the kits are still sold."
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage (réponse de la clinique, 12 novembre 2026)"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12 (replaces the old « monthly sessions in Laval »)."
     },
     {
       "id": "groupes",
@@ -82,8 +230,51 @@
         "fr": "<p>Oui. Nous offrons une conférence santé-voyage pour les groupes de voyageurs (voyage étudiant, groupe organisé par une agence, gens d’affaires, etc.), à partir de 10 participants. Pour en savoir plus, écrivez-nous à <a href=\"mailto:info@cliniquesantevoyage.com\">info@cliniquesantevoyage.com</a> ou appelez au 1-855-582-2246.</p>",
         "en": "<p>Yes. We offer a travel health talk for groups of travellers (student trips, groups organized by an agency, business travellers, etc.), from 10 participants. For more information, email <a href=\"mailto:info@cliniquesantevoyage.com\">info@cliniquesantevoyage.com</a> or call 1-855-582-2246.</p>"
       },
-      "sources": [{ "label": "Groupe Santé Voyage, Foire aux questions", "href": "/foire-aux-questions-sur-la-clinique-voyage/" }],
-      "notes": "Clinic fact from its current FAQ; the contact person's name was left out. To confirm the service, minimum and contact."
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage, Foire aux questions",
+          "href": "/foire-aux-questions-sur-la-clinique-voyage/"
+        }
+      ],
+      "notes": "Clinic fact from its current FAQ; the contact person's name was left out. To confirm the service, minimum and contact. Confirmed by the client, 2026-11-12."
+    },
+    {
+      "id": "vaccination-entreprise",
+      "theme": "clinique",
+      "q": {
+        "fr": "Offrez-vous la vaccination en entreprise ?",
+        "en": "Do you offer workplace vaccination?"
+      },
+      "a": {
+        "fr": "<p>Oui. Consultez notre page <a href=\"/vaccination-en-entreprise/\">Vaccination en entreprise</a> pour en savoir plus.</p>",
+        "en": "<p>Yes. See our <a href=\"/en/vaccination-in-the-workplace/\">Workplace vaccination</a> page to learn more.</p>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage, Vaccination en entreprise",
+          "href": "/vaccination-en-entreprise/"
+        }
+      ],
+      "notes": "Client's answer, 2026-11-12: point to the page."
+    },
+    {
+      "id": "telemedecine",
+      "theme": "clinique",
+      "q": {
+        "fr": "Puis-je consulter sans me déplacer ?",
+        "en": "Can I have a consultation without coming in?"
+      },
+      "a": {
+        "fr": "<p>Oui. Notre consultation en télémédecine vous permet de consulter un professionnel de la santé voyage de chez vous. Vous y recevrez une évaluation de votre itinéraire et des risques pour votre santé, des conseils pour votre voyage, des recommandations de vaccins et, au besoin, une prescription envoyée à votre pharmacie. Les vaccins peuvent ensuite être donnés à domicile ou dans l’une de nos cliniques. <a href=\"/consultation-en-telemedecine/\">En savoir plus sur la télémédecine</a>.</p>",
+        "en": "<p>Yes. Our telemedicine consultation lets you consult a travel health professional from home. You receive an assessment of your itinerary and the risks to your health, advice for your trip, vaccine recommendations and, if required, a prescription sent to your pharmacy. Vaccines can then be given at home or at one of our clinics. <a href=\"/en/telemedicine-consultation/\">More about telemedicine</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "Groupe Santé Voyage, Consultation en télémédecine",
+          "href": "/consultation-en-telemedecine/"
+        }
+      ],
+      "notes": "From the site's telemedicine page."
     }
   ]
 }
