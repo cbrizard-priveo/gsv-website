@@ -8,17 +8,22 @@ import type { Lang } from './site';
 type Text = Record<Lang, string>;
 
 export const CALENDAR_SOURCE = {
-  label: {
-    fr: 'Québec.ca, « Programme québécois d’immunisation », calendrier de vaccination recommandé (mis à jour le 12 novembre 2026)',
-    en: 'Québec.ca, “Québec Immunization Program”, recommended vaccination schedule (French page updated November 12, 2026)',
+  name: {
+    fr: 'Québec.ca, « Programme québécois d’immunisation » (calendrier de vaccination recommandé)',
+    en: 'Québec.ca, “Québec Immunization Program” (recommended vaccination schedule)',
   } as Text,
   href: {
     fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation',
     en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/quebec-immunisation-program',
   } as Text,
+  /** « Dernière mise à jour » of the French page we copied, and the day we checked it. */
+  updated: '2026-11-12',
+  checked: '2026-11-13',
 };
 
 export interface CalendarTable {
+  /** Label of the toggle button that shows this table. */
+  tab: Text;
   caption: Text;
   /** Column headings after the « Vaccin qui protège contre : » column. */
   ages: Text[];
@@ -31,6 +36,7 @@ export const vaccineColumn: Text = { fr: 'Vaccin qui protège contre :', en: 'Va
 
 export const childCalendar: CalendarTable[] = [
   {
+    tab: { fr: 'Nourrissons', en: 'Infants' },
     caption: { fr: 'Calendrier de vaccination pour les nourrissons', en: 'Immunization schedule for infants' },
     ages: [
       { fr: 'Naissance', en: 'Newborn' },
@@ -55,6 +61,7 @@ export const childCalendar: CalendarTable[] = [
     },
   },
   {
+    tab: { fr: 'Âge scolaire', en: 'School age' },
     caption: { fr: 'Calendrier de vaccination pour les enfants d’âge scolaire', en: 'Immunization schedule for school-age children' },
     ages: [
       { fr: 'Entre 4 et 6 ans', en: 'Between 4 and 6 years of age' },

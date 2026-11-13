@@ -48,6 +48,37 @@
   .pv .vax-cal__list {
     display: none;
   }
+  .pv .vax-cal__toggle {
+    display: inline-flex;
+    justify-self: center;
+    gap: 4px;
+    padding: 4px;
+    border-radius: 999px;
+    background: var(--primary-l-6, #f4f8ff);
+    border: 1px solid var(--border-subtle);
+  }
+  .pv .vax-cal__toggle[hidden],
+  .pv .vax-cal__card[hidden] {
+    display: none;
+  }
+  .pv .vax-cal__tab {
+    padding: 9px 22px;
+    border: 0;
+    border-radius: 999px;
+    background: transparent;
+    color: var(--primary);
+    font: inherit;
+    font-weight: 500;
+    cursor: pointer;
+  }
+  .pv .vax-cal__tab[aria-pressed='true'] {
+    background: var(--primary);
+    color: var(--white);
+  }
+  .pv .vax-cal__tab:focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
   .pv .vax-cal__card {
     margin: 0;
     padding: 24px;
@@ -120,8 +151,24 @@
     clip-path: inset(50%);
     white-space: nowrap;
   }
-  .pv .vax-cal__note {
+  .pv .vax-cal__source {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border-subtle);
+    color: var(--primary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    line-height: 1.5;
+  }
+  .pv .vax-cal__source a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
+  .pv .vax-cal__foot {
     margin-top: 14px;
+  }
+  .pv .vax-cal__note {
     color: var(--text-muted, #5f6063);
     font-size: 0.8125rem;
     line-height: 1.55;

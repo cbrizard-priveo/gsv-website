@@ -3,6 +3,7 @@
 import Icon from '../Icon.astro';
 import type { Lang } from '../../data/site';
 import { CALENDAR_SOURCE, childCalendar, vaccineColumn } from '../../data/calendar';
+import { formatDate } from '../../lib/countries';
 import '../../styles/priveo/sections.css';
 import '../../styles/sections.css';
 
@@ -16,6 +17,9 @@ interface Props {
 
 const { lang, id, tagline, title, lede } = Astro.props;
 const given = lang === 'fr' ? 'Recommandé' : 'Recommended';
+const src = CALENDAR_SOURCE;
+const updated = formatDate(src.updated, lang);
+const checked = formatDate(src.checked, lang);
 ---
 
 <div class="pv">
@@ -26,10 +30,17 @@ const given = lang === 'fr' ? 'Recommandé' : 'Recommended';
         <h2 class="layout-element typography-heading section-header__title font-secondary">{title}</h2>
         {lede && <p class="layout-element text-inline section-header__description">{lede}</p>}
       </div>
-      <div class="vax-cal">
+      <div class="vax-cal" data-vax-cal>
+        <div class="vax-cal__toggle" role="group" aria-label={tagline} hidden data-toggle>
+          {childCalendar.map((table, i) => (
+            <button type="button" class="vax-cal__tab" aria-pressed={String(i === 0)} data-tab={i}>
+              {table.tab[lang]}
+            </button>
+          ))}
+        </div>
         {
-          childCalendar.map((table) => (
-            <figure class="vax-cal__card">
+          childCalendar.map((table, i) => (
+            <figure class="vax-cal__card" data-panel={i}>
               <div class="vax-cal__scroll">
                 <table>
                   <caption>{table.caption[lang]}</caption>
@@ -83,16 +94,36 @@ const given = lang === 'fr' ? 'Recommandé' : 'Recommended';
                   ))}
                 </ul>
               </div>
-              {table.note && <figcaption class="vax-cal__note">{table.note[lang]}</figcaption>}
+              <figcaption class="vax-cal__foot">
+                {table.note && <p class="vax-cal__note">{table.note[lang]}</p>}
+                <p class="vax-cal__source">
+                  {lang === 'fr' ? 'Source : ' : 'Source: '}
+                  <a href={src.href[lang]}>{src.name[lang]}</a>
+                  {lang === 'fr' ? ', page mise à jour le ' : ', French page updated '}
+                  <time datetime={src.updated}>{updated}</time>
+                  {lang === 'fr' ? ' ; vérifiée le ' : '; checked on '}
+                  <time datetime={src.checked}>{checked}</time>.
+                </p>
+              </figcaption>
             </figure>
           ))
         }
       </div>
-      <div class="service-source">
-        <p>
-          {lang === 'fr' ? 'Source :' : 'Source:'} <a href={CALENDAR_SOURCE.href[lang]}>{CALENDAR_SOURCE.label[lang]}</a>
-        </p>
-      </div>
     </div>
   </section>
 </div>
+
+<script>
+  // Toggle between the schedules; without the script, both tables stay visible.
+  for (const root of document.querySelectorAll<HTMLElement>('[data-vax-cal]')) {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-tab]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const show = (i: string) => {
+      for (const t of tabs) t.setAttribute('aria-pressed', String(t.dataset.tab === i));
+      for (const p of panels) p.hidden = p.dataset.panel !== i;
+    };
+    root.querySelector<HTMLElement>('[data-toggle]')!.hidden = false;
+    for (const t of tabs) t.addEventListener('click', () => show(t.dataset.tab!));
+    show('0');
+  }
+</script>
