@@ -686,29 +686,15 @@ export const servicePages: ServicePage[] = [
           {
             title: { fr: 'Avant : le préparer', en: 'Before: prepare them' },
             text: {
-              fr: '<ul><li>Parlez-lui du vaccin, de la raison pour laquelle il le reçoit et du déroulement de la visite.</li><li>Dites-lui la vérité : il sentira une piqûre ou un pincement, qui ne durera pas longtemps.</li><li>Ne présentez jamais le vaccin comme une punition.</li></ul>',
-              en: '<ul><li>Talk to them about the vaccine, why they are getting it and how the visit will go.</li><li>Tell them the truth: they will feel a prick or a pinch that won’t last long.</li><li>Never present the vaccine as a punishment.</li></ul>',
+              fr: '<ul><li>Parlez-lui du vaccin, de la raison pour laquelle il le reçoit et du déroulement de la visite.</li><li>Dites-lui la vérité : il sentira une piqûre ou un pincement, qui ne durera pas longtemps.</li><li>Ne présentez jamais le vaccin comme une punition.</li><li>Racontez-lui une histoire où un enfant reçoit un vaccin, ou regardez ensemble une vidéo sur le sujet.</li></ul>',
+              en: '<ul><li>Talk to them about the vaccine, why they are getting it and how the visit will go.</li><li>Tell them the truth: they will feel a prick or a pinch that won’t last long.</li><li>Never present the vaccine as a punishment.</li><li>Tell them a story about a child getting a vaccine, or watch a video on the subject together.</li></ul>',
             },
           },
           {
             title: { fr: 'Pendant : rester calme', en: 'During: stay calm' },
             text: {
-              fr: '<ul><li>Restez calme et souriant, et parlez d’une voix normale ; évitez de vous excuser ou de parler de douleur.</li><li>Tenez votre enfant sur vos genoux, dans la position que le vaccinateur vous indique.</li><li>Vous pouvez allaiter votre bébé pendant la vaccination.</li></ul>',
-              en: '<ul><li>Stay calm and smiling, and speak in a normal voice; avoid apologizing or talking about pain.</li><li>Hold your child on your lap, in the position the vaccinator shows you.</li><li>You can breastfeed your baby during the vaccination.</li></ul>',
-            },
-          },
-          {
-            title: { fr: 'Le distraire', en: 'Distract them' },
-            text: {
-              fr: '<ul><li>Moins de 3 ans : son jouet ou sa couverture préférés, des câlins, une chanson ou une histoire.</li><li>De 3 à 6 ans : faire des bulles, souffler sur un vire-vent, respirer lentement et profondément, un jouet, de la musique ou un appareil mobile.</li><li>Après le vaccin, câlinez-le, félicitez-le et récompensez-le.</li></ul>',
-              en: '<ul><li>Under 3: their favourite toy or blanket, cuddles, a song or a story.</li><li>Ages 3 to 6: blowing bubbles or a pinwheel, breathing slowly and deeply, a toy, music or a mobile device.</li><li>After the vaccine, cuddle, praise and reward them.</li></ul>',
-            },
-          },
-          {
-            title: { fr: 'Soulager la douleur', en: 'Relieve the pain' },
-            text: {
-              fr: '<ul><li>Avant : une crème anesthésiante en vente libre, appliquée 30 à 60 minutes avant, engourdit la peau.</li><li>Moins de 2 ans : un peu d’eau sucrée 1 à 2 minutes avant soulage la douleur (jamais de miel avant 1 an).</li><li>Après, au besoin : acétaminophène ou ibuprofène, mais pas avant le vaccin. Demandez conseil à votre pharmacien.</li></ul>',
-              en: '<ul><li>Before: an over-the-counter numbing cream, applied 30 to 60 minutes before, numbs the skin.</li><li>Under 2: a little sugar water 1 to 2 minutes before relieves pain (never honey before age 1).</li><li>After, if needed: acetaminophen or ibuprofen, but not before the vaccine. Ask your pharmacist for advice.</li></ul>',
+              fr: '<ul><li>Restez calme et souriant, et parlez d’une voix normale ; évitez de vous excuser ou de parler de douleur.</li><li>Tenez votre enfant sur vos genoux, dans la position que le vaccinateur vous indique.</li><li>Vous pouvez allaiter votre bébé pendant la vaccination.</li><li>Distrayez-le selon son âge : son jouet ou sa couverture préférés, une chanson, des bulles ou une respiration lente et profonde.</li></ul>',
+              en: '<ul><li>Stay calm and smiling, and speak in a normal voice; avoid apologizing or talking about pain.</li><li>Hold your child on your lap, in the position the vaccinator shows you.</li><li>You can breastfeed your baby during the vaccination.</li><li>Distract them in a way that suits their age: their favourite toy or blanket, a song, bubbles or slow, deep breathing.</li></ul>',
             },
           },
         ],
