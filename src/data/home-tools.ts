@@ -115,3 +115,52 @@ export const stats: Record<Lang, { label: string; founded: string; clinics: stri
     reviews: (count) => `on Google (${count} reviews, Groupe Santé Voyage and Priveo Santé)`,
   },
 };
+
+// « Une seule clinique » band (src/components/home/Destinations.astro): the slogan chosen by the client
+// on 2026-11-13, over photos of travel settings from the site's own images (public/images/destinations).
+export const destinations: Record<
+  Lang,
+  { title: string; text: string; cta: { label: string; href: string }; tiles: { label: string; image: string; href?: string }[] }
+> = {
+  fr: {
+    title: 'Une seule clinique, peu importe la destination',
+    text: 'Montagne, désert, plage ou pèlerinage : consultation santé-voyage, vaccins et médicaments de voyage dans nos quatre cliniques du Grand Montréal.',
+    cta: { label: 'Trouver ma destination', href: '/pays/' },
+    tiles: [
+      { label: 'Montagne', image: '/images/destinations/montagne.jpg' },
+      { label: 'Désert', image: '/images/destinations/desert.jpg' },
+      { label: 'Plage', image: '/images/destinations/plage.jpg' },
+      { label: 'Hadj et Omra', image: '/images/destinations/pelerinage.jpg', href: '/pelerinage-hadj-omra/' },
+      { label: 'Campagne', image: '/images/destinations/rizieres.jpg' },
+      { label: 'Circuits culturels', image: '/images/destinations/culture.jpg' },
+    ],
+  },
+  en: {
+    title: 'A clinic for every traveller and every destination',
+    text: 'Mountains, desert, beach or pilgrimage: travel health consultations, vaccines and travel medication at our four clinics across Greater Montreal.',
+    cta: { label: 'Find my destination', href: '/en/countries/' },
+    tiles: [
+      { label: 'Mountains', image: '/images/destinations/montagne.jpg' },
+      { label: 'Desert', image: '/images/destinations/desert.jpg' },
+      { label: 'Beach', image: '/images/destinations/plage.jpg' },
+      { label: 'Hajj and Umrah', image: '/images/destinations/pelerinage.jpg', href: '/en/hajj-umrah-pilgrimage/' },
+      { label: 'Countryside', image: '/images/destinations/rizieres.jpg' },
+      { label: 'Cultural tours', image: '/images/destinations/culture.jpg' },
+    ],
+  },
+};
+
+// Last-minute band (src/components/home/LastMinute.astro). « Il n'est jamais trop tard pour une
+// consultation » is the clinic's own line (its FAQ); the title was chosen by the client on 2026-11-13.
+export const lastMinute: Record<Lang, { title: string; text: string; cta: string }> = {
+  fr: {
+    title: 'Départ de dernière minute ? On s’occupe de vous.',
+    text: 'Il n’est jamais trop tard pour une consultation. Prenez rendez-vous dès maintenant pour être accompagné avant votre départ.',
+    cta: 'Prendre rendez-vous',
+  },
+  en: {
+    title: 'Last-minute departure? We’ve got you covered.',
+    text: 'It’s never too late for a consultation. Book an appointment now to get support before you leave.',
+    cta: 'Book an appointment',
+  },
+};

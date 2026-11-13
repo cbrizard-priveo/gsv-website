@@ -1,0 +1,115 @@
+---
+// « Une seule clinique, peu importe la destination »: the slogan over a strip of travel settings.
+// The pilgrimage photo links to the Hajj and Umrah page (not in the menu); the button to the destinations.
+import Icon from '../Icon.astro';
+import type { Lang } from '../../data/site';
+import { destinations } from '../../data/home-tools';
+
+interface Props {
+  lang: Lang;
+}
+
+const t = destinations[Astro.props.lang];
+---
+
+<section class="gsv-section dest">
+  <div class="gsv-container">
+    <div class="gsv-section-header">
+      <h2 class="gsv-h2">{t.title}</h2>
+      <p class="gsv-lede">{t.text}</p>
+    </div>
+    <ul class="dest__tiles">
+      {
+        t.tiles.map((tile) => {
+          const inner = (
+            <>
+              <img src={tile.image} alt="" loading="lazy" decoding="async" width="640" height="427" />
+              <span class="dest__label">
+                {tile.label}
+                {tile.href && <Icon name="arrow-right" />}
+              </span>
+            </>
+          );
+          return <li class="dest__tile">{tile.href ? <a href={tile.href}>{inner}</a> : <div>{inner}</div>}</li>;
+        })
+      }
+    </ul>
+    <p class="dest__cta">
+      <a class="gsv-button" href={t.cta.href}>{t.cta.label}<Icon name="arrow-right" /></a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .dest {
+    padding-block: 80px;
+  }
+  .dest .gsv-section-header {
+    margin-bottom: 40px;
+  }
+  .dest__tiles {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: 12px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  .dest__tile > * {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    border-radius: var(--gsv-radius-m);
+    color: var(--gsv-white);
+    text-decoration: none;
+  }
+  .dest__tile img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+  }
+  .dest__tile > *::after {
+    content: '';
+    position: absolute;
+    inset: 50% 0 0;
+    background: linear-gradient(transparent, rgb(0 0 0 / 0.55));
+  }
+  .dest__tile a:hover img {
+    transform: scale(1.05);
+  }
+  .dest__label {
+    position: absolute;
+    z-index: 1;
+    right: 14px;
+    bottom: 12px;
+    left: 14px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font: 500 15px/1.3 var(--gsv-font-sans);
+  }
+  .dest__label :global(svg) {
+    width: 16px;
+    height: 16px;
+  }
+  .dest__cta {
+    margin-top: 36px;
+    text-align: center;
+  }
+  @media (max-width: 1023px) {
+    .dest__tiles {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+    .dest__tile > * {
+      aspect-ratio: 4 / 3;
+    }
+  }
+  @media (max-width: 599px) {
+    .dest__tiles {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 8px;
+    }
+  }
+</style>

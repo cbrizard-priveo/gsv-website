@@ -6,6 +6,8 @@ import type { WpPageData } from '../layouts/WpPage.astro';
 import Hero from '../components/home/Hero.astro';
 import Stats from '../components/home/Stats.astro';
 import AlertsBanner from '../components/home/AlertsBanner.astro';
+import Destinations from '../components/home/Destinations.astro';
+import LastMinute from '../components/home/LastMinute.astro';
 import Audience from '../components/home/Audience.astro';
 import About from '../components/home/About.astro';
 import Points from '../components/home/Points.astro';
@@ -32,6 +34,8 @@ const content = home[lang];
   <AlertsBanner lang={lang} />
   <Stats lang={lang} />
   <Audience content={content.audience} />
+  <Destinations lang={lang} />
+  <LastMinute lang={lang} />
   <About content={content.about} />
   <Points content={content.points} />
   <Team content={content.team} />
