@@ -119,7 +119,7 @@ const head = seoHead({
               <h2 class="gsv-h2 c-body__title c-body__title--others" id="autres-risques">{t.othersTitle}</h2>
               <ul class="c-others">
                 {country.otherRisks.map((r) => (
-                  <li class="c-other">
+                  <li class="c-other" id={anchor(r.id)}>
                     <h3>{r.name[lang]}</h3>
                     <div class="gsv-prose c-item__text" set:html={r.text[lang]} />
                   </li>
