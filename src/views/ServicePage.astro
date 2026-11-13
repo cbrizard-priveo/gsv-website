@@ -10,6 +10,7 @@ import CardGrid from '../components/priveo/CardGrid.astro';
 import ClinicMap from '../components/priveo/ClinicMap.astro';
 import Faq from '../components/priveo/Faq.astro';
 import PromoBanner from '../components/priveo/PromoBanner.astro';
+import LinkTiles from '../components/priveo/LinkTiles.astro';
 import { BOOKING, type Lang } from '../data/site';
 import { clinicCopy } from '../data/clinics';
 import { serviceCopy, type ServicePage } from '../data/services';
@@ -112,8 +113,11 @@ const head = seoHead({
             cards={block.cards.map((c) => ({ title: c.title[lang], text: c.text[lang], href: c.href?.[lang], linkLabel: c.linkLabel?.[lang], image: c.image }))}
           />
         );
-      if (block.type === 'vaccines')
-        return <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={`${block.lede[lang]} ${block.note[lang]}`} columns={4} tone="soft" cards={vaccineCards(block.topics)} />;
+      if (block.type === 'vaccines') {
+        if (block.compact)
+          return <LinkTiles tagline={block.tagline[lang]} title={block.title[lang]} lede={block.lede[lang]} links={vaccineCards(block.topics).map((c) => ({ label: c.title, href: c.href }))} />;
+        return <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={[block.lede[lang], block.note?.[lang]].filter(Boolean).join(' ')} columns={4} tone="soft" cards={vaccineCards(block.topics)} />;
+      }
       if (block.type === 'country') {
         const c = countries.find((x) => x.slug === block.slug);
         if (!c) throw new Error(`service page ${route}: unknown country ${block.slug}`);

@@ -12,8 +12,9 @@ export type Block =
   | { type: 'steps'; tagline: Text; title: Text; steps: { title: Text; text: Text }[] }
   | { type: 'callout'; badge: Text; title: Text; text: Text; cta: { label: Text; href: Text }; asideTitle: Text; items: Text[]; source?: { label: Text; href: Text } }
   | { type: 'cards'; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[] }
-  /** Vaccine cards with their lowest price; `topics` limits them to those pages (src/data/vaccines keys, or « rage »). */
-  | { type: 'vaccines'; tagline: Text; title: Text; lede: Text; note: Text; topics?: string[] }
+  /** Vaccine cards with their lowest price; `topics` limits them to those pages (src/data/vaccines keys, or
+   *  « rage »); `compact` shows small tiles with the name only (no price, no note). */
+  | { type: 'vaccines'; tagline: Text; title: Text; lede: Text; note?: Text; topics?: string[]; compact?: true }
   | { type: 'faq'; ids: string[] }
   /** Rows of a country page (src/data/countries/<slug>.json), word for word, with the INSPQ source. */
   | { type: 'country'; slug: string; tagline: Text; title: Text; lede: Text; rows: string[]; all: Text }
@@ -533,7 +534,7 @@ export const servicePages: ServicePage[] = [
         tagline: { fr: 'Vaccins offerts', en: 'Vaccines offered' },
         title: { fr: 'Vaccins généraux disponibles en clinique', en: 'General vaccines available at the clinic' },
         lede: { fr: 'Nous nous faisons un devoir de faciliter votre accès à une immunisation sécuritaire.', en: 'We make it our business to help you access safe immunization.' },
-        note: { fr: 'Les prix sont ceux du vaccin ; voyez tous nos tarifs.', en: 'Prices are for the vaccine; see all our prices.' },
+        compact: true,
         topics: ['chikungunya', 'coqueluche', 'grippe', 'twinrix', 'meningocoque', 'pneumocoque', 'hib', 'vph', 'poliomyelite', 'oreillons', 'rougeole', 'rage', 'rubeole', 'tetanos', 'varicelle', 'zona'],
       },
       {
