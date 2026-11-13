@@ -9,10 +9,12 @@ interface Seo {
   alternates: { fr: string; en: string };
   lang: 'fr' | 'en';
   title: string;
+  /** Absolute URL of the sharing image (og:image). */
+  image?: string;
   jsonLd?: object;
 }
 
-export function seoHead({ description, path, alternates, lang, title, jsonLd }: Seo): string[] {
+export function seoHead({ description, path, alternates, lang, title, image, jsonLd }: Seo): string[] {
   return [
     `<meta name="description" content="${esc(description)}">`,
     `<link rel="canonical" href="${SITE}${path}">`,
@@ -25,6 +27,7 @@ export function seoHead({ description, path, alternates, lang, title, jsonLd }: 
     `<meta property="og:description" content="${esc(description)}">`,
     `<meta property="og:url" content="${SITE}${path}">`,
     `<meta property="og:site_name" content="Groupe Santé Voyage">`,
+    ...(image ? [`<meta property="og:image" content="${esc(image)}">`] : []),
     ...(jsonLd ? [`<script type="application/ld+json">${JSON.stringify(jsonLd).replace(/</g, '\\u003c')}</script>`] : []),
   ];
 }

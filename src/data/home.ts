@@ -93,7 +93,7 @@ export const home: Record<Lang, HomeContent> = {
       text: 'Nos cliniques sont situées à Laval, Montréal, Blainville et Longueuil. Le Groupe Santé Voyage met plusieurs points de service à la disposition des personnes qui souhaitent voyager. De la Rive-Nord à la Rive-Sud de Montréal, les différentes zones que nous couvrons nous permettent de vous faciliter l’accès à des conseils santé-voyage de qualité.',
       parking: 'Stationnement gratuit',
       details: 'Voir la clinique',
-      cta: { label: 'Trouver une clinique', href: '/contact/' },
+      cta: { label: 'Trouver une clinique', href: '/cliniques/' },
     },
   },
   en: {
@@ -166,7 +166,7 @@ export const home: Record<Lang, HomeContent> = {
       text: 'Our clinics are located in Laval, Montreal, Blainville and Longueuil. Groupe Santé Voyage offers several points of service for people who want to travel. From the North Shore to the South Shore of Montreal, the different areas we cover give us easy access to quality travel health advice.',
       parking: 'Free parking',
       details: 'View the clinic',
-      cta: { label: 'Find a clinic', href: '/en/contact/' },
+      cta: { label: 'Find a clinic', href: '/en/clinics/' },
     },
   },
 };

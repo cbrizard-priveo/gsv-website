@@ -1,0 +1,201 @@
+---
+// Priveo's clinic map (web-priveo-sante: sections/ClinicList.astro, layout « map »): a map with a pin per
+// clinic, the chosen clinic's card, and a button per city. Priveo draws a styled Google map; here the same
+// style is drawn with MapLibre from OpenStreetMap vector tiles (OpenFreeMap: no key, no cookie).
+import { BOOKING, CLINICS, type Lang } from '../../data/site';
+import { clinicCopy, clinicPages, clinicPath } from '../../data/clinics';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  lang: Lang;
+  id?: string;
+}
+
+const { lang, id = 'clinics' } = Astro.props;
+const t = clinicCopy[lang];
+const start = 0; // Laval, as on Priveo
+const clinics = clinicPages.map((c) => ({ ...c, place: CLINICS[c.index] }));
+const data = clinics.map((c) => ({ name: c.short, lat: c.position[0], lng: c.position[1], below: c.slug.fr === 'longueuil' }));
+---
+
+<div class="pv">
+<section class="layout-section section locations clinic-map" id={id} data-clinic-map>
+  <div class="layout-element layout-container locations__container">
+    <div class="layout-element layout-stack section-header section-header--center">
+      <p class="layout-element text-inline section-header__tagline">{t.map.eyebrow}</p>
+      <h2 class="layout-element typography-heading section-header__title font-secondary">{t.map.title}</h2>
+      <p class="layout-element text-inline section-header__description">{t.map.lede}</p>
+    </div>
+    <div class="clinic-map__grid">
+      <div class="clinic-map__map">
+        <div class="clinic-map__canvas" role="region" aria-label={t.map.mapLabel} data-clinics={JSON.stringify(data)} data-start={start}></div>
+      </div>
+      <div class="clinic-map__cards">
+        {
+          clinics.map((c, i) => (
+            <article class={`clinic-map__card${i === start ? ' is-active' : ''}`} data-clinic={i} hidden={i !== start}>
+              <div class="clinic-map__media">
+                <img class="clinic-map__photo" src={c.photo} alt={c.short} loading="lazy" decoding="async" />
+                <span class="clinic-map__status">{t.map.status}</span>
+              </div>
+              <div class="clinic-map__body">
+                <h3 class="clinic-map__name">{c.name}</h3>
+                <p class="clinic-map__address">
+                  {c.place.address}
+                  <br />
+                  {c.place.locality}
+                </p>
+                <p class="clinic-map__label">{t.map.services}</p>
+                <div class="clinic-map__chips">{t.services.map((s) => <span>{s.title}</span>)}</div>
+                <div class="clinic-map__ctas">
+                  <a class="btn btn--primary" href={BOOKING} target="_blank" rel="noopener">{t.book}</a>
+                  <a class="btn btn--outline" href={clinicPath(c, lang)}>{t.map.view}</a>
+                </div>
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+    <div class="clinic-map__cities" role="group" aria-label={t.map.choose}>
+      {
+        clinics.map((c, i) => (
+          <button type="button" class={`clinic-map__city${i === start ? ' is-active' : ''}`} data-clinic={i} aria-pressed={i === start ? 'true' : 'false'}>
+            {c.short}
+          </button>
+        ))
+      }
+    </div>
+  </div>
+</section>
+</div>
+
+<script>
+  import 'maplibre-gl/dist/maplibre-gl.css';
+
+  interface Pin {
+    name: string;
+    lat: number;
+    lng: number;
+    below: boolean;
+  }
+
+  // Priveo's map style (web-priveo-sante: site/src/scripts/google-clinic-map.js), drawn from OpenStreetMap
+  // vector tiles: land, water, highways and arterial roads in its colours (--map-* on .clinic-map__map);
+  // no labels, places, buildings or borders.
+  const style = (colour: (name: string) => string) => ({
+    version: 8 as const,
+    sources: { osm: { type: 'vector' as const, url: 'https://tiles.openfreemap.org/planet' } },
+    layers: [
+      { id: 'land', type: 'background' as const, paint: { 'background-color': colour('--map-land') } },
+      { id: 'water', type: 'fill' as const, source: 'osm', 'source-layer': 'water', paint: { 'fill-color': colour('--map-water') } },
+      {
+        id: 'arterial',
+        type: 'line' as const,
+        source: 'osm',
+        'source-layer': 'transportation',
+        filter: ['in', ['get', 'class'], ['literal', ['trunk', 'primary']]],
+        layout: { 'line-cap': 'round' as const, 'line-join': 'round' as const },
+        paint: { 'line-color': colour('--map-arterial'), 'line-opacity': 0.75, 'line-width': ['interpolate', ['linear'], ['zoom'], 8, 0.25, 13, 1.1] },
+      },
+      {
+        id: 'highway',
+        type: 'line' as const,
+        source: 'osm',
+        'source-layer': 'transportation',
+        filter: ['==', ['get', 'class'], 'motorway'],
+        layout: { 'line-cap': 'round' as const, 'line-join': 'round' as const },
+        paint: { 'line-color': colour('--map-road'), 'line-width': ['interpolate', ['linear'], ['zoom'], 8, 0.8, 13, 2.4] },
+      },
+    ],
+  });
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-clinic-map]')) {
+    const canvas = root.querySelector<HTMLElement>('.clinic-map__canvas')!;
+    const pins: Pin[] = JSON.parse(canvas.dataset.clinics!);
+    const cards = [...root.querySelectorAll<HTMLElement>('.clinic-map__card')];
+    const cities = [...root.querySelectorAll<HTMLButtonElement>('.clinic-map__city')];
+    let markers: HTMLButtonElement[] = [];
+    let focus: ((i: number) => void) | null = null;
+
+    // The chosen clinic: its card, its city button and its pin.
+    const select = (i: number) => {
+      cards.forEach((card, j) => {
+        card.classList.toggle('is-active', j === i);
+        card.hidden = j !== i;
+      });
+      for (const group of [cities, markers]) {
+        group.forEach((el, j) => {
+          el.classList.toggle('is-active', j === i);
+          el.setAttribute('aria-pressed', String(j === i));
+        });
+      }
+      focus?.(i);
+    };
+    cities.forEach((button, i) => button.addEventListener('click', () => select(i)));
+
+    // The map loads when it comes near the screen, so pages that don't show it don't fetch it.
+    const load = async () => {
+      const { default: maplibregl } = await import('maplibre-gl');
+      const theme = getComputedStyle(canvas.parentElement!);
+      const lngs = pins.map((p) => p.lng);
+      const lats = pins.map((p) => p.lat);
+      const bounds: [[number, number], [number, number]] = [
+        [Math.min(...lngs), Math.min(...lats)],
+        [Math.max(...lngs), Math.max(...lats)],
+      ];
+      const fit = { padding: { top: 64, right: 72, bottom: 80, left: 72 }, animate: false };
+      const map = new maplibregl.Map({
+        container: canvas,
+        style: style((name) => theme.getPropertyValue(name).trim()),
+        bounds,
+        fitBoundsOptions: fit,
+        attributionControl: { compact: true },
+        dragRotate: false,
+        pitchWithRotate: false,
+      });
+      map.touchZoomRotate.disableRotation();
+      map.keyboard.disableRotation();
+      // As on Priveo: one level beyond the view of all the clinics keeps zooming out regional.
+      map.once('load', () => {
+        map.setMinZoom(Math.max(0, map.getZoom() - 1));
+        // The credits start open; fold them behind their « i » button so they don't cover the map.
+        canvas.querySelector('.maplibregl-ctrl-attrib')?.classList.remove('maplibregl-compact-show');
+      });
+
+      markers = pins.map((p, i) => {
+        const el = document.createElement('div');
+        el.className = 'clinic-map__marker';
+        el.innerHTML = `<button type="button" class="clinic-map__pin${p.below ? ' clinic-map__pin--below' : ''}" aria-pressed="false" aria-label="${p.name}"><span class="clinic-map__tag">${p.name}</span></button>`;
+        new maplibregl.Marker({ element: el, anchor: 'center' }).setLngLat([p.lng, p.lat]).addTo(map);
+        const button = el.querySelector('button')!;
+        button.addEventListener('click', (e) => {
+          e.stopPropagation();
+          select(i);
+        });
+        return button;
+      });
+      // Pan only to a clinic that is out of view: with all of them shown, the map stays put.
+      focus = (i) => {
+        if (!map.getBounds().contains([pins[i].lng, pins[i].lat])) map.easeTo({ center: [pins[i].lng, pins[i].lat], duration: 400 });
+      };
+      // The frame changes size with the layout (it is square on phones): keep all the clinics in view.
+      new ResizeObserver(() => {
+        map.resize();
+        map.fitBounds(bounds, fit);
+      }).observe(canvas);
+      select(cards.findIndex((c) => c.classList.contains('is-active')));
+    };
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((e) => e.isIntersecting)) {
+          io.disconnect();
+          load();
+        }
+      },
+      { rootMargin: '200px' },
+    );
+    io.observe(canvas);
+  }
+</script>
