@@ -25,6 +25,19 @@
     height: 1.15em;
     flex: none;
   }
+  .pv .accordion__icon svg {
+    width: 1.1em;
+    height: 1.1em;
+  }
+  .pv .accordion__text .faq-source {
+    margin-top: 0.75rem;
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+  }
+  .pv .accordion__text a {
+    color: var(--primary);
+    text-underline-offset: 3px;
+  }
   .pv .callout-band__check svg {
     width: 1em;
     height: 1em;

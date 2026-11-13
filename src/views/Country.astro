@@ -9,6 +9,8 @@ import { BOOKING, type Lang } from '../data/site';
 import { countryCopy } from '../data/country';
 import { DISEASE_PAGES, REGIONS, countries, countryPath, formatDate, hubPath, type Country } from '../lib/countries';
 import { absolute, seoHead } from '../lib/seo';
+import Faq from '../components/priveo/Faq.astro';
+import { countryFaq, faqCopy, faqJsonLd } from '../lib/faq';
 
 interface Props {
   country: Country;
@@ -26,13 +28,14 @@ const neighbours = countries.filter((c) => c.region === country.region);
 const anchor = (id: string) => `risque-${id}`;
 
 const title = t.title(name);
+const faq = countryFaq(country, lang);
 const head = seoHead({
   title,
   description: t.description(name, country.diseases.slice(0, 3).map((d) => (lang === 'fr' ? d.name.fr.replace(/^(\p{Lu})(?=\p{Ll})/u, (c) => c.toLowerCase()) : d.name.en))),
   path,
   lang,
   alternates: { fr: countryPath(country, 'fr'), en: countryPath(country, 'en') },
-  jsonLd: {
+  jsonLd: [{
     '@context': 'https://schema.org',
     '@type': 'MedicalWebPage',
     name: title,
@@ -49,7 +52,7 @@ const head = seoHead({
       publisher: { '@type': 'GovernmentOrganization', name: 'Institut national de santé publique du Québec (INSPQ)' },
     },
     publisher: { '@type': 'MedicalClinic', name: 'Groupe Santé Voyage', url: absolute(lang === 'fr' ? '/' : '/en/') },
-  },
+  }, ...(faq.length ? [faqJsonLd(faq)] : [])],
 });
 ---
 
@@ -155,6 +158,8 @@ const head = seoHead({
       </section>
     )
   }
+
+  <Faq title={faqCopy[lang].title} items={faq} more={faqCopy[lang].more} />
 
   <Clinics content={home[lang].clinics} lang={lang} />
 </BaseLayout>

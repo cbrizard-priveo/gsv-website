@@ -1,0 +1,61 @@
+---
+// Priveo's FAQ section (dev.priveosante.com, « Questions fréquentes »): heading on the left, an accordion
+// of questions on the right; the first one starts open. Opening and closing is Priveo's own accordion
+// script, already on every page with the header (public/assets/priveo/header.js): one answer open at a
+// time, arrow keys between questions. Its FAQPage structured data goes in the page head
+// (src/lib/faq.ts, faqJsonLd), so the questions here must be the same.
+import Icon from '../Icon.astro';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  title: string;
+  lede?: string;
+  items: { q: string; a: string }[];
+  more?: { label: string; href: string };
+  id?: string;
+  /** Index of the question shown open at first. */
+  open?: number;
+}
+
+const { title, lede, items, more, id = 'faq', open = 0 } = Astro.props;
+---
+
+{
+  items.length > 0 && (
+    <div class="pv">
+      <section class="layout-section faq" id={id}>
+        <div class="layout-container faq__layout">
+          <div class="layout-element layout-stack faq__header">
+            <div class="layout-stack section-header section-header--left">
+              <h2 class="layout-element typography-heading section-header__title font-secondary">{title}</h2>
+              {lede && <p class="layout-element text-inline section-header__description">{lede}</p>}
+              {more && (
+                <a class="layout-element action-button btn btn--ghost btn--card button-base" href={more.href}>
+                  {more.label}
+                  <Icon name="arrow-right" />
+                </a>
+              )}
+            </div>
+          </div>
+          <div class="layout-element layout-stack faq__content">
+            <div class="layout-element disclosure-group accordion accordion--faq" data-expand-item={open}>
+              {items.map((item, i) => (
+                <div class={`layout-element layout-stack accordion__item${i === open ? ' is-widget-open' : ''}`}>
+                  <div class="layout-element layout-stack accordion__title disclosure__trigger" role="button" tabindex="0" aria-expanded={String(i === open)} id={`${id}-${i}-control`} aria-controls={`${id}-${i}-panel`}>
+                    <h3 class="layout-element typography-heading accordion__question">{item.q}</h3>
+                    <i class="layout-element media-icon accordion__icon" aria-hidden="true"><Icon name="chevron-down" /></i>
+                  </div>
+                  <div class="layout-element layout-stack accordion__content disclosure__panel" role="region" id={`${id}-${i}-panel`} aria-labelledby={`${id}-${i}-control`} hidden={i !== open}>
+                    <div class="layout-element text-flow accordion__text" set:html={item.a} />
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
+}
+

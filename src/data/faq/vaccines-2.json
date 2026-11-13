@@ -1,0 +1,673 @@
+{
+  "items": [
+    {
+      "id": "grippe-vaccin-avant-voyage",
+      "theme": "page:grippe",
+      "q": {
+        "fr": "Dois-je me faire vacciner contre la grippe avant mon voyage ?",
+        "en": "Should I get a flu shot before my trip?"
+      },
+      "a": {
+        "fr": "<p>Pour les voyageurs, le vaccin est indiqué pour les groupes ciblés par le Protocole d’immunisation du Québec — par exemple les personnes de 65 ans et plus, les personnes de 6 mois et plus atteintes de certaines maladies chroniques et les personnes enceintes selon les critères du Protocole — lorsque le séjour a lieu pendant la saison où la transmission est la plus forte. Les autres voyageurs peuvent aussi se faire vacciner pour réduire leur risque.</p>",
+        "en": "<p>For travellers, the vaccine is indicated for the groups targeted by the Protocole d’immunisation du Québec — for example people aged 65 and older, people aged 6 months and older with certain chronic diseases, and pregnant people according to the Protocole’s criteria — when the stay takes place during the season when transmission is highest. Other travellers can also get vaccinated to reduce their risk.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Influenza » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Information sur la grippe (influenza) » (mis à jour le 31 octobre 2024)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/grippe-rhume-et-gastro/grippe-influenza/information-grippe-influenza"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre la grippe » (mis à jour le 23 octobre 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccination-contre-la-grippe"
+        }
+      ],
+      "notes": "Groups condensed to three examples; the pregnancy criteria (chronic disease at any stage, healthy from 13 weeks) are only referred to. The page's 'à leurs frais' (cost) left out per the no-price rule. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "grippe-saison-selon-destination",
+      "theme": "page:grippe",
+      "q": {
+        "fr": "À quelle période de l’année la grippe circule-t-elle à ma destination ?",
+        "en": "When is flu season at my destination?"
+      },
+      "a": {
+        "fr": "<p>Cela dépend de la région :</p><ul><li><strong>régions tropicales</strong> (entre le 23e degré de latitude Nord et le 23e degré de latitude Sud) : toute l’année;</li><li><strong>pays tempérés de l’hémisphère sud</strong> : généralement d’avril à septembre;</li><li><strong>pays tempérés de l’hémisphère nord</strong> : généralement de novembre à mars.</li></ul><p>En croisière, le risque existe toute l’année, puisque des voyageurs des deux hémisphères partagent un espace restreint pendant plusieurs jours.</p>",
+        "en": "<p>It depends on the region:</p><ul><li><strong>tropical regions</strong> (between 23 degrees North and 23 degrees South latitude): all year;</li><li><strong>temperate countries of the Southern Hemisphere</strong>: generally April to September;</li><li><strong>temperate countries of the Northern Hemisphere</strong>: generally November to March.</li></ul><p>On a cruise, the risk is present all year, since travellers from both hemispheres share a confined space for several days.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Influenza » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Information sur la grippe (influenza) » (mis à jour le 31 octobre 2024)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/grippe-rhume-et-gastro/grippe-influenza/information-grippe-influenza"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre la grippe » (mis à jour le 23 octobre 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccination-contre-la-grippe"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "grippe-delai-protection-enfants",
+      "theme": "page:grippe",
+      "q": {
+        "fr": "Quand le vaccin contre la grippe commence-t-il à protéger, et combien de doses faut-il ?",
+        "en": "When does the flu vaccine start to protect, and how many doses are needed?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin protège généralement à partir de deux semaines après l’injection, pendant au moins six mois, et seulement contre les souches qu’il contient. Les enfants de moins de 9 ans vaccinés contre la grippe pour la première fois reçoivent deux doses, à un mois d’intervalle. Le vaccin n’est pas offert aux bébés de moins de 6 mois. Les voyageurs à qui le vaccin est indiqué devraient avoir reçu la formulation la plus récente, au cours de la dernière année; se faire revacciner avec le vaccin de l’année précédente n’est pas recommandé.</p>",
+        "en": "<p>The vaccine generally protects starting two weeks after the injection, for at least six months, and only against the strains it contains. Children under 9 who are vaccinated against the flu for the first time receive two doses, one month apart. The vaccine is not offered to babies under 6 months. Travellers for whom the vaccine is indicated should have received the most recent formulation, within the past year; getting revaccinated with the previous year’s vaccine is not recommended.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Influenza » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/influenza"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Information sur la grippe (influenza) » (mis à jour le 31 octobre 2024)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/grippe-rhume-et-gastro/grippe-influenza/information-grippe-influenza"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre la grippe » (mis à jour le 23 octobre 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccination-contre-la-grippe"
+        }
+      ],
+      "notes": "Verification (2026-11-12): last sentence reworded: « ne doit pas être redonné » was stronger than the page (« n’est pas recommandé »), and the « most recent formulation » advice is for travellers for whom the vaccine is indicated (condition restored)."
+    },
+    {
+      "id": "hepatite-a-recommande-voyage",
+      "theme": "page:hepatite-a",
+      "q": {
+        "fr": "Le vaccin contre l’hépatite A est-il recommandé pour mon voyage ?",
+        "en": "Is the hepatitis A vaccine recommended for my trip?"
+      },
+      "a": {
+        "fr": "<p>Tout dépend du niveau de prévalence de l’hépatite A dans le pays visité. Dans les pays à prévalence modérée, élevée ou très élevée, la vaccination est recommandée pour tous les voyageurs, quels que soient les conditions du voyage et la durée du séjour. Dans les pays à prévalence faible, elle peut être envisagée s’il existe une indication selon le Protocole d’immunisation du Québec. Consultez la <a href=\"/pays/\">fiche de votre destination</a>.</p>",
+        "en": "<p>It depends on the prevalence of hepatitis A in the country visited. In countries with moderate, high or very high prevalence, vaccination is recommended for all travellers, whatever the travel conditions and length of stay. In low-prevalence countries, it may be considered if there is an indication under the Protocole d’immunisation du Québec. Check the <a href=\"/en/countries/\">page for your destination</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite A » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-a"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hepatite-a-transmission",
+      "theme": "page:hepatite-a",
+      "q": {
+        "fr": "Comment attrape-t-on l’hépatite A en voyage ?",
+        "en": "How do travellers catch hepatitis A?"
+      },
+      "a": {
+        "fr": "<p>Le virus de l’hépatite A suit la voie fécale-orale. On l’attrape le plus souvent en buvant de l’eau ou en mangeant des aliments contaminés, mais il se transmet aussi d’une personne à l’autre. Il peut survivre plusieurs mois dans l’environnement. Aucun pays n’est épargné, et la maladie est encore plus fréquente dans les pays en voie de développement.</p>",
+        "en": "<p>The hepatitis A virus follows the fecal-oral route. People most often catch it by drinking contaminated water or eating contaminated food, but it also passes from person to person. It can survive for several months in the environment. No country is free of it, and the disease is even more common in developing countries.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite A » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-a"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hepatite-a-bebes",
+      "theme": "page:hepatite-a",
+      "q": {
+        "fr": "Mon bébé de moins d’un an peut-il être vacciné contre l’hépatite A ?",
+        "en": "Can my baby under one year old be vaccinated against hepatitis A?"
+      },
+      "a": {
+        "fr": "<p>Un enfant de 6 à 11 mois qui se rend dans un pays à risque peut recevoir le vaccin. Cette dose ne compte toutefois pas dans son calendrier : pour une protection à long terme, il lui faudra une autre dose à l’âge de 1 an, au moins 5 mois après la première. Avant 6 mois, le vaccin n’est pas indiqué; des immunoglobulines non spécifiques pourraient être envisagées, mais on y a rarement recours.</p>",
+        "en": "<p>A child aged 6 to 11 months travelling to a country at risk can receive the vaccine. However, this dose does not count in the child’s schedule: for long-term protection, another dose is needed at 1 year of age, at least 5 months after the first. Before 6 months, the vaccine is not indicated; non-specific immunoglobulins could be considered, but they are rarely used.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite A » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-a"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hepatite-b-recommande-voyage",
+      "theme": "page:hepatite-b",
+      "q": {
+        "fr": "Le vaccin contre l’hépatite B est-il recommandé pour mon voyage ?",
+        "en": "Is the hepatitis B vaccine recommended for my trip?"
+      },
+      "a": {
+        "fr": "<p>La recommandation dépend de la prévalence de l’hépatite B dans le pays visité : vaccination pour tous les voyageurs si elle est modérée ou élevée; pour certains groupes si elle est faible; variable selon le pays si elle est indéterminée. Les groupes visés comprennent les personnes à risque selon le Protocole d’immunisation du Québec, les longs séjours (expatriés, visites à la famille et aux amis), le travail à l’étranger, le tourisme médical et l’adoption. Consultez la <a href=\"/pays/\">fiche de votre destination</a>.</p>",
+        "en": "<p>The recommendation depends on the prevalence of hepatitis B in the country visited: vaccination for all travellers if it is moderate or high; for certain groups if it is low; it varies by country if it is undetermined. The groups include people at risk under the Protocole d’immunisation du Québec, long stays (expatriates, visiting family and friends), working abroad, medical tourism and adoption. Check the <a href=\"/en/countries/\">page for your destination</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite B » (mis à jour le 18 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hepatite-b-transmission",
+      "theme": "page:hepatite-b",
+      "q": {
+        "fr": "Comment l’hépatite B se transmet-elle ?",
+        "en": "How is hepatitis B transmitted?"
+      },
+      "a": {
+        "fr": "<p>Il faut que du sang, du sperme ou des sécrétions vaginales d’une personne porteuse entrent dans l’organisme d’une autre personne. Cela peut se produire avec du matériel d’injection ou un rasoir partagé, du matériel médical, dentaire, de tatouage ou de perçage non stérilisé, lors de relations sexuelles sans condom, ou de la mère à l’enfant pendant la grossesse ou l’accouchement. Le virus peut survivre plusieurs semaines hors du corps.</p>",
+        "en": "<p>Blood, semen or vaginal secretions from a person who carries the virus must enter another person’s body. This can happen through shared injection equipment or razors, unsterilized medical, dental, tattooing or piercing equipment, sex without a condom, or from mother to child during pregnancy or childbirth. The virus can survive for several weeks outside the body.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite B » (mis à jour le 18 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b"
+        }
+      ],
+      "notes": "Rarer routes (bite, blood splash, shared toothbrush) left out for length. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hepatite-b-calendrier-accelere",
+      "theme": "page:hepatite-b",
+      "q": {
+        "fr": "Je pars bientôt : existe-t-il un calendrier accéléré contre l’hépatite B ?",
+        "en": "I’m leaving soon: is there an accelerated hepatitis B schedule?"
+      },
+      "a": {
+        "fr": "<p>Oui. Le vaccin combiné contre l’hépatite A et B peut être donné selon un calendrier accéléré à 4 doses, qui fait monter plus vite les anticorps contre l’hépatite B. On pourrait y recourir pour une personne d’un groupe particulier qui part dans moins de 28 jours vers un pays où la prévalence est modérée ou élevée. Ce calendrier n’est pas indiqué pour la plupart des voyageurs, par exemple pour un pays à prévalence faible ou un court séjour dans un tout-inclus.</p>",
+        "en": "<p>Yes. The combined hepatitis A and B vaccine can be given on an accelerated 4-dose schedule, which raises antibodies against hepatitis B more quickly. It could be used for a person in a specific group who leaves in less than 28 days for a country where prevalence is moderate or high. This schedule is not indicated for most travellers, for example for a low-prevalence country or a short stay at an all-inclusive resort.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite B » (mis à jour le 18 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hib-infections",
+      "theme": "page:hib",
+      "q": {
+        "fr": "Quelles infections graves Hib peut-il causer ?",
+        "en": "What serious infections can Hib cause?"
+      },
+      "a": {
+        "fr": "<p>Les infections graves à <em>Hæmophilus influenzæ</em> de type b (Hib) peuvent causer une épiglottite (enflure importante de la gorge), une pneumonie ou une méningite. Elles peuvent laisser des séquelles comme la surdité ou une déficience intellectuelle, et la méningite à Hib entraîne le décès dans 5 % des cas. La vaccination reste la protection la plus efficace.</p>",
+        "en": "<p>Serious <em>Hæmophilus influenzæ</em> type b (Hib) infections can cause epiglottitis (severe swelling of the throat), pneumonia or meningitis. They can leave after-effects such as deafness or intellectual disability, and Hib meningitis is fatal in 5% of cases. Vaccination remains the most effective protection.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Infections graves à Hæmophilus influenzæ de type B (Hib) » (mis à jour le 22 octobre 2015)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/infections-a-hamophilus-influenza-de-type-b"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin conjugué contre Hæmophilus influenzæ de type b (Hib) » (mis à jour le 9 avril 2015)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-conjugue-hamophilus-influenza-de-type-b"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre la diphtérie, la coqueluche, le tétanos, l’hépatite B, la poliomyélite et les infections à Hib (DCaT-HB-VPI-Hib ou DCaT-VPI-Hib) » (mis à jour le 22 juin 2023)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccins-combines-dcat-hb-vpi-hib-ou-dcat-vpi-hib"
+        }
+      ],
+      "notes": "Question avoids calling Hib a bacterium: per the page's notes, the Québec.ca sources do not say so. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hib-qui-vacciner",
+      "theme": "page:hib",
+      "q": {
+        "fr": "Qui devrait être vacciné contre Hib ?",
+        "en": "Who should get the Hib vaccine?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin contre Hib s’adresse aux enfants de moins de 5 ans. Les personnes de tout âge dont l’état de santé augmente le risque d’infection grave à Hib le reçoivent aussi. Le vaccin est sécuritaire et, dans la majorité des cas, ne cause aucune réaction; il peut y avoir de la douleur, de la rougeur ou de l’enflure au point d’injection, et moins de 10 % des enfants font de la fièvre.</p>",
+        "en": "<p>The Hib vaccine is for children under 5 years of age. People of any age whose health condition increases the risk of serious Hib infection also receive it. The vaccine is safe and, in most cases, causes no reaction; there may be pain, redness or swelling at the injection site, and fewer than 10% of children develop a fever.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Infections graves à Hæmophilus influenzæ de type B (Hib) » (mis à jour le 22 octobre 2015)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/infections-a-hamophilus-influenza-de-type-b"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin conjugué contre Hæmophilus influenzæ de type b (Hib) » (mis à jour le 9 avril 2015)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-conjugue-hamophilus-influenza-de-type-b"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre la diphtérie, la coqueluche, le tétanos, l’hépatite B, la poliomyélite et les infections à Hib (DCaT-HB-VPI-Hib ou DCaT-VPI-Hib) » (mis à jour le 22 juin 2023)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccins-combines-dcat-hb-vpi-hib-ou-dcat-vpi-hib"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hib-calendrier-enfants",
+      "theme": "page:hib",
+      "q": {
+        "fr": "À quel âge les enfants reçoivent-ils le vaccin contre Hib ?",
+        "en": "At what age do children get the Hib vaccine?"
+      },
+      "a": {
+        "fr": "<p>Chez l’enfant, le vaccin contre Hib est habituellement combiné à ceux contre la diphtérie, la coqueluche, le tétanos, l’hépatite B et la poliomyélite. Le Programme québécois d’immunisation prévoit un vaccin DCaT-HB-VPI-Hib à 2 mois et à 4 mois, puis un vaccin DCaT-VPI-Hib à 1 an. L’enfant n’est pleinement protégé qu’après avoir reçu toutes les doses du calendrier régulier.</p>",
+        "en": "<p>In children, the Hib vaccine is usually combined with the vaccines against diphtheria, whooping cough, tetanus, hepatitis B and polio. The Québec Immunization Program provides a DTaP-HB-IPV-Hib vaccine at 2 months and at 4 months, then a DTaP-IPV-Hib vaccine at 1 year. A child is fully protected only after receiving all the doses in the regular schedule.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Infections graves à Hæmophilus influenzæ de type B (Hib) » (mis à jour le 22 octobre 2015)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/infections-a-hamophilus-influenza-de-type-b"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin conjugué contre Hæmophilus influenzæ de type b (Hib) » (mis à jour le 9 avril 2015)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-conjugue-hamophilus-influenza-de-type-b"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre la diphtérie, la coqueluche, le tétanos, l’hépatite B, la poliomyélite et les infections à Hib (DCaT-HB-VPI-Hib ou DCaT-VPI-Hib) » (mis à jour le 22 juin 2023)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccins-combines-dcat-hb-vpi-hib-ou-dcat-vpi-hib"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "malaria-medicament-preventif",
+      "theme": "page:malaria",
+      "q": {
+        "fr": "Dois-je prendre un médicament contre la malaria pendant mon voyage ?",
+        "en": "Do I need to take malaria medication on my trip?"
+      },
+      "a": {
+        "fr": "<p>Cela dépend de la destination, du type de voyage, des activités, de la durée du séjour et de votre tolérance aux médicaments. On recommandera soit la protection contre les moustiques seulement, soit cette protection et une chimioprophylaxie (médicament préventif); en Afrique subsaharienne, par exemple, les deux sont recommandées, même pour un court séjour. Pris régulièrement et adaptés à la destination, ces médicaments préviennent de 90 à 95 % des cas à <em>P. falciparum</em>, mais aucun ne protège à 100 %. Consultez la <a href=\"/pays/\">fiche de votre destination</a>.</p>",
+        "en": "<p>It depends on the destination, the type of trip, activities, length of stay and how well you tolerate medication. The recommendation will be either protection against mosquitoes alone, or that protection plus chemoprophylaxis (preventive medication); in sub-Saharan Africa, for example, both are recommended, even for a short stay. Taken regularly and suited to the destination, these medications prevent 90 to 95% of <em>P. falciparum</em> cases, but none protects 100%. Check the <a href=\"/en/countries/\">page for your destination</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : situation et définition » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/situation"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : prévention » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/prevention"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : chimioprophylaxie » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/chimioprophylaxie"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : médication » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/medication"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : autotraitement et autodiagnostic » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/autotraitement"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "malaria-duree-apres-retour",
+      "theme": "page:malaria",
+      "q": {
+        "fr": "Combien de temps faut-il continuer l’antipaludéen après le voyage ?",
+        "en": "How long should I keep taking malaria medication after my trip?"
+      },
+      "a": {
+        "fr": "<p>Le traitement se poursuit après avoir quitté la zone à risque : pendant 4 semaines avec la méfloquine, la chloroquine (ou l’hydroxychloroquine) ou la doxycycline, et pendant 7 jours avec l’atovaquone-proguanil (Malarone®) ou la primaquine. Le choix du médicament dépend notamment de la résistance aux médicaments dans la région visitée.</p>",
+        "en": "<p>The medication continues after you leave the risk area: for 4 weeks with mefloquine, chloroquine (or hydroxychloroquine) or doxycycline, and for 7 days with atovaquone-proguanil (Malarone®) or primaquine. The choice of medication depends in particular on drug resistance in the region visited.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : situation et définition » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/situation"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : prévention » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/prevention"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : chimioprophylaxie » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/chimioprophylaxie"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : médication » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/medication"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : autotraitement et autodiagnostic » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/autotraitement"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "malaria-fievre",
+      "theme": "page:malaria",
+      "q": {
+        "fr": "Que faire si je fais de la fièvre pendant ou après un voyage dans une région où il y a de la malaria ?",
+        "en": "What should I do if I get a fever during or after a trip to a malaria area?"
+      },
+      "a": {
+        "fr": "<p>En voyage, consultez en moins de 24 heures, même si vous prenez une chimioprophylaxie, et demandez un frottis sanguin pour le paludisme. Au retour d’une région où le paludisme est présent, même à faible risque, rendez-vous à l’urgence pour écarter ce diagnostic. Une femme enceinte doit voir un médecin le jour même. Les symptômes peuvent apparaître dès une semaine après l’exposition, ou des mois, voire des années plus tard.</p>",
+        "en": "<p>While travelling, see a doctor within 24 hours, even if you are taking chemoprophylaxis, and ask for a blood smear for malaria. After returning from a region where malaria is present, even at low risk, go to the emergency department to rule out this diagnosis. A pregnant woman must see a doctor the same day. Symptoms can appear as early as one week after exposure, or months or even years later.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : situation et définition » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/situation"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : prévention » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/prevention"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : chimioprophylaxie » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/chimioprophylaxie"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : médication » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/medication"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : autotraitement et autodiagnostic » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/autotraitement"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "meningocoque-hadj-umrah",
+      "theme": "page:meningocoque",
+      "q": {
+        "fr": "Le vaccin contre le méningocoque est-il obligatoire pour le Hadj ou l’Umrah ?",
+        "en": "Is the meningococcal vaccine mandatory for Hajj or Umrah?"
+      },
+      "a": {
+        "fr": "<p>Oui. Pour le Hadj, l’Umrah et le travail saisonnier en Arabie saoudite, les autorités du pays exigent la vaccination de tous les voyageurs, pèlerins ou non. Un certificat est demandé; le carnet de vaccination peut servir de preuve. On utilise de préférence le vaccin conjugué quadrivalent contre les sérogroupes A, C, W et Y. Ces rassemblements augmentent le risque à cause de la foule et de la présence de gens venant de pays où la maladie est fréquente.</p>",
+        "en": "<p>Yes. For Hajj, Umrah and seasonal work in Saudi Arabia, the country’s authorities require vaccination for all travellers, pilgrims or not. A certificate is required; the vaccination booklet can serve as proof. The quadrivalent conjugate vaccine against serogroups A, C, W and Y is preferred. These gatherings increase the risk because of the crowds and the presence of people from countries where the disease is common.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Infections invasives à méningocoque » (mis à jour le 22 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/meningocoque"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "meningocoque-ceinture-africaine",
+      "theme": "page:meningocoque",
+      "q": {
+        "fr": "Faut-il se faire vacciner contre le méningocoque pour un voyage en Afrique ?",
+        "en": "Do I need a meningococcal vaccine for a trip to Africa?"
+      },
+      "a": {
+        "fr": "<p>Dans la ceinture africaine de la méningite (du Sénégal à l’Éthiopie), la vaccination est recommandée pour tous les voyageurs pendant la saison sèche, de novembre à juin. Hors saison sèche, ou dans d’autres pays africains à risque, elle est à envisager pour les enfants et les adultes de moins de 30 ans, et pour les 30 ans et plus qui auront des contacts étroits et prolongés avec la population ou qui resteront 3 semaines ou plus. Consultez la <a href=\"/pays/\">fiche de votre destination</a>.</p>",
+        "en": "<p>In the African meningitis belt (from Senegal to Ethiopia), vaccination is recommended for all travellers during the dry season, November to June. Outside the dry season, or in other African countries at risk, it should be considered for children and adults under 30, and for people 30 and older who will have close, prolonged contact with the local population or who will stay 3 weeks or more. Check the <a href=\"/en/countries/\">page for your destination</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Infections invasives à méningocoque » (mis à jour le 22 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/meningocoque"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "meningocoque-transmission-symptomes",
+      "theme": "page:meningocoque",
+      "q": {
+        "fr": "Comment le méningocoque se transmet-il et quels sont les signes d’alerte ?",
+        "en": "How does meningococcus spread, and what are the warning signs?"
+      },
+      "a": {
+        "fr": "<p>La bactérie se transmet de personne à personne par les gouttelettes respiratoires, lors de contacts rapprochés. Après 2 à 10 jours, les premiers symptômes peuvent ressembler à une infection respiratoire banale, puis d’autres apparaissent brusquement : maux de tête, fièvre, raideur de la nuque, vomissements, sensibilité à la lumière, confusion. Une éruption de petites taches rouges ou violacées peut signaler une infection du sang. C’est une urgence médicale.</p>",
+        "en": "<p>The bacterium spreads from person to person through respiratory droplets during close contact. After 2 to 10 days, the first symptoms can look like a minor respiratory infection, then others appear suddenly: headache, fever, stiff neck, vomiting, sensitivity to light, confusion. A rash of small red or purple spots can signal a blood infection. It is a medical emergency.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Infections invasives à méningocoque » (mis à jour le 22 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/meningocoque"
+        }
+      ],
+      "notes": "Symptom list condensed (nausea dropped). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "oreillons-suis-je-protege",
+      "theme": "page:oreillons",
+      "q": {
+        "fr": "Comment savoir si je suis protégé contre les oreillons ?",
+        "en": "How do I know if I’m protected against mumps?"
+      },
+      "a": {
+        "fr": "<p>Selon le Protocole d’immunisation du Québec, vous êtes considéré comme protégé si vous êtes né avant 1970, si vous avez une preuve écrite d’avoir reçu une dose de vaccin, ou si une analyse sanguine montre des anticorps contre les oreillons. Sinon, vous devriez être vacciné. Les personnes nées après 1970 courent un risque plus élevé.</p>",
+        "en": "<p>According to the Protocole d’immunisation du Québec, you are considered protected if you were born before 1970, if you have written proof of having received one dose of vaccine, or if a blood test shows antibodies against mumps. Otherwise, you should be vaccinated. People born after 1970 are at higher risk.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Oreillons » (mis à jour le 20 juin 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/oreillons"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la rougeole, la rubéole et les oreillons (RRO) » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « RRO : vaccin contre la rougeole, la rubéole et les oreillons » (mis à jour le 24 septembre 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "oreillons-calendrier-enfants",
+      "theme": "page:oreillons",
+      "q": {
+        "fr": "À quel âge les enfants sont-ils vaccinés contre les oreillons ?",
+        "en": "At what age are children vaccinated against mumps?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin contre les oreillons fait partie du calendrier régulier de vaccination du Québec. Les enfants le reçoivent à 12 mois et à 18 mois, dans un vaccin combiné qui protège aussi contre la rougeole, la rubéole et la varicelle (RRO-Var). Son efficacité contre les oreillons est de 62 à 91 % après 1 dose et de 79 à 95 % après 2 doses, et il réduit les symptômes et les complications.</p>",
+        "en": "<p>The mumps vaccine is part of Québec’s regular vaccination schedule. Children receive it at 12 months and 18 months, in a combined vaccine that also protects against measles, rubella and chickenpox (MMRV). Its effectiveness against mumps is 62 to 91% after 1 dose and 79 to 95% after 2 doses, and it reduces symptoms and complications.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Oreillons » (mis à jour le 20 juin 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/oreillons"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la rougeole, la rubéole et les oreillons (RRO) » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « RRO : vaccin contre la rougeole, la rubéole et les oreillons » (mis à jour le 24 septembre 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "oreillons-grossesse",
+      "theme": "page:oreillons",
+      "q": {
+        "fr": "Peut-on recevoir le vaccin contre les oreillons pendant la grossesse ?",
+        "en": "Can I get the mumps vaccine during pregnancy?"
+      },
+      "a": {
+        "fr": "<p>Non. Le vaccin contre les oreillons, un vaccin combiné à virus vivants atténués, est contre-indiqué pendant la grossesse et chez les personnes immunodéprimées. Une femme qui le reçoit doit éviter de devenir enceinte dans le mois qui suit. Chez la femme enceinte, les oreillons augmentent le risque de fausse couche en début de grossesse, mais ne causent pas de malformations chez le fœtus.</p>",
+        "en": "<p>No. The mumps vaccine, a combined live attenuated vaccine, must not be given during pregnancy or to people who are immunocompromised. A woman who receives it should avoid becoming pregnant during the following month. In pregnant women, mumps increases the risk of miscarriage in early pregnancy, but does not cause malformations in the fetus.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Oreillons » (mis à jour le 20 juin 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/oreillons"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la rougeole, la rubéole et les oreillons (RRO) » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « RRO : vaccin contre la rougeole, la rubéole et les oreillons » (mis à jour le 24 septembre 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "pneumocoque-qui-vacciner",
+      "theme": "page:pneumocoque",
+      "q": {
+        "fr": "Qui devrait se faire vacciner contre le pneumocoque ?",
+        "en": "Who should get the pneumococcal vaccine?"
+      },
+      "a": {
+        "fr": "<p>Au Québec, la vaccination contre le pneumocoque est recommandée et gratuite pour les enfants de 2 à 59 mois, les personnes de 65 ans et plus et certaines personnes plus à risque de complications. Le vaccin peut être donné à n’importe quel moment de l’année. Le type de vaccin et le nombre de doses dépendent de l’âge et de l’état de santé de la personne.</p>",
+        "en": "<p>In Québec, pneumococcal vaccination is recommended and free for children aged 2 to 59 months, people aged 65 and over, and some people at higher risk of complications. The vaccine can be given at any time of year. Which vaccine to receive and how many doses depend on the person’s age and health status.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Infections à pneumocoque » (mis à jour le 3 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/infections-a-pneumocoque"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre les infections à pneumocoque » (mis à jour le 3 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-de-vaccination-contre-les-infections-a-pneumocoque"
+        }
+      ],
+      "notes": "Page says nothing travel-specific about pneumococcus; answer is general. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "pneumocoque-transmission",
+      "theme": "page:pneumocoque",
+      "q": {
+        "fr": "Comment se transmet le pneumocoque et quelles infections cause-t-il ?",
+        "en": "How does pneumococcus spread, and what infections does it cause?"
+      },
+      "a": {
+        "fr": "<p>Le pneumocoque se loge souvent dans le nez ou la gorge de personnes en bonne santé, sans les rendre malades. Il se transmet par les gouttelettes du nez ou de la gorge d’une personne infectée. Il peut causer une otite, une sinusite, une pneumonie, une méningite ou une infection du sang. La plupart de ces infections se traitent avec des antibiotiques, mais certaines peuvent laisser des séquelles permanentes ou causer la mort.</p>",
+        "en": "<p>Pneumococcus often lives in the nose or throat of healthy people without making them sick. It spreads through droplets from the nose or throat of an infected person. It can cause ear infections, sinusitis, pneumonia, meningitis or a blood infection. Most of these infections can be treated with antibiotics, but some can leave permanent after-effects or cause death.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Infections à pneumocoque » (mis à jour le 3 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/infections-a-pneumocoque"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre les infections à pneumocoque » (mis à jour le 3 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-de-vaccination-contre-les-infections-a-pneumocoque"
+        }
+      ],
+      "notes": "Verification (2026-11-12): « peuvent » restored (the page says some infections can leave after-effects or cause death)."
+    },
+    {
+      "id": "pneumocoque-quand-consulter",
+      "theme": "page:pneumocoque",
+      "q": {
+        "fr": "Quand faut-il consulter pour une infection à pneumocoque ?",
+        "en": "When should I see a doctor for a possible pneumococcal infection?"
+      },
+      "a": {
+        "fr": "<p>Consultez le jour même en cas d’essoufflement, de difficulté à respirer ou de douleur en respirant. Allez immédiatement à l’urgence si la difficulté à respirer persiste ou s’aggrave soudainement, ou en cas de lèvres bleues, de difficulté à bouger, de raideur importante au cou, de somnolence, de confusion, de convulsions ou d’absence d’urine depuis 12 heures. Un enfant fiévreux qui semble très malade, manque d’énergie et refuse de jouer doit voir un médecin rapidement.</p>",
+        "en": "<p>See a doctor the same day if you have shortness of breath, difficulty breathing or pain when breathing. Go to the emergency room right away if difficulty breathing persists or suddenly gets worse, or if you have blue lips, difficulty moving, a very stiff neck, drowsiness, confusion, convulsions or no urine for 12 hours. A child with a fever who seems very sick, lacks energy and refuses to play should see a doctor quickly.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Infections à pneumocoque » (mis à jour le 3 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/infections-a-pneumocoque"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre les infections à pneumocoque » (mis à jour le 3 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-de-vaccination-contre-les-infections-a-pneumocoque"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "poliomyelite-rappel-adulte",
+      "theme": "page:poliomyelite",
+      "q": {
+        "fr": "J’ai été vacciné contre la polio enfant : ai-je besoin d’un rappel avant de partir ?",
+        "en": "I was vaccinated against polio as a child: do I need a booster before I travel?"
+      },
+      "a": {
+        "fr": "<p>Une dose de rappel unique est recommandée aux adultes de 18 ans et plus qui se rendent dans un pays à risque si leur primo-immunisation date de plus de 10 ans. Ce rappel n’est pas nécessaire pour certains pays où le virus a été trouvé sans transmission locale démontrée. Une preuve écrite n’est généralement pas exigée pour établir votre statut vaccinal; un adulte qui n’a probablement jamais été vacciné commencera sa primo-immunisation avant le départ. Consultez la <a href=\"/pays/\">fiche de votre destination</a>.</p>",
+        "en": "<p>A single booster dose is recommended for adults aged 18 and over travelling to a country at risk if their primary series was more than 10 years ago. This booster is not needed for certain countries where the virus was found but no local transmission has been shown. Written proof is generally not needed to establish your vaccination status; an adult who has probably never been vaccinated will start the primary series before leaving. Check the <a href=\"/en/countries/\">page for your destination</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Poliomyélite » (mis à jour en octobre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "poliomyelite-exigence-oms",
+      "theme": "page:poliomyelite",
+      "q": {
+        "fr": "Qu’exige l’OMS pour les longs séjours dans un pays touché par la polio ?",
+        "en": "What does the WHO require for long stays in a country affected by polio?"
+      },
+      "a": {
+        "fr": "<p>Pour un séjour de plus de 4 semaines dans un pays ayant rapporté des cas ou détecté le poliovirus, l’OMS exige ou suggère, selon le type de virus, une dose de vaccin inactivé (VPI) reçue de 4 semaines à 12 mois avant d’entrer dans ce pays ou d’en sortir. Pour les types 1 et 3, la dose est exigée et doit être inscrite dans le Certificat international de vaccination ou de prophylaxie, offert seulement dans les centres de vaccination désignés contre la fièvre jaune. Pour le type 2 vaccinal, elle est suggérée.</p>",
+        "en": "<p>For a stay of more than 4 weeks in a country that has reported cases or detected poliovirus, the WHO requires or suggests, depending on the type of virus, a dose of inactivated vaccine (IPV) received 4 weeks to 12 months before entering or leaving that country. For types 1 and 3, the dose is required and must be recorded on the International Certificate of Vaccination or Prophylaxis, available only at designated yellow fever vaccination centres. For vaccine-derived type 2, it is suggested.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Poliomyélite » (mis à jour en octobre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite"
+        }
+      ],
+      "notes": "~95 words FR; slightly above the 90-word target but kept for completeness of the required/suggested distinction. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "poliomyelite-enfants-bebes",
+      "theme": "page:poliomyelite",
+      "q": {
+        "fr": "Mon enfant doit-il être vacciné contre la polio avant le voyage ?",
+        "en": "Does my child need a polio vaccine before the trip?"
+      },
+      "a": {
+        "fr": "<p>Selon le Protocole d’immunisation du Québec, une primo-immunisation complète est recommandée pour toutes les personnes de moins de 18 ans, y compris les voyageurs. Pour un bébé qui séjournera dans un pays à risque, on peut accélérer la vaccination sans inconvénient : elle commence dès l’âge de 6 semaines, avec les intervalles les plus courts permis entre les doses. Cette accélération est systématique pour un séjour dans un pays où le poliovirus sauvage est endémique, qui a rapporté des cas ou détecté le virus dans les 2 dernières années, ou qui est à risque d’importation.</p>",
+        "en": "<p>According to the Protocole d’immunisation du Québec, a complete primary series is recommended for everyone under 18, including travellers. For a baby who will stay in a country at risk, vaccination can safely be accelerated: it starts as early as 6 weeks of age, with the shortest intervals allowed between doses. This acceleration is systematic for a stay in a country where wild poliovirus is endemic, that has reported cases or detected the virus in the last 2 years, or that is at risk of importation.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Poliomyélite » (mis à jour en octobre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite"
+        }
+      ],
+      "notes": "Left out: the page adds that acceleration is systematic for a stay in the listed at-risk countries. Verification (2026-11-12): added that acceleration is systematic for the at-risk countries (« on peut » alone was weaker than the page)."
+    }
+  ]
+}

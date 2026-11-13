@@ -102,7 +102,10 @@ const SECTIONS = {
     card__text expand-click contact-coords contact-coords__item contact-coords__icon contact-coords__text
     contact-coords__label contact-coords__value contact-coords__link contact-coords__map price-card__pane
     price-card__row price-card__info price-card__name price-card__duration amenities-grid amenities-tile
-    amenities-tile__icon amenities-tile__label amenities-card__cta pv`.split(/\s+/),
+    amenities-tile__icon amenities-tile__label amenities-card__cta pv
+    faq faq__layout faq__header faq__content disclosure-group accordion accordion--faq accordion__item
+    is-widget-open accordion__title disclosure__trigger accordion__question media-icon accordion__icon
+    accordion__content disclosure__panel accordion__text`.split(/\s+/),
   ),
   ids: new Set(),
   hook: null,

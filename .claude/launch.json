@@ -4,8 +4,25 @@
     {
       "name": "astro-dev",
       "runtimeExecutable": "npm",
-      "runtimeArgs": ["run", "dev"],
+      "runtimeArgs": [
+        "run",
+        "dev"
+      ],
       "port": 4321
+    },
+    {
+      "name": "pr6-preview",
+      "runtimeExecutable": "npm",
+      "runtimeArgs": [
+        "--prefix",
+        "/private/tmp/claude-501/-Users-christophebrizard-Documents-Claude-gsv-website/a312fe6c-683a-4f42-b956-530751172039/scratchpad/pr6",
+        "run",
+        "dev",
+        "--",
+        "--port",
+        "4322"
+      ],
+      "port": 4322
     }
   ]
 }
