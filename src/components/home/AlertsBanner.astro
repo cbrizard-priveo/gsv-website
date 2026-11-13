@@ -1,0 +1,129 @@
+---
+// A slim band of health alerts under the homepage hero: the ongoing outbreaks most recently updated by
+// the INSPQ in our country data (src/lib/alerts.ts), each linking to its row on the country page.
+import Icon from '../Icon.astro';
+import type { Lang } from '../../data/site';
+import { formatDate } from '../../lib/countries';
+import { alerts } from '../../lib/alerts';
+
+interface Props {
+  lang: Lang;
+  max?: number;
+}
+
+const { lang, max = 4 } = Astro.props;
+const items = alerts.slice(0, max);
+const t = {
+  fr: { label: 'Alertes santé-voyage', outbreak: 'éclosion en cours', updated: 'Fiche de l’INSPQ mise à jour le', source: 'Selon l’INSPQ' },
+  en: { label: 'Travel health alerts', outbreak: 'ongoing outbreak', updated: 'INSPQ page updated', source: 'According to the INSPQ' },
+}[lang];
+---
+
+{
+  items.length > 0 && (
+    <aside class="alerts" aria-label={t.label}>
+      <div class="gsv-container alerts__inner">
+        <p class="alerts__label">
+          <Icon name="alert" />
+          {t.label}
+        </p>
+        <ul class="alerts__list">
+          {items.map((a) => (
+            <li>
+              <a href={a.href[lang]} title={`${t.updated} ${formatDate(a.updated, lang)}`}>
+                <strong>{a.disease[lang]}</strong> · {a.country.name[lang]}
+                <span class="alerts__sr">
+                  , {t.outbreak} ({t.updated} {formatDate(a.updated, lang)})
+                </span>
+              </a>
+            </li>
+          ))}
+        </ul>
+        <p class="alerts__source">{t.source}</p>
+      </div>
+    </aside>
+  )
+}
+
+<style>
+  .alerts {
+    border-bottom: 1px solid var(--gsv-border-subtle);
+    background: var(--gsv-primary-l-6);
+    font-size: 14px;
+  }
+  .alerts__inner {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding-block: 10px;
+  }
+  .alerts__label {
+    display: inline-flex;
+    flex: none;
+    align-items: center;
+    gap: 6px;
+    margin: 0;
+    color: var(--gsv-primary);
+    font-weight: 600;
+  }
+  .alerts__label :global(svg) {
+    width: 18px;
+    height: 18px;
+  }
+  .alerts__list {
+    display: flex;
+    flex: 1;
+    gap: 8px;
+    min-width: 0;
+    margin: 0;
+    padding: 0;
+    overflow-x: auto;
+    list-style: none;
+    scrollbar-width: none;
+  }
+  .alerts__list li {
+    flex: none;
+  }
+  .alerts__list a {
+    display: inline-block;
+    padding: 3px 12px;
+    border: 1px solid var(--gsv-primary-l-5);
+    border-radius: 999px;
+    background: var(--gsv-white);
+    color: inherit;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .alerts__list a:hover,
+  .alerts__list a:focus-visible {
+    border-color: var(--gsv-primary);
+    color: var(--gsv-primary);
+  }
+  .alerts__list strong {
+    font-weight: 600;
+  }
+  .alerts__sr {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  .alerts__source {
+    flex: none;
+    margin: 0;
+    color: var(--gsv-text-muted);
+    font-size: 12px;
+  }
+  @media (max-width: 767px) {
+    .alerts__inner {
+      flex-wrap: wrap;
+      gap: 8px 12px;
+    }
+    .alerts__list {
+      flex-basis: 100%;
+      order: 3;
+    }
+  }
+</style>
