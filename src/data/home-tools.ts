@@ -118,6 +118,7 @@ export const stats: Record<Lang, { label: string; founded: string; clinics: stri
 
 // « Une seule clinique » band (src/components/home/Destinations.astro): the slogan chosen by the client
 // on 2026-11-13, over a single row of travel settings (public/images/destinations), not clickable.
+// Mountain and desert photos: Unsplash v7BkDZg7pK8 and mhJml7Fusfs (Unsplash licence), downloaded 2026-11-13.
 export const destinations: Record<
   Lang,
   { title: string; text: string; cta: { label: string; href: string }; tiles: { label: string; image: string }[] }

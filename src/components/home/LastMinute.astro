@@ -1,5 +1,6 @@
 ---
-// « Départ de dernière minute ? » band: a short message and the booking button.
+// « Départ de dernière minute ? » band: a photo of travellers at a gate, a short message and the booking
+// button. Photo: Unsplash 8GtcwJNGncY (Unsplash licence: free for commercial use), downloaded 2026-11-13.
 import Icon from '../Icon.astro';
 import { BOOKING, type Lang } from '../../data/site';
 import { lastMinute } from '../../data/home-tools';
@@ -14,7 +15,7 @@ const t = lastMinute[Astro.props.lang];
 <section class="last-minute">
   <div class="gsv-container">
     <div class="last-minute__box">
-      <span class="last-minute__icon" aria-hidden="true"><Icon name="clock" /></span>
+      <img class="last-minute__photo" src="/images/home/derniere-minute.jpg" alt="" width="960" height="640" loading="lazy" decoding="async" />
       <div class="last-minute__body">
         <h2 class="last-minute__title">{t.title}</h2>
         <p class="last-minute__text">{t.text}</p>
@@ -30,25 +31,19 @@ const t = lastMinute[Astro.props.lang];
   }
   .last-minute__box {
     display: grid;
-    grid-template-columns: auto minmax(0, 1fr) auto;
+    grid-template-columns: 260px minmax(0, 1fr) auto;
     align-items: center;
-    gap: 28px;
-    padding: 36px 44px;
+    gap: 32px;
+    padding: 16px 44px 16px 16px;
     border-radius: 20px;
     background: var(--gsv-primary);
     color: var(--gsv-white);
   }
-  .last-minute__icon {
-    display: grid;
-    place-items: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background: rgb(255 255 255 / 0.12);
-  }
-  .last-minute__icon :global(svg) {
-    width: 30px;
-    height: 30px;
+  .last-minute__photo {
+    width: 100%;
+    height: 170px;
+    border-radius: 12px;
+    object-fit: cover;
   }
   .last-minute__title {
     color: var(--gsv-white);
@@ -67,7 +62,16 @@ const t = lastMinute[Astro.props.lang];
     .last-minute__box {
       grid-template-columns: minmax(0, 1fr);
       gap: 18px;
-      padding: 28px 24px;
+      padding: 16px 16px 28px;
+    }
+    .last-minute__photo {
+      height: 160px;
+    }
+    .last-minute__body {
+      padding-inline: 8px;
+    }
+    .last-minute__cta {
+      margin-inline: 8px;
     }
     .last-minute__cta {
       justify-self: start;
