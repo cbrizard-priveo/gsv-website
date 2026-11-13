@@ -55,8 +55,8 @@ export function withSeo(route: string, title: string, imported: string[]): { tit
 }
 
 /**
- * Body changes for imported pages: the hero heading becomes the page's only h1 (with the recommended text,
- * if any), and links to redirected pages point straight at their target.
+ * Body changes for imported pages: the first visible heading becomes the page's only h1 (with the
+ * recommended text, if any), and links to redirected pages point straight at their target.
  */
 export function withSeoBody(html: string, route: string, redirects: Record<string, string>): string {
   // Internal links need a trailing slash (trailingSlash: 'always'); files (with a dot) are left alone.
@@ -73,8 +73,9 @@ export function withSeoBody(html: string, route: string, redirects: Record<strin
     out = $$.html();
   }
 
+  // Every imported page gets one h1: its first visible heading (WordPress styled it as a heading but didn't
+  // mark it up as h1). Pages with an SEO override use its recommended text; others keep their own.
   const seo = seoFor(route);
-  if (!seo) return out;
   const $ = cheerio.load(out, null, false);
   if ($('h1').length) return out;
   // The first heading shown on desktop (Elementor keeps hidden copies of some heroes).
@@ -82,7 +83,7 @@ export function withSeoBody(html: string, route: string, redirects: Record<strin
     .filter((_, el) => !$(el).parents('.elementor-hidden-desktop').length)
     .first();
   if (!hero.length) return out;
-  if (seo.h1) hero.text(seo.h1);
+  if (seo?.h1) hero.text(seo.h1);
   (hero.get(0) as unknown as { name: string }).name = 'h1';
   return $.html();
 }
