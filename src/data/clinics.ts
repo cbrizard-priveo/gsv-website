@@ -1,4 +1,4 @@
-// Clinic pages. Details (phone, fax, email, hours, amenities, access) are copied from Priveo Santé's
+// Clinic pages. Details (fax, hours, amenities, access) are copied from Priveo Santé's
 // clinic pages (priveosante.com/cliniques/…, checked 2026-11-10), as the client asked; the access
 // sentence restates Priveo's in our words. Titles and H1s from the SEO expert's sheet.
 // Montréal: the clinic is on Van Horne (Outremont) with a pharmacy in the building, as the client
@@ -26,7 +26,8 @@ export interface ClinicPage {
   photo: string;
 }
 
-export const CLINIC_CONTACT = { phone: '450-639-1561', fax: '579-306-0302', email: 'info@priveosante.com' };
+// Phone and email: the old site's, used site-wide (client's choice, 2026-11-12). Fax: Priveo's clinic pages.
+export const CLINIC_CONTACT = { phone: '855-582-2246', fax: '579-306-0302', email: 'info@cliniquesantevoyage.com' };
 
 export const clinicPages: ClinicPage[] = [
   {

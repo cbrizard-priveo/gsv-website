@@ -10,7 +10,7 @@ November 12, 2026 · French and English
   - Avant le départ (8 questions);
   - Les vaccins (4);
   - Maladies et prévention (11);
-  - La clinique (6).
+  - La clinique (15, with the clinic's answers of 2026-11-12).
 - **FAQ at the bottom of every vaccine and disease page:** 3 questions each, 84 in all, written only from that
   page's verified text.
 - **FAQ on every country page:** yellow fever, malaria and hepatitis A, when INSPQ lists them. These are
@@ -41,18 +41,4 @@ November 12, 2026 · French and English
 
 ## To review before publishing
 
-- **Questionnaire:** the questions only the clinic can answer are in `docs/faq-questionnaire.md`. They are
-  not on the site yet.
-- **« La clinique » theme:** confirm payment methods, kits, group talks and the contact details (the old
-  site's 1-855-582-2246 and info@cliniquesantevoyage.com, versus Priveo's on the clinic pages).
-- **Long answers:** several are over 120 words (chikungunya, Zika, children, family visits) because a
-  shorter version would drop a condition or a safety warning.
-- **Points for the medical team** (each item's `notes` has the details):
-  - rabies sign-off;
-  - chikungunya vaccine availability;
-  - the 2-month Zika wait (who it applies to);
-  - the varicella schedule (2019 sources);
-  - the HPV free offer for ages 21–45;
-  - the yellow fever booster groups.
-- **Keeping it current:** answers that rest on country data (« destination soleil », the country-page
-  FAQs) change when INSPQ updates those countries.
+- **Questionnaire:** answered by the clinic on 2026-11-12 (`docs/faq-questionnaire.md`); questions 12 and 13 had no answer and are not on the site.
