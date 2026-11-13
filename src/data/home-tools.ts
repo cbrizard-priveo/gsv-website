@@ -125,7 +125,7 @@ export const destinations: Record<
 > = {
   fr: {
     title: 'Une seule clinique, peu importe la destination',
-    text: 'Montagne, désert, plage ou pèlerinage : consultation santé-voyage, vaccins et médicaments de voyage dans nos quatre cliniques du Grand Montréal.',
+    text: 'Montagne, désert, jungle, plage ou pèlerinage : une consultation santé-voyage pour des conseils, des vaccins et des médicaments de voyage dans nos quatre cliniques du Grand Montréal.',
     cta: { label: 'Trouver ma destination', href: '/pays/' },
     tiles: [
       { label: 'Montagne', image: '/images/destinations/montagne.jpg' },
@@ -137,7 +137,7 @@ export const destinations: Record<
   },
   en: {
     title: 'A clinic for every traveller and every destination',
-    text: 'Mountains, desert, beach or pilgrimage: travel health consultations, vaccines and travel medication at our four clinics across Greater Montreal.',
+    text: 'Mountains, desert, jungle, beach or pilgrimage: a travel health consultation for advice, vaccines and travel medication at our four clinics across Greater Montreal.',
     cta: { label: 'Find my destination', href: '/en/countries/' },
     tiles: [
       { label: 'Mountains', image: '/images/destinations/montagne.jpg' },
