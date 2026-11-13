@@ -38,6 +38,40 @@
     color: var(--primary);
     text-underline-offset: 3px;
   }
+  /* Source and link under a country block on a service page (e.g. Hajj and Umrah). */
+  .pv .service-source {
+    max-width: 48rem;
+    margin: 2rem auto 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+  .pv .service-source p + p {
+    margin-top: 0.5rem;
+  }
+  .pv .service-source a {
+    color: var(--primary);
+    text-underline-offset: 3px;
+  }
+  .pv .service-source .btn-link {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .pv .card__text ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+  .pv .card__text ul + p,
+  .pv .card__text li + li,
+  .pv .card__text p + p {
+    margin-top: 0.4rem;
+  }
+  .pv .card__text a {
+    color: var(--primary);
+    text-underline-offset: 3px;
+  }
   .pv .callout-band__check svg {
     width: 1em;
     height: 1em;

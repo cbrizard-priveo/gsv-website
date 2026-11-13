@@ -38,6 +38,9 @@ export const GET: APIRoute = () => {
   entries.push({ path: hubPath('en'), alternates: { fr: hubPath('fr'), en: hubPath('en') } });
   const tarifs = { fr: tarifsCopy.fr.path, en: tarifsCopy.en.path };
   entries.push({ path: tarifs.fr, alternates: tarifs }, { path: tarifs.en, alternates: tarifs });
+  // Service pages with no imported WordPress page behind them (Hajj and Umrah).
+  const hajj = { fr: '/pelerinage-hadj-omra/', en: '/en/hajj-umrah-pilgrimage/' };
+  entries.push({ path: hajj.fr, alternates: hajj }, { path: hajj.en, alternates: hajj });
   const hubs = { fr: clinicsHubPath('fr'), en: clinicsHubPath('en') };
   entries.push({ path: hubs.fr, alternates: hubs }, { path: hubs.en, alternates: hubs });
   for (const c of clinicPages) {

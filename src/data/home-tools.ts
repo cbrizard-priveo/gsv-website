@@ -80,17 +80,38 @@ export const planner: Record<
 export const FOUNDED = 1997;
 export const TRAVELLERS = 200_000;
 
-export const stats: Record<Lang, { label: string; founded: string; clinics: string; travellers: string }> = {
+// Google reviews of all Groupe Santé Voyage and Priveo Santé listings, read on Google Maps on 2026-11-13
+// (rating as shown, rounded to one decimal by Google). The combined rating is the average weighted by the
+// number of reviews. Update the listings and the date together. Not used in JSON-LD: Google does not show
+// review stars that a business publishes about itself.
+export const GOOGLE_REVIEWS_CHECKED = '2026-11-13';
+export const GOOGLE_REVIEWS: { name: string; address: string; rating: number; count: number }[] = [
+  { name: 'Groupe Santé Voyage (Laval)', address: '1435 boul. Saint-Martin O.', rating: 4.3, count: 98 },
+  { name: 'Groupe Santé Voyage - Montréal', address: '2645 av. Van Horne', rating: 3.4, count: 5 },
+  { name: 'Groupe Santé Voyage - Longueuil', address: '5125 boul. Cousineau', rating: 4.0, count: 3 },
+  { name: 'Groupe Santé Voyage - Blainville', address: '20 boul. des Châteaux (old address on Google)', rating: 4.7, count: 19 },
+  { name: 'Priveo Santé - Laval', address: '1435 boul. Saint-Martin O.', rating: 4.8, count: 728 },
+  { name: 'Priveo Santé - Montréal', address: '2645 av. Van Horne', rating: 4.8, count: 76 },
+  { name: 'Priveo Santé - Longueuil', address: '5125 boul. Cousineau', rating: 4.8, count: 186 },
+];
+export const googleReviews = {
+  count: GOOGLE_REVIEWS.reduce((n, l) => n + l.count, 0),
+  rating: Math.round((GOOGLE_REVIEWS.reduce((n, l) => n + l.rating * l.count, 0) / GOOGLE_REVIEWS.reduce((n, l) => n + l.count, 0)) * 10) / 10,
+};
+
+export const stats: Record<Lang, { label: string; founded: string; clinics: string; travellers: string; reviews: (count: string) => string }> = {
   fr: {
     label: 'Groupe Santé Voyage en chiffres',
     founded: 'Au service des voyageurs depuis',
     clinics: 'cliniques dans le Grand Montréal',
     travellers: 'voyageurs',
+    reviews: (count) => `sur Google (${count} avis, Groupe Santé Voyage et Priveo Santé)`,
   },
   en: {
     label: 'Groupe Santé Voyage in numbers',
     founded: 'Serving travellers since',
     clinics: 'clinics across Greater Montreal',
     travellers: 'travellers',
+    reviews: (count) => `on Google (${count} reviews, Groupe Santé Voyage and Priveo Santé)`,
   },
 };

@@ -36,6 +36,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
           { label: 'Destinations', href: '/pays/' },
           { label: 'Vaccination', href: '/vaccination/' },
           { label: 'Prescription', href: '/prescription/' },
+          { label: 'Hadj et Omra', href: '/pelerinage-hadj-omra/' },
           { label: 'Tarifs', href: '/tarifs/' },
         ],
         intro: {
@@ -50,7 +51,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
           { label: 'Vaccination générale', href: '/vaccination-generale/' },
           { label: 'Vaccination pédiatrique', href: '/vaccination-infantile/' },
           { label: 'Vaccination voyage', href: '/vaccination/' },
-          { label: 'Vaccination en entreprise', href: '/vaccination-en-entreprise/' },
+          { label: 'Entreprises et groupes', href: '/vaccination-en-entreprise/' },
         ],
         intro: {
           title: 'Vaccination',
@@ -104,6 +105,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
           { label: 'Destinations', href: '/en/countries/' },
           { label: 'Vaccination', href: '/en/pre-travel-vaccination-clinic/' },
           { label: 'Prescription', href: '/en/prescription-travel/' },
+          { label: 'Hajj and Umrah', href: '/en/hajj-umrah-pilgrimage/' },
           { label: 'Pricing', href: '/en/pricing/' },
         ],
         intro: {
@@ -118,7 +120,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
           { label: 'General vaccination', href: '/en/general-vaccination/' },
           { label: 'Pediatric vaccination', href: '/en/infant-vaccination/' },
           { label: 'Travel vaccination', href: '/en/pre-travel-vaccination-clinic/' },
-          { label: 'Workplace vaccination', href: '/en/vaccination-in-the-workplace/' },
+          { label: 'Companies and groups', href: '/en/vaccination-in-the-workplace/' },
         ],
         intro: {
           title: 'Vaccination',

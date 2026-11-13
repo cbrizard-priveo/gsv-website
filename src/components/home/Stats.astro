@@ -2,7 +2,7 @@
 // Key numbers under the homepage hero, counted up when they come into view. The page holds the final
 // numbers, so they read right without the animation (no script, or reduced motion).
 import type { Lang } from '../../data/site';
-import { FOUNDED, TRAVELLERS, stats } from '../../data/home-tools';
+import { FOUNDED, TRAVELLERS, googleReviews, stats } from '../../data/home-tools';
 import { clinicPages } from '../../data/clinics';
 
 interface Props {
@@ -20,6 +20,8 @@ const items = [
   { value: TRAVELLERS, from: 0, grouping: true, suffix: '+', label: t.travellers },
 ];
 const format = (n: number, grouping: boolean) => new Intl.NumberFormat(locale, { useGrouping: grouping }).format(n);
+// The Google rating has a decimal, so it is written as is rather than counted up.
+const rating = new Intl.NumberFormat(locale, { minimumFractionDigits: 1, maximumFractionDigits: 1 }).format(googleReviews.rating);
 ---
 
 <section class="stats" aria-label={t.label} data-stats data-locale={locale}>
@@ -38,6 +40,10 @@ const format = (n: number, grouping: boolean) => new Intl.NumberFormat(locale, {
         </li>
       ))
     }
+    <li class="stats__item">
+      <span class="stats__value">{rating}<span class="stats__unit">/5</span></span>
+      <span class="stats__label">{t.reviews(format(googleReviews.count, true))}</span>
+    </li>
   </ul>
 </section>
 
@@ -77,7 +83,7 @@ const format = (n: number, grouping: boolean) => new Intl.NumberFormat(locale, {
   }
   .stats__list {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 24px;
     margin: 0 auto;
     list-style: none;
@@ -94,12 +100,21 @@ const format = (n: number, grouping: boolean) => new Intl.NumberFormat(locale, {
     font: 500 clamp(34px, 3.4vw, 46px) / 1 var(--gsv-font-serif);
     font-variant-numeric: tabular-nums;
   }
+  .stats__unit {
+    margin-left: 2px;
+    font-size: 0.5em;
+  }
   .stats__label {
     max-width: 24ch;
     font-size: 15px;
     line-height: 1.45;
   }
 
+  @media (max-width: 1023px) {
+    .stats__list {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+  }
   @media (max-width: 767px) {
     .stats__list {
       grid-template-columns: minmax(0, 1fr);

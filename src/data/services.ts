@@ -1,5 +1,5 @@
-// The four service pages, rebuilt with Priveo's modules (src/views/ServicePage.astro): Consultation,
-// Vaccination, Prescription, Telemedicine, at their old URLs. Medical site: the text restates the old pages'
+// The service pages, rebuilt with Priveo's modules (src/views/ServicePage.astro): Consultation,
+// Vaccination, Prescription, Telemedicine and Companies and groups (old URLs), and Hajj and Umrah (new). Medical site: the text restates the old pages'
 // own service descriptions, the clinic's answers (2026-11-12), the telemedicine page and the verified FAQ
 // and vaccine pages; the old pages' medical claims that went beyond INSPQ (e.g. Dukoral « probablement »
 // recommended for travellers' diarrhea) are left out.
@@ -13,6 +13,8 @@ export type Block =
   | { type: 'cards'; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[] }
   | { type: 'vaccines'; tagline: Text; title: Text; lede: Text; note: Text }
   | { type: 'faq'; ids: string[] }
+  /** Rows of a country page (src/data/countries/<slug>.json), word for word, with the INSPQ source. */
+  | { type: 'country'; slug: string; tagline: Text; title: Text; lede: Text; rows: string[]; all: Text }
   | { type: 'clinics' }
   | { type: 'booking' };
 
@@ -26,6 +28,7 @@ const tele: Text = { fr: '/consultation-en-telemedecine/', en: '/en/telemedicine
 const faqPage: Text = { fr: '/foire-aux-questions-sur-la-clinique-voyage/', en: '/en/frequently-asked-questions-about-the-travel-clinic/' };
 const tarifs: Text = { fr: '/tarifs/', en: '/en/pricing/' };
 const more: Text = { fr: 'En savoir plus', en: 'Learn more' };
+const contact: Text = { fr: 'mailto:info@cliniquesantevoyage.com', en: 'mailto:info@cliniquesantevoyage.com' };
 
 export const servicePages: ServicePage[] = [
   // ---- Consultation ----------------------------------------------------------------------------------------
@@ -150,7 +153,7 @@ export const servicePages: ServicePage[] = [
           },
         ],
       },
-      { type: 'faq', ids: ['quand-consulter-avant-depart', 'rendez-vous', 'vaccins-meme-visite', 'quoi-apporter', 'medecin-ou-infirmiere', 'frais-consultation'] },
+      { type: 'faq', ids: ['quand-consulter-avant-depart', 'ou-consulter-reseau-public', 'rendez-vous', 'vaccins-meme-visite', 'quoi-apporter', 'medecin-ou-infirmiere', 'frais-consultation'] },
       { type: 'clinics' },
       { type: 'booking' },
     ],
@@ -315,6 +318,142 @@ export const servicePages: ServicePage[] = [
         ],
       },
       { type: 'faq', ids: ['telemedecine', 'rendez-vous', 'quoi-apporter', 'quand-consulter-avant-depart', 'frais-consultation'] },
+      { type: 'clinics' },
+      { type: 'booking' },
+    ],
+  },
+
+  // ---- Companies and groups (replaces the imported « Vaccination en entreprise ») --------------------------
+  {
+    route: { fr: '/vaccination-en-entreprise/', en: '/en/vaccination-in-the-workplace/' },
+    hero: {
+      tagline: { fr: 'Entreprises et groupes', en: 'Companies and groups' },
+      title: { fr: 'Vaccination en entreprise et services de groupe', en: 'Workplace vaccination and group services' },
+      description: {
+        fr: 'Offrir la santé à vos employés, c’est possible, et nous nous déplaçons. Nous accompagnons aussi les écoles et les groupes de voyageurs.',
+        en: 'Offering health to your employees is possible, and we come to you. We also serve schools and groups of travellers.',
+      },
+      image: { src: '/images/home/service-entreprise.jpg', width: 1200, height: 800, alt: { fr: 'Employés au travail', en: 'Employees at work' } },
+    },
+    blocks: [
+      {
+        type: 'cards',
+        tagline: { fr: 'Nos services', en: 'Our services' },
+        title: { fr: 'Pour les entreprises, les écoles et les groupes', en: 'For companies, schools and groups' },
+        columns: 3,
+        cards: [
+          {
+            title: { fr: 'Vaccination en entreprise', en: 'Workplace vaccination' },
+            text: {
+              fr: '<p>Toute la gamme de vaccins peut être donnée en entreprise. Nos professionnels de la santé se déplacent aux lieux et aux heures qui vous conviennent.</p>',
+              en: '<p>The full range of vaccines can be given at your workplace. Our health professionals come to the place and at the time that suit you.</p>',
+            },
+          },
+          {
+            title: { fr: 'Vaccination contre la grippe', en: 'Flu vaccination' },
+            text: {
+              fr: '<p>La saison de la grippe approche ? Faites vacciner vos employés sur place, sans file d’attente.</p>',
+              en: '<p>Flu season is coming? Have your employees vaccinated on site, without lining up.</p>',
+            },
+            href: { fr: '/vaccination/grippe-influenza/', en: '/en/vaccination/influenza-vaccination/' },
+            linkLabel: more,
+          },
+          {
+            title: { fr: 'Employés qui voyagent à l’étranger', en: 'Employees travelling abroad' },
+            text: {
+              fr: '<p>Consultation santé-voyage et vaccins pour vos employés qui partent à l’international, en clinique ou en télémédecine ; les vaccins peuvent aussi être donnés dans vos locaux.</p>',
+              en: '<p>Travel health consultations and vaccines for your employees going abroad, in clinic or by telemedicine; vaccines can also be given at your workplace.</p>',
+            },
+            href: { fr: '/consultation/', en: '/en/consultation/' },
+            linkLabel: more,
+          },
+          {
+            title: { fr: 'Voyages scolaires et de groupe', en: 'School and group trips' },
+            text: {
+              fr: '<p>Une conférence santé-voyage pour les groupes de voyageurs (voyage étudiant, groupe organisé par une agence, gens d’affaires, etc.), à partir de 10 participants.</p>',
+              en: '<p>A travel health talk for groups of travellers (student trips, groups organized by an agency, business travellers, etc.), from 10 participants.</p>',
+            },
+          },
+          {
+            title: { fr: 'Vaccination de groupe contre la rage', en: 'Group rabies vaccination' },
+            text: {
+              fr: '<p>Possible dans la majorité de nos cliniques. Un service qui permet d’économiser de façon importante sur les frais de vaccination.</p>',
+              en: '<p>Available at most of our clinics. A service that lets you save significantly on vaccination costs.</p>',
+            },
+            href: { fr: '/vaccination/rage/', en: '/en/vaccination/rabies-vaccination/' },
+            linkLabel: more,
+          },
+          {
+            title: { fr: 'Forfaits de groupe', en: 'Group packages' },
+            text: {
+              fr: '<p>Des forfaits pour les entreprises, les écoles et les groupes de voyageurs. Écrivez-nous pour obtenir une offre.</p>',
+              en: '<p>Packages for companies, schools and groups of travellers. Email us for an offer.</p>',
+            },
+            href: contact,
+            linkLabel: { fr: 'Demander une offre', en: 'Ask for an offer' },
+          },
+        ],
+      },
+      {
+        type: 'callout',
+        badge: { fr: 'Forfaits de groupe', en: 'Group packages' },
+        title: { fr: 'Des forfaits pour votre groupe', en: 'Packages for your group' },
+        text: {
+          fr: 'Nous offrons des forfaits de groupe pour les entreprises, les écoles et les groupes de voyageurs. Écrivez-nous ou appelez au 1-855-582-2246 pour obtenir une offre adaptée à votre groupe.',
+          en: 'We offer group packages for companies, schools and groups of travellers. Email us or call 1-855-582-2246 for an offer tailored to your group.',
+        },
+        cta: { label: { fr: 'Demander une offre', en: 'Ask for an offer' }, href: contact },
+        asideTitle: { fr: 'Pourquoi vacciner en entreprise :', en: 'Why vaccinate at work:' },
+        items: [
+          { fr: 'Prévenir l’absentéisme', en: 'Prevent absenteeism' },
+          { fr: 'Un milieu de travail plus sain et sécuritaire', en: 'A healthier and safer workplace' },
+          { fr: 'Faire preuve de solidarité envers vos employés', en: 'Show your employees you care' },
+        ],
+      },
+      { type: 'faq', ids: ['groupes', 'rage-groupe', 'frais-consultation', 'modes-de-paiement'] },
+      { type: 'booking' },
+    ],
+  },
+
+  // ---- Hajj and Umrah ----------------------------------------------------------------------------------------
+  {
+    route: { fr: '/pelerinage-hadj-omra/', en: '/en/hajj-umrah-pilgrimage/' },
+    hero: {
+      tagline: { fr: 'Pèlerinage', en: 'Pilgrimage' },
+      title: { fr: 'Pèlerinage du Hadj et de la Omra', en: 'Hajj and Umrah pilgrimage' },
+      description: {
+        fr: 'Le vaccin contre le méningocoque est exigé pour le Hadj et la Omra. Voici les exigences et les recommandations de l’INSPQ pour l’Arabie saoudite.',
+        en: 'The meningococcal vaccine is required for the Hajj and Umrah. Here are the INSPQ requirements and recommendations for Saudi Arabia.',
+      },
+      image: { src: '/wp-content/uploads/2025/02/prophet-mohammed-mosque-al-masjid-an-nabawi-um-2023-11-27-05-14-01-utc.jpg', width: 1200, height: 800, alt: { fr: 'Mosquée du Prophète à Médine', en: 'The Prophet’s Mosque in Medina' } },
+    },
+    blocks: [
+      {
+        type: 'country',
+        slug: 'arabie-saoudite',
+        tagline: { fr: 'Selon l’INSPQ', en: 'According to the INSPQ' },
+        title: { fr: 'Exigences et recommandations pour l’Arabie saoudite', en: 'Requirements and recommendations for Saudi Arabia' },
+        lede: { fr: 'Extraits de notre fiche Arabie saoudite, tirée des recommandations de l’INSPQ.', en: 'From our Saudi Arabia page, based on the INSPQ recommendations.' },
+        rows: ['meningocoque', 'influenza', 'hepatite-a', 'hepatite-b'],
+        all: { fr: 'Toutes les recommandations pour l’Arabie saoudite', en: 'All recommendations for Saudi Arabia' },
+      },
+      {
+        type: 'callout',
+        badge: { fr: 'Avant de partir', en: 'Before you leave' },
+        title: { fr: 'Préparer votre pèlerinage', en: 'Preparing for your pilgrimage' },
+        text: {
+          fr: 'Le gouvernement du Canada recommande de consulter environ six semaines avant le départ. Il n’est jamais trop tard pour une consultation. Nos quatre cliniques sont des centres désignés de vaccination contre la fièvre jaune.',
+          en: 'The Government of Canada advises consulting about six weeks before your trip. It’s never too late for a consultation. Our four clinics are designated yellow fever vaccination centres.',
+        },
+        cta: { label: { fr: 'Voir nos tarifs', en: 'See our prices' }, href: tarifs },
+        asideTitle: { fr: 'À apporter :', en: 'What to bring:' },
+        items: [
+          { fr: 'Votre carnet de vaccination', en: 'Your vaccination booklet' },
+          { fr: 'L’itinéraire de votre voyage', en: 'Your travel itinerary' },
+          { fr: 'La liste des médicaments que vous prenez', en: 'The list of medications you take' },
+        ],
+      },
+      { type: 'faq', ids: ['vaccins-obligatoires-ou-recommandes', 'preuve-vaccination-certificat', 'quand-consulter-avant-depart', 'famille-ensemble'] },
       { type: 'clinics' },
       { type: 'booking' },
     ],

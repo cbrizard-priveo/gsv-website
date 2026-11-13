@@ -371,6 +371,22 @@ export const pageSeo: Record<string, SeoOverride> = {
     // The English hero heading reads "À propos du Groupe Santé Voyage et ses cliniques" (French); use the page's English title.
     h1: 'Prescription drugs',
   },
+  '/vaccination-en-entreprise/': {
+    title: 'Vaccination en Entreprise et Groupes | Clinique Santé Voyage',
+    description: 'Vaccination en entreprise, vaccin contre la grippe, employés qui voyagent, voyages scolaires et forfaits de groupe. Nos professionnels se déplacent.',
+  },
+  '/en/vaccination-in-the-workplace/': {
+    title: 'Workplace and Group Vaccination | Travel Health Clinic',
+    description: 'Workplace vaccination, flu shots, employees travelling abroad, school trips and group packages. Our health professionals come to you.',
+  },
+  '/pelerinage-hadj-omra/': {
+    title: 'Vaccins pour le Hadj et la Omra | Clinique Santé Voyage',
+    description: 'Vaccin contre le méningocoque exigé pour le Hadj et la Omra : exigences et recommandations de l’INSPQ pour l’Arabie saoudite. Montréal, Laval, Longueuil, Blainville.',
+  },
+  '/en/hajj-umrah-pilgrimage/': {
+    title: 'Vaccines for Hajj and Umrah | Travel Health Clinic',
+    description: 'Meningococcal vaccine required for Hajj and Umrah: INSPQ requirements and recommendations for Saudi Arabia. Montreal, Laval, Longueuil, Blainville.',
+  },
 };
 
 export function seoFor(route: string): VaccineSeo | undefined {

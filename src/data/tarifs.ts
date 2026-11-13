@@ -1,6 +1,6 @@
 // Prices (src/views/Tarifs.astro). Amounts copied from Priveo Santé's price list
 // (priveosante.com/tarifs/, read 2026-11-13); the client confirmed the travel consultation fees apply to
-// Groupe Santé Voyage too and asked for every vaccine price on that page. Product names are Priveo's,
+// Groupe Santé Voyage too (the family rate is per person) and asked for every vaccine price on that page. Product names are Priveo's,
 // with their typos fixed (Ixiaro, typhoïde, pneumocoque). Update this file whenever Priveo's list changes.
 import type { Lang } from './site';
 
@@ -11,7 +11,7 @@ type Text = Record<Lang, string>;
 export const consultationPrices: { label: Text; price: number }[] = [
   { label: { fr: 'Destination soleil et Europe', en: 'Sun destination and Europe' }, price: 50 },
   { label: { fr: 'Asie, Afrique, Amérique du Sud et Amérique centrale', en: 'Asia, Africa, South America and Central America' }, price: 60 },
-  { label: { fr: 'Famille (4 personnes et plus)', en: 'Family (4 people or more)' }, price: 40 },
+  { label: { fr: 'Famille (4 personnes et plus), par personne', en: 'Family (4 people or more), per person' }, price: 40 },
 ];
 
 export const injectionFees: { label: Text; price: number }[] = [

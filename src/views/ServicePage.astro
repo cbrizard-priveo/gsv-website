@@ -1,5 +1,5 @@
 ---
-// A service page (Consultation, Vaccination, Prescription, Telemedicine) built from Priveo's modules, in
+// A service page (Consultation, Vaccination, Prescription, Telemedicine, Companies and groups, Hajj and Umrah) built from Priveo's modules, in
 // the order given by src/data/services.ts. Title and description come from the SEO overrides (src/data/seo.ts)
 // through BaseLayout, as for the imported pages these replace.
 import BaseLayout from '../layouts/BaseLayout.astro';
@@ -18,6 +18,8 @@ import { vaccineList } from '../lib/vaccines';
 import { answerHtml, faqCopy, faqJsonLd, type FaqItem } from '../lib/faq';
 import { seoFor } from '../data/seo';
 import { seoHead } from '../lib/seo';
+import { countries, countryPath, formatDate } from '../lib/countries';
+import { countryCopy } from '../data/country';
 
 interface Props {
   page: ServicePage;
@@ -107,6 +109,29 @@ const head = seoHead({
         );
       if (block.type === 'vaccines')
         return <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={`${block.lede[lang]} ${block.note[lang]}`} columns={4} tone="soft" cards={vaccineCards} />;
+      if (block.type === 'country') {
+        const c = countries.find((x) => x.slug === block.slug);
+        if (!c) throw new Error(`service page ${route}: unknown country ${block.slug}`);
+        const rows = block.rows.map((id) => {
+          const row = [...c.diseases, ...c.otherRisks].find((r) => r.id === id);
+          if (!row) throw new Error(`service page ${route}: no row ${id} in ${block.slug}`);
+          return { title: row.name[lang], text: row.text[lang] };
+        });
+        const cc = countryCopy[lang];
+        return (
+          <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={block.lede[lang]} columns={2} tone="soft" cards={rows}>
+            <div class="service-source">
+              <p>
+                <a class="btn-link" href={countryPath(c, lang)}>{block.all[lang]} →</a>
+              </p>
+              <p>
+                {lang === 'fr' ? 'Source :' : 'Source:'} <a href={c.inspq.url}>{cc.sourceLabel(c.name.fr, formatDate(c.inspq.updated, 'fr'))}</a>. {cc.checked} <time datetime={c.inspq.checked}>{formatDate(c.inspq.checked, lang)}</time>.
+              </p>
+              <p>{cc.disclaimer}</p>
+            </div>
+          </CardGrid>
+        );
+      }
       if (block.type === 'faq') return <Faq title={faqCopy[lang].title} lede={faqCopy[lang].lede} items={faqItems(block.ids)} more={faqCopy[lang].more} />;
       if (block.type === 'clinics') return <ClinicMap lang={lang} />;
       return <BookingSteps tagline={steps.tagline} title={steps.title} steps={steps.items} cta={book} />;
