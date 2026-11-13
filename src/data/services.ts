@@ -11,10 +11,10 @@ type Text = Record<Lang, string>;
 export type Block =
   | { type: 'steps'; tagline: Text; title: Text; steps: { title: Text; text: Text }[] }
   | { type: 'callout'; badge: Text; title: Text; text: Text; cta: { label: Text; href: Text }; asideTitle: Text; items: Text[]; source?: { label: Text; href: Text } }
-  | { type: 'cards'; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[]; source?: { label: Text; href: Text } }
+  | { type: 'cards'; id?: string; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[]; source?: { label: Text; href: Text } }
   /** Vaccine cards with their lowest price; `topics` limits them to those pages (src/data/vaccines keys, or
    *  « rage »); `compact` shows small tiles with the name only (no price, no note). */
-  | { type: 'vaccines'; tagline: Text; title: Text; lede: Text; note?: Text; topics?: string[]; compact?: true }
+  | { type: 'vaccines'; id?: string; tagline: Text; title: Text; lede: Text; note?: Text; topics?: string[]; compact?: true }
   | { type: 'faq'; ids: string[] }
   /** Rows of a country page (src/data/countries/<slug>.json), word for word, with the INSPQ source. */
   | { type: 'country'; slug: string; tagline: Text; title: Text; lede: Text; rows: string[]; all: Text }
@@ -27,8 +27,6 @@ export interface ServicePage {
   route: Text;
   hero: { tagline: Text; title: Text; description: Text; image: { src: string; width: number; height: number; alt: Text } };
   blocks: Block[];
-  /** Tighter spacing between and inside sections (the general and pediatric vaccination pages). */
-  compact?: true;
 }
 
 const tele: Text = { fr: '/consultation-en-telemedecine/', en: '/en/telemedicine-consultation/' };
@@ -109,8 +107,8 @@ export const servicePages: ServicePage[] = [
           {
             title: { fr: 'En télémédecine', en: 'By telemedicine' },
             text: {
-              fr: '<p>De chez vous : évaluation de votre itinéraire, conseils, recommandations de vaccins et, au besoin, une prescription envoyée à votre pharmacie. Les vaccins sont ensuite donnés à domicile ou dans l’une de nos cliniques.</p>',
-              en: '<p>From home: an assessment of your itinerary, advice, vaccine recommendations and, if needed, a prescription sent to your pharmacy. Vaccines are then given at home or at one of our clinics.</p>',
+              fr: '<p>De chez vous : évaluation de votre itinéraire, conseils, recommandations de vaccins et, au besoin, une prescription envoyée à votre pharmacie. Les vaccins sont ensuite donnés dans l’une de nos cliniques.</p>',
+              en: '<p>From home: an assessment of your itinerary, advice, vaccine recommendations and, if needed, a prescription sent to your pharmacy. Vaccines are then given at one of our clinics.</p>',
             },
             href: tele,
             linkLabel: { fr: 'La télémédecine', en: 'Telemedicine' },
@@ -321,7 +319,7 @@ export const servicePages: ServicePage[] = [
           },
           {
             title: { fr: 'Recevez vos vaccins et vos médicaments', en: 'Get your vaccines and medications' },
-            text: { fr: 'Les vaccins recommandés sont donnés à domicile ou dans l’une de nos cliniques ; au besoin, la prescription est envoyée à votre pharmacie.', en: 'The recommended vaccines are given at home or at one of our clinics; if needed, the prescription is sent to your pharmacy.' },
+            text: { fr: 'Les vaccins recommandés sont donnés dans l’une de nos cliniques ; au besoin, la prescription est envoyée à votre pharmacie.', en: 'The recommended vaccines are given at one of our clinics; if needed, the prescription is sent to your pharmacy.' },
           },
         ],
       },
@@ -489,7 +487,6 @@ export const servicePages: ServicePage[] = [
   // ---- General vaccination (replaces the imported page; its own text and vaccine list) -------------------
   {
     route: { fr: '/vaccination-generale/', en: '/en/general-vaccination/' },
-    compact: true,
     hero: {
       tagline: { fr: 'Vaccination', en: 'Vaccination' },
       title: { fr: 'Vaccination générale', en: 'General vaccination' },
@@ -514,14 +511,19 @@ export const servicePages: ServicePage[] = [
             title: { fr: 'Vaccination de base', en: 'Basic vaccination' },
             image: '/images/services/vaccin-base.jpg',
             text: {
-              fr: '<p>Mettez à jour votre vaccination de base. La plupart des vaccins généraux offerts dans nos cliniques font partie du calendrier de vaccination régulier du Québec.</p>',
-              en: '<p>Bring your basic vaccination up to date. Most of the general vaccines offered at our clinics are part of Québec’s regular vaccination schedule.</p>',
+              fr: '<p>Mettez à jour votre vaccination de base, pour vous comme pour vos enfants : la plupart de nos vaccins généraux font partie du calendrier régulier du Québec.</p>',
+              en: '<p>Bring your basic vaccination up to date, for you and your children: most of our general vaccines are part of Québec’s regular schedule.</p>',
             },
+            href: { fr: '#vaccins-offerts', en: '#vaccins-offerts' },
+            linkLabel: { fr: 'Voir les vaccins offerts', en: 'See the vaccines offered' },
           },
           {
             title: { fr: 'Grippe saisonnière', en: 'Seasonal flu' },
             image: '/images/services/grippe-famille.jpg',
-            text: { fr: '<p>Recevez le vaccin contre la grippe saisonnière dans l’une de nos cliniques.</p>', en: '<p>Get the seasonal flu vaccine at one of our clinics.</p>' },
+            text: {
+              fr: '<p>Recevez le vaccin contre la grippe saisonnière dans l’une de nos quatre cliniques du Grand Montréal, sans file d’attente.</p>',
+              en: '<p>Get the seasonal flu vaccine at one of our four clinics across Greater Montreal, without waiting in line.</p>',
+            },
             href: { fr: '/vaccination/grippe-influenza/', en: '/en/vaccination/influenza-vaccination/' },
             linkLabel: more,
           },
@@ -529,14 +531,17 @@ export const servicePages: ServicePage[] = [
             title: { fr: 'Zona, VPH et autres vaccins', en: 'Shingles, HPV and other vaccines' },
             image: '/images/clinics/reception.jpg',
             text: {
-              fr: '<p>Profitez de la protection d’autres vaccins, comme ceux contre le <a href="/vaccination/zona/">zona</a> ou les <a href="/vaccination/infections-par-les-virus-du-papillome-humain-vph/">VPH</a>.</p>',
-              en: '<p>Benefit from the protection of other vaccines, such as those against <a href="/en/vaccination/shingles-vaccination/">shingles</a> or <a href="/en/vaccination/vaccination-human-papillomavirus-hpv-infections/">HPV</a>.</p>',
+              fr: '<p>Profitez de la protection d’autres vaccins, comme ceux contre le zona ou les VPH. Certains peuvent être gratuits selon votre situation.</p>',
+              en: '<p>Benefit from the protection of other vaccines, such as those against shingles or HPV. Some may be free depending on your situation.</p>',
             },
+            href: { fr: '#cout-des-vaccins', en: '#cout-des-vaccins' },
+            linkLabel: { fr: 'Gratuit ou payant ?', en: 'Free or paid?' },
           },
         ],
       },
       {
         type: 'vaccines',
+        id: 'vaccins-offerts',
         tagline: { fr: 'Vaccins offerts', en: 'Vaccines offered' },
         title: { fr: 'Vaccins généraux disponibles en clinique', en: 'General vaccines available at the clinic' },
         lede: { fr: 'Nous nous faisons un devoir de faciliter votre accès à une immunisation sécuritaire.', en: 'We make it our business to help you access safe immunization.' },
@@ -545,6 +550,7 @@ export const servicePages: ServicePage[] = [
       },
       {
         type: 'cards',
+        id: 'cout-des-vaccins',
         tagline: { fr: 'Coût des vaccins', en: 'Cost of vaccines' },
         title: { fr: 'Vaccins gratuits ou payants ?', en: 'Free or paid vaccines?' },
         lede: { fr: 'Selon le vaccin et votre situation, la vaccination peut être gratuite ou non.', en: 'Depending on the vaccine and your situation, vaccination may or may not be free.' },
@@ -553,15 +559,17 @@ export const servicePages: ServicePage[] = [
           {
             title: { fr: 'Vaccins gratuits', en: 'Free vaccines' },
             text: {
-              fr: '<p>Le Programme québécois d’immunisation offre gratuitement certains vaccins du calendrier de vaccination à toute personne vivant au Québec. D’autres vaccins peuvent aussi être gratuits selon votre état de santé, votre âge, vos habitudes de vie ou votre travail.</p>',
-              en: '<p>The Québec Immunization Program offers some of the vaccines in the vaccination schedule free of charge to anyone living in Québec. Other vaccines may also be free depending on your health, age, lifestyle or work.</p>',
+              fr: '<p>Le Programme québécois d’immunisation offre gratuitement certains vaccins du calendrier à toute personne vivant au Québec, et d’autres selon votre santé, votre âge, vos habitudes de vie ou votre travail.</p>',
+              en: '<p>The Québec Immunization Program offers some schedule vaccines free to anyone living in Québec, and others depending on your health, age, lifestyle or work.</p>',
             },
+            href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/quebec-immunisation-program' },
+            linkLabel: { fr: 'Le programme sur Québec.ca', en: 'The program on Québec.ca' },
           },
           {
             title: { fr: 'Vaccins non couverts', en: 'Vaccines not covered' },
             text: {
-              fr: '<p>D’autres vaccins peuvent être recommandés sans être gratuits. Dans nos cliniques, vous payez alors le prix du vaccin, sans frais d’injection.</p>',
-              en: '<p>Other vaccines may be recommended without being free. At our clinics, you then pay the price of the vaccine, with no injection fee.</p>',
+              fr: '<p>D’autres vaccins peuvent être recommandés sans être gratuits. Dans nos cliniques, vous payez alors seulement le prix du vaccin : aucuns frais d’injection ne s’ajoutent.</p>',
+              en: '<p>Other vaccines may be recommended without being free. At our clinics, you then pay only the price of the vaccine: no injection fee is added.</p>',
             },
             href: tarifs,
             linkLabel: { fr: 'Voir nos tarifs', en: 'See our prices' },
@@ -569,9 +577,11 @@ export const servicePages: ServicePage[] = [
           {
             title: { fr: 'Un vaccin gratuit, chez nous', en: 'A free vaccine, with us' },
             text: {
-              fr: '<p>Vous êtes admissible à un vaccin gratuit ? Vous pouvez le recevoir dans nos cliniques : des frais d’injection de 20 $ s’appliquent. Pour savoir quels vaccins vous pouvez recevoir gratuitement, informez-vous auprès d’un professionnel de la santé ou de votre CLSC.</p>',
-              en: '<p>Eligible for a free vaccine? You can get it at our clinics: a $20 injection fee applies. To find out which vaccines you can get for free, ask a health professional or your CLSC.</p>',
+              fr: '<p>Vous êtes admissible à un vaccin gratuit ? Recevez-le dans nos cliniques, avec des frais d’injection de 20 $. Votre professionnel de la santé ou votre CLSC peut vous dire lesquels vous sont offerts.</p>',
+              en: '<p>Eligible for a free vaccine? Get it at our clinics, with a $20 injection fee. Your health professional or CLSC can tell you which ones you are eligible for.</p>',
             },
+            href: booking,
+            linkLabel: { fr: 'Prendre rendez-vous', en: 'Book an appointment' },
           },
         ],
         source: {
@@ -601,7 +611,6 @@ export const servicePages: ServicePage[] = [
   // ---- Pediatric vaccination (replaces « Vaccination infantile »; its own text, Québec.ca for the why) -------
   {
     route: { fr: '/vaccination-infantile/', en: '/en/infant-vaccination/' },
-    compact: true,
     hero: {
       tagline: { fr: 'Vaccination', en: 'Vaccination' },
       title: { fr: 'Vaccination pédiatrique', en: 'Pediatric vaccination' },
@@ -615,25 +624,35 @@ export const servicePages: ServicePage[] = [
       {
         type: 'cards',
         tagline: { fr: 'Protéger nos enfants', en: 'Protecting our children' },
-        title: { fr: 'La vaccination de vos enfants, chez nous ou chez vous', en: 'Your children’s vaccination, at our clinic or at home' },
+        title: { fr: 'La vaccination de vos enfants', en: 'Your children’s vaccination' },
         columns: 3,
         cards: [
           {
             title: { fr: 'De tout âge, y compris les bébés', en: 'All ages, babies included' },
             image: '/images/services/bebe.jpg',
-            text: { fr: '<p>Nous recevons les enfants de tout âge, y compris les bébés.</p>', en: '<p>We see children of all ages, babies included.</p>' },
+            text: {
+              fr: '<p>Nous recevons les enfants de tout âge, y compris les bébés, dans nos quatre cliniques de Montréal, Laval, Longueuil et Blainville.</p>',
+              en: '<p>We see children of all ages, babies included, at our four clinics in Montreal, Laval, Longueuil and Blainville.</p>',
+            },
+            href: { fr: '/cliniques/', en: '/en/clinics/' },
+            linkLabel: { fr: 'Nos cliniques', en: 'Our clinics' },
           },
           {
-            title: { fr: 'Vaccination à domicile', en: 'Home vaccination' },
-            image: '/images/services/domicile.jpg',
-            text: { fr: '<p>Nous offrons aussi le service de vaccination à domicile.</p>', en: '<p>We also offer home vaccination.</p>' },
+            title: { fr: 'Selon le calendrier du Québec', en: 'Following Québec’s schedule' },
+            image: '/images/services/vaccin-base.jpg',
+            text: {
+              fr: '<p>Le ministère de la Santé et des Services sociaux recommande de faire vacciner les enfants selon le calendrier de vaccination officiel.</p>',
+              en: '<p>Québec’s Ministry of Health and Social Services recommends vaccinating children according to the official vaccination schedule.</p>',
+            },
+            href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/quebec-immunisation-program' },
+            linkLabel: { fr: 'Voir le calendrier', en: 'See the schedule' },
           },
           {
             title: { fr: 'Avant un voyage', en: 'Before a trip' },
             image: '/images/services/aeroport.jpg',
             text: {
-              fr: '<p>Vos enfants voyagent avec vous ? Certains vaccins peuvent leur être donnés avant l’âge habituel. Nous vous conseillons selon leur âge et votre destination.</p>',
-              en: '<p>Are your children travelling with you? Some vaccines can be given to them earlier than the usual age. We advise you based on their age and your destination.</p>',
+              fr: '<p>Vos enfants voyagent avec vous ? Certains vaccins peuvent être donnés avant l’âge habituel ; nous vous conseillons selon leur âge et la destination.</p>',
+              en: '<p>Are your children travelling with you? Some vaccines can be given earlier than the usual age; we advise you based on their age and destination.</p>',
             },
             href: { fr: '/consultation/', en: '/en/consultation/' },
             linkLabel: more,
@@ -675,8 +694,8 @@ export const servicePages: ServicePage[] = [
           {
             title: { fr: 'Soulager la douleur', en: 'Relieve the pain' },
             text: {
-              fr: '<ul><li>Avant : une crème ou un timbre anesthésiant en vente libre, appliqué 30 à 60 minutes avant à l’endroit de l’injection, engourdit la peau.</li><li>Bébé de moins de 2 ans : une solution d’eau sucrée donnée 1 à 2 minutes avant l’injection aide à soulager la douleur. N’utilisez jamais de miel avant 1 an.</li><li>Après, au besoin : de l’acétaminophène ou de l’ibuprofène contre la fièvre ou la douleur ; ils ne sont pas recommandés avant le vaccin.</li></ul><p>Lisez le mode d’emploi et, au besoin, parlez-en à votre pharmacien ou à votre vaccinateur.</p>',
-              en: '<ul><li>Before: an over-the-counter numbing cream or patch, applied 30 to 60 minutes before where the needle will go, numbs the skin.</li><li>Babies under 2: a sugar-water solution given 1 to 2 minutes before the injection helps relieve pain. Never use honey before age 1.</li><li>After, if needed: acetaminophen or ibuprofen for fever or pain; they are not recommended before the vaccine.</li></ul><p>Read the instructions and, if needed, talk to your pharmacist or vaccinator.</p>',
+              fr: '<ul><li>Avant : une crème anesthésiante en vente libre, appliquée 30 à 60 minutes avant, engourdit la peau.</li><li>Moins de 2 ans : un peu d’eau sucrée 1 à 2 minutes avant soulage la douleur (jamais de miel avant 1 an).</li><li>Après, au besoin : acétaminophène ou ibuprofène, mais pas avant le vaccin. Demandez conseil à votre pharmacien.</li></ul>',
+              en: '<ul><li>Before: an over-the-counter numbing cream, applied 30 to 60 minutes before, numbs the skin.</li><li>Under 2: a little sugar water 1 to 2 minutes before relieves pain (never honey before age 1).</li><li>After, if needed: acetaminophen or ibuprofen, but not before the vaccine. Ask your pharmacist for advice.</li></ul>',
             },
           },
         ],

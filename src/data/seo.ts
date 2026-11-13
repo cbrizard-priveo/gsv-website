@@ -328,12 +328,12 @@ export const pageSeo: Record<string, SeoOverride> = {
   // The current description is the general vaccination page's.
   '/consultation-en-telemedecine/': {
     title: 'Clinique Virtuelle & Télémédecine | Santé Voyage',
-    description: 'Consultez un professionnel de la santé voyage en télémédecine, puis recevez vos vaccins à domicile ou dans l’une de nos cliniques du Grand Montréal.',
+    description: 'Consultez un professionnel de la santé voyage en télémédecine, puis recevez vos vaccins dans l’une de nos cliniques du Grand Montréal.',
     h1: 'Télémédecine santé voyage',
   },
   '/en/telemedicine-consultation/': {
     title: 'Virtual Clinic & Telehealth Services | Travel Health',
-    description: 'Consult a travel health professional by telemedicine, then get your vaccines at home or at one of our clinics across Greater Montreal.',
+    description: 'Consult a travel health professional by telemedicine, then get your vaccines at one of our clinics across Greater Montreal.',
     h1: 'Travel Health Telemedicine',
   },
   // Descriptions below restate each page's own opening text.
@@ -397,11 +397,11 @@ export const pageSeo: Record<string, SeoOverride> = {
   },
   '/vaccination-infantile/': {
     title: 'Vaccination Pédiatrique | Clinique Santé Voyage',
-    description: 'Vaccination des enfants de tout âge, y compris les bébés, en clinique ou à domicile. Efficacité, empathie et rigueur pour l’enfant et ses parents.',
+    description: 'Vaccination des enfants de tout âge, y compris les bébés, dans nos quatre cliniques du Grand Montréal. Efficacité, empathie et rigueur pour l’enfant et ses parents.',
   },
   '/en/infant-vaccination/': {
     title: 'Pediatric Vaccination | Travel Health Clinic',
-    description: 'Vaccination for children of all ages, babies included, in clinic or at home. Efficiency, empathy and rigour for the child and the parents.',
+    description: 'Vaccination for children of all ages, babies included, at our four clinics across Greater Montreal. Efficiency, empathy and rigour for the child and the parents.',
   },
 };
 

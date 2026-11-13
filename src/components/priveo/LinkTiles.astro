@@ -9,13 +9,14 @@ interface Props {
   title: string;
   lede?: string;
   links: { label: string; href: string }[];
+  id?: string;
 }
 
-const { tagline, title, lede, links } = Astro.props;
+const { tagline, title, lede, links, id } = Astro.props;
 ---
 
 <div class="pv">
-  <section class="layout-element layout-section section card-section card-section--soft">
+  <section class="layout-element layout-section section card-section card-section--soft" id={id}>
     <div class="layout-element layout-container container">
       <div class="layout-element layout-stack section-header section-header--center">
         {tagline && <p class="layout-element text-inline section-header__tagline">{tagline}</p>}
