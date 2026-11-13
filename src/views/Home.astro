@@ -5,6 +5,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import type { WpPageData } from '../layouts/WpPage.astro';
 import Hero from '../components/home/Hero.astro';
 import Stats from '../components/home/Stats.astro';
+import AlertsBanner from '../components/home/AlertsBanner.astro';
+import Destinations from '../components/home/Destinations.astro';
+import LastMinute from '../components/home/LastMinute.astro';
 import Audience from '../components/home/Audience.astro';
 import About from '../components/home/About.astro';
 import Points from '../components/home/Points.astro';
@@ -28,8 +31,11 @@ const content = home[lang];
 
 <BaseLayout lang={lang} htmlLang={page.htmlLang} title={page.title} head={page.head} route={route} alt={page.alt}>
   <Hero content={content.hero} lang={lang} />
+  <AlertsBanner lang={lang} />
+  <Destinations lang={lang} />
   <Stats lang={lang} />
   <Audience content={content.audience} />
+  <LastMinute lang={lang} />
   <About content={content.about} />
   <Points content={content.points} />
   <Team content={content.team} />

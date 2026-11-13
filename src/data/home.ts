@@ -36,7 +36,7 @@ export const home: Record<Lang, HomeContent> = {
       cards: [
         { title: 'Clinique du voyageur', href: '/clinique-du-voyageur/', image: '/images/home/travel-main.jpg', alt: 'Voyageur qui consulte une carte avant une randonnée' },
         { title: 'Vaccination générale', href: '/vaccination-generale/', image: '/images/home/vaccination.jpg', alt: 'Professionnel de la santé qui administre un vaccin dans le bras d’une patiente' },
-        { title: 'Vaccination en entreprise', href: '/vaccination-en-entreprise/', image: '/images/home/service-entreprise.jpg', alt: 'Employés au travail dans un café' },
+        { title: 'Vaccination en entreprise', href: '/vaccination-en-entreprise/', image: '/wp-content/uploads/2021/12/groupe-sante-voyage-page-header-vaccination-pre-voyage-768x462.jpg', alt: 'Une femme reçoit un vaccin' },
       ],
     },
     about: {
@@ -110,7 +110,7 @@ export const home: Record<Lang, HomeContent> = {
       cards: [
         { title: 'Traveller’s clinic', href: '/en/travellers-clinic/', image: '/images/home/travel-main.jpg', alt: 'Traveller looking at a map before a hike' },
         { title: 'General vaccination', href: '/en/general-vaccination/', image: '/images/home/vaccination.jpg', alt: 'Health professional giving a patient a vaccine in the arm' },
-        { title: 'Vaccination in the workplace', href: '/en/vaccination-in-the-workplace/', image: '/images/home/service-entreprise.jpg', alt: 'Employees at work in a café' },
+        { title: 'Vaccination in the workplace', href: '/en/vaccination-in-the-workplace/', image: '/wp-content/uploads/2021/12/groupe-sante-voyage-page-header-vaccination-pre-voyage-768x462.jpg', alt: 'A woman receiving a vaccine' },
       ],
     },
     about: {

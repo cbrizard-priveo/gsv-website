@@ -38,9 +38,103 @@
     color: var(--primary);
     text-underline-offset: 3px;
   }
+  /* Slim banner to another page (src/components/priveo/PromoBanner.astro). */
+  .pv .promo-banner {
+    padding-block: 0 4rem;
+  }
+  .pv .promo-banner__box {
+    display: grid;
+    grid-template-columns: 160px minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1rem 1.5rem 1rem 1rem;
+    border-radius: 1rem;
+    background: var(--primary-l-5, #e8f0fa);
+  }
+  .pv .promo-banner__image {
+    width: 160px;
+    height: 110px;
+    object-fit: cover;
+    border-radius: 0.75rem;
+  }
+  .pv .promo-banner__title {
+    margin: 0 0 0.35rem;
+    color: var(--primary);
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+  .pv .promo-banner__text {
+    margin: 0;
+    line-height: 1.5;
+  }
+  @media (max-width: 767px) {
+    .pv .promo-banner__box {
+      grid-template-columns: minmax(0, 1fr);
+      padding: 1rem;
+    }
+    .pv .promo-banner__image {
+      width: 100%;
+      height: 140px;
+    }
+    .pv .promo-banner__cta {
+      justify-self: start;
+    }
+  }
+  /* Source and link under a country block on a service page (e.g. Hajj and Umrah). */
+  .pv .service-source {
+    max-width: 48rem;
+    margin: 2rem auto 0;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8125rem;
+    line-height: 1.5;
+  }
+  .pv .service-source p + p {
+    margin-top: 0.5rem;
+  }
+  .pv .service-source a {
+    color: var(--primary);
+    text-underline-offset: 3px;
+  }
+  .pv .service-source .btn-link {
+    font-size: 1rem;
+    font-weight: 600;
+  }
+  .pv .card__text ul {
+    margin: 0.5rem 0 0;
+    padding-left: 1.25rem;
+    list-style: disc;
+  }
+  .pv .card__text ul + p,
+  .pv .card__text li + li,
+  .pv .card__text p + p {
+    margin-top: 0.4rem;
+  }
+  .pv .card__text a {
+    color: var(--primary);
+    text-underline-offset: 3px;
+  }
   .pv .callout-band__check svg {
     width: 1em;
     height: 1em;
+  }
+
+  /* Card sections (src/components/priveo/CardGrid.astro). */
+  .pv .card-section--soft {
+    background: var(--primary-l-6);
+  }
+  /* Priveo has no two-column card grid; this site's: two columns, one on phones. */
+  .pv .card-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 767px) {
+    .pv .card-grid--2 {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .pv .card-section__meta {
+    color: var(--primary);
+    font-weight: 600;
   }
 
   /* Priveo's service cards are tall to hold a photo; this site's have none yet. */

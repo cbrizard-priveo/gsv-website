@@ -1,0 +1,22 @@
+{
+  "_comment": "Checked in the browser 2026-11-13: mcgill.ca/tropmed/patients (MUHC pre-travel, Nov 2024) and the CIUSSS de l'Ouest-de-l'Île notice (page modified 2024-12-17). Only these two facts are stated; nothing is said about the rest of the public network.",
+  "items": [
+    {
+      "id": "ou-consulter-reseau-public",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Puis-je faire ma consultation pré-voyage dans le réseau public ?",
+        "en": "Can I have my pre-travel consultation in the public system?"
+      },
+      "a": {
+        "fr": "<p>Deux services publics de la région de Montréal ne reçoivent plus les voyageurs pour une consultation pré-voyage de routine :</p><ul><li>Depuis novembre 2024, le Centre universitaire de santé McGill (CUSM) n’offre plus d’évaluation pré-voyage aux voyageurs qui n’ont pas de problème médical complexe ; il les dirige vers les cliniques de la communauté. Les personnes ayant un problème médical complexe (par exemple une immunosuppression ou une greffe) continuent d’y être vues par un médecin spécialiste.</li><li>La clinique santé-voyage du CIUSSS de l’Ouest-de-l’Île-de-Montréal, à Kirkland, a fermé le 22 décembre 2024.</li></ul><p>Nos cliniques de Montréal, Laval, Longueuil et Blainville vous reçoivent sur rendez-vous, en clinique ou en télémédecine.</p>",
+        "en": "<p>Two public services in the Montréal area no longer see travellers for a routine pre-travel consultation:</p><ul><li>Since November 2024, the McGill University Health Centre (MUHC) no longer offers pre-travel assessments to travellers without complex medical conditions; it directs them to community-based providers. People with complex medical conditions (for example immune suppression or an organ transplant) are still seen there by a specialist physician.</li><li>The travellers’ health clinic of the CIUSSS de l’Ouest-de-l’Île-de-Montréal, in Kirkland, closed on December 22, 2024.</li></ul><p>Our clinics in Montreal, Laval, Longueuil and Blainville see you by appointment, in clinic or by telemedicine.</p>"
+      },
+      "sources": [
+        { "label": "Centre J.D. MacLean (McGill), « For Patients »", "href": "https://www.mcgill.ca/tropmed/patients" },
+        { "label": "CIUSSS de l’Ouest-de-l’Île-de-Montréal, « Closure of the Travellers’ Health Clinic » (17 décembre 2024)", "href": "https://www.ciusss-ouestmtl.gouv.qc.ca/en/news-and-events/single/closure-of-the-travellers-health-clinic" }
+      ],
+      "notes": "Requested by the client, 2026-11-13. Sources read in the browser the same day."
+    }
+  ]
+}

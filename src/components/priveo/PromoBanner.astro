@@ -1,0 +1,30 @@
+---
+// A slim banner pointing to another page (e.g. the Hajj and Umrah page from Consultation and Vaccination):
+// a photo, a title, one sentence and a button, in Priveo's look.
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  title: string;
+  text: string;
+  cta: { label: string; href: string };
+  image: string;
+}
+
+const { title, text, cta, image } = Astro.props;
+---
+
+<div class="pv">
+  <section class="layout-element layout-section section promo-banner">
+    <div class="layout-element layout-container container">
+      <div class="promo-banner__box">
+        <img class="promo-banner__image" src={image} alt="" loading="lazy" decoding="async" />
+        <div class="promo-banner__body">
+          <h2 class="promo-banner__title font-secondary">{title}</h2>
+          <p class="promo-banner__text">{text}</p>
+        </div>
+        <a class="action-button btn btn--primary button-base promo-banner__cta" href={cta.href}>{cta.label}</a>
+      </div>
+    </div>
+  </section>
+</div>

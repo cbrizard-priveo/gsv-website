@@ -1,0 +1,319 @@
+---
+// « Tarifs » / "Pricing": travel health consultation, every vaccine (searchable), injection fees, RAMQ and
+// insurance. Amounts from src/data/tarifs.ts (Priveo Santé's price list). Priveo's section header and
+// booking steps; the price lists are this site's own cards.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BookingSteps from '../components/priveo/BookingSteps.astro';
+import Icon from '../components/Icon.astro';
+import { BOOKING, type Lang } from '../data/site';
+import { clinicCopy } from '../data/clinics';
+import { PRICES_CHECKED, consultationPrices, injectionFees, tarifsCopy, vaccinePrices } from '../data/tarifs';
+import { vaccineTexts } from '../data/vaccine-texts';
+import { seoHead } from '../lib/seo';
+import '../styles/priveo/sections.css';
+import '../styles/sections.css';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = tarifsCopy[lang];
+const other = tarifsCopy[lang === 'fr' ? 'en' : 'fr'].path;
+const money = new Intl.NumberFormat(lang === 'fr' ? 'fr-CA' : 'en-CA', { style: 'currency', currency: 'CAD', minimumFractionDigits: 0, maximumFractionDigits: 2 });
+const date = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-CA' : 'en-CA', { dateStyle: 'long', timeZone: 'UTC' }).format(new Date(`${PRICES_CHECKED}T00:00:00Z`));
+
+// Vaccine and disease pages by topic key, to link each vaccine to its page.
+const topics = import.meta.glob<{ routes: Record<Lang, string> }>('../data/vaccines/*.json', { eager: true, import: 'default' });
+const pageOf: Record<string, string> = Object.fromEntries(Object.entries(topics).map(([f, j]) => [f.replace(/^.*\/|\.json$/g, ''), j.routes[lang]]));
+pageOf.rage = lang === 'fr' ? '/vaccination/rage/' : '/en/vaccination/rabies-vaccination/';
+if (!vaccineTexts['/vaccination/rage/']) throw new Error('tarifs: rabies page missing');
+const vaccines = [...vaccinePrices].sort((a, b) => a.disease[lang].localeCompare(b.disease[lang], lang));
+const steps = clinicCopy[lang].steps;
+
+const head = seoHead({
+  title: t.seoTitle,
+  description: t.description,
+  path: t.path,
+  lang,
+  alternates: lang === 'fr' ? { fr: t.path, en: other } : { fr: other, en: t.path },
+  jsonLd: {
+    '@context': 'https://schema.org',
+    '@type': 'MedicalClinic',
+    name: 'Groupe Santé Voyage',
+    url: `https://cliniquesantevoyage.com${t.path}`,
+    hasOfferCatalog: {
+      '@type': 'OfferCatalog',
+      name: t.title,
+      itemListElement: [
+        ...consultationPrices.map((c) => ({ '@type': 'Offer', name: `${t.consultation.title} – ${c.label[lang]}`, price: c.price, priceCurrency: 'CAD' })),
+        ...vaccinePrices.map((v) => ({ '@type': 'Offer', name: `${v.product} (${v.disease[lang]})`, price: v.price, priceCurrency: 'CAD' })),
+      ],
+    },
+  },
+});
+---
+
+<BaseLayout lang={lang} htmlLang={lang === 'fr' ? 'fr-CA' : 'en-CA'} title={t.seoTitle} head={head} route={t.path} alt={other}>
+  <div class="pv">
+    <section class="layout-section section tarifs-hero">
+      <div class="layout-element layout-container container">
+        <div class="layout-element layout-stack section-header section-header--center">
+          <p class="layout-element text-inline section-header__tagline">{t.tagline}</p>
+          <h1 class="layout-element typography-heading section-header__title heading-2xl font-secondary">{t.title}</h1>
+          <p class="layout-element text-inline section-header__description">{t.lede}</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <section class="gsv-section tarifs">
+    <div class="gsv-container tarifs__grid">
+      <div class="tarifs__side">
+        <article class="tarifs__card">
+          <h2>{t.consultation.title}</h2>
+          <ul class="tarifs__rows">
+            {consultationPrices.map((c) => <li><span>{c.label[lang]}</span><strong>{money.format(c.price)}</strong></li>)}
+          </ul>
+          <p class="tarifs__note">{t.consultation.text}</p>
+        </article>
+        <article class="tarifs__card">
+          <h2>{t.injection.title}</h2>
+          <ul class="tarifs__rows">
+            {injectionFees.map((c) => <li><span>{c.label[lang]}</span><strong>{money.format(c.price)}</strong></li>)}
+          </ul>
+        </article>
+        <article class="tarifs__card tarifs__card--soft">
+          <h2>{t.insurance.title}</h2>
+          <p>{t.insurance.text}</p>
+          <a href={t.insurance.faq.href}>{t.insurance.faq.label}<Icon name="arrow-right" /></a>
+        </article>
+        <a class="gsv-button tarifs__book" href={BOOKING} target="_blank" rel="noopener">{t.book}<Icon name="arrow-right" /></a>
+      </div>
+
+      <article class="tarifs__card tarifs__vaccines" data-tarifs>
+        <h2>{t.vaccines.title}</h2>
+        <p class="tarifs__note">{t.vaccines.text}</p>
+        <label class="tarifs__filter">
+          <span>{t.vaccines.filter}</span>
+          <input type="search" placeholder={t.vaccines.filterPlaceholder} autocomplete="off" data-filter />
+        </label>
+        <table>
+          <thead>
+            <tr><th scope="col">{t.vaccines.disease}</th><th scope="col">{t.vaccines.product}</th><th scope="col" class="tarifs__price">{t.vaccines.price}</th></tr>
+          </thead>
+          <tbody>
+            {
+              vaccines.map((v) => (
+                <tr data-row={`${v.disease.fr} ${v.disease.en} ${v.product}`}>
+                  <th scope="row">{v.topic && pageOf[v.topic] ? <a href={pageOf[v.topic]}>{v.disease[lang]}</a> : v.disease[lang]}</th>
+                  <td>{v.product}</td>
+                  <td class="tarifs__price">{money.format(v.price)}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+        <p class="tarifs__empty" hidden data-empty>{t.vaccines.none}</p>
+        <p class="tarifs__checked">{t.checked(date)}</p>
+      </article>
+    </div>
+  </section>
+
+  <BookingSteps tagline={steps.tagline} title={steps.title} steps={steps.items} cta={{ label: t.book, href: BOOKING }} />
+</BaseLayout>
+
+<script>
+  const fold = (s: string) => s.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
+  for (const root of document.querySelectorAll<HTMLElement>('[data-tarifs]')) {
+    const input = root.querySelector<HTMLInputElement>('[data-filter]')!;
+    const rows = [...root.querySelectorAll<HTMLElement>('[data-row]')];
+    const empty = root.querySelector<HTMLElement>('[data-empty]')!;
+    input.addEventListener('input', () => {
+      const q = fold(input.value.trim());
+      let shown = 0;
+      for (const row of rows) {
+        const match = !q || fold(row.dataset.row!).includes(q);
+        row.hidden = !match;
+        if (match) shown++;
+      }
+      empty.hidden = shown > 0;
+    });
+  }
+</script>
+
+<style>
+  .tarifs-hero {
+    padding-bottom: 0;
+  }
+  .tarifs {
+    padding-top: 48px;
+  }
+  .tarifs__grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.5fr);
+    align-items: start;
+    gap: 28px;
+  }
+  .tarifs__side {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .tarifs__card {
+    padding: 28px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: 20px;
+    background: var(--gsv-white);
+  }
+  .tarifs__card--soft {
+    background: var(--gsv-primary-l-6);
+  }
+  .tarifs__card h2 {
+    margin-bottom: 16px;
+    color: var(--gsv-primary);
+    font: 500 24px/1.2 var(--gsv-font-serif);
+  }
+  .tarifs__card a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    color: var(--gsv-primary);
+    font-weight: 600;
+    text-underline-offset: 3px;
+  }
+  .tarifs__card a :global(svg) {
+    width: 14px;
+    height: 14px;
+  }
+  .tarifs__rows li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--gsv-border-subtle);
+  }
+  .tarifs__rows li:last-child {
+    border-bottom: 0;
+  }
+  .tarifs__rows strong,
+  .tarifs__price {
+    color: var(--gsv-primary);
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+  }
+  .tarifs__note {
+    margin-top: 12px;
+    color: var(--gsv-text-muted);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+  .tarifs__book {
+    align-self: flex-start;
+  }
+  .tarifs__filter {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 20px 0 8px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .tarifs__filter input {
+    height: 46px;
+    padding: 0 14px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: 12px;
+    font: 400 16px var(--gsv-font-sans);
+  }
+  .tarifs__filter input:focus-visible {
+    outline: 2px solid var(--gsv-secondary);
+    outline-offset: 1px;
+  }
+  .tarifs table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+  }
+  .tarifs thead th {
+    padding: 12px 8px;
+    border-bottom: 2px solid var(--gsv-border-subtle);
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+    font-weight: 600;
+    text-align: left;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  .tarifs tbody th,
+  .tarifs tbody td {
+    padding: 12px 8px;
+    border-bottom: 1px solid var(--gsv-border-subtle);
+    text-align: left;
+    vertical-align: top;
+  }
+  .tarifs tbody th {
+    font-weight: 600;
+  }
+  .tarifs tbody th a {
+    margin: 0;
+    font-weight: 600;
+  }
+  .tarifs .tarifs__price {
+    text-align: right;
+  }
+  .tarifs tr[hidden] {
+    display: none;
+  }
+  .tarifs__empty {
+    padding: 16px 8px;
+    color: var(--gsv-text-muted);
+  }
+  .tarifs__checked {
+    margin-top: 16px;
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+  }
+
+  @media (max-width: 1024px) {
+    .tarifs__grid {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  @media (max-width: 600px) {
+    .tarifs__card {
+      padding: 20px;
+    }
+    .tarifs table,
+    .tarifs tbody,
+    .tarifs tr {
+      display: block;
+    }
+    .tarifs thead {
+      display: none;
+    }
+    .tarifs tbody tr {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2px 12px;
+      padding: 12px 0;
+      border-bottom: 1px solid var(--gsv-border-subtle);
+    }
+    .tarifs tbody th,
+    .tarifs tbody td {
+      padding: 0;
+      border: 0;
+    }
+    .tarifs tbody td:nth-of-type(1) {
+      grid-row: 2;
+      color: var(--gsv-text-muted);
+      font-size: 14px;
+    }
+    .tarifs tbody td.tarifs__price {
+      grid-row: 1;
+      grid-column: 2;
+    }
+  }
+</style>
