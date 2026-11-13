@@ -1,0 +1,109 @@
+---
+// Key numbers under the homepage hero, counted up when they come into view. The page holds the final
+// numbers, so they read right without the animation (no script, or reduced motion).
+import type { Lang } from '../../data/site';
+import { FOUNDED, TRAVELLERS, stats } from '../../data/home-tools';
+import { clinicPages } from '../../data/clinics';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = stats[lang];
+const locale = lang === 'fr' ? 'fr-CA' : 'en-CA';
+// The year counts up from 1950, the others from 0; the year is written without a thousands separator.
+// « Au service des voyageurs depuis » comes before its year, in reading order too.
+const items = [
+  { value: FOUNDED, from: 1950, grouping: false, label: t.founded, labelFirst: true },
+  { value: clinicPages.length, from: 0, grouping: true, label: t.clinics },
+  { value: TRAVELLERS, from: 0, grouping: true, suffix: '+', label: t.travellers },
+];
+const format = (n: number, grouping: boolean) => new Intl.NumberFormat(locale, { useGrouping: grouping }).format(n);
+---
+
+<section class="stats" aria-label={t.label} data-stats data-locale={locale}>
+  <ul class="gsv-container stats__list">
+    {
+      items.map((item) => (
+        <li class="stats__item">
+          {item.labelFirst && <span class="stats__label">{item.label}</span>}
+          <span class="stats__value">
+            <span data-value={item.value} data-from={item.from} data-grouping={String(item.grouping)}>
+              {format(item.value, item.grouping)}
+            </span>
+            {item.suffix}
+          </span>
+          {!item.labelFirst && <span class="stats__label">{item.label}</span>}
+        </li>
+      ))
+    }
+  </ul>
+</section>
+
+<script>
+  const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  for (const root of document.querySelectorAll<HTMLElement>('[data-stats]')) {
+    if (reduce) continue;
+    const values = [...root.querySelectorAll<HTMLElement>('[data-value]')];
+    const formats = values.map((el) => new Intl.NumberFormat(root.dataset.locale, { useGrouping: el.dataset.grouping === 'true' }));
+    const io = new IntersectionObserver(
+      (entries) => {
+        if (!entries.some((e) => e.isIntersecting)) return;
+        io.disconnect();
+        const start = performance.now();
+        const step = (now: number) => {
+          const k = Math.min((now - start) / 1600, 1);
+          const eased = 1 - (1 - k) ** 3;
+          values.forEach((el, i) => {
+            const from = Number(el.dataset.from);
+            el.textContent = formats[i].format(Math.round(from + (Number(el.dataset.value) - from) * eased));
+          });
+          if (k < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      },
+      { threshold: 0.4 },
+    );
+    io.observe(root);
+  }
+</script>
+
+<style>
+  .stats {
+    padding: 44px 0;
+    border-bottom: 1px solid var(--gsv-border-subtle);
+    background: var(--gsv-white);
+  }
+  .stats__list {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    margin: 0 auto;
+    list-style: none;
+  }
+  .stats__item {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding-left: 20px;
+    border-left: 2px solid var(--gsv-secondary-l-4);
+  }
+  .stats__value {
+    color: var(--gsv-primary);
+    font: 500 clamp(34px, 3.4vw, 46px) / 1 var(--gsv-font-serif);
+    font-variant-numeric: tabular-nums;
+  }
+  .stats__label {
+    max-width: 24ch;
+    font-size: 15px;
+    line-height: 1.45;
+  }
+
+  @media (max-width: 767px) {
+    .stats__list {
+      grid-template-columns: minmax(0, 1fr);
+      row-gap: 24px;
+    }
+  }
+</style>

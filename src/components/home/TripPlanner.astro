@@ -1,0 +1,439 @@
+---
+// « Préparez votre voyage », in the homepage hero: where (a search over the country pages) and when (how
+// far the departure is, against the Government of Canada's advice to consult about six weeks before).
+// The country list is fetched from /api/destinations-<lang>.json on first use.
+import Icon from '../Icon.astro';
+import { BOOKING, type Lang } from '../../data/site';
+import { CONSULT_WEEKS_BEFORE, planner } from '../../data/home-tools';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = planner[lang];
+const id = `planner-${lang}`;
+// The messages the script needs, with placeholders it fills in.
+const messages = {
+  ahead: t.timing.ahead(-1, '{by}').replace('-1', '{days}'),
+  soonOne: t.timing.soon(1),
+  soonMany: t.timing.soon(2).replace('2', '{days}'),
+  today: t.timing.today,
+  past: t.timing.past,
+  updated: t.preview.updated('{date}'),
+  noResult: t.where.noResult,
+  results: t.results(2).replace('2', '{n}'),
+  result: t.results(1),
+};
+---
+
+<div class="planner" data-planner data-lang={lang} data-weeks={CONSULT_WEEKS_BEFORE} data-messages={JSON.stringify(messages)}>
+  <p class="planner__title">{t.title}</p>
+  <div class="planner__fields">
+    <div class="planner__field planner__field--where">
+      <label for={`${id}-where`}>{t.where.label}</label>
+      <div class="planner__combo">
+        <Icon name="globe" class="planner__icon" />
+        <input
+          id={`${id}-where`}
+          type="text"
+          role="combobox"
+          autocomplete="off"
+          spellcheck="false"
+          placeholder={t.where.placeholder}
+          aria-autocomplete="list"
+          aria-expanded="false"
+          aria-controls={`${id}-list`}
+          data-where
+        />
+        <ul class="planner__list" id={`${id}-list`} role="listbox" aria-label={t.where.label} hidden data-list></ul>
+      </div>
+    </div>
+    <div class="planner__field planner__field--when">
+      <label for={`${id}-when`}>{t.when.label}</label>
+      <input id={`${id}-when`} type="date" data-when />
+    </div>
+  </div>
+  <p class="planner__status" role="status" aria-live="polite" data-status></p>
+
+  <div class="planner__result" hidden data-result>
+    <div class="planner__country" hidden data-country>
+      <p class="planner__region" data-region></p>
+      <p class="planner__name" data-name></p>
+      <p class="planner__topics-label">{t.preview.topics}</p>
+      <ul class="planner__topics" data-topics></ul>
+      <p class="planner__updated" data-updated></p>
+    </div>
+    <div class="planner__timing" hidden data-timing>
+      <p data-timing-text></p>
+      <a class="planner__source" href={t.timing.source.href} target="_blank" rel="noopener">{t.timing.source.label}</a>
+      <p class="planner__never" data-never>{t.timing.neverTooLate}</p>
+    </div>
+    <div class="planner__actions">
+      <a class="gsv-button gsv-button--outline" href="#" hidden data-open>{t.preview.open}<Icon name="arrow-right" /></a>
+      <a class="gsv-button" href={BOOKING}>{t.book}<Icon name="arrow-right" /></a>
+    </div>
+  </div>
+</div>
+
+<script>
+  interface Destination {
+    name: string;
+    alt: string;
+    path: string;
+    region: string;
+    updated: string;
+    topics: [string, string][];
+  }
+
+  // Accents, case and punctuation don't matter: « cote d ivoire » finds Côte d’Ivoire.
+  const fold = (s: string) =>
+    s
+      .normalize('NFD')
+      .replace(/[̀-ͯ]/g, '')
+      .toLowerCase()
+      .replace(/[^a-z0-9]+/g, ' ')
+      .trim();
+  const fill = (s: string, values: Record<string, string | number>) => s.replace(/\{(\w+)\}/g, (_, k) => String(values[k]));
+  const DAY = 86_400_000;
+
+  for (const root of document.querySelectorAll<HTMLElement>('[data-planner]')) {
+    const lang = root.dataset.lang!;
+    const weeks = Number(root.dataset.weeks);
+    const m = JSON.parse(root.dataset.messages!);
+    const input = root.querySelector<HTMLInputElement>('[data-where]')!;
+    const list = root.querySelector<HTMLUListElement>('[data-list]')!;
+    const when = root.querySelector<HTMLInputElement>('[data-when]')!;
+    const status = root.querySelector<HTMLElement>('[data-status]')!;
+    const result = root.querySelector<HTMLElement>('[data-result]')!;
+    const country = root.querySelector<HTMLElement>('[data-country]')!;
+    const timing = root.querySelector<HTMLElement>('[data-timing]')!;
+    const open = root.querySelector<HTMLAnchorElement>('[data-open]')!;
+    const dateFormat = new Intl.DateTimeFormat(lang === 'fr' ? 'fr-CA' : 'en-CA', { dateStyle: 'long', timeZone: 'UTC' });
+    const today = () => {
+      const d = new Date();
+      return Date.UTC(d.getFullYear(), d.getMonth(), d.getDate());
+    };
+    when.min = new Date(today()).toISOString().slice(0, 10);
+
+    let data: Destination[] | null = null;
+    let loading: Promise<Destination[]> | null = null;
+    const load = () => (loading ??= fetch(`/api/destinations-${lang}.json`).then((r) => r.json()).then((d) => (data = d)));
+    input.addEventListener('focus', load, { once: true });
+
+    let matches: Destination[] = [];
+    let active = -1;
+    let chosen: Destination | null = null;
+
+    const close = () => {
+      list.hidden = true;
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      active = -1;
+    };
+    const highlight = (i: number) => {
+      active = i;
+      [...list.children].forEach((li, j) => li.setAttribute('aria-selected', String(j === i)));
+      if (i >= 0) {
+        input.setAttribute('aria-activedescendant', list.children[i].id);
+        (list.children[i] as HTMLElement).scrollIntoView({ block: 'nearest' });
+      } else input.removeAttribute('aria-activedescendant');
+    };
+    const search = async () => {
+      const q = fold(input.value);
+      if (!q) {
+        close();
+        status.textContent = '';
+        return;
+      }
+      const all = data ?? (await load());
+      // Names that start with the query first, then names with a word starting with it.
+      const starts = all.filter((d) => fold(d.name).startsWith(q) || fold(d.alt).startsWith(q));
+      const words = all.filter((d) => !starts.includes(d) && [d.name, d.alt].some((n) => fold(n).split(' ').some((w) => w.startsWith(q))));
+      matches = [...starts, ...words].slice(0, 8);
+      list.replaceChildren(
+        ...(matches.length
+          ? matches.map((d, i) => {
+              const li = document.createElement('li');
+              li.id = `${list.id}-${i}`;
+              li.setAttribute('role', 'option');
+              li.setAttribute('aria-selected', 'false');
+              li.innerHTML = `<span></span><small></small>`;
+              li.firstElementChild!.textContent = d.name;
+              li.lastElementChild!.textContent = d.region;
+              li.addEventListener('mousedown', (e) => e.preventDefault());
+              li.addEventListener('click', () => choose(d));
+              return li;
+            })
+          : [Object.assign(document.createElement('li'), { className: 'planner__empty', textContent: m.noResult })]),
+      );
+      list.hidden = false;
+      input.setAttribute('aria-expanded', 'true');
+      highlight(-1);
+      status.textContent = matches.length ? (matches.length > 1 ? fill(m.results, { n: matches.length }) : m.result) : m.noResult;
+    };
+
+    const render = () => {
+      if (chosen) {
+        country.querySelector('[data-region]')!.textContent = chosen.region;
+        country.querySelector('[data-name]')!.textContent = chosen.name;
+        country.querySelector('[data-topics]')!.replaceChildren(
+          ...chosen.topics.map(([name, anchor]) => {
+            const li = document.createElement('li');
+            const a = Object.assign(document.createElement('a'), { href: `${chosen!.path}#${anchor}`, textContent: name });
+            li.append(a);
+            return li;
+          }),
+        );
+        country.querySelector('[data-updated]')!.textContent = fill(m.updated, { date: dateFormat.format(new Date(`${chosen.updated}T00:00:00Z`)) });
+        open.href = chosen.path;
+      }
+      country.hidden = open.hidden = !chosen;
+
+      const date = when.valueAsNumber;
+      if (Number.isFinite(date)) {
+        const days = Math.round((date - today()) / DAY);
+        const by = dateFormat.format(new Date(date - weeks * 7 * DAY));
+        timing.querySelector('[data-timing-text]')!.textContent =
+          days < 0 ? m.past : days === 0 ? m.today : days >= weeks * 7 ? fill(m.ahead, { days, by }) : days === 1 ? m.soonOne : fill(m.soonMany, { days });
+      }
+      timing.hidden = !Number.isFinite(date);
+      (timing.querySelector('[data-never]') as HTMLElement).hidden = !Number.isFinite(date) || date < today();
+      result.hidden = country.hidden && timing.hidden;
+    };
+    const choose = (d: Destination) => {
+      chosen = d;
+      input.value = d.name;
+      close();
+      status.textContent = '';
+      render();
+    };
+
+    input.addEventListener('input', () => {
+      if (chosen && input.value !== chosen.name) {
+        chosen = null;
+        render();
+      }
+      search();
+    });
+    input.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+        if (list.hidden) search();
+        if (!matches.length) return;
+        e.preventDefault();
+        const step = e.key === 'ArrowDown' ? 1 : -1;
+        highlight((active + step + matches.length) % matches.length);
+      } else if (e.key === 'Enter') {
+        if (!list.hidden && matches.length) {
+          e.preventDefault();
+          choose(matches[Math.max(active, 0)]);
+        }
+      } else if (e.key === 'Escape') {
+        if (!list.hidden) {
+          e.preventDefault();
+          close();
+        }
+      }
+    });
+    input.addEventListener('blur', close);
+    when.addEventListener('change', render);
+    when.addEventListener('input', render);
+  }
+</script>
+
+<style>
+  .planner {
+    width: 100%;
+    max-width: 640px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.22);
+    border-radius: 20px;
+    background: linear-gradient(135deg, rgba(1, 26, 54, 0.62), rgba(1, 26, 54, 0.46));
+    box-shadow: inset 0 0.5px 0 rgba(255, 255, 255, 0.18), 0 8px 30px rgba(1, 26, 54, 0.3);
+    backdrop-filter: blur(20px);
+    color: var(--gsv-white);
+  }
+  .planner__title {
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    font-weight: 600;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    opacity: 0.85;
+  }
+  .planner__fields {
+    display: grid;
+    grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+    gap: 12px;
+  }
+  .planner__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+  .planner__field label {
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .planner__combo {
+    position: relative;
+  }
+  .planner__combo :global(.planner__icon) {
+    position: absolute;
+    top: 50%;
+    left: 14px;
+    width: 18px;
+    height: 18px;
+    color: var(--gsv-primary);
+    transform: translateY(-50%);
+    pointer-events: none;
+  }
+  .planner input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    background: var(--gsv-white);
+    color: var(--gsv-primary-d-2);
+    font: 500 16px var(--gsv-font-sans);
+  }
+  .planner__combo input {
+    padding-left: 42px;
+  }
+  .planner input:focus-visible {
+    outline: 3px solid #6fb1ff;
+    outline-offset: 2px;
+  }
+  .planner__list {
+    position: absolute;
+    z-index: 5;
+    top: calc(100% + 6px);
+    right: 0;
+    left: 0;
+    max-height: 320px;
+    margin: 0;
+    padding: 6px;
+    overflow-y: auto;
+    border-radius: 12px;
+    background: var(--gsv-white);
+    box-shadow: 0 16px 40px rgba(1, 26, 54, 0.3);
+    color: var(--gsv-primary-d-2);
+    list-style: none;
+  }
+  .planner__list :global(li) {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  .planner__list :global(li[aria-selected='true']),
+  .planner__list :global(li[role='option']:hover) {
+    background: var(--gsv-primary-l-6);
+  }
+  .planner__list :global(small) {
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+  }
+  .planner__list :global(.planner__empty) {
+    color: var(--gsv-text-muted);
+    cursor: default;
+  }
+  .planner__status {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+  }
+  .planner__result {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-top: 16px;
+    padding: 18px;
+    border-radius: 14px;
+    background: var(--gsv-white);
+    color: var(--gsv-text-body);
+  }
+  .planner__region {
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+  }
+  .planner__name {
+    color: var(--gsv-primary);
+    font: 500 24px/1.2 var(--gsv-font-serif);
+  }
+  .planner__topics-label {
+    margin-top: 12px;
+    font-size: 14px;
+    font-weight: 600;
+  }
+  .planner__topics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin: 8px 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  .planner__topics :global(a) {
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: var(--gsv-radius-full);
+    background: var(--gsv-secondary-l-5);
+    color: var(--gsv-primary);
+    font-size: 13px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .planner__topics :global(a:hover) {
+    background: var(--gsv-secondary-l-4);
+  }
+  .planner__updated {
+    margin-top: 10px;
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+  }
+  .planner__timing {
+    padding-left: 14px;
+    border-left: 3px solid var(--gsv-secondary);
+    font-size: 15px;
+    line-height: 1.55;
+  }
+  .planner__country:not([hidden]) + .planner__timing {
+    padding-top: 0;
+  }
+  .planner__source {
+    display: inline-block;
+    margin-top: 6px;
+    color: var(--gsv-text-muted);
+    font-size: 13px;
+    text-underline-offset: 3px;
+  }
+  .planner__never {
+    margin-top: 10px;
+    color: var(--gsv-primary);
+    font-weight: 600;
+  }
+  .planner__actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  [hidden] {
+    display: none !important;
+  }
+
+  @media (max-width: 767px) {
+    .planner {
+      padding: 16px;
+    }
+    .planner__fields {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,13 +1,16 @@
 ---
 // Full-bleed photo hero with a cross-fading slideshow, after Priveo's home hero.
 import Icon from '../Icon.astro';
+import TripPlanner from './TripPlanner.astro';
 import type { HomeContent } from '../../data/home';
+import type { Lang } from '../../data/site';
 
 interface Props {
   content: HomeContent['hero'];
+  lang: Lang;
 }
 
-const { content } = Astro.props;
+const { content, lang } = Astro.props;
 const slides = [3, 4, 1, 2, 5].map((n) => `/wp-content/uploads/2025/04/slider-travel_${n}.jpg`);
 ---
 
@@ -17,6 +20,7 @@ const slides = [3, 4, 1, 2, 5].map((n) => `/wp-content/uploads/2025/04/slider-tr
   </div>
   <div class="hero__overlay" aria-hidden="true"></div>
   <div class="gsv-container hero__content">
+    <div class="hero__intro">
     <p class="hero__badge"><span aria-hidden="true"></span>{content.badge}</p>
     <h1 class="gsv-h1 hero__title">{content.title} <em>{content.titleEm}</em></h1>
     <p class="hero__text">{content.text}</p>
@@ -24,6 +28,8 @@ const slides = [3, 4, 1, 2, 5].map((n) => `/wp-content/uploads/2025/04/slider-tr
       <a class="gsv-button" href={content.primary.href}>{content.primary.label}<Icon name="arrow-right" /></a>
       <a class="gsv-button gsv-button--light" href={content.secondary.href}>{content.secondary.label}</a>
     </div>
+    </div>
+    <TripPlanner lang={lang} />
   </div>
 </section>
 
@@ -79,9 +85,20 @@ const slides = [3, 4, 1, 2, 5].map((n) => `/wp-content/uploads/2025/04/slider-tr
       linear-gradient(90deg, rgba(1, 26, 54, 0.74) 0%, rgba(1, 26, 54, 0.38) 46%, rgba(1, 26, 54, 0) 74%),
       linear-gradient(180deg, rgba(1, 26, 54, 0) 55%, rgba(1, 26, 54, 0.45) 100%);
   }
+  /* Title and trip planner side by side; stacked below 1100px. */
   .hero__content {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    align-items: end;
+    gap: 56px;
     padding-top: 120px;
     padding-bottom: 96px;
+  }
+  @media (max-width: 1100px) {
+    .hero__content {
+      grid-template-columns: minmax(0, 1fr);
+      gap: 36px;
+    }
   }
   .hero__badge {
     display: inline-flex;
