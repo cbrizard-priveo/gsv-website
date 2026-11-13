@@ -1,0 +1,674 @@
+{
+  "_comment": "Short FAQs for vaccine/disease pages (rougeole, rubeole, tetanos, twinrix, typhoide, varicelle, vph, zika, zona), restated only from each page’s verified text (src/data/vaccines/<key>.json); sources are those of the page.",
+  "items": [
+    {
+      "id": "rougeole-vaccination-avant-voyage",
+      "theme": "page:rougeole",
+      "q": {
+        "fr": "Quelle vaccination contre la rougeole faut-il avant de voyager ?",
+        "en": "What measles vaccination do I need before travelling?"
+      },
+      "a": {
+        "fr": "<p>Avant tout voyage à l’étranger, votre vaccination doit être conforme au Protocole d’immunisation du Québec. Les adultes nés depuis 1970 et les enfants de 18 mois et plus doivent avoir reçu 2 doses avant le départ, espacées d’au moins 4 semaines. Pour un enfant de 1 an à 17 mois, 1 dose reçue à partir de 1 an suffit : il n’est pas nécessaire d’avancer la 2e dose.</p>",
+        "en": "<p>Before any trip abroad, your vaccination should meet the Protocole d’immunisation du Québec. Adults born in 1970 or later and children aged 18 months and older should have received 2 doses before departure, at least 4 weeks apart. For a child aged 1 year to 17 months, 1 dose received from age 1 is enough: there is no need to bring the 2nd dose forward.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Rougeole » (mis à jour le 20 novembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rougeole"
+        }
+      ],
+      "notes": "Nothing is said about adults born before 1970: the source does not address them (see the page notes). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "rougeole-bebe-6-11-mois",
+      "theme": "page:rougeole",
+      "q": {
+        "fr": "Mon bébé de moins de 1 an peut-il être vacciné contre la rougeole avant un voyage ?",
+        "en": "Can my baby under 1 year old get the measles vaccine before a trip?"
+      },
+      "a": {
+        "fr": "<p>Oui, à partir de 6 mois. Une dose est recommandée aux bébés de 6 à 11 mois qui voyagent dans un pays où la rougeole est endémique, ou dans certains pays qui ont éliminé la rougeole, notamment si une épidémie ou une éclosion importante y est en cours; l’INSPQ publie la liste des pays visés. Cette dose protège le bébé pendant le voyage, mais elle ne compte pas dans son calendrier : elle sera redonnée à partir de 1 an, au moins 4 semaines plus tard, puis la 2e dose suivra à partir de 18 mois.</p>",
+        "en": "<p>Yes, from 6 months of age. One dose is recommended for babies aged 6 to 11 months travelling to a country where measles is endemic, or to certain countries that have eliminated measles, notably if an epidemic or a large outbreak is under way there; INSPQ publishes the list of countries concerned. This dose protects the baby during the trip, but it does not count in the vaccination schedule: it will be given again from age 1, at least 4 weeks later, followed by the 2nd dose from 18 months.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Rougeole » (mis à jour le 20 novembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rougeole"
+        }
+      ],
+      "notes": "« certains pays où sévit une éclosion » condenses the page’s three conditions for countries that eliminated measles (ongoing epidemic or major outbreak, or recent elimination with high import risk and insufficient coverage). Verification (2026-11-12): « certains pays où sévit une éclosion » broadened the page (which says « épidémie ou éclosion importante » in countries that eliminated measles, or recent elimination with high import risk); reworded with « notamment »."
+    },
+    {
+      "id": "rougeole-transmission",
+      "theme": "page:rougeole",
+      "q": {
+        "fr": "Comment la rougeole se transmet-elle ?",
+        "en": "How is measles spread?"
+      },
+      "a": {
+        "fr": "<p>Le virus se propage par l’air et par les gouttelettes provenant du nez ou de la gorge d’une personne infectée. C’est l’une des maladies les plus contagieuses : sans vaccination, un malade peut infecter de 10 à 15 personnes. On est contagieux dès 4 jours avant l’éruption et jusqu’à 4 jours après. La rougeole demeure endémique en Afrique, en Méditerranée orientale, dans plusieurs pays d’Europe, en Asie du Sud-Est et dans le Pacifique occidental.</p>",
+        "en": "<p>The virus spreads through the air and through droplets from the nose or throat of an infected person. It is one of the most contagious diseases: without vaccination, one sick person can infect 10 to 15 others. People are contagious from 4 days before the rash until 4 days after. Measles remains endemic in Africa, the Eastern Mediterranean, several European countries, Southeast Asia and the Western Pacific.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Rougeole » (mis à jour le 20 novembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rougeole"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "rubeole-suis-je-protege",
+      "theme": "page:rubeole",
+      "q": {
+        "fr": "Comment savoir si je suis protégé contre la rubéole ?",
+        "en": "How do I know if I am protected against rubella?"
+      },
+      "a": {
+        "fr": "<p>Selon le Protocole d’immunisation du Québec, vous êtes considéré comme protégé si vous avez une preuve écrite d’une dose de vaccin, ou une analyse sanguine montrant des anticorps à un titre d’au moins 10 UI/ml. Avoir eu la rubéole sans confirmation par un laboratoire ne prouve pas l’immunité. Si vous n’êtes pas considéré comme protégé, vous devriez être vacciné.</p>",
+        "en": "<p>According to the Protocole d’immunisation du Québec, you are considered protected if you have written proof of one dose of vaccine, or a blood test showing antibodies at a level of at least 10 IU/ml. Having had rubella without laboratory confirmation does not prove immunity. If you are not considered protected, you should be vaccinated.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Rubéole » (mis à jour le 20 juin 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/rubeole"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la rougeole, la rubéole et les oreillons (RRO) » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « RRO : vaccin contre la rougeole, la rubéole et les oreillons » (mis à jour le 24 septembre 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): FR « la vaccination est indiquée » aligned on the page and the EN (« devraient être vaccinées » / « should be vaccinated »)."
+    },
+    {
+      "id": "rubeole-grossesse",
+      "theme": "page:rubeole",
+      "q": {
+        "fr": "Pourquoi la rubéole est-elle une préoccupation pendant la grossesse ?",
+        "en": "Why is rubella a concern during pregnancy?"
+      },
+      "a": {
+        "fr": "<p>Le virus traverse le placenta : chez une femme enceinte, l’infection peut causer une fausse couche ou des malformations chez le bébé. Si vous prévoyez une grossesse, assurez-vous d’être protégée. Le vaccin est contre-indiqué pendant la grossesse, et il faut éviter de devenir enceinte dans le mois qui suit la vaccination. Une femme enceinte qui a été en contact avec une personne atteinte devrait consulter son médecin.</p>",
+        "en": "<p>The virus crosses the placenta: in a pregnant woman, infection can cause a miscarriage or malformations in the baby. If you are planning a pregnancy, make sure you are protected. The vaccine must not be given during pregnancy, and you should avoid becoming pregnant in the month after vaccination. A pregnant woman who has been in contact with someone who has rubella should see her doctor.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Rubéole » (mis à jour le 20 juin 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/rubeole"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la rougeole, la rubéole et les oreillons (RRO) » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « RRO : vaccin contre la rougeole, la rubéole et les oreillons » (mis à jour le 24 septembre 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+        }
+      ],
+      "notes": "« ne se donne pas » restates « contre-indiqué pendant la grossesse ». Verification (2026-11-12): « ne se donne pas » replaced by the page’s « contre-indiqué » (EN « must not be given », as on the page)."
+    },
+    {
+      "id": "rubeole-risque-voyage",
+      "theme": "page:rubeole",
+      "q": {
+        "fr": "La rubéole est-elle un risque en voyage ?",
+        "en": "Is rubella a risk when travelling?"
+      },
+      "a": {
+        "fr": "<p>La rubéole est encore fréquente dans plusieurs pays, alors que le risque de la contracter au Canada est très faible. Elle se transmet par les sécrétions du nez et de la gorge d’une personne infectée. Au Québec, les enfants reçoivent le vaccin à 12 et à 18 mois, dans un vaccin combiné qui protège aussi contre la rougeole, les oreillons et la varicelle (RRO-Var).</p>",
+        "en": "<p>Rubella is still common in several countries, while the risk of catching it in Canada is very low. It spreads through the nose and throat secretions of an infected person. In Québec, children receive the vaccine at 12 and 18 months, in a combined vaccine that also protects against measles, mumps and chickenpox (RRO-Var, known in English as MMRV).</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Rubéole » (mis à jour le 20 juin 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/rubeole"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la rougeole, la rubéole et les oreillons (RRO) » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-combine-rougeole-rubeole-et-oreillons-rro"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « RRO : vaccin contre la rougeole, la rubéole et les oreillons » (mis à jour le 24 septembre 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/rro-vaccin-contre-la-rougeole-la-rubeole-et-les-oreillons/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "tetanos-rappel-voyage",
+      "theme": "page:tetanos",
+      "q": {
+        "fr": "Ai-je besoin d’un rappel contre le tétanos avant de voyager ?",
+        "en": "Do I need a tetanus booster before travelling?"
+      },
+      "a": {
+        "fr": "<p>Au Québec, l’adulte reçoit une dose de rappel à 50 ans. Selon le Protocole d’immunisation du Québec, aucun rappel n’est nécessaire avant cet âge si la vaccination de base est complète, ni si une dose a été reçue à partir de 40 ans. Dans des circonstances exceptionnelles, comme un séjour où l’accès aux soins est limité, une personne de 18 ans ou plus peut recevoir le vaccin dT si sa dernière dose remonte à au moins 5 ans.</p>",
+        "en": "<p>In Québec, adults receive one booster dose at age 50. According to the Protocole d’immunisation du Québec, no booster is needed before that age if the primary series is complete, nor if a dose was received from age 40. In exceptional circumstances, such as a stay where access to care is limited, a person aged 18 or older may receive the dT vaccine if their last dose was at least 5 years ago.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Tétanos » (mis à jour le 12 janvier 2023)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie et le tétanos (dT) » (mis à jour le 30 janvier 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "No « every 10 years » booster: not in the sources (see page notes). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "tetanos-transmission",
+      "theme": "page:tetanos",
+      "q": {
+        "fr": "Comment attrape-t-on le tétanos ?",
+        "en": "How do you get tetanus?"
+      },
+      "a": {
+        "fr": "<p>La bactérie vit surtout dans la boue, la poussière et le sol, mais aussi dans les selles et parfois la salive. Elle pénètre par une plaie, même petite (écorchure, éraflure, clou rouillé, aiguille souillée), puis produit une toxine qui atteint les nerfs. Toucher un objet contaminé ne suffit pas, et la maladie ne se transmet pas d’une personne à l’autre. Le tétanos est présent partout dans le monde.</p>",
+        "en": "<p>The bacterium lives mainly in mud, dust and soil, but also in stool and sometimes saliva. It enters through a wound, even a small one (a graze, a scrape, a rusty nail, a dirty needle), then produces a toxin that attacks the nerves. Touching a contaminated object is not enough, and the disease does not spread from person to person. Tetanus is found everywhere in the world.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Tétanos » (mis à jour le 12 janvier 2023)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie et le tétanos (dT) » (mis à jour le 30 janvier 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "tetanos-blessure",
+      "theme": "page:tetanos",
+      "q": {
+        "fr": "Que faire en cas de blessure ?",
+        "en": "What should I do if I get injured?"
+      },
+      "a": {
+        "fr": "<p>Nettoyez bien la plaie : c’est indispensable. Selon les vaccins reçus auparavant, un vaccin contre le tétanos peut être recommandé, notamment après une plaie souillée (terre, poussière, salive ou selles), une plaie pénétrante (morsure, clou rouillé), une brûlure ou une engelure. Cette prévention doit être faite le plus tôt possible, idéalement dans les 3 jours; elle est quand même donnée après ce délai. En cas de doute, au Québec, appelez Info-Santé 811.</p>",
+        "en": "<p>Clean the wound well: this is essential. Depending on the vaccines received before, a tetanus vaccine may be recommended, especially after a soiled wound (soil, dust, saliva or stool), a puncture wound (bite, rusty nail), a burn or frostbite. This prevention should be done as soon as possible, ideally within 3 days; it is still given after that. If in doubt, in Québec, call Info-Santé 811.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Tétanos » (mis à jour le 12 janvier 2023)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie et le tétanos (dT) » (mis à jour le 30 janvier 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "Same simplification of PIQ wound prophylaxis as the page (flagged in the page notes for the medical reviewer). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hepatite-a-b-vaccin-combine",
+      "theme": "page:twinrix",
+      "q": {
+        "fr": "À quoi sert le vaccin combiné contre l’hépatite A et B ?",
+        "en": "What is the combined hepatitis A and B vaccine for?"
+      },
+      "a": {
+        "fr": "<p>Ce vaccin protège contre deux infections du foie : l’hépatite A, transmise surtout par l’eau ou les aliments contaminés, et l’hépatite B, transmise par le sang et les liquides biologiques, notamment lors de relations sexuelles. Pour chacune, la recommandation dépend de la prévalence dans le pays visité. Contre l’hépatite A, la vaccination est recommandée à tous les voyageurs qui se rendent dans un pays à prévalence modérée, élevée ou très élevée. Consultez la <a href=\"/pays/\">page de votre destination</a>.</p>",
+        "en": "<p>This vaccine protects against two liver infections: hepatitis A, spread mainly through contaminated water or food, and hepatitis B, spread through blood and body fluids, notably during sex. For each, the recommendation depends on prevalence in the country you visit. For hepatitis A, vaccination is recommended for all travellers going to a country with moderate, high or very high prevalence. See <a href=\"/en/countries/\">your destination’s page</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite B » (mis à jour le 18 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite A » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-a"
+        }
+      ],
+      "notes": "Product name not used (the INSPQ chapters do not name it; see page notes). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hepatite-b-qui-vacciner-voyage",
+      "theme": "page:twinrix",
+      "q": {
+        "fr": "Qui devrait être vacciné contre l’hépatite B avant un voyage ?",
+        "en": "Who should be vaccinated against hepatitis B before a trip?"
+      },
+      "a": {
+        "fr": "<p>Pour un pays où la prévalence de l’hépatite B est modérée ou élevée, la vaccination vise tous les voyageurs. Pour un pays à prévalence faible, elle vise certains groupes : personnes à risque selon les critères de gratuité du Protocole d’immunisation du Québec, longs séjours, travail à l’étranger, tourisme médical et adoption. Pour un pays à prévalence indéterminée, la recommandation varie selon le pays.</p>",
+        "en": "<p>For a country where hepatitis B prevalence is moderate or high, vaccination is for all travellers. For a low-prevalence country, it is for certain groups: people at risk under the free-vaccine criteria of the Protocole d’immunisation du Québec, long stays, working abroad, medical tourism and adoption. For a country with undetermined prevalence, the recommendation varies by country.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite B » (mis à jour le 18 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite A » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-a"
+        }
+      ],
+      "notes": "Long-stay and work-abroad examples (expatriates, VFR, humanitarian workers, etc.) omitted for brevity; the list of groups itself is complete. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "hepatite-a-b-calendrier-accelere",
+      "theme": "page:twinrix",
+      "q": {
+        "fr": "Qu’est-ce que le calendrier accéléré du vaccin combiné ?",
+        "en": "What is the accelerated schedule for the combined vaccine?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin combiné contre l’hépatite A et B peut être donné en 4 doses selon un calendrier accéléré, qui fait monter plus vite les anticorps contre l’hépatite B. On pourrait l’utiliser pour une personne d’un des groupes visés par l’hépatite B qui part dans moins de 28 jours vers un pays à prévalence modérée ou élevée. Il n’est pas indiqué pour la plupart des voyageurs, par exemple pour un court séjour dans un tout-inclus.</p>",
+        "en": "<p>The combined hepatitis A and B vaccine can be given as 4 doses on an accelerated schedule, which raises hepatitis B antibodies faster. It could be used for a person in one of the hepatitis B target groups who leaves in less than 28 days for a country with moderate or high prevalence. It is not indicated for most travellers, for example for a short stay at an all-inclusive resort.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite B » (mis à jour le 18 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite A » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-a"
+        }
+      ],
+      "notes": "Dose intervals not given: INSPQ does not state them (see page notes). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "typhoide-vaccin-recommande",
+      "theme": "page:typhoide",
+      "q": {
+        "fr": "Le vaccin contre la typhoïde est-il recommandé pour mon voyage ?",
+        "en": "Is the typhoid vaccine recommended for my trip?"
+      },
+      "a": {
+        "fr": "<p>La vaccination est recommandée à tous les voyageurs qui séjournent en Asie du Sud (Afghanistan, Bangladesh, Bhoutan, Inde, Népal, Maldives, Pakistan et Sri Lanka), où le risque est élevé. Ailleurs, lorsque le risque est intermédiaire, faible ou indéterminé, elle est à envisager pour certains voyageurs selon leur situation. Pour un séjour dans un tout-inclus d’un de ces pays, elle n’est généralement pas recommandée. Consultez la <a href=\"/pays/\">page de votre destination</a>.</p>",
+        "en": "<p>Vaccination is recommended for all travellers staying in South Asia (Afghanistan, Bangladesh, Bhutan, India, Nepal, Maldives, Pakistan and Sri Lanka), where the risk is high. Elsewhere, where the risk is intermediate, low or undetermined, it should be considered for some travellers depending on their situation. For a stay at an all-inclusive resort in one of those countries, it is generally not recommended. See <a href=\"/en/countries/\">your destination’s page</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Typhoïde : épidémiologie » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/epidemiologie"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Typhoïde : immunisation » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "typhoide-criteres-vaccination",
+      "theme": "page:typhoide",
+      "q": {
+        "fr": "Qui devrait envisager le vaccin contre la typhoïde hors de l’Asie du Sud ?",
+        "en": "Who should consider the typhoid vaccine outside South Asia?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin est à envisager dans les situations suivantes :</p><ul><li>un long séjour;</li><li>un séjour hors des circuits touristiques, dans de mauvaises conditions sanitaires;</li><li>une visite à la famille ou à des amis, ou des contacts étroits avec la population locale;</li><li>un risque accru de complications (enfants, personnes aspléniques ou immunosupprimées);</li><li>des défenses de l’estomac diminuées (achlorhydrie, gastrectomie, vagotomie, ou prise continue d’inhibiteurs de la pompe à protons ou d’antagonistes des récepteurs H2).</li></ul><p>Le risque est évalué avec le professionnel de la santé.</p>",
+        "en": "<p>The vaccine should be considered in the following situations:</p><ul><li>a long stay;</li><li>a stay off the usual tourist routes, in poor sanitary conditions;</li><li>visiting friends or family, or close contact with the local population;</li><li>a higher risk of complications (children, people who are asplenic or immunosuppressed);</li><li>reduced stomach defences (achlorhydria, gastrectomy, vagotomy, or continuous use of proton pump inhibitors or H2 receptor antagonists).</li></ul><p>The risk is assessed with the health professional.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Typhoïde : épidémiologie » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/epidemiologie"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Typhoïde : immunisation » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation"
+        }
+      ],
+      "notes": "Complete list of INSPQ criteria, reworded; « surtout si l’accès à des soins médicaux de qualité risque d’être difficile » omitted from the second criterion for brevity. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "typhoide-transmission",
+      "theme": "page:typhoide",
+      "q": {
+        "fr": "Comment la typhoïde se transmet-elle ?",
+        "en": "How is typhoid spread?"
+      },
+      "a": {
+        "fr": "<p>La typhoïde est causée par la bactérie <em>Salmonella typhi</em>, dont l’humain est le seul réservoir. Elle se transmet surtout par de l’eau ou des aliments contaminés par les selles d’une personne infectée, et on la rencontre couramment dans les pays en voie de développement où l’hygiène et la salubrité sont déficientes. Les symptômes (fièvre, maux de tête, diarrhée ou constipation, fatigue) apparaissent habituellement de une à trois semaines après l’infection.</p>",
+        "en": "<p>Typhoid is caused by the bacterium <em>Salmonella typhi</em>, for which humans are the only reservoir. It spreads mainly through water or food contaminated by the stool of an infected person, and it is common in developing countries where hygiene and sanitation are poor. Symptoms (fever, headache, diarrhea or constipation, fatigue) usually appear one to three weeks after infection.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Typhoïde : épidémiologie » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/epidemiologie"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Typhoïde : immunisation » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "varicelle-qui-vacciner",
+      "theme": "page:varicelle",
+      "q": {
+        "fr": "Qui devrait être vacciné contre la varicelle ?",
+        "en": "Who should be vaccinated against chickenpox?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin est recommandé à toute personne d’au moins 1 an qui n’a pas été vaccinée ou qui n’a pas eu la varicelle. Il est offert gratuitement dans le cadre du Programme québécois d’immunisation. À partir de 50 ans, on recommande plutôt le vaccin contre le zona (Shingrix).</p>",
+        "en": "<p>The vaccine is recommended for anyone aged 1 year or older who has not been vaccinated or has not had chickenpox. It is offered free of charge under the Québec Immunization Program. From age 50, the shingles vaccine (Shingrix) is recommended instead.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Varicelle » (mis à jour le 17 avril 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/varicelle"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la varicelle » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-varicelle"
+        }
+      ],
+      "notes": "« ou » kept as in the source (see page notes). The page gives no eligibility details for the free vaccine. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "varicelle-calendrier-enfants",
+      "theme": "page:varicelle",
+      "q": {
+        "fr": "À quel âge les enfants sont-ils vaccinés contre la varicelle ?",
+        "en": "At what age are children vaccinated against chickenpox?"
+      },
+      "a": {
+        "fr": "<p>Depuis le 1er juin 2019, le calendrier de vaccination du Québec prévoit 2 doses d’un vaccin combiné qui protège contre la rougeole, la rubéole, les oreillons et la varicelle, à 12 mois et à 18 mois. Depuis la mise en place de cette vaccination, les hospitalisations d’enfants pour des complications de la varicelle ont diminué de près de 90 % au Québec.</p>",
+        "en": "<p>Since June 1, 2019, Québec’s vaccination schedule has included 2 doses of a combined vaccine that protects against measles, rubella, mumps and chickenpox, at 12 months and 18 months. Since this vaccination was introduced, hospitalizations of children for chickenpox complications have dropped by nearly 90% in Québec.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Varicelle » (mis à jour le 17 avril 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/varicelle"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la varicelle » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-varicelle"
+        }
+      ],
+      "notes": "Source pages date from 2019; page notes suggest confirming the 12/18-month schedule is still current. No adult schedule is given in the sources. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "varicelle-precautions-apres-vaccin",
+      "theme": "page:varicelle",
+      "q": {
+        "fr": "Quelles précautions prendre après le vaccin contre la varicelle ?",
+        "en": "What precautions should I take after the chickenpox vaccine?"
+      },
+      "a": {
+        "fr": "<ul><li>Une femme vaccinée doit éviter de devenir enceinte dans le mois qui suit.</li><li>Si des boutons apparaissent, couvrez-les; si ce n’est pas possible, évitez le contact avec les nouveau-nés prématurés et les personnes au système immunitaire affaibli tant qu’ils sont présents.</li><li>Ne donnez pas de médicament contenant de l’aspirine (acide acétylsalicylique) à une personne de moins de 18 ans dans les 6 semaines suivant la vaccination.</li></ul>",
+        "en": "<ul><li>A woman who is vaccinated should avoid becoming pregnant in the following month.</li><li>If spots appear, cover them; if that is not possible, avoid contact with premature newborns and people with a weakened immune system while they are present.</li><li>Do not give any medication containing aspirin (acetylsalicylic acid) to anyone under 18 in the 6 weeks after vaccination.</li></ul>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Varicelle » (mis à jour le 17 avril 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/varicelle"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre la varicelle » (mis à jour le 30 mai 2019)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-varicelle"
+        }
+      ],
+      "notes": "Verification (2026-11-12): FR « sinon » (ambiguous) replaced by « si ce n’est pas possible », as on the page and in the EN."
+    },
+    {
+      "id": "vph-vaccin-gratuit",
+      "theme": "page:vph",
+      "q": {
+        "fr": "Qui peut recevoir gratuitement le vaccin contre les VPH ?",
+        "en": "Who can get the HPV vaccine free of charge?"
+      },
+      "a": {
+        "fr": "<p>Le Programme québécois d’immunisation l’offre gratuitement aux élèves de 4e année du primaire, aux jeunes de 9 à 20 ans, aux personnes de 21 à 45 ans immunodéprimées ou infectées par le VIH, et aux hommes de 26 ans et moins qui ont ou prévoient avoir des relations sexuelles avec des hommes. Une mesure temporaire, depuis octobre 2024, l’offre aussi aux 21 à 45 ans selon les stocks. Les autres personnes peuvent se faire vacciner en payant le vaccin.</p>",
+        "en": "<p>The Québec Immunization Program offers it free of charge to students in grade 4 of elementary school, young people aged 9 to 20, people aged 21 to 45 who are immunocompromised or infected with HIV, and men aged 26 and under who have or plan to have sex with men. A temporary measure, since October 2024, also offers it to people aged 21 to 45, depending on supply. Others can be vaccinated by paying for the vaccine.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Virus du papillome humain (VPH) » (mis à jour le 30 mai 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/itss/virus-du-papillome-humain-vph"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre les infections par les virus du papillome humain (VPH) » (mis à jour le 16 octobre 2024)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-infections-par-vph"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme de vaccination contre les infections par les virus du papillome humain (VPH) » (mis à jour le 12 mai 2025)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-de-vaccination-contre-les-infections-par-les-vph"
+        }
+      ],
+      "notes": "FLAG: the temporary 21–45 offer has no end date on Québec.ca; the clinic must confirm it is still running before publishing (same flag as the page). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "vph-nombre-de-doses",
+      "theme": "page:vph",
+      "q": {
+        "fr": "Combien de doses du vaccin contre les VPH faut-il ?",
+        "en": "How many doses of the HPV vaccine are needed?"
+      },
+      "a": {
+        "fr": "<p>Avec le vaccin VPH-9, les personnes de 20 ans et moins reçoivent une dose, et celles de 21 ans et plus, deux doses à au moins 6 mois d’intervalle. Les personnes dont le système immunitaire est affaibli ont besoin de doses additionnelles, selon un calendrier spécial. La protection dure au moins 11 ans et devrait durer plusieurs décennies; rien n’indique pour l’instant qu’un rappel soit nécessaire.</p>",
+        "en": "<p>With the HPV-9 vaccine, people aged 20 and under receive one dose, and those aged 21 and over receive two doses at least 6 months apart. People with a weakened immune system need additional doses on a special schedule. Protection lasts at least 11 years and is expected to last several decades; there is currently no indication that a booster is needed.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Virus du papillome humain (VPH) » (mis à jour le 30 mai 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/itss/virus-du-papillome-humain-vph"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre les infections par les virus du papillome humain (VPH) » (mis à jour le 16 octobre 2024)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-infections-par-vph"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme de vaccination contre les infections par les virus du papillome humain (VPH) » (mis à jour le 12 mai 2025)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-de-vaccination-contre-les-infections-par-les-vph"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "vph-deja-actif-sexuellement",
+      "theme": "page:vph",
+      "q": {
+        "fr": "Le vaccin contre les VPH est-il utile si j’ai déjà eu des relations sexuelles ?",
+        "en": "Is the HPV vaccine useful if I have already been sexually active?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin est plus efficace s’il est reçu avant toute infection par les VPH, donc idéalement avant les premières relations sexuelles. Il reste toutefois indiqué pour les personnes qui ont déjà eu une infection ou une lésion liée aux VPH, même s’il n’a aucun effet sur un virus déjà présent. La vaccination ne remplace pas le dépistage du cancer du col de l’utérus.</p>",
+        "en": "<p>The vaccine is most effective when received before any HPV infection, so ideally before becoming sexually active. It is still indicated for people who have already had an HPV-related infection or lesion, even though it has no effect on a virus already present. Vaccination does not replace cervical cancer screening.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Virus du papillome humain (VPH) » (mis à jour le 30 mai 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/itss/virus-du-papillome-humain-vph"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre les infections par les virus du papillome humain (VPH) » (mis à jour le 16 octobre 2024)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-infections-par-vph"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme de vaccination contre les infections par les virus du papillome humain (VPH) » (mis à jour le 12 mai 2025)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-de-vaccination-contre-les-infections-par-les-vph"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "zika-vaccin-prevention",
+      "theme": "page:zika",
+      "q": {
+        "fr": "Existe-t-il un vaccin contre le Zika ?",
+        "en": "Is there a vaccine against Zika?"
+      },
+      "a": {
+        "fr": "<p>Non. Aucun vaccin n’est offert pour l’instant (des vaccins sont en développement), et il n’existe pas de traitement spécifique. Dans les régions où le virus est endémique, la prévention repose sur la protection contre les piqûres des moustiques, qui piquent surtout le jour : vêtements longs, amples et pâles, et insectifuge sur la peau exposée (DEET 30 % ou icaridine 20 % dès 12 ans; pendant la grossesse et l’allaitement, le DEET 30 % est le premier choix).</p>",
+        "en": "<p>No. No vaccine is currently available (vaccines are in development), and there is no specific treatment. In regions where the virus is endemic, prevention relies on protection from bites by mosquitoes, which mostly bite during the day: long, loose, light-coloured clothing, and insect repellent on exposed skin (DEET 30% or icaridin 20% from age 12; during pregnancy and breastfeeding, DEET 30% is the first choice).</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Zika » (mis à jour le 23 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/zika"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "« dès 12 ans » restates « chez l’adulte et l’enfant de 12 ans et plus, les premiers choix sont… ». Repellent advice for children under 12 not given on the page. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "zika-grossesse-voyage",
+      "theme": "page:zika",
+      "q": {
+        "fr": "Je suis enceinte ou je planifie une grossesse : puis-je voyager dans une région touchée par le Zika ?",
+        "en": "I am pregnant or planning a pregnancy: can I travel to an area with Zika?"
+      },
+      "a": {
+        "fr": "<p>Au Québec, le Comité consultatif du CHU Sainte-Justine recommande aux personnes enceintes ou qui planifient une grossesse de reporter tout voyage dans une zone où le virus est activement transmis par les moustiques. Si le voyage ne peut pas être reporté, il faut se protéger rigoureusement contre les piqûres et prévenir aussi la transmission sexuelle. Pendant la grossesse, le virus peut causer chez le bébé une microcéphalie ou d’autres malformations, même si la mère n’a aucun symptôme.</p>",
+        "en": "<p>In Québec, the CHU Sainte-Justine advisory committee recommends that people who are pregnant or planning a pregnancy postpone any trip to an area where the virus is actively transmitted by mosquitoes. If the trip cannot be postponed, protect yourself rigorously against bites and also prevent sexual transmission. During pregnancy, the virus can cause microcephaly or other malformations in the baby, even if the mother has no symptoms.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Zika » (mis à jour le 23 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/zika"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "zika-delai-avant-conception",
+      "theme": "page:zika",
+      "q": {
+        "fr": "Combien de temps attendre après un voyage dans une région touchée par le Zika avant de concevoir un enfant ?",
+        "en": "How long should I wait after a trip to an area with Zika before trying to conceive?"
+      },
+      "a": {
+        "fr": "<p>Il est fortement recommandé d’attendre au moins 2 mois après le retour d’un pays où il y a des cas récents et continus de Zika avant de devenir enceinte. Les CDC et le Comité consultatif de la médecine tropicale et de la médecine des voyages recommandent aussi aux hommes d’attendre au moins 3 mois après leur retour avant d’essayer de concevoir un enfant ou d’avoir des relations sexuelles non protégées.</p>",
+        "en": "<p>It is strongly recommended to wait at least 2 months after returning from a country with recent and continuous Zika cases before becoming pregnant. The CDC and the Committee to Advise on Tropical Medicine and Travel also recommend that men wait at least 3 months after returning before trying to conceive or having unprotected sex.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Zika » (mis à jour le 23 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/zika"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "The 2-month period is kept impersonal, as INSPQ gives it (see page notes: INSPQ does not detail exactly who it applies to and refers to CATMAT table 1a). English committee name matches the page’s English text. Verification (2026-11-12): question restored the Zika-area condition (it read as any trip)."
+    },
+    {
+      "id": "zona-qui-vacciner",
+      "theme": "page:zona",
+      "q": {
+        "fr": "Qui peut se faire vacciner contre le zona ?",
+        "en": "Who can get the shingles vaccine?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin est offert gratuitement aux personnes de 71 ans et plus et aux personnes immunodéprimées de 18 ans et plus. Les personnes de 50 à 70 ans peuvent aussi le recevoir pour réduire leur risque de zona, mais elles doivent le payer, et les frais peuvent varier. Le vaccin ne peut pas être remboursé dans le cadre du Programme québécois d’immunisation.</p>",
+        "en": "<p>The vaccine is offered free of charge to people aged 71 and over and to immunocompromised people aged 18 and over. People aged 50 to 70 can also receive it to reduce their risk of shingles, but they must pay for it, and fees may vary. The vaccine cannot be reimbursed under the Québec Immunization Program.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « À propos du zona » (mis à jour le 20 novembre 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/zona/problemes-de-sante-zona-apropos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre le zona » (mis à jour le 2 février 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-vaccination-contre-zona"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "zona-doses-efficacite",
+      "theme": "page:zona",
+      "q": {
+        "fr": "Combien de doses du vaccin contre le zona faut-il, et est-il efficace ?",
+        "en": "How many doses of the shingles vaccine are needed, and does it work?"
+      },
+      "a": {
+        "fr": "<p>Il s’agit d’un vaccin inactivé : deux doses, données à 2 à 12 mois d’intervalle, sont nécessaires pour une protection de longue durée. Le vaccin est très efficace pour prévenir le zona pendant au moins 10 ans, et son efficacité ne diminue pas avec l’âge. Si une personne vaccinée fait quand même un zona, son risque de névralgie (douleur persistante) diminue de 90 %.</p>",
+        "en": "<p>It is an inactivated vaccine: two doses, given 2 to 12 months apart, are needed for long-lasting protection. The vaccine is very effective at preventing shingles for at least 10 years, and its effectiveness does not decrease with age. If a vaccinated person still gets shingles, their risk of neuralgia (lasting pain) is reduced by 90%.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « À propos du zona » (mis à jour le 20 novembre 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/zona/problemes-de-sante-zona-apropos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre le zona » (mis à jour le 2 février 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-vaccination-contre-zona"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "zona-cause-risque",
+      "theme": "page:zona",
+      "q": {
+        "fr": "Qu’est-ce que le zona et qui risque d’en faire un ?",
+        "en": "What is shingles and who is at risk?"
+      },
+      "a": {
+        "fr": "<p>Le zona survient quand le virus de la varicelle, resté dans l’organisme, se réactive. Il touche surtout des adultes et des aînés qui ont déjà eu la varicelle; une personne sur trois en fera un au cours de sa vie. Il cause une éruption douloureuse d’un seul côté du corps. Sa complication la plus fréquente, la névralgie, peut durer des mois ou des années, et ce risque augmente avec l’âge et lorsque le système immunitaire est affaibli.</p>",
+        "en": "<p>Shingles occurs when the chickenpox virus, which has stayed in the body, reactivates. It mainly affects adults and seniors who have had chickenpox; one person in three will have it in their lifetime. It causes a painful rash on one side of the body. Its most common complication, neuralgia, can last months or years, and this risk increases with age and when the immune system is weakened.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « À propos du zona » (mis à jour le 20 novembre 2019)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/zona/problemes-de-sante-zona-apropos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccination contre le zona » (mis à jour le 2 février 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-vaccination-contre-zona"
+        }
+      ],
+      "notes": "« surtout » restates « généralement ». Verification (2026-11-12): OK"
+    }
+  ]
+}

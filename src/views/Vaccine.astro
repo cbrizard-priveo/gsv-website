@@ -6,6 +6,8 @@ import SubHero from '../components/vaccine/SubHero.astro';
 import Article from '../components/vaccine/Article.astro';
 import Explorer from '../components/vaccine/Explorer.astro';
 import Clinics from '../components/home/Clinics.astro';
+import Faq from '../components/priveo/Faq.astro';
+import { answerHtml, faqCopy, faqForVaccine, faqJsonLd } from '../lib/faq';
 import { home } from '../data/home';
 import { BOOKING } from '../data/site';
 import { vaccineCopy } from '../data/vaccine';
@@ -23,12 +25,15 @@ const seo = vaccineSeo[page.route];
 const t = vaccineSeoCopy[page.lang];
 const noVaccine = seo?.noVaccine ?? false;
 const where = noVaccine ? t.whereConsult : seo?.where ? t.where(seo.where) : undefined;
+const faq = faqForVaccine(page.route).map((i) => ({ q: i.q[page.lang], a: answerHtml(i, page.lang) }));
+const head = faq.length ? [...page.head, `<script type="application/ld+json">${JSON.stringify(faqJsonLd(faq)).replace(/</g, '\\u003c')}</script>`] : page.head;
 const crumbs = [{ label: copy.home, href: page.lang === 'fr' ? '/' : '/en/' }, copy.section, { label: v.name }];
 ---
 
-<BaseLayout lang={page.lang} htmlLang={page.htmlLang} title={page.title} head={page.head} route={page.route} alt={page.alt}>
+<BaseLayout lang={page.lang} htmlLang={page.htmlLang} title={page.title} head={head} route={page.route} alt={page.alt}>
   <SubHero title={seo?.h1 ?? v.title} served={noVaccine ? t.servedConsult : t.served} lede={v.lede} image={v.image} badge={copy.badge} crumbs={crumbs} crumbsLabel={copy.crumbs} cta={{ label: copy.book, href: BOOKING }} />
   <Article body={v.body} sources={v.sources} copy={copy} lang={page.lang} />
+  <Faq title={faqCopy[page.lang].title} lede={faqCopy[page.lang].lede} items={faq} more={faqCopy[page.lang].more} />
   <Explorer copy={copy} vaccines={vaccineList(page.lang)} current={page.route} />
   <Clinics content={home[page.lang].clinics} lang={page.lang} title={where} cta={{ label: noVaccine ? t.bookConsult : t.book, href: BOOKING }} />
 </BaseLayout>

@@ -8,6 +8,8 @@ import HeroSub from '../components/priveo/HeroSub.astro';
 import ClinicDetail from '../components/priveo/ClinicDetail.astro';
 import ServiceGrid from '../components/priveo/ServiceGrid.astro';
 import BookingSteps from '../components/priveo/BookingSteps.astro';
+import Faq from '../components/priveo/Faq.astro';
+import { clinicFaq, faqCopy, faqJsonLd } from '../lib/faq';
 import { BOOKING, CLINICS, type Lang } from '../data/site';
 import { CLINIC_CONTACT, clinicCopy, clinicPath, type ClinicPage } from '../data/clinics';
 import { absolute, seoHead } from '../lib/seo';
@@ -22,6 +24,7 @@ const t = clinicCopy[lang];
 const place = CLINICS[clinic.index];
 const path = clinicPath(clinic, lang);
 const book = { label: t.book, href: BOOKING };
+const faq = clinicFaq(clinic, lang);
 
 const head = seoHead({
   title: clinic.title[lang],
@@ -30,7 +33,7 @@ const head = seoHead({
   lang,
   alternates: { fr: clinicPath(clinic, 'fr'), en: clinicPath(clinic, 'en') },
   image: absolute(clinic.photo),
-  jsonLd: {
+  jsonLd: [{
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
     name: `Groupe Santé Voyage – ${clinic.name}`,
@@ -55,7 +58,7 @@ const head = seoHead({
       closes: '16:30',
     },
     parentOrganization: { '@type': 'Organization', name: 'Groupe Santé Voyage', url: absolute(lang === 'fr' ? '/' : '/en/') },
-  },
+  }, faqJsonLd(faq)],
 });
 ---
 
@@ -64,4 +67,5 @@ const head = seoHead({
   <ClinicDetail clinic={clinic} lang={lang} />
   <ServiceGrid name={clinic.short} lang={lang} />
   <BookingSteps tagline={t.steps.tagline} title={t.steps.title} steps={t.steps.items} cta={book} />
+  <Faq title={faqCopy[lang].title} items={faq} more={faqCopy[lang].more} />
 </BaseLayout>

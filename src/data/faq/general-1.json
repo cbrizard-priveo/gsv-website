@@ -1,0 +1,316 @@
+{
+  "items": [
+    {
+      "id": "quand-consulter-avant-depart",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Combien de temps avant mon départ dois-je consulter ?",
+        "en": "How long before my trip should I see a travel health professional?"
+      },
+      "a": {
+        "fr": "<p>Le gouvernement du Canada conseille de consulter une clinique santé-voyage ou un professionnel de la santé <strong>environ six semaines avant le départ</strong>, pour obtenir des conseils et des recommandations personnalisés. Il ajoute que, même si le départ approche, prendre rendez-vous en vaut la peine. Cette rencontre permet notamment de vérifier que vos vaccins de routine sont à jour, peu importe la destination, et de discuter des vaccins ou médicaments supplémentaires qui pourraient vous convenir selon votre santé et votre destination.</p><p>Pour voir ce que l’INSPQ recommande pour votre destination, consultez nos <a href=\"/pays/\">fiches par pays</a>.</p><p>Le message de notre clinique : « Il n’est jamais trop tard pour une consultation. »</p>",
+        "en": "<p>The Government of Canada advises seeing a travel health clinic or a health care provider <strong>about six weeks before you leave</strong> to get personalized advice and recommendations. It adds that even if your departure is coming up soon, booking an appointment is still worthwhile. The visit is a chance to check that your routine vaccines are up to date, whatever your destination, and to discuss any additional vaccines or medications that may suit you based on your health and destination.</p><p>To see what the INSPQ recommends for your destination, browse our <a href=\"/en/countries/\">country pages</a>.</p><p>Our clinic’s message: “It’s never too late for a consultation.”</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Canada, « Vaccins et médicaments avant le départ » (date de modification : 2026-08-28)",
+          "href": "https://voyage.gc.ca/voyager/sante-securite/vaccins"
+        },
+        {
+          "label": "Government of Canada, “Vaccines and medications before travel” (date modified: 2026-08-28)",
+          "href": "https://travel.gc.ca/travelling/health-safety/vaccines"
+        }
+      ],
+      "notes": "« Il n’est jamais trop tard pour une consultation » is the clinic’s own line (from its current FAQ), presented separately as the clinic’s message, not as government advice. The clinic’s old FAQ said 6–8 weeks; the government page says about six weeks, which is what we use. EN source page not opened in the browser (FR version read); facts are identical by design but please confirm. Verification (2026-11-12): FR and EN pages both opened; both say « environ six semaines » / “about 6 weeks” and « Date de modification : 2026-08-28 » / “Date modified: 2026-08-28”. EN source label corrected (page title is “Vaccines and medications before travel”, not “before you travel”) and date added. Added the government’s own line that booking is worthwhile even close to departure. The clinic’s line moved to its own final paragraph, in quotation marks and labelled as the clinic’s message, after the government advice and the country-page pointer."
+    },
+    {
+      "id": "depart-dans-quelques-jours",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Je pars dans quelques jours : est-il trop tard ?",
+        "en": "I’m leaving in a few days: is it too late?"
+      },
+      "a": {
+        "fr": "<p>Non. Le gouvernement du Canada précise que, même si la date du départ approche, il vaut la peine de prendre rendez-vous pour obtenir des conseils et des recommandations adaptés à votre voyage.</p><p>Certains vaccins se donnent en plusieurs doses. Selon l’INSPQ, par exemple, le vaccin combiné contre l’hépatite A et B pourrait être donné selon un calendrier accéléré à 4 doses à une personne de certains groupes particuliers qui part dans moins de 28 jours vers un pays où la prévalence de l’hépatite B est modérée ou élevée; ce calendrier n’est toutefois pas indiqué pour la plupart des voyageurs.</p><p>Voir aussi : <a href=\"/vaccination/combinaison-de-lhepatite-a-et-b-twinrix/\">vaccin combiné hépatite A et B (Twinrix)</a>.</p>",
+        "en": "<p>No. The Government of Canada notes that even if your departure date is close, it is still worth booking an appointment to get advice and recommendations tailored to your trip.</p><p>Some vaccines are given in several doses. According to the INSPQ, for example, the combined hepatitis A and B vaccine could be given on an accelerated 4-dose schedule to a person in certain specific groups leaving in less than 28 days for a country where hepatitis B prevalence is moderate or high; this schedule is not indicated for most travellers, however.</p><p>See also: <a href=\"/en/vaccination/combination-hepatitis-a-and-b-vaccination-twinrix/\">combined hepatitis A and B vaccine (Twinrix)</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Canada, « Vaccins et médicaments avant le départ » (date de modification : 2026-08-28)",
+          "href": "https://voyage.gc.ca/voyager/sante-securite/vaccins"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite B » (mis à jour le 18 août 2026), via le texte vérifié du site (twinrix.json / hepatite-b.json)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b"
+        }
+      ],
+      "notes": "The accelerated-schedule fact comes from the site’s verified Twinrix / hepatitis B texts (INSPQ). The INSPQ wording is « modérée ou élevée » prevalence; « modérément ou très présente » restates it — reviewer may prefer the exact terms. The clinic’s old claim that vaccines can be given the day before departure was NOT used (no official source read). Verification (2026-11-12): Government sentence confirmed on voyage.gc.ca and travel.gc.ca (2026-08-28). Twinrix sentence aligned on the verified hepatite-b text: « on pourrait y recourir » for a person in one of the INSPQ’s specific groups (was « peut être donné … à certains voyageurs »); INSPQ prevalence terms « modérée ou élevée » restored."
+    },
+    {
+      "id": "vaccins-obligatoires-ou-recommandes",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Vaccins obligatoires ou recommandés : quelle différence ?",
+        "en": "Required or recommended vaccines: what’s the difference?"
+      },
+      "a": {
+        "fr": "<p>Un vaccin <strong>exigé</strong> est une condition d’entrée fixée par un pays. C’est le cas notamment :</p><ul><li>de la <a href=\"/vaccination/fievre-jaune/\">fièvre jaune</a>, dont certains pays exigent une preuve pour entrer, et d’autres seulement si vous avez transité par une région où la maladie est présente;</li><li>de la <a href=\"/vaccination/poliomyelite/\">poliomyélite</a>, pour certains séjours de plus de 4 semaines dans des pays touchés et à l’entrée de certains pays;</li><li>du <a href=\"/vaccination/infections-a-meningocoque/\">méningocoque</a> pour le Hadj, l’Umrah et le travail saisonnier en Arabie saoudite.</li></ul><p>Un vaccin <strong>recommandé</strong> sert d’abord à protéger votre propre santé selon les risques de la destination (par exemple l’hépatite A). Les exigences peuvent changer : le gouvernement du Canada conseille de les vérifier auprès de l’ambassade ou du consulat du pays. Voir nos <a href=\"/pays/\">fiches par pays</a>.</p>",
+        "en": "<p>A <strong>required</strong> vaccine is an entry condition set by a country. This applies in particular to:</p><ul><li><a href=\"/en/vaccination/yellow-fever-vaccination/\">yellow fever</a>, for which some countries require proof on entry, and others only if you have passed through an area where the disease occurs;</li><li><a href=\"/en/vaccination/poliomyelitis-vaccination/\">polio</a>, for some stays of more than 4 weeks in affected countries and on entry to some countries;</li><li><a href=\"/en/vaccination/meningococcal-vaccination-travel-and-hajj/\">meningococcal disease</a> for the Hajj, Umrah and seasonal work in Saudi Arabia.</li></ul><p>A <strong>recommended</strong> vaccine is mainly meant to protect your own health against the risks at your destination (hepatitis A, for example). Requirements can change: the Government of Canada advises checking them with the country’s embassy or consulate. See our <a href=\"/en/countries/\">country pages</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Fièvre jaune » (mis à jour le 2 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/fievre-jaune"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Poliomyélite » (mis à jour en octobre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Infections invasives à méningocoque » (mis à jour le 22 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/meningocoque"
+        },
+        {
+          "label": "Gouvernement du Canada, « Vaccins et médicaments avant le départ » (date de modification : 2026-08-28)",
+          "href": "https://voyage.gc.ca/voyager/sante-securite/vaccins"
+        }
+      ],
+      "notes": "INSPQ facts taken from the site’s verified vaccine texts (fievre-jaune, poliomyelite, meningocoque), which cite these pages. Polio: per INSPQ the WHO dose is « exigée » for wild or vaccine-derived types 1 and 3 and only « suggérée » for vaccine type 2 — simplified here to « certains séjours »; reviewer may want that nuance. « Souvent pour les voyageurs qui arrivent d’un pays à risque » is drawn from the country files (e.g. Cuba) and voyage.gc.ca (transit); check it is acceptable as a generalization. Hepatitis A as an example of a recommended vaccine: INSPQ recommends it for all travellers to moderate/high/very high prevalence countries. Verification (2026-11-12): Yellow fever bullet: « souvent pour les voyageurs qui arrivent d’un pays à risque » was a generalization; replaced with what voyage.gc.ca/travel.gc.ca actually say (some countries require proof on entry; others if you transited through an area where yellow fever occurs). « Selon l’INSPQ » dropped from the lead since the list now mixes INSPQ and Government of Canada facts (both cited). Polio/meningococcal bullets not re-opened (site verified texts)."
+    },
+    {
+      "id": "destination-soleil-vaccins",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Je pars dans une destination soleil (Cuba, Mexique, République dominicaine) : ai-je besoin de vaccins ?",
+        "en": "I’m going somewhere sunny (Cuba, Mexico, Dominican Republic): do I need vaccines?"
+      },
+      "a": {
+        "fr": "<p>Selon l’INSPQ, le vaccin contre l’<strong>hépatite A</strong> est recommandé à tous les voyageurs qui se rendent à <a href=\"/pays/cuba/\">Cuba</a>, au <a href=\"/pays/mexique/\">Mexique</a> ou en <a href=\"/pays/republique-dominicaine/\">République dominicaine</a>, et la vaccination de base (dont la rougeole) doit être à jour. D’autres recommandations sont propres à chaque pays, par exemple :</p><ul><li>République dominicaine : vaccin contre l’<strong>hépatite B</strong> recommandé à tous les voyageurs; pour un court séjour dans une station balnéaire, se protéger des piqûres de moustiques suffit généralement contre le paludisme.</li><li>Cuba : certificat de fièvre jaune exigé des voyageurs de 9 mois et plus qui arrivent d’un pays à risque de transmission (ou qui ont transité plus de 12 heures dans un aéroport d’un tel pays).</li></ul><p>D’autres vaccins peuvent être recommandés ou envisagés selon votre situation. Les alertes en cours (éclosions, par exemple) sont indiquées sur la fiche de chaque pays : consultez-la avant de partir.</p>",
+        "en": "<p>According to the INSPQ, the <strong>hepatitis A</strong> vaccine is recommended for all travellers going to <a href=\"/en/countries/cuba/\">Cuba</a>, <a href=\"/en/countries/mexico/\">Mexico</a> or the <a href=\"/en/countries/dominican-republic/\">Dominican Republic</a>, and routine vaccination (including measles) should be up to date. Other recommendations are specific to each country, for example:</p><ul><li>Dominican Republic: the <strong>hepatitis B</strong> vaccine is recommended for all travellers; for a short stay at a beach resort, protecting yourself against mosquito bites is generally enough against malaria.</li><li>Cuba: a yellow fever certificate is required from travellers aged 9 months and over arriving from a country with risk of transmission (or who spent more than 12 hours in transit at an airport in such a country).</li></ul><p>Other vaccines may be recommended or considered depending on your situation. Current alerts (outbreaks, for example) are shown on each country page: check it before you leave.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Cuba » (mis à jour le 2026-10-06), via src/data/countries/cuba.json",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/pays/cuba"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Mexique » (mis à jour le 2026-05-11), via src/data/countries/mexique.json",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/pays/mexique"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « République dominicaine » (mis à jour le 2026-03-31), via src/data/countries/republique-dominicaine.json",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/pays/republique-dominicaine"
+        }
+      ],
+      "notes": "Answer drawn only from the three verified country files; must be updated whenever those files change (Mexico measles outbreak 2026, Cuba chikungunya outbreak 2026 are time-sensitive). Simplifications to check: « vaccination de base à jour (dont la rougeole) » summarizes « Vaccination de base » for measles in all three files; polio primary vaccination for under-18s, and « peut être envisagé » items (typhoid, rabies, cholera, chikungunya in Cuba, influenza/hep B for specific groups in Cuba and Mexico) are covered only by the closing sentence. RD malaria: the file also says chloroquine for rural stays/at-risk provinces and that a preventive medication could be considered after discussing risks/benefits — only the resort-stay point is given here. RD yellow fever entry requirement (from 4 Brazilian states) omitted for brevity. Verification (2026-11-12): Removed the time-bound Mexico measles-outbreak bullet (6–11-month dose tied to the 2026 outbreak). Answer now keeps only standing recommendations from the three country files (hep A for all; routine vaccination incl. measles; RD hep B for all and resort malaria advice; Cuba yellow fever entry requirement, transit wording completed « dans un aéroport ») and sends readers to the country pages for current alerts. Still depends on those files: re-check if INSPQ changes prevalence levels or entry requirements."
+    },
+    {
+      "id": "visiter-famille-pays-origine",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Je retourne dans mon pays d’origine pour visiter ma famille : dois-je prendre des précautions particulières ?",
+        "en": "I’m going back to my home country to visit family: do I need to take particular precautions?"
+      },
+      "a": {
+        "fr": "<p>Pour le <a href=\"/vaccination/malaria/\">paludisme</a>, l’INSPQ demande de porter une attention particulière aux personnes qui visitent de la famille ou des amis, notamment les immigrants qui retournent dans leur pays d’origine : elles représentent plus de la moitié des cas signalés au Québec. Avoir grandi dans un pays où le paludisme est présent ne protège pas, car cette immunité disparaît très vite. Selon l’INSPQ, leur risque est donc au moins aussi élevé que celui des autres voyageurs, et parfois plus, en particulier pour les enfants.</p><p>Une visite à la famille ou aux amis fait aussi partie des critères pour envisager le vaccin contre la <a href=\"/vaccination/typhoide/\">typhoïde</a> dans les pays où le risque est intermédiaire, faible ou indéterminé (il est recommandé à tous en Asie du Sud). Pour l’<a href=\"/vaccination/hepatite-b/\">hépatite B</a>, les longs séjours, dont ceux pour rendre visite à la famille, font partie des situations visées dans les pays à faible prévalence (le vaccin est recommandé à tous là où elle est modérée ou élevée).</p>",
+        "en": "<p>For <a href=\"/en/vaccination/malaria/\">malaria</a>, the INSPQ calls for particular attention to people visiting friends and relatives, particularly immigrants returning to their country of origin: they account for more than half of the cases reported in Québec. Having grown up in a country where malaria is present does not protect you, because that immunity fades very quickly. According to the INSPQ, their risk is therefore at least as high as that of other travellers, and sometimes higher, especially for children.</p><p>Visiting friends or family is also one of the criteria for considering the <a href=\"/en/vaccination/typhoid-vaccination/\">typhoid</a> vaccine in countries where the risk is intermediate, low or undetermined (it is recommended for everyone in South Asia). For <a href=\"/en/vaccination/hepatitis-b-vaccination/\">hepatitis B</a>, long stays, including those to visit family, are among the situations targeted in low-prevalence countries (the vaccine is recommended for everyone where prevalence is moderate or high).</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : prévention » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/prevention"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Typhoïde : immunisation » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/typhoide/immunisation"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite B » (mis à jour le 18 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-b"
+        }
+      ],
+      "notes": "Malaria statement verified directly on the INSPQ prevention page (« plus de la moitié des cas de paludisme signalés au Québec »; « risque égal, voire plus élevé … surtout les enfants »). The opening « Oui, c’est recommandé » is a restatement of the INSPQ’s call for particular attention to these travellers — reviewer may prefer softer wording. Typhoid: VFR is a criterion for considering vaccination in intermediate/low/undetermined-risk countries (vaccine recommended for all in South Asia). Hep B: INSPQ example of long stays includes « personnes qui rendent visite à leur famille et à leurs amis ». Verification (2026-11-12): Removed « Oui, c’est recommandé »: INSPQ (paludisme/prévention, re-read in browser) only says to pay particular attention to VFR travellers, in the malaria context. Question reworded from « dois-je consulter ? » (which INSPQ does not answer) to « dois-je prendre des précautions particulières ? ». Malaria statement now explicitly framed as malaria; immunity sentence reworded away from the INSPQ wording. Typhoid: restored the condition (VFR is a criterion only in intermediate/low/undetermined-risk countries; recommended for all in South Asia). Hep B: restored the condition (special groups apply in low-prevalence countries; all travellers where moderate/high)."
+    },
+    {
+      "id": "enfants-vaccination-voyage",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Mes enfants voyagent avec moi : doivent-ils être vaccinés ?",
+        "en": "My children are travelling with me: do they need vaccines?"
+      },
+      "a": {
+        "fr": "<p>Les enfants qui voyagent sont visés par les recommandations, avec certaines règles propres à leur âge, par exemple :</p><ul><li><a href=\"/vaccination/rougeole/\">Rougeole</a> : une dose est recommandée aux bébés de 6 à 11 mois qui se rendent dans certains pays (liste de l’INSPQ); elle ne compte pas dans le calendrier et devra être redonnée à partir de 1 an.</li><li><a href=\"/vaccination/hepatite-a/\">Hépatite A</a> : un bébé de 6 à 11 mois qui se rend dans un pays à risque peut être vacciné; une dose de plus est alors nécessaire à 1 an, au moins 5 mois après la première. Avant 6 mois, le vaccin n’est pas indiqué.</li><li><a href=\"/vaccination/poliomyelite/\">Poliomyélite</a> : pour un bébé qui séjournera dans un pays à risque, la vaccination peut être accélérée et commencer dès 6 semaines.</li><li><a href=\"/vaccination/fievre-jaune/\">Fièvre jaune</a> : un bébé de 6 à 8 mois est dirigé vers un médecin spécialiste en médecine des voyages ou en médecine tropicale.</li><li><a href=\"/vaccination/malaria/\">Paludisme</a> : les bébés, même allaités, et les enfants exposés à un risque d’infection doivent eux aussi prendre un médicament préventif.</li></ul>",
+        "en": "<p>Children who travel are covered by the recommendations, with some age-specific rules, for example:</p><ul><li><a href=\"/en/vaccination/measles-vaccination/\">Measles</a>: a dose is recommended for babies aged 6 to 11 months travelling to certain countries (INSPQ list); it does not count in the schedule and must be given again from age 1.</li><li><a href=\"/en/vaccination/hepatitis-a-vaccination/\">Hepatitis A</a>: a baby aged 6 to 11 months travelling to a country at risk can be vaccinated; an extra dose is then needed at age 1, at least 5 months after the first. Before 6 months, the vaccine is not indicated.</li><li><a href=\"/en/vaccination/poliomyelitis-vaccination/\">Polio</a>: for a baby who will stay in a country at risk, vaccination can be accelerated and start as early as 6 weeks.</li><li><a href=\"/en/vaccination/yellow-fever-vaccination/\">Yellow fever</a>: a baby aged 6 to 8 months is referred to a physician specializing in travel medicine or tropical medicine.</li><li><a href=\"/en/vaccination/malaria/\">Malaria</a>: babies, including breastfed babies, and children exposed to a risk of infection must also take a preventive medication.</li></ul>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Rougeole » (mis à jour le 20 novembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rougeole"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Hépatite A » (date de mise à jour non indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/hepatite-a"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Poliomyélite » (mis à jour en octobre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : chimioprophylaxie » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/chimioprophylaxie"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Précautions » (dernière mise à jour : 24 septembre 2026)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccinologie-pratique/precautions/"
+        }
+      ],
+      "notes": "All facts from the site’s verified vaccine texts (rougeole, hepatite-a, poliomyelite, malaria), which cite these INSPQ pages. Measles: « certains pays » = endemic countries plus INSPQ-listed countries with outbreaks/recent elimination. Hep A: extra dose at age 1 must be at least 5 months after the first (omitted for length). Malaria children statement: verified site text says « Les bébés, y compris ceux qui sont allaités, et les enfants exposés doivent eux aussi prendre un antipaludéen » — exact INSPQ subpage not re-checked. PIQ also lists yellow fever in infants 6–8 months as a precaution (referral to a travel medicine specialist) — left out. Verification (2026-11-12): Each condition checked against the verified texts (rougeole, hepatite-a, poliomyelite, malaria) and, for malaria, the INSPQ chimioprophylaxie page re-read in the browser (« Les bébés (incluant ceux nourris au sein) et les enfants exposés à un risque d’infection doivent prendre un antipaludéen en prévention »). Fixes: lead no longer attributes a general claim to INSPQ; measles « dès 6 à 11 mois pour certains pays » clarified (babies 6–11 months travelling to INSPQ-listed countries; dose does not count); hep A condition « qui se rend dans un pays à risque » restored and the 5-month interval added; malaria « exposés » completed as « exposés à un risque d’infection ». Added the PIQ « Précautions » yellow fever item for infants 6–8 months (referral to a travel/tropical medicine physician), which the writer had left out."
+    },
+    {
+      "id": "grossesse-voyage-vaccins",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Je suis enceinte (ou je planifie une grossesse) : puis-je voyager et me faire vacciner ?",
+        "en": "I’m pregnant (or planning a pregnancy): can I travel and get vaccinated?"
+      },
+      "a": {
+        "fr": "<p>Selon le Protocole d’immunisation du Québec, les vaccins inactivés indiqués peuvent généralement être donnés tout au long de la grossesse, mais les vaccins vivants atténués ne doivent pas l’être. Le vaccin contre la <a href=\"/vaccination/fievre-jaune/\">fièvre jaune</a> fait exception : il peut être donné si le risque de la maladie dépasse le risque théorique pour le fœtus, et la personne enceinte est alors dirigée vers un médecin spécialiste en médecine des voyages ou en médecine tropicale. Après un vaccin contre la rubéole ou la varicelle, il faut éviter de devenir enceinte pendant un mois.</p><p>Pour le <a href=\"/vaccination/zika/\">Zika</a>, il est recommandé de reporter tout voyage dans une zone de transmission active si vous êtes enceinte ou planifiez une grossesse. Pour le <a href=\"/vaccination/malaria/\">paludisme</a>, l’INSPQ juge préférable d’éviter les zones à risque pendant la grossesse.</p>",
+        "en": "<p>According to the Québec Immunization Protocol, indicated inactivated vaccines can generally be given throughout pregnancy, but live attenuated vaccines must not be. The <a href=\"/en/vaccination/yellow-fever-vaccination/\">yellow fever</a> vaccine is an exception: it can be given if the risk of the disease outweighs the theoretical risk to the fetus, and a pregnant person is then referred to a physician specializing in travel medicine or tropical medicine. After a rubella or varicella vaccine, pregnancy should be avoided for one month.</p><p>For <a href=\"/en/vaccination/zika/\">Zika</a>, postponing any trip to an area of active transmission is recommended if you are pregnant or planning a pregnancy. For <a href=\"/en/vaccination/malaria/\">malaria</a>, the INSPQ considers it preferable to avoid risk areas during pregnancy.</p>"
+      },
+      "sources": [
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Grossesse » (dernière mise à jour : 30 juin 2026)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccinologie-pratique/grossesse/"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Précautions » (dernière mise à jour : 24 septembre 2026)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccinologie-pratique/precautions/"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Zika » (mis à jour le 23 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/zika"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : prévention » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/prevention"
+        }
+      ],
+      "notes": "PIQ « Grossesse »: inactivated vaccines « à moins de mention contraire dans les protocoles des vaccins » (hence « généralement »); FJ may be given if disease risk > theoretical fetal risk. PIQ « Précautions »: for FJ, « Femmes enceintes … diriger ces personnes vers un médecin spécialiste en médecine des voyages ou en médecine tropicale » — shortened to « médecine des voyages ». Zika recommendation is from the CHU Sainte-Justine advisory committee as reported by INSPQ (site’s verified zika text); the 2-month wait before conceiving and 3 months for men were left out for length. Malaria: site text says « surtout là où P. falciparum résiste aux médicaments » — omitted. No general statement that « a consultation assesses each situation » was found in an official source, so none was added. Verification (2026-11-12): PIQ « Grossesse » (30 juin 2026) and « Précautions » (24 septembre 2026) re-read in browser: inactivated/live/yellow fever statements confirmed. Restored « ou en médecine tropicale » (PIQ wording). Added the PIQ rule relevant to the « je planifie une grossesse » part of the question: avoid becoming pregnant in the month after rubella or varicella vaccines. Zika and malaria checked against the verified zika and malaria texts."
+    },
+    {
+      "id": "trousse-sante-voyage",
+      "theme": "avant-depart",
+      "q": {
+        "fr": "Que mettre dans ma trousse santé de voyage ?",
+        "en": "What should I pack in my travel health kit?"
+      },
+      "a": {
+        "fr": "<p>Le gouvernement du Canada suggère d’apporter une trousse de base, car les produits de premiers soins et les médicaments peuvent être difficiles à trouver ou différents à l’étranger. Elle peut contenir :</p><ul><li>des fournitures de premiers soins (pansements, gaze, antiseptique, thermomètre, sels de réhydratation orale, pince à épiler);</li><li>vos médicaments habituels, en quantité supérieure à la durée du voyage, et des médicaments de base (fièvre et douleur, diarrhée, allergies, mal des transports);</li><li>selon la destination : insectifuge au DEET ou à l’icaridine, crème solaire, moustiquaire, comprimés pour purifier l’eau;</li><li>une carte de contacts d’urgence, une preuve d’assurance et une copie de votre carnet de vaccination.</li></ul>",
+        "en": "<p>The Government of Canada suggests packing a basic kit, since first aid supplies and medications can be hard to find or different abroad. It can include:</p><ul><li>first aid supplies (bandages, gauze, antiseptic, thermometer, oral rehydration salts, tweezers);</li><li>your usual medications, in a quantity that exceeds the length of your trip, and basic medications (fever and pain, diarrhea, allergies, motion sickness);</li><li>depending on your destination: DEET- or icaridin-based insect repellent, sunscreen, a bed net, water purification tablets;</li><li>an emergency contact card, proof of insurance and a copy of your vaccination record.</li></ul>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Canada, « Trousse de produits de santé pour le voyage » (date de modification : 2026-08-27)",
+          "href": "https://voyage.gc.ca/voyager/sante-securite/trousse"
+        }
+      ],
+      "notes": "Selection from the government list (not exhaustive). The page also mentions destination-specific medications (e.g. antimalarials) if recommended, syringes with a medical certificate if needed, and bringing the original International Certificate of Vaccination or Prophylaxis for yellow fever. EN version of the page was not opened (browser navigation was interrupted); no EN URL is cited. Verification (2026-11-12): Not re-opened in this pass (outside the points assigned). EN page still unchecked."
+    },
+    {
+      "id": "plusieurs-vaccins-meme-jour",
+      "theme": "vaccins",
+      "q": {
+        "fr": "Peut-on recevoir plusieurs vaccins le même jour ?",
+        "en": "Can I get several vaccines on the same day?"
+      },
+      "a": {
+        "fr": "<p>Oui, dans la plupart des cas. Selon le Protocole d’immunisation du Québec :</p><ul><li>un vaccin <strong>inactivé</strong> peut être donné en même temps qu’un autre vaccin, inactivé ou vivant, ou n’importe quand avant ou après;</li><li>un vaccin <strong>vivant atténué oral</strong> peut aussi être donné en même temps que n’importe quel autre vaccin, ou à tout moment;</li><li>deux vaccins <strong>vivants atténués injectables</strong> (ou le vaccin intranasal contre la grippe) doivent être donnés le même jour, ou à au moins 4 semaines d’intervalle.</li></ul><p>Le Protocole prévoit quelques exceptions précises, par exemple pour les vaccins contre la COVID-19, qui ont leurs propres règles d’intervalle.</p>",
+        "en": "<p>Yes, in most cases. According to the Québec Immunization Protocol:</p><ul><li>an <strong>inactivated</strong> vaccine can be given at the same time as another vaccine, inactivated or live, or at any time before or after;</li><li>an <strong>oral live attenuated</strong> vaccine can also be given at the same time as any other vaccine, or at any time;</li><li>two <strong>injectable live attenuated</strong> vaccines (or the intranasal flu vaccine) must be given on the same day, or at least 4 weeks apart.</li></ul><p>The Protocol includes a few specific exceptions, for example for COVID-19 vaccines, which have their own interval rules.</p>"
+      },
+      "sources": [
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Principes pour l’administration des vaccins » (dernière mise à jour : 24 septembre 2026)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccinologie-pratique/principes-pour-l-administration-des-vaccins/"
+        }
+      ],
+      "notes": "Exceptions in the PIQ: polysaccharide vaccine followed by conjugate vaccine against the same disease (Pneu-C, Men-C-ACWY) needs a minimum interval; COVID-19 vaccines have their own section; immunoglobulins/blood products can delay measles- or varicella-containing vaccines. « que le vaccinateur vérifie lors de la consultation » is a general statement, not a source quote — reviewer may drop it. Non-replicating live vaccine (mpox) is treated as inactivated (not mentioned). Verification (2026-11-12): PIQ « Principes pour l’administration des vaccins » (24 septembre 2026) re-read: the three bullets match the « Intervalles entre des vaccins différents » section. Removed the unsourced « que le vaccinateur vérifie lors de la consultation »; replaced with a sourced example (COVID-19 vaccines have their own interval section)."
+    },
+    {
+      "id": "effets-secondaires-vaccins",
+      "theme": "vaccins",
+      "q": {
+        "fr": "Quels effets secondaires après un vaccin ?",
+        "en": "What side effects can I expect after a vaccine?"
+      },
+      "a": {
+        "fr": "<p>Selon Québec.ca, les effets secondaires des vaccins sont le plus souvent légers et de courte durée, par exemple une petite fièvre ou une sensibilité à l’endroit de l’injection. Il s’agit de réactions normales du corps au vaccin. Très rarement, une réaction allergique grave peut survenir; les vaccinateurs sont en mesure de la traiter, et c’est pourquoi on recommande de rester sur place au moins 15 minutes après la vaccination.</p><p>Les réactions possibles et les soins à faire à la maison sont décrits vaccin par vaccin. À titre d’exemple, pour le vaccin contre l’<a href=\"/vaccination/hepatite-a/\">hépatite A</a> seulement, Québec.ca conseille une compresse humide froide en cas de rougeur, de douleur ou de gonflement, un médicament contre la fièvre ou les malaises au besoin, et de consulter un médecin si les symptômes sont graves ou inhabituels, s’aggravent ou durent plus de 48 heures. Pour un autre vaccin, consultez sa propre page.</p>",
+        "en": "<p>According to Québec.ca, vaccine side effects are most often mild and short-lived, such as a slight fever or tenderness where the shot was given. These are normal reactions of the body to the vaccine. Very rarely, a serious allergic reaction can occur; vaccinators are able to treat it, which is why staying on site for at least 15 minutes after vaccination is recommended.</p><p>Possible reactions and home care are described vaccine by vaccine. As an example, for the <a href=\"/en/vaccination/hepatitis-a-vaccination/\">hepatitis A</a> vaccine only, Québec.ca advises a cold, damp compress for redness, pain or swelling, medication for fever or discomfort if needed, and seeing a doctor if symptoms are serious or unusual, get worse, or last more than 48 hours. For any other vaccine, see its own page.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Comprendre la vaccination » (dernière mise à jour : 13 juin 2023)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/comprendre-la-vaccination"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin contre l’hépatite A » (dernière mise à jour : 22 juin 2023)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-hepatite-a"
+        }
+      ],
+      "notes": "General statements from « Comprendre la vaccination »; home-care and when-to-consult advice is given on Québec.ca per vaccine (hepatitis A page used as the example, same advice appears on other Québec.ca vaccine pages per search results, not individually verified). Each vaccine has its own reaction profile; the vaccine pages on our site may be the better place for specifics. EN Québec.ca equivalents exist (/en/health/advice-and-prevention/vaccination/understanding-vaccines and /hepatitis-a-vaccine) and say the same. Verification (2026-11-12): « Comprendre la vaccination » (13 juin 2023) re-read: it gives only « fièvre légère » and « sensibilité à l’endroit où le vaccin a été injecté » as examples, so « douleur, rougeur ou chaleur » was removed from the general paragraph (those came from the hep A page). No general Québec.ca/PIQ page with home-care advice for all vaccines was found (checked Comprendre la vaccination, Vaccination des enfants [children only], Programme québécois d’immunisation). The hep A home-care advice (re-read on the hep A page, 22 juin 2023) is kept but explicitly limited to that vaccine (« pour le vaccin contre l’hépatite A seulement … Pour un autre vaccin, consultez sa propre page »). « Les réactions … sont décrits vaccin par vaccin » rests on Québec.ca’s per-vaccine pages; reviewer may prefer to drop it."
+    },
+    {
+      "id": "antibiotiques-rhume-vaccination",
+      "theme": "vaccins",
+      "q": {
+        "fr": "Je prends des antibiotiques ou j’ai un rhume : puis-je être vacciné ?",
+        "en": "I’m on antibiotics or I have a cold: can I be vaccinated?"
+      },
+      "a": {
+        "fr": "<p>En général, oui. Selon le Protocole d’immunisation du Québec, ne sont <strong>pas</strong> des raisons de reporter un vaccin :</p><ul><li>une infection bénigne comme le rhume, ou une diarrhée bénigne chez une personne par ailleurs en bonne santé;</li><li>un traitement aux antibiotiques ou la convalescence d’une maladie;</li><li>une maladie bénigne, même avec de la fièvre, si l’état général n’est pas atteint.</li></ul><p>En revanche, une maladie aiguë <strong>modérée ou grave</strong>, avec ou sans fièvre, justifie généralement de reporter la vaccination. Pour le vaccin oral contre le choléra et la diarrhée du voyageur (<a href=\"/vaccination/diarrhee-du-voyageur-dukoral/\">Dukoral</a>), on attend 48 heures après la fin d’une diarrhée ou de vomissements.</p>",
+        "en": "<p>Generally, yes. According to the Québec Immunization Protocol, the following are <strong>not</strong> reasons to postpone a vaccine:</p><ul><li>a mild infection such as a cold, or mild diarrhea in an otherwise healthy person;</li><li>antibiotic treatment or recovering from an illness;</li><li>a mild illness, even with a fever, if your general condition is not affected.</li></ul><p>However, a <strong>moderate or severe</strong> acute illness, with or without fever, generally warrants postponing vaccination. For the oral cholera and travellers’ diarrhea vaccine (<a href=\"/en/vaccination/travelers-diarrhea-vaccination-dukoral/\">Dukoral</a>), wait 48 hours after diarrhea or vomiting has ended.</p>"
+      },
+      "sources": [
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Éléments qui ne sont pas des contre-indications ni des précautions » (dernière mise à jour : 3 avril 2025)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccinologie-pratique/elements-qui-ne-sont-pas-des-contre-indications-ni-des-precautions/"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Précautions » (dernière mise à jour : 24 septembre 2026)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccinologie-pratique/precautions/"
+        }
+      ],
+      "notes": "PIQ « Précautions »: moderate/severe acute illness — « de façon générale, l’administration d’un vaccin sera reportée », though benefits may outweigh risks in some cases. Dukoral: PIQ precaution for Chol-Ecol-O « Présence de diarrhée ou de vomissements : administrer le vaccin 48 heures après la fin de l’épisode ». PIQ is written for professionals; this is a lay restatement. Verification (2026-11-12): PIQ « Précautions » (24 septembre 2026) re-read: moderate/severe acute illness and the Chol-Ecol-O 48-hour rule confirmed. « Éléments qui ne sont pas des contre-indications » page not re-opened (outside the points assigned)."
+    },
+    {
+      "id": "preuve-vaccination-certificat",
+      "theme": "vaccins",
+      "q": {
+        "fr": "Comment prouver que je suis vacciné (certificat de fièvre jaune, carnet) ?",
+        "en": "How do I prove I’m vaccinated (yellow fever certificate, vaccination record)?"
+      },
+      "a": {
+        "fr": "<ul><li><strong>Fièvre jaune</strong> : la preuve doit figurer sur le Certificat international de vaccination ou de prophylaxie. Au Canada, ce vaccin est donné seulement dans les centres de vaccination contre la fièvre jaune désignés. Depuis le 11 juillet 2016, le certificat est valide à vie après une dose. Gardez l’original sur vous pendant le voyage.</li><li><strong>Poliomyélite</strong> : lorsqu’une dose est exigée selon les règles de l’OMS, elle doit être inscrite sur ce même certificat.</li><li><strong>Méningocoque (Hadj, Umrah)</strong> : l’Arabie saoudite demande un certificat; le carnet de vaccination peut servir de preuve.</li><li><strong>Autres vaccins</strong> : apportez une copie de votre carnet de vaccination et laissez l’original à la maison.</li></ul><p>Voir : <a href=\"/vaccination/fievre-jaune/\">vaccin contre la fièvre jaune</a>.</p>",
+        "en": "<ul><li><strong>Yellow fever</strong>: proof must be recorded on the International Certificate of Vaccination or Prophylaxis. In Canada, this vaccine is given only at designated yellow fever vaccination centres. Since July 11, 2016, the certificate has been valid for life after one dose. Keep the original with you while travelling.</li><li><strong>Polio</strong>: when a dose is required under WHO rules, it must be recorded on that same certificate.</li><li><strong>Meningococcal (Hajj, Umrah)</strong>: Saudi Arabia asks for a certificate; your vaccination record can serve as proof.</li><li><strong>Other vaccines</strong>: bring a copy of your vaccination record and leave the original at home.</li></ul><p>See: <a href=\"/en/vaccination/yellow-fever-vaccination/\">yellow fever vaccine</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Canada, « Vaccins et médicaments avant le départ » (date de modification : 2026-08-28)",
+          "href": "https://voyage.gc.ca/voyager/sante-securite/vaccins"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Fièvre jaune » (mis à jour le 2 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/fievre-jaune"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Poliomyélite » (mis à jour en octobre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/poliomyelite"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Infections invasives à méningocoque » (mis à jour le 22 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/meningocoque"
+        }
+      ],
+      "notes": "Designated centres, original certificate on you, copies of general records: voyage.gc.ca (read in browser). Lifetime validity since 11 July 2016: INSPQ via site’s verified fievre-jaune text. Polio: INSPQ says the CIVP inscription applies when the dose is « exigée » (wild or vaccine-derived types 1 and 3), and the CIVP is available only at designated yellow fever centres; for type 2 the dose is suggested and can go in the regular record (omitted). Meningococcal: INSPQ via site text. The voyage.gc.ca page also links to what happens if you can’t show a valid certificate at a border (not covered). Verification (2026-11-12): voyage.gc.ca and travel.gc.ca (2026-08-28) re-read: ICVP, designated centres, original certificate on you, copies of general records confirmed. INSPQ parts (lifetime validity, polio, meningococcal) not re-opened; consistent with verified fievre-jaune text."
+    }
+  ]
+}

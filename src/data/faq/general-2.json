@@ -1,0 +1,188 @@
+{
+  "items": [
+    {
+      "id": "paludisme-se-proteger",
+      "theme": "maladies",
+      "q": {
+        "fr": "Comment se protéger du paludisme (malaria) en voyage ?",
+        "en": "How can I protect myself from malaria when travelling?"
+      },
+      "a": {
+        "fr": "<p>La prévention repose sur les « 4 C » :</p><ul><li><strong>Connaître</strong> le risque de paludisme à destination.</li><li>Se protéger <strong>contre</strong> les piqûres de moustiques, surtout du crépuscule à l’aube.</li><li>Prendre une <strong>chimioprophylaxie</strong> (médicament préventif) si elle est recommandée.</li><li><strong>Consulter</strong> d’urgence en cas de fièvre et demander un frottis sanguin pour le paludisme.</li></ul><p>Selon la destination, le type de voyage, vos activités, la durée du séjour et votre tolérance aux médicaments, on recommandera la protection contre les moustiques seule, ou celle-ci avec un médicament préventif; en Afrique subsaharienne, les deux sont recommandées, même pour un court séjour. Voir notre page <a href=\"/vaccination/malaria/\">Paludisme (malaria)</a>.</p>",
+        "en": "<p>Prevention relies on the “4 Cs”:</p><ul><li><strong>Consider</strong> the malaria risk at your destination.</li><li><strong>Cover up</strong>: protect yourself against mosquito bites, especially from dusk to dawn.</li><li><strong>Chemoprophylaxis</strong>: take preventive medication if it is recommended.</li><li><strong>Consult</strong> urgently if you have a fever and ask for a blood smear for malaria.</li></ul><p>Depending on the destination, the type of trip, your activities, the length of stay and how well you tolerate medication, the recommendation will be protection against mosquitoes alone, or protection plus preventive medication; in sub-Saharan Africa, both are recommended, even for a short stay. See our <a href=\"/en/vaccination/malaria/\">Malaria</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : prévention » (aucune date de mise à jour indiquée)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/prevention" },
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes" }
+      ],
+      "notes": "Requested question was « Existe-t-il un vaccin contre la malaria ? ». The vaccine part was dropped: neither the site’s malaria text nor the INSPQ malaria chapter (as summarized in malaria.json) says anything about a malaria vaccine, so the FAQ does not mention one either way. Content taken from malaria.json (FR/EN). Verification (2026-11-12): restored « votre tolérance aux médicaments / how well you tolerate medication » among the factors (dropped from malaria.json’s list); otherwise OK."
+    },
+    {
+      "id": "paludisme-medicaments-duree",
+      "theme": "maladies",
+      "q": {
+        "fr": "Les médicaments contre le paludisme : quelle est leur efficacité et combien de temps les prendre ?",
+        "en": "Malaria medication: how effective is it and how long should I take it?"
+      },
+      "a": {
+        "fr": "<p>Pris régulièrement et adaptés à la destination, les médicaments préventifs (chimioprophylaxie) préviennent de 90 à 95 % des cas de paludisme à <em>P. falciparum</em>, mais aucun ne protège à 100 %. Le choix du médicament dépend notamment de la résistance aux médicaments dans la région visitée.</p><p>Après avoir quitté la zone à risque, il faut continuer le traitement <strong>4 semaines</strong> avec la méfloquine, la chloroquine (ou l’hydroxychloroquine) ou la doxycycline, et <strong>7 jours</strong> avec l’atovaquone-proguanil ou la primaquine. Même sous médicament, consultez en moins de 24 heures si vous faites de la fièvre en voyage. Voir notre page <a href=\"/vaccination/malaria/\">Paludisme (malaria)</a>.</p>",
+        "en": "<p>Taken regularly and suited to the destination, preventive medications (chemoprophylaxis) prevent 90 to 95% of <em>P. falciparum</em> malaria cases, but none protects 100%. The choice of medication depends in particular on drug resistance in the region visited.</p><p>After leaving the risk area, the medication must be continued for <strong>4 weeks</strong> with mefloquine, chloroquine (or hydroxychloroquine) or doxycycline, and for <strong>7 days</strong> with atovaquone-proguanil or primaquine. Even while taking medication, see a doctor within 24 hours if you have a fever while travelling. See our <a href=\"/en/vaccination/malaria/\">Malaria</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : chimioprophylaxie » (aucune date de mise à jour indiquée)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/chimioprophylaxie" },
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : médication » (aucune date de mise à jour indiquée)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/medication" },
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Paludisme / Malaria : autotraitement et autodiagnostic » (aucune date de mise à jour indiquée)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/paludisme/autotraitement" }
+      ],
+      "notes": "Requested « quand commencer » (when to start): malaria.json does not state when to start each drug before departure, so start timing is NOT given; only the post-departure continuation durations from malaria.json. No dosages. The fever-within-24-h sentence comes from the « En cas de fièvre » section of malaria.json. Reviewer may want to add start times from the INSPQ « médication » page. Verification (2026-11-12): question reworded from « comment fonctionnent-ils / how does it work » (the answer gives efficacy, not how the drugs work) to « quelle est leur efficacité / how effective is it »; answer checked against malaria.json, OK."
+    },
+    {
+      "id": "diarrhee-du-voyageur-prevenir",
+      "theme": "maladies",
+      "q": {
+        "fr": "Comment éviter la diarrhée du voyageur (turista) ?",
+        "en": "How can I avoid travellers’ diarrhea (turista)?"
+      },
+      "a": {
+        "fr": "<p>La turista se transmet surtout par l’eau ou les aliments contaminés.</p><ul><li>Lavez-vous les mains à l’eau et au savon, ou avec une solution hydroalcoolique : c’est la mesure la plus importante.</li><li>Évitez les aliments à risque : viande mal cuite, fruits et légumes crus, produits laitiers non pasteurisés, plats restés plusieurs heures à la température ambiante.</li><li>Achetez des sachets de solution de réhydratation orale avant de quitter le Canada : en cas de diarrhée, l’hydratation est le premier traitement.</li></ul><p>Les antibiotiques pris en prévention ne sont généralement pas recommandés. Voir notre page <a href=\"/vaccination/diarrhee-du-voyageur-dukoral/\">Diarrhée du voyageur</a>.</p>",
+        "en": "<p>Turista spreads mainly through contaminated water or food.</p><ul><li>Wash your hands with soap and water, or with an alcohol-based hand sanitizer: it is the most important measure.</li><li>Avoid risky foods: undercooked meat, raw fruits and vegetables, unpasteurized dairy products, dishes left for several hours at room temperature.</li><li>Buy oral rehydration solution sachets before leaving Canada: if you get diarrhea, hydration is the first treatment.</li></ul><p>Antibiotics taken for prevention are generally not recommended. See our <a href=\"/en/vaccination/travelers-diarrhea-vaccination-dukoral/\">Travellers’ diarrhea</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur » (mis à jour le 29 septembre 2025)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-du-voyageur" },
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur : traitement » (mis à jour le 30 septembre 2025)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-des-voyageurs/traitement" }
+      ],
+      "notes": "From dukoral.json only (not re-read in the browser; that file’s verification dated 2026-11-10). Bismuth subsalicylate (Pepto-Bismol, may be considered, with contraindications) left out for brevity; probiotics left out. « Boil it, cook it, peel it » style rules are not in the site text and were not added. Verification (2026-11-12): OK (checked against dukoral.json)."
+    },
+    {
+      "id": "dukoral-diarrhee-du-voyageur",
+      "theme": "maladies",
+      "q": {
+        "fr": "Le vaccin Dukoral protège-t-il contre la diarrhée du voyageur ?",
+        "en": "Does the Dukoral vaccine protect against travellers’ diarrhea?"
+      },
+      "a": {
+        "fr": "<p>Le Dukoral est le seul vaccin approuvé contre la diarrhée causée par une bactérie précise, l’<em>E. coli</em> entérotoxinogène producteur de toxine thermolabile (ECET-TL); il protège aussi contre le choléra. Pour les voyageurs, ses avantages sont limités : les analyses d’essais n’ont montré aucun bénéfice par rapport à un placebo pour prévenir la diarrhée du voyageur. Le Comité consultatif québécois sur la santé des voyageurs ne recommande donc pas de le donner systématiquement aux voyageurs dans ce but.</p><p>Il peut être envisagé chez les voyageurs de 2 ans et plus qui se rendent dans une région à risque et souhaitent réduire leur risque de diarrhée à ECET-TL. Voir notre page <a href=\"/vaccination/diarrhee-du-voyageur-dukoral/\">Diarrhée du voyageur</a>.</p>",
+        "en": "<p>Dukoral is the only vaccine approved against diarrhea caused by one specific bacterium, enterotoxigenic <em>E. coli</em> that produces heat-labile toxin (LT-ETEC); it also protects against cholera. For travellers, its benefits are limited: analyses of trials showed no benefit over a placebo in preventing travellers’ diarrhea. The Comité consultatif québécois sur la santé des voyageurs therefore does not recommend giving it routinely to travellers for this purpose.</p><p>It may be considered for travellers aged 2 and older who are going to an at-risk area and want to reduce their risk of LT-ETEC diarrhea. See our <a href=\"/en/vaccination/travelers-diarrhea-vaccination-dukoral/\">Travellers’ diarrhea</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur » (mis à jour le 29 septembre 2025)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-du-voyageur" },
+        { "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « Chol-Ecol-O : vaccin oral contre le choléra et la diarrhée à Escherichia coli entérotoxinogène » (mis à jour le 3 avril 2025)", "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/cholera-et-la-diarrhee-a-ecet-chol-ecol-o/" }
+      ],
+      "notes": "INSPQ position reproduced as stated in dukoral.json: only approved LT-ETEC vaccine, limited benefits, no benefit over placebo in pooled trials, CCQSV does not recommend routine use. « May be considered for travellers 2+ going to an at-risk area who want to reduce LT-ETEC risk » is from the PIQ (via dukoral.json); « going to an at-risk area » shortened out — reviewer may restore. The opening « Seulement en partie / Only partly » is our framing of that position; reviewer may prefer a plainer « Pas vraiment ». Verification (2026-11-12): removed the « Seulement en partie / Only partly » opening (our framing, not INSPQ’s); restored « aux voyageurs / to travellers » in the CCQSV sentence and the dropped condition « qui se rendent dans une région à risque et souhaitent réduire leur risque / going to an at-risk area and want to reduce their risk », as in dukoral.json."
+    },
+    {
+      "id": "zika-grossesse",
+      "theme": "maladies",
+      "q": {
+        "fr": "Qu’est-ce que le Zika et quels sont les risques pendant la grossesse ?",
+        "en": "What is Zika and what are the risks during pregnancy?"
+      },
+      "a": {
+        "fr": "<p>Le Zika est un virus transmis surtout par les moustiques <em>Aedes</em>, qui piquent généralement le jour; il peut aussi se transmettre sexuellement. De 70 à 80 % des personnes infectées n’ont aucun symptôme.</p><p>Pendant la grossesse, le virus peut causer une microcéphalie ou d’autres malformations chez le bébé, même si la mère n’a pas de symptômes. Il n’existe ni vaccin ni traitement spécifique. Au Québec, le Comité consultatif du CHU Sainte-Justine recommande aux personnes enceintes ou qui planifient une grossesse de reporter tout voyage dans une zone où le virus est activement transmis par les moustiques. Après un séjour dans un pays où il y a des cas récents et continus de Zika, il est fortement recommandé d’attendre au moins 2 mois avant de devenir enceinte; les CDC et le Comité consultatif de la médecine tropicale et de la médecine des voyages recommandent aussi aux hommes d’attendre au moins 3 mois avant d’essayer de concevoir un enfant ou d’avoir des relations sexuelles non protégées. Voir notre page <a href=\"/vaccination/zika/\">Zika</a>.</p>",
+        "en": "<p>Zika is a virus spread mainly by <em>Aedes</em> mosquitoes, which generally bite during the day; it can also be transmitted sexually. 70 to 80% of infected people have no symptoms.</p><p>During pregnancy, the virus can cause microcephaly or other malformations in the baby, even if the mother has no symptoms. There is no vaccine and no specific treatment. In Québec, the advisory committee of CHU Sainte-Justine recommends that people who are pregnant or planning a pregnancy postpone any trip to an area where the virus is actively transmitted by mosquitoes. After a stay in a country with recent and ongoing Zika cases, it is strongly recommended to wait at least 2 months before becoming pregnant; the CDC and the Committee to Advise on Tropical Medicine and Travel also recommend that men wait at least 3 months before trying to conceive a child or having unprotected sex. See our <a href=\"/en/vaccination/zika/\">Zika</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Zika » (mis à jour le 23 décembre 2023)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/zika" }
+      ],
+      "notes": "From zika.json. Attribution compressed: the postponement recommendation is from the CHU Sainte-Justine advisory committee (as cited by INSPQ); the 3-month male waiting period is from the CDC and CATMAT (as cited by INSPQ), and also covers unprotected sex. The 2-month wait applies after return from a country with recent and continuous Zika cases. Reviewer may want the named attributions restored. Verification (2026-11-12): restored the named attributions (CHU Sainte-Justine committee; CDC and CATMAT), which also fixes a strength change (the men’s 3-month wait had been put under « fortement recommandé »); restored the dropped condition « pays où il y a des cas récents et continus de Zika »; « zone de transmission active » → « zone où le virus est activement transmis par les moustiques »; « piquent le jour » → « piquent généralement le jour »; added « ou d’avoir des relations sexuelles non protégées » (men). Answer now ~170 words FR (over the 120-word target)."
+    },
+    {
+      "id": "dengue-vaccin",
+      "theme": "maladies",
+      "q": {
+        "fr": "Existe-t-il un vaccin contre la dengue ?",
+        "en": "Is there a vaccine against dengue?"
+      },
+      "a": {
+        "fr": "<p>Un seul vaccin existe actuellement : Qdenga (Takeda), un vaccin vivant atténué. L’OMS le recommande pour les enfants qui vivent dans des régions où la dengue est endémique. <strong>Il n’est pas autorisé au Canada</strong>, mais certains pays européens l’offrent aux voyageurs. D’autres vaccins sont en développement.</p><p>Comme il n’existe pas de traitement spécifique, la prévention repose sur la protection contre les piqûres de moustiques dans les régions où la dengue est endémique; ces moustiques piquent le jour, surtout à l’aube et au crépuscule. Au retour d’une zone tropicale, consultez d’urgence en cas de fièvre. Voir notre page <a href=\"/vaccination/dengue/\">Dengue</a>.</p>",
+        "en": "<p>Only one vaccine currently exists: Qdenga (Takeda), a live attenuated vaccine. The WHO recommends it for children living in regions where dengue is endemic. <strong>It is not authorized in Canada</strong>, but some European countries offer it to travellers. Other vaccines are in development.</p><p>Since there is no specific treatment, prevention relies on protection against mosquito bites in regions where dengue is endemic; these mosquitoes bite during the day, especially at dawn and dusk. After returning from a tropical area, see a doctor urgently if you have a fever. See our <a href=\"/en/vaccination/dengue-fever/\">Dengue</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Dengue » (aucune date de mise à jour indiquée)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/dengue" },
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes" }
+      ],
+      "notes": "From dengue.json. Left out: CATMAT interim recommendations for travellers wanting it in Europe; « tetravalent ». Verification (2026-11-12): restored two dropped conditions from dengue.json — protection « dans les régions où la dengue est endémique » and fever « au retour d’une zone tropicale »; otherwise OK."
+    },
+    {
+      "id": "morsure-griffure-animal-voyage",
+      "theme": "maladies",
+      "q": {
+        "fr": "Que faire si un animal me mord ou me griffe en voyage ?",
+        "en": "What should I do if an animal bites or scratches me while travelling?"
+      },
+      "a": {
+        "fr": "<p>Une morsure ou une griffure de mammifère peut exposer à la rage, mortelle une fois les symptômes apparus, mais évitable grâce à des soins rapides :</p><ul><li>Lavez la plaie à l’eau et au savon pendant 10 à 15 minutes.</li><li>Appliquez ensuite un virucide (par exemple : proviodine iodée 10 %, éthanol 70 % ou gluconate de chlorhexidine 2 %), même si quelques heures ont passé.</li><li>Consultez le plus vite possible, idéalement en moins de 24 heures : selon l’évaluation, vous recevrez des vaccins, des immunoglobulines, ou les deux.</li><li>Notez le nom, le numéro de lot et les dates des produits reçus.</li><li>Au retour, consultez, même si l’exposition date de plusieurs mois.</li></ul><p>Voir notre page <a href=\"/vaccination/rage/\">Rage</a>.</p>",
+        "en": "<p>A bite or scratch from a mammal can expose you to rabies, which is fatal once symptoms appear but preventable with prompt care:</p><ul><li>Wash the wound with soap and water for 10 to 15 minutes.</li><li>Then apply a virucide (for example: 10% povidone-iodine, 70% ethanol or 2% chlorhexidine gluconate), even if a few hours have passed.</li><li>See a health professional as soon as possible, ideally within 24 hours: depending on their assessment, you will receive vaccines, immunoglobulins, or both.</li><li>Write down the name, lot number and dates of the products you receive.</li><li>When you get back, see a health professional, even if the exposure was several months ago.</li></ul><p>See our <a href=\"/en/vaccination/rabies-vaccination/\">Rabies</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Rage » (mis à jour le 28 mai 2026)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage" }
+      ],
+      "notes": "From the rabies text in src/data/vaccine-texts.ts (rabies sign-off is still an open pre-publication item). Virucide list shortened (iodine omitted); the site text lists name, lot number, expiry date and administration date — shortened to « dates ». Left out: monkey bites/herpes B (must be assessed quickly in infectious diseases) — reviewer may want it added; ~10 words. Verification (2026-11-12): « Une morsure ou une griffure peut transmettre la rage » → « Une morsure ou une griffure de mammifère peut exposer à la rage » (site text: only mammals transmit rabies; a bite or scratch is a risk of exposure); rest checked against vaccine-texts.ts, OK."
+    },
+    {
+      "id": "piqures-moustiques-se-proteger",
+      "theme": "maladies",
+      "q": {
+        "fr": "Faut-il se protéger des piqûres de moustiques en voyage, et comment ?",
+        "en": "Should I protect myself from mosquito bites when travelling, and how?"
+      },
+      "a": {
+        "fr": "<p>Oui, dans les régions où ils transmettent des maladies : les moustiques transmettent notamment le paludisme, la dengue, le Zika et le chikungunya.</p><ul><li>Portez des vêtements longs, amples et de couleur pâle.</li><li>Appliquez un insectifuge sur la peau exposée; chez l’adulte et l’enfant de 12 ans et plus, les premiers choix sont le DEET 30 % ou l’icaridine 20 %.</li><li>Là où le paludisme est présent, dormez sous une moustiquaire, de préférence imprégnée d’insecticide : ces moustiques piquent surtout du crépuscule à l’aube.</li><li>Ceux qui transmettent la dengue, le Zika et le chikungunya piquent surtout le jour : protégez-vous aussi pendant la journée.</li></ul><p>Voir nos pages <a href=\"/vaccination/malaria/\">Paludisme</a> et <a href=\"/vaccination/dengue/\">Dengue</a>.</p>",
+        "en": "<p>Yes, in regions where they transmit diseases: mosquitoes transmit, among others, malaria, dengue, Zika and chikungunya.</p><ul><li>Wear long, loose, light-coloured clothing.</li><li>Apply insect repellent to exposed skin; for adults and children 12 and older, the first choices are DEET 30% or icaridin 20%.</li><li>Where malaria is present, sleep under a bed net, preferably treated with insecticide: these mosquitoes bite mainly from dusk to dawn.</li><li>The ones that transmit dengue, Zika and chikungunya bite mainly during the day: protect yourself during the daytime too.</li></ul><p>See our <a href=\"/en/vaccination/malaria/\">Malaria</a> and <a href=\"/en/vaccination/dengue-fever/\">Dengue</a> pages.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes" }
+      ],
+      "notes": "Built only from the mosquito-protection sections of malaria.json, dengue.json, zika.json and chikungunya.json (which take them from INSPQ « Arthropodes »); the Arthropodes page itself was not re-read for this FAQ. Left out: repellent choices for children under 12 (not in site texts); pregnancy/breastfeeding first choice DEET 30% (zika.json) — could be added. There is no dedicated mosquito page on the site, so links go to the malaria and dengue pages. Verification (2026-11-12): « piquent le jour » → « piquent surtout le jour » (site texts: dengue « le jour, surtout à l’aube et au crépuscule », Zika « généralement le jour », chikungunya « surtout le jour et en début de soirée »); rest OK."
+    },
+    {
+      "id": "rougeole-verifier-vaccination",
+      "theme": "maladies",
+      "q": {
+        "fr": "Rougeole : dois-je vérifier ma vaccination avant de partir ?",
+        "en": "Measles: should I check my vaccination before I leave?"
+      },
+      "a": {
+        "fr": "<p>Oui. La rougeole est l’une des maladies les plus contagieuses et reste présente dans plusieurs régions du monde; le Canada a d’ailleurs perdu son statut de pays l’ayant éliminée en novembre 2025. Avant tout voyage à l’étranger, votre vaccination doit être conforme au Protocole d’immunisation du Québec :</p><ul><li><strong>Adultes nés depuis 1970 et enfants de 18 mois et plus</strong> : 2 doses reçues avant le départ, à au moins 4 semaines d’intervalle.</li><li><strong>Enfants de 1 an à 17 mois</strong> : 1 dose suffit.</li><li><strong>Bébés de 6 à 11 mois</strong> : 1 dose est recommandée pour certaines destinations; elle devra être redonnée à partir de 1 an.</li></ul><p>Voir notre page <a href=\"/vaccination/rougeole/\">Rougeole</a>.</p>",
+        "en": "<p>Yes. Measles is one of the most contagious diseases and remains present in several regions of the world; Canada itself lost its measles elimination status in November 2025. Before any trip abroad, your vaccination should meet the Protocole d’immunisation du Québec:</p><ul><li><strong>Adults born in 1970 or later and children aged 18 months and older</strong>: 2 doses received before departure, at least 4 weeks apart.</li><li><strong>Children aged 1 year to 17 months</strong>: 1 dose is enough.</li><li><strong>Babies aged 6 to 11 months</strong>: 1 dose is recommended for certain destinations; it will have to be given again from age 1.</li></ul><p>See our <a href=\"/en/vaccination/measles-vaccination/\">Measles</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Rougeole » (mis à jour le 20 novembre 2025)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rougeole" }
+      ],
+      "notes": "From rougeole.json. Nothing said about adults born before 1970 (source refers to the PIQ). 6–11 months: « certain destinations » summarizes endemic countries plus some elimination countries with outbreaks/high import risk (INSPQ list PDF linked from the disease page). « Redonnée après 1 an » = from age 1, at least 4 weeks after the previous dose (the site text says « à partir de 1 an »; FR/EN wording « après 1 an / after age 1 » could be tightened to « à partir de 1 an / from age 1 »). Verification (2026-11-12): tightened to « à partir de 1 an / from age 1 » as in rougeole.json; rest OK."
+    },
+    {
+      "id": "fievre-jaune-qui-ou",
+      "theme": "maladies",
+      "q": {
+        "fr": "Fièvre jaune : qui doit être vacciné et où recevoir le vaccin ?",
+        "en": "Yellow fever: who should be vaccinated and where can I get the vaccine?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin peut être indiqué pour répondre à une exigence d’entrée d’un pays, ou pour se protéger lors d’un séjour dans un pays à risque, même si ce pays n’exige rien. Dans les zones où une transmission persistante et périodique est attestée, il est recommandé à tous les voyageurs de 9 mois ou plus. Selon l’OMS, une seule dose protège à vie, et le certificat international est valide à vie après une dose.</p><p>Comme des réactions graves sont possibles, le vaccinateur évalue votre voyage et votre santé avant de vacciner. Au Canada, l’Agence de la santé publique du Canada désigne des centres de vaccination contre la fièvre jaune pour répondre aux exigences du Règlement sanitaire international et en publie la liste, par province, sur Canada.ca. Voir notre page <a href=\"/vaccination/fievre-jaune/\">Fièvre jaune</a>.</p>",
+        "en": "<p>The vaccine may be indicated to meet a country’s entry requirement, or for protection during a stay in a country at risk, even if that country requires nothing. In areas with documented persistent and periodic transmission, it is recommended for all travellers aged 9 months or older. According to the WHO, a single dose protects for life, and the international certificate is valid for life after one dose.</p><p>Because serious reactions are possible, the vaccinator assesses your trip and your health before vaccinating. In Canada, the Public Health Agency of Canada designates Yellow Fever Vaccination Centres to meet the requirements of the International Health Regulations and publishes their list, by province, on Canada.ca. See our <a href=\"/en/vaccination/yellow-fever-vaccination/\">Yellow fever</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Fièvre jaune » (mis à jour le 2 avril 2026)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/fievre-jaune" },
+        { "label": "Agence de la santé publique du Canada, « Centres de vaccination contre la fièvre jaune au Québec » (aucune date de modification affichée)", "href": "https://www.canada.ca/fr/sante-publique/services/sante-voyageurs/fievre-jaune/centres-vaccination-canada-quebec.html" }
+      ],
+      "notes": "Disease facts from fievre-jaune.json. The INSPQ chapter does not mention designated centres (checked in the browser 2026-11-12). The designated-centre sentence comes from the Canada.ca page (read in the browser 2026-11-12): it lists health care sites designated as Yellow Fever Vaccination Centres by PHAC on behalf of Canada to meet the International Health Regulations. Our wording « le vaccin est donné dans des centres désignés » is a restatement; Canada.ca does not literally say the vaccine can only be given there — reviewer to confirm. Whether the clinic is on that list is a clinic fact, not stated here. Left out: low-exposure areas (generally not recommended, may be considered), <12 h airport stopover rule, booster for some people, 60+ exemption option. Verification (2026-11-12): Canada.ca page re-read in the browser: it lists health care sites designated by PHAC as Yellow Fever Vaccination Centres on behalf of Canada to meet the International Health Regulations (list by province; notice that it may not be fully up to date, contact the clinic); it does not say the vaccine is given only there. Reworded to say exactly that: PHAC designates the centres for the IHR and publishes the list by province. Also added « Selon l’OMS » to the single-dose statement and « après une dose » to the certificate, as in fievre-jaune.json."
+    },
+    {
+      "id": "chikungunya-vaccin",
+      "theme": "maladies",
+      "q": {
+        "fr": "Le chikungunya : existe-t-il un vaccin ?",
+        "en": "Chikungunya: is there a vaccine?"
+      },
+      "a": {
+        "fr": "<p>Un seul vaccin est offert au Canada depuis 2024 : Ixchiq, un vaccin vivant atténué donné en 1 dose. Il peut être envisagé de 12 à 64 ans pour un séjour dans un pays ou un territoire où une éclosion est en cours, après une évaluation soignée des risques et des bénéfices par le vaccinateur.</p><ul><li>Il est contre-indiqué à 65 ans et plus, pendant la grossesse et chez les personnes immunodéprimées. En cas de maladie chronique ou d’allaitement, la vaccination exige une évaluation soignée des risques et des bénéfices.</li><li>Dans les essais cliniques, 11,7 % des personnes vaccinées ont eu, dans les 30 jours, des réactions ressemblant au chikungunya; 1,6 % étaient graves (soins médicaux ou hospitalisation).</li><li>Depuis sa mise en marché, des effets graves, notamment cardiaques et neurologiques, ont été signalés, surtout chez des personnes de 65 ans et plus, et trois décès ont été rapportés. En janvier 2026, Santé Canada a émis une mise en garde sur ce risque chez les personnes de 65 ans et plus fragiles et atteintes de plusieurs maladies chroniques.</li><li>Aucune donnée n’est disponible sur son efficacité.</li></ul><p>Les personnes de 65 ans et plus qui prévoient aller dans un pays ou un territoire en éclosion devraient envisager de reporter leur voyage. Voir notre page <a href=\"/vaccination/chikungunya/\">Chikungunya</a>.</p>",
+        "en": "<p>Only one vaccine has been available in Canada since 2024: Ixchiq, a live attenuated vaccine given as 1 dose. It may be considered for people aged 12 to 64 travelling to a country or territory with an ongoing outbreak, after a careful assessment of risks and benefits by the vaccinator.</p><ul><li>It is contraindicated at age 65 and older, during pregnancy and in people who are immunosuppressed. For people with a chronic disease or who are breastfeeding, vaccination requires a careful assessment of risks and benefits.</li><li>In clinical trials, 11.7% of vaccinated people had chikungunya-like reactions within 30 days; 1.6% were serious (requiring medical care or hospitalization).</li><li>Since it was marketed, serious adverse events, including cardiac and neurological ones, have been reported, mainly in people aged 65 and older, and three deaths have been reported. In January 2026, Health Canada issued a warning about this risk in people aged 65 and older who are medically frail and have several chronic conditions.</li><li>No data are available on its efficacy.</li></ul><p>People aged 65 and older planning to travel to a country or territory with an outbreak should consider postponing their trip. See our <a href=\"/en/vaccination/chikungunya/\">Chikungunya</a> page.</p>"
+      },
+      "sources": [
+        { "label": "INSPQ, Guide d’intervention santé-voyage, « Chikungunya » (mis à jour le 11 février 2026)", "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/chikungunya" },
+        { "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « CHIK : vaccin contre le chikungunya » (mis à jour le 30 juin 2026)", "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/chikungunya-chik/" }
+      ],
+      "notes": "From chikungunya.json. Shortened: the Health Canada warning concerns people 65+ who are medically frail with several chronic conditions; three deaths, the Réunion encephalitis case, the EMA aseptic meningitis case and the 11.7%/1.6% trial reaction rates are on the disease page but not in the FAQ. Also left out: careful assessment needed for chronic disease/breastfeeding; not indicated after lab-confirmed chikungunya; 65+ should consider postponing travel to outbreak areas. « Pays » shortened from « pays ou territoire ». « Oui » opening — reviewer may prefer a more cautious lead given the safety signals. Verification (2026-11-12): removed the « Oui / Yes » opening; the safety part understated chikungunya.json, so restored: the Health Canada warning’s actual scope (65+ who are frail with several chronic conditions, « sur ce risque »), the three deaths, the trial rates (11.7% chikungunya-like reactions within 30 days, 1.6% serious), careful assessment for chronic disease/breastfeeding, and the advice for 65+ to consider postponing travel to outbreak areas; « pays » → « pays ou territoire ». Still left out: Réunion encephalitis and EMA meningitis cases, not indicated after lab-confirmed infection. Answer now ~210 words FR (over the 120-word target, kept for safety)."
+    }
+  ]
+}

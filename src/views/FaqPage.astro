@@ -1,0 +1,82 @@
+---
+// The main FAQ (/foire-aux-questions-sur-la-clinique-voyage/ and its English page, the old site's URLs),
+// one Priveo FAQ section per theme. Replaces the imported WordPress page.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Faq from '../components/priveo/Faq.astro';
+import BookingSteps from '../components/priveo/BookingSteps.astro';
+import { BOOKING, type Lang } from '../data/site';
+import { clinicCopy } from '../data/clinics';
+import { FAQ_THEMES, answerHtml, faqByTheme, faqCopy, faqJsonLd } from '../lib/faq';
+import { seoHead } from '../lib/seo';
+import '../styles/priveo/sections.css';
+import '../styles/sections.css';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = faqCopy[lang];
+const path = faqCopy[lang].more.href;
+const other = faqCopy[lang === 'fr' ? 'en' : 'fr'].more.href;
+const themes = FAQ_THEMES.map((theme) => ({
+  ...theme,
+  items: faqByTheme(theme.id).map((i) => ({ q: i.q[lang], a: answerHtml(i, lang) })),
+})).filter((theme) => theme.items.length);
+const steps = clinicCopy[lang].steps;
+
+const head = seoHead({
+  title: `${t.page.title} | ${lang === 'fr' ? 'Clinique Santé Voyage' : 'Travel Health Clinic'}`,
+  description: t.page.lede.slice(0, 155),
+  path,
+  lang,
+  alternates: lang === 'fr' ? { fr: path, en: other } : { fr: other, en: path },
+  jsonLd: faqJsonLd(themes.flatMap((theme) => theme.items)),
+});
+---
+
+<BaseLayout lang={lang} htmlLang={lang === 'fr' ? 'fr-CA' : 'en-CA'} title={t.page.title} head={head} route={path} alt={other}>
+  <div class="pv">
+    <section class="layout-section section faq-hero">
+      <div class="layout-element layout-container container">
+        <div class="layout-element layout-stack section-header section-header--center">
+          <p class="layout-element text-inline section-header__tagline">FAQ</p>
+          <h1 class="layout-element typography-heading section-header__title heading-2xl font-secondary">{t.page.title}</h1>
+          <p class="layout-element text-inline section-header__description">{t.page.lede}</p>
+        </div>
+        <nav class="faq-hero__themes" aria-label={lang === 'fr' ? 'Thèmes' : 'Topics'}>
+          {themes.map((theme) => <a href={`#${theme.id}`}>{theme.title[lang]}</a>)}
+        </nav>
+      </div>
+    </section>
+  </div>
+  {themes.map((theme) => <Faq id={theme.id} title={theme.title[lang]} items={theme.items} />)}
+  <BookingSteps tagline={steps.tagline} title={steps.title} steps={steps.items} cta={{ label: clinicCopy[lang].book, href: BOOKING }} />
+</BaseLayout>
+
+<style>
+  .faq-hero {
+    padding-bottom: 0;
+  }
+  .faq-hero__themes {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 28px;
+  }
+  .faq-hero__themes a {
+    padding: 8px 16px;
+    border: 1px solid var(--gsv-border-subtle);
+    border-radius: var(--gsv-radius-full);
+    background: var(--gsv-white);
+    color: var(--gsv-primary);
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  .faq-hero__themes a:hover {
+    border-color: var(--gsv-secondary-l-4);
+    background: var(--gsv-primary-l-6);
+  }
+</style>

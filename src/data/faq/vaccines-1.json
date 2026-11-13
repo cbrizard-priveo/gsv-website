@@ -1,0 +1,742 @@
+{
+  "items": [
+    {
+      "id": "bexsero-recommande-voyage",
+      "theme": "page:bexsero",
+      "q": {
+        "fr": "Le vaccin Bexsero est-il recommandé pour mon voyage ?",
+        "en": "Is the Bexsero vaccine recommended for my trip?"
+      },
+      "a": {
+        "fr": "<p>Pour les voyageurs, l’INSPQ réserve le vaccin contre le méningocoque de sérogroupe B aux régions où sévit une éclosion de ce sérogroupe. Quand un voyage justifie une vaccination contre le méningocoque, c’est plutôt le vaccin conjugué quadrivalent, qui protège contre les sérogroupes A, C, W et Y, qui est privilégié. Le Bexsero s’adresse aussi à certaines personnes plus à risque, par exemple celles qui n’ont pas de rate ou dont la rate ne fonctionne pas.</p>",
+        "en": "<p>For travellers, the INSPQ reserves the serogroup B meningococcal vaccine for regions with an outbreak of that serogroup. When a trip calls for meningococcal vaccination, the quadrivalent conjugate vaccine, which protects against serogroups A, C, W and Y, is preferred instead. Bexsero is also intended for certain people at higher risk, for example those who have no spleen or whose spleen does not work.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Infections invasives à méningocoque » (mis à jour le 22 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/meningocoque"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Men-B : vaccin contre le méningocoque de sérogroupe B » (mis à jour le 20 juin 2025)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/men-b-vaccin-contre-le-meningocoque-de-serogroupe-b/"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre les méningocoques des sérogroupes A, B, C, W et Y » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccins-meningocoques"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "bexsero-nombre-doses",
+      "theme": "page:bexsero",
+      "q": {
+        "fr": "Combien de doses de Bexsero faut-il recevoir ?",
+        "en": "How many doses of Bexsero are needed?"
+      },
+      "a": {
+        "fr": "<p>Cela dépend de l’âge au début de la vaccination : 3 doses si elle commence entre 2 et 11 mois, et 2 doses à partir de 1 an. Si le risque persiste en raison d’une condition médicale ou d’une exposition accrue, un rappel est donné tous les 5 ans (sauf pour les recrues militaires), ou après 3 ans si la dernière dose a été reçue avant l’âge de 7 ans. Le Bexsero et le Trumenba ne sont pas interchangeables.</p>",
+        "en": "<p>It depends on age when vaccination starts: 3 doses if it starts between 2 and 11 months of age, and 2 doses from age 1. If the risk persists because of a medical condition or higher exposure, a booster is given every 5 years (except for military recruits), or after 3 years if the last dose was received before age 7. Bexsero and Trumenba are not interchangeable.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Infections invasives à méningocoque » (mis à jour le 22 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/meningocoque"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Men-B : vaccin contre le méningocoque de sérogroupe B » (mis à jour le 20 juin 2025)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/men-b-vaccin-contre-le-meningocoque-de-serogroupe-b/"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre les méningocoques des sérogroupes A, B, C, W et Y » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccins-meningocoques"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "bexsero-effets-secondaires",
+      "theme": "page:bexsero",
+      "q": {
+        "fr": "Quels sont les effets secondaires du Bexsero ?",
+        "en": "What are the side effects of Bexsero?"
+      },
+      "a": {
+        "fr": "<p>Les réactions sont bénignes et de courte durée : surtout de la douleur, de la rougeur et du gonflement au point d’injection, et souvent des maux de tête chez les adolescents. Chez les enfants de moins de 2 ans, la fièvre, l’irritabilité, la somnolence, la perte d’appétit, les vomissements ou la diarrhée sont aussi fréquents. Pour eux, on recommande de donner de l’acétaminophène le plus tôt possible après la vaccination, puis toutes les 4 à 6 heures pendant 12 heures, ce qui peut réduire le risque de fièvre.</p>",
+        "en": "<p>Reactions are mild and short-lived: mainly pain, redness and swelling at the injection site, and often headache in teenagers. In children under 2, fever, irritability, drowsiness, loss of appetite, vomiting or diarrhea are also common. For them, giving acetaminophen as soon as possible after vaccination, then every 4 to 6 hours for 12 hours, is recommended; this can reduce the risk of fever.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Infections invasives à méningocoque » (mis à jour le 22 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/meningocoque"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec, « Men-B : vaccin contre le méningocoque de sérogroupe B » (mis à jour le 20 juin 2025)",
+          "href": "https://msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/men-b-vaccin-contre-le-meningocoque-de-serogroupe-b/"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccins contre les méningocoques des sérogroupes A, B, C, W et Y » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccins-meningocoques"
+        }
+      ],
+      "notes": "The answer lists most, not all, common reactions in children under 2 (unusual crying left out for length). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "chikungunya-qui-vacciner",
+      "theme": "page:chikungunya",
+      "q": {
+        "fr": "Qui peut recevoir le vaccin contre le chikungunya ?",
+        "en": "Who can get the chikungunya vaccine?"
+      },
+      "a": {
+        "fr": "<p>Un seul vaccin est offert au Canada : Ixchiq, un vaccin vivant atténué donné en 1 dose. La vaccination peut être envisagée chez les personnes de 12 à 64 ans qui se rendent dans un pays ou un territoire où une éclosion de chikungunya est en cours, après une évaluation soignée des risques et des bénéfices par le vaccinateur. Le vaccin est contre-indiqué à 65 ans et plus, pendant la grossesse et chez les personnes immunodéprimées. Aucune donnée n’est disponible sur son efficacité.</p>",
+        "en": "<p>Only one vaccine is offered in Canada: Ixchiq, a live attenuated vaccine given as 1 dose. Vaccination may be considered for people aged 12 to 64 travelling to a country or territory with an ongoing chikungunya outbreak, after a careful assessment of risks and benefits by the vaccinator. The vaccine is contraindicated at age 65 and older, during pregnancy and in people who are immunosuppressed. No data are available on its efficacy.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Chikungunya » (mis à jour le 11 février 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/chikungunya"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « CHIK : vaccin contre le chikungunya » (mis à jour le 30 juin 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/chikungunya-chik/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "chikungunya-65-ans-et-plus",
+      "theme": "page:chikungunya",
+      "q": {
+        "fr": "J’ai 65 ans ou plus : que faire si je dois aller dans une région où sévit une éclosion de chikungunya ?",
+        "en": "I am 65 or older: what should I do if I plan to go where a chikungunya outbreak is under way?"
+      },
+      "a": {
+        "fr": "<p>À cet âge, le vaccin est contre-indiqué. Depuis sa mise en marché, des effets graves, notamment cardiaques et neurologiques, ont été signalés surtout chez des personnes de 65 ans et plus, et Santé Canada a émis en janvier 2026 une mise en garde sur ce risque chez les personnes de 65 ans et plus fragiles et atteintes de plusieurs maladies chroniques. Les personnes de 65 ans et plus qui prévoient se rendre dans un pays ou un territoire touché par une éclosion devraient envisager de reporter leur voyage : ces éclosions durent habituellement de quelques semaines à quelques mois.</p>",
+        "en": "<p>At this age, the vaccine is contraindicated. Since it was marketed, serious adverse events, including cardiac and neurological ones, have been reported mainly in people aged 65 and older, and in January 2026 Health Canada issued a warning about this risk in people aged 65 and older who are medically frail and have several chronic conditions. People aged 65 and older planning to travel to a country or territory with an ongoing outbreak should consider postponing their trip: these outbreaks usually last from a few weeks to a few months.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Chikungunya » (mis à jour le 11 février 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/chikungunya"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « CHIK : vaccin contre le chikungunya » (mis à jour le 30 juin 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/chikungunya-chik/"
+        }
+      ],
+      "notes": "The Health Canada warning concerns people 65+ who are medically frail with several chronic conditions; the answer names the warning without that detail (the page gives it). Verification (2026-11-12): Health Canada warning now names its target group (65+ who are frail with several chronic conditions), as on the page, FR+EN."
+    },
+    {
+      "id": "chikungunya-prevention-piqures",
+      "theme": "page:chikungunya",
+      "q": {
+        "fr": "Comment se protéger du chikungunya en voyage ?",
+        "en": "How can I protect myself from chikungunya when travelling?"
+      },
+      "a": {
+        "fr": "<p>Le virus se transmet surtout par la piqûre de moustiques <em>Aedes</em>, qui piquent surtout le jour et en début de soirée, particulièrement à l’ombre. Là où il circule, portez des vêtements longs de couleur pâle et appliquez un insectifuge sur la peau exposée. Le virus circule dans la plupart des pays chauds des Amériques, y compris la majorité des destinations balnéaires populaires, et les éclosions sont de plus en plus fréquentes en Europe, notamment en France et en Italie.</p>",
+        "en": "<p>The virus is spread mainly by the bite of <em>Aedes</em> mosquitoes, which bite mostly during the day and in the early evening, especially in the shade. Where it circulates, wear long, light-coloured clothing and apply insect repellent to exposed skin. The virus circulates in most warm countries of the Americas, including most popular beach destinations, and outbreaks are increasingly frequent in Europe, notably in France and Italy.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Chikungunya » (mis à jour le 11 février 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/chikungunya"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « CHIK : vaccin contre le chikungunya » (mis à jour le 30 juin 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/chikungunya-chik/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "cholera-vaccin-pour-qui",
+      "theme": "page:cholera-etec",
+      "q": {
+        "fr": "Dois-je me faire vacciner contre le choléra pour mon voyage ?",
+        "en": "Should I get vaccinated against cholera for my trip?"
+      },
+      "a": {
+        "fr": "<p>Pour les voyageurs qui respectent les précautions de base à l’égard de l’eau et des aliments, le risque est très faible. La vaccination peut être envisagée à partir de 2 ans pour un séjour dans une zone où le choléra est présent et dans de mauvaises conditions sanitaires, si la personne n’aura pas accès à de l’eau potable et sera en contact étroit avec une population démunie, isolée des ressources médicales (par exemple, coopérants, personnel de la santé ou humanitaire), ou si ses défenses gastriques sont réduites (par exemple, prise continue d’inhibiteurs de la pompe à protons).</p>",
+        "en": "<p>For travellers who follow basic food and water precautions, the risk is very low. Vaccination may be considered from age 2 for a stay in an area where cholera is present and in poor sanitary conditions, if the person will not have access to safe drinking water and will be in close contact with a poor population cut off from medical resources (for example, aid workers, health care or humanitarian staff), or if their stomach defences are reduced (for example, ongoing use of proton pump inhibitors).</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Choléra » (mis à jour le 26 janvier 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur » (mis à jour le 29 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-du-voyageur"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « Chol-Ecol-O : vaccin oral contre le choléra et la diarrhée à Escherichia coli entérotoxinogène » (mis à jour le 3 avril 2025)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/cholera-et-la-diarrhee-a-ecet-chol-ecol-o/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): Restored the condition « isolée des ressources médicales » and made the structure match the page (zone + poor sanitary conditions, AND one of the two situations); examples aligned with the page (coopérants added), FR+EN."
+    },
+    {
+      "id": "cholera-vaccins-doses",
+      "theme": "page:cholera-etec",
+      "q": {
+        "fr": "Quels vaccins contre le choléra sont offerts et comment les prend-on ?",
+        "en": "Which cholera vaccines are available and how are they taken?"
+      },
+      "a": {
+        "fr": "<p>Deux vaccins oraux sont distribués au Canada; il ne faut ni manger ni boire 1 heure avant et 1 heure après la prise. Le <strong>Dukoral</strong> se prend en 3 doses de 2 à 6 ans et en 2 doses à partir de 7 ans, à 1 semaine d’intervalle; la protection commence environ 1 semaine après la dernière dose. Le <strong>Vaxchora</strong> se prend en 1 seule dose à partir de 2 ans; il est contre-indiqué pendant la grossesse et chez les personnes immunodéprimées.</p>",
+        "en": "<p>Two oral vaccines are distributed in Canada; nothing should be eaten or drunk 1 hour before and 1 hour after taking them. <strong>Dukoral</strong> is taken in 3 doses from 2 to 6 years of age and in 2 doses from age 7, 1 week apart; protection starts about 1 week after the last dose. <strong>Vaxchora</strong> is taken as a single dose from age 2; it is contraindicated during pregnancy and in people who are immunosuppressed.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Choléra » (mis à jour le 26 janvier 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur » (mis à jour le 29 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-du-voyageur"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « Chol-Ecol-O : vaccin oral contre le choléra et la diarrhée à Escherichia coli entérotoxinogène » (mis à jour le 3 avril 2025)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/cholera-et-la-diarrhee-a-ecet-chol-ecol-o/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "cholera-transmission",
+      "theme": "page:cholera-etec",
+      "q": {
+        "fr": "Comment attrape-t-on le choléra ?",
+        "en": "How do people catch cholera?"
+      },
+      "a": {
+        "fr": "<p>On l’attrape en avalant de l’eau ou des aliments contaminés par des matières fécales infectées. Le choléra trouve un terrain favorable là où l’eau potable manque et où les eaux usées sont mal traitées. Les poissons et les crustacés crus ou mal cuits, comme d’autres aliments crus ou pas assez cuits, transmettent souvent la bactérie, et une personne infectée peut contaminer les aliments si elle les manipule sans s’être lavé les mains.</p>",
+        "en": "<p>It is caught by swallowing water or food contaminated with infected feces. Cholera finds favourable ground where safe drinking water is lacking and wastewater is poorly treated. Raw or undercooked fish and shellfish, like other raw or undercooked foods, often transmit the bacterium, and an infected person can contaminate food by handling it without washing their hands.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Choléra » (mis à jour le 26 janvier 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/cholera"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur » (mis à jour le 29 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-du-voyageur"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « Chol-Ecol-O : vaccin oral contre le choléra et la diarrhée à Escherichia coli entérotoxinogène » (mis à jour le 3 avril 2025)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/cholera-et-la-diarrhee-a-ecet-chol-ecol-o/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "coqueluche-grossesse",
+      "theme": "page:coqueluche",
+      "q": {
+        "fr": "Pourquoi se faire vacciner contre la coqueluche pendant la grossesse ?",
+        "en": "Why get vaccinated against whooping cough during pregnancy?"
+      },
+      "a": {
+        "fr": "<p>Une dose est prévue à chaque grossesse, idéalement entre la 26e et la 32e semaine. Les anticorps produits passent au bébé par le placenta et le protègent dès la naissance, jusqu’à ce qu’il soit lui-même vacciné. La coqueluche est plus grave chez les bébés de moins de 1 an, et ceux de moins de 3 mois ont les complications les plus graves. Selon des études récentes, cette vaccination prévient environ 90 % des hospitalisations et 95 % des décès liés à la coqueluche chez les bébés de moins de 3 mois.</p>",
+        "en": "<p>One dose is given during each pregnancy, ideally between the 26th and 32nd week. The antibodies produced pass to the baby through the placenta and protect it from birth until it is vaccinated itself. Whooping cough is more serious in babies under 1 year of age, and those under 3 months have the most serious complications. According to recent studies, this vaccination prevents about 90% of hospitalizations and 95% of deaths from whooping cough in babies under 3 months.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Coqueluche » (mis à jour le 12 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/coqueluche"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie, la coqueluche et le tétanos (dcaT) » (mis à jour le 12 juillet 2024)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-coqueluche-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): Removed the causal link « C’est important, car » (not in the page); « bébés » made exact (under 1 year; under 3 months); « ces bébés » made explicit as « bébés de moins de 3 mois » as on the page, FR+EN."
+    },
+    {
+      "id": "coqueluche-calendrier",
+      "theme": "page:coqueluche",
+      "q": {
+        "fr": "Quand reçoit-on le vaccin contre la coqueluche ?",
+        "en": "When is the whooping cough vaccine given?"
+      },
+      "a": {
+        "fr": "<p>Au Québec, il fait partie du calendrier régulier : les enfants le reçoivent à 2, 4 et 12 mois, puis une dernière dose entre 4 et 6 ans; les personnes enceintes reçoivent une dose à chaque grossesse. Selon le Protocole d’immunisation du Québec, une personne de 18 ans ou plus certaine de n’avoir jamais reçu de vaccin contre la coqueluche recevra une dose de dcaT. La protection contre l’infection dure quelques années après la dose de 4 à 6 ans.</p>",
+        "en": "<p>In Québec, it is part of the regular schedule: children receive it at 2, 4 and 12 months, then a last dose between 4 and 6 years of age; pregnant people receive one dose during each pregnancy. According to the Protocole d’immunisation du Québec, a person aged 18 or over who is certain they have never received a whooping cough vaccine will be given one dose of dcaT. Protection against infection lasts a few years after the dose given at 4 to 6 years.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Coqueluche » (mis à jour le 12 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/coqueluche"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie, la coqueluche et le tétanos (dcaT) » (mis à jour le 12 juillet 2024)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-coqueluche-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "coqueluche-transmission",
+      "theme": "page:coqueluche",
+      "q": {
+        "fr": "Comment la coqueluche se transmet-elle ?",
+        "en": "How does whooping cough spread?"
+      },
+      "a": {
+        "fr": "<p>La coqueluche est très contagieuse : elle se transmet par les gouttelettes venant du nez et de la gorge d’une personne infectée, et se propage facilement dans une famille, un service de garde ou une école. Une personne malade devrait appliquer les gestes qui limitent la transmission des infections respiratoires et éviter les bébés de moins de 1 an et les personnes enceintes non vaccinées dans leur dernier mois de grossesse. En cas de toux importante ou persistante, consultez un médecin ou appelez Info-Santé 811.</p>",
+        "en": "<p>Whooping cough is highly contagious: it spreads through droplets from the nose and throat of an infected person, and it passes easily within a family, a daycare or a school. A sick person should follow the measures that limit the spread of respiratory infections and avoid babies under 1 year of age and unvaccinated pregnant people in their last month of pregnancy. If you have a severe or persistent cough, see a doctor or call Info-Santé 811.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Coqueluche » (mis à jour le 12 novembre 2025)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/coqueluche"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie, la coqueluche et le tétanos (dcaT) » (mis à jour le 12 juillet 2024)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-coqueluche-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "dengue-page-vaccin",
+      "theme": "page:dengue",
+      "q": {
+        "fr": "Existe-t-il un vaccin contre la dengue ?",
+        "en": "Is there a vaccine against dengue?"
+      },
+      "a": {
+        "fr": "<p>Un seul vaccin existe actuellement : Qdenga (Takeda), un vaccin tétravalent vivant atténué. L’OMS le recommande pour les enfants qui vivent dans des régions endémiques. Il n’est pas autorisé au Canada, mais il est offert aux voyageurs dans certains pays européens; le Comité consultatif de la médecine tropicale et de la médecine des voyages a publié des recommandations provisoires à ce sujet pour les intervenants en santé-voyage. D’autres vaccins sont en développement.</p>",
+        "en": "<p>Only one vaccine currently exists: Qdenga (Takeda), a live attenuated tetravalent vaccine. The WHO recommends it for children living in endemic regions. It is not authorized in Canada, but it is available to travellers in some European countries; the Committee to Advise on Tropical Medicine and Travel has issued interim recommendations on this for travel health professionals. Other vaccines are in development.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Dengue » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/dengue"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "dengue-prevention",
+      "theme": "page:dengue",
+      "q": {
+        "fr": "Comment se protéger de la dengue en voyage ?",
+        "en": "How can I protect myself from dengue when travelling?"
+      },
+      "a": {
+        "fr": "<p>Il n’existe pas de traitement spécifique : la prévention repose sur la protection contre les piqûres de moustiques. Les moustiques <em>Aedes</em> piquent le jour, surtout à l’aube et au crépuscule. Portez des vêtements longs, amples et de couleur pâle, et appliquez un insectifuge sur la peau exposée; chez l’adulte et l’enfant de 12 ans et plus, les premiers choix sont le DEET 30 % ou l’icaridine 20 %. Si possible, limitez le temps passé dehors quand ces moustiques sont actifs.</p>",
+        "en": "<p>There is no specific treatment: prevention relies on protection against mosquito bites. <em>Aedes</em> mosquitoes bite during the day, especially at dawn and dusk. Wear long, loose, light-coloured clothing and apply insect repellent to exposed skin; for adults and children 12 and older, the first choices are DEET 30% or icaridin 20%. If possible, limit time spent outdoors when these mosquitoes are active.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Dengue » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/dengue"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "dengue-fievre-au-retour",
+      "theme": "page:dengue",
+      "q": {
+        "fr": "Que faire si j’ai de la fièvre au retour d’une région tropicale ?",
+        "en": "What should I do if I have a fever after returning from a tropical region?"
+      },
+      "a": {
+        "fr": "<p>Consultez un médecin d’urgence pour écarter le paludisme, la dengue ou une autre infection liée au voyage. L’incubation de la dengue dure de 3 à 14 jours et dépasse rarement deux semaines. Pour la fièvre, privilégiez l’acétaminophène et évitez les anti-inflammatoires non stéroïdiens, comme l’aspirine et l’ibuprofène, qui peuvent augmenter le risque d’hémorragie.</p>",
+        "en": "<p>See a doctor urgently to rule out malaria, dengue or another travel-related infection. The incubation period of dengue is 3 to 14 days and rarely exceeds two weeks. For fever, use acetaminophen and avoid non-steroidal anti-inflammatory drugs, such as aspirin and ibuprofen, which can increase the risk of bleeding.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Dengue » (aucune date de mise à jour indiquée)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/dengue"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Arthropodes » (mis à jour le 22 décembre 2023)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/arthropodes"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "diphterie-rappel-voyage",
+      "theme": "page:diphterie",
+      "q": {
+        "fr": "Ai-je besoin d’un rappel contre la diphtérie avant de voyager ?",
+        "en": "Do I need a diphtheria booster before travelling?"
+      },
+      "a": {
+        "fr": "<p>Selon le Protocole d’immunisation du Québec, aucun rappel n’est nécessaire avant 50 ans si la vaccination de base est complète, ni si une dose a été reçue à partir de 40 ans. Dans des circonstances exceptionnelles, par exemple un séjour dans une région où l’accès aux soins de santé est limité, une personne de 18 ans ou plus peut recevoir une dose de vaccin dT si au moins 5 ans se sont écoulés depuis sa dernière dose.</p>",
+        "en": "<p>According to the Protocole d’immunisation du Québec, no booster is needed before age 50 if the primary series is complete, nor if a dose was received at age 40 or later. In exceptional circumstances, for example a stay in a region where access to health care is limited, a person aged 18 or over may receive one dose of dT vaccine if at least 5 years have passed since their last dose.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Diphtérie » (mis à jour le 22 octobre 2015)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/diphterie"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie et le tétanos (dT) » (mis à jour le 30 janvier 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "diphterie-calendrier",
+      "theme": "page:diphterie",
+      "q": {
+        "fr": "Quand reçoit-on le vaccin contre la diphtérie au Québec ?",
+        "en": "When is the diphtheria vaccine given in Québec?"
+      },
+      "a": {
+        "fr": "<p>Il fait partie du calendrier régulier de vaccination : les enfants le reçoivent à 2, 4 et 12 mois, puis entre 4 et 6 ans; les adolescents reçoivent une dose en 3e année du secondaire (14 à 16 ans), et les adultes, une dose de rappel à 50 ans. Avoir eu la diphtérie ne donne pas nécessairement d’immunité : les personnes qui l’ont eue doivent quand même être vaccinées.</p>",
+        "en": "<p>It is part of the regular vaccination schedule: children receive it at 2, 4 and 12 months, then between 4 and 6 years of age; teenagers receive one dose in Secondary III (14 to 16 years of age), and adults receive a booster dose at age 50. Having had diphtheria does not necessarily give immunity: people who have had it must still be vaccinated.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Diphtérie » (mis à jour le 22 octobre 2015)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/diphterie"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie et le tétanos (dT) » (mis à jour le 30 janvier 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "diphterie-vaccin-adulte",
+      "theme": "page:diphterie",
+      "q": {
+        "fr": "Quel vaccin protège l’adulte contre la diphtérie ?",
+        "en": "Which vaccine protects adults against diphtheria?"
+      },
+      "a": {
+        "fr": "<p>Chez l’adolescent et l’adulte, on utilise le vaccin dT, qui protège contre la diphtérie et le tétanos (au Canada : Td Adsorbées). Le vaccin dcaT (Adacel, Boostrix), qui protège en plus contre la coqueluche, peut être donné à sa place de façon sécuritaire. Le vaccin protège plus de 95 % des personnes adéquatement vaccinées, mais il n’empêche pas de porter la bactérie sur la peau ou dans le nez et l’arrière-gorge.</p>",
+        "en": "<p>For teenagers and adults, the dT vaccine is used, which protects against diphtheria and tetanus (in Canada: Td Adsorbées). The dcaT vaccine (Adacel, Boostrix), which also protects against whooping cough, can safely be given instead. The vaccine protects more than 95% of adequately vaccinated people, but it does not prevent a person from carrying the bacterium on the skin or in the nose and back of the throat.</p>"
+      },
+      "sources": [
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Diphtérie » (mis à jour le 22 octobre 2015)",
+          "href": "https://www.quebec.ca/sante/problemes-de-sante/a-z/diphterie"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Vaccin combiné contre la diphtérie et le tétanos (dT) » (mis à jour le 30 janvier 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccin-diphterie-et-tetanos"
+        },
+        {
+          "label": "Gouvernement du Québec, Québec.ca, « Programme québécois d’immunisation » (mis à jour le 30 juin 2026)",
+          "href": "https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation"
+        },
+        {
+          "label": "MSSS, Protocole d’immunisation du Québec (PIQ), « dcaT, dcaT-VPI et dT : vaccins contre la diphtérie, la coqueluche, le tétanos et la poliomyélite » (mis à jour le 29 janvier 2026)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/diphterie-coqueluche-tetanos-et-poliomyelite-dt-dcat-dcat-vpi/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "dukoral-recommande",
+      "theme": "page:dukoral",
+      "q": {
+        "fr": "Le Dukoral est-il recommandé contre la diarrhée du voyageur ?",
+        "en": "Is Dukoral recommended against travellers’ diarrhea?"
+      },
+      "a": {
+        "fr": "<p>Pas de façon systématique. Le Dukoral est le seul vaccin approuvé contre la diarrhée causée par l’ECET producteur de toxine thermolabile (ECET-TL), mais ses avantages pour les voyageurs sont limités : les analyses d’essais n’ont montré aucun bénéfice par rapport à un placebo pour prévenir la diarrhée du voyageur. Il peut être envisagé chez les voyageurs de 2 ans et plus qui se rendent dans une région à risque et souhaitent réduire leur risque de diarrhée à ECET-TL.</p>",
+        "en": "<p>Not routinely. Dukoral is the only vaccine approved against diarrhea caused by ETEC that produces heat-labile toxin (LT-ETEC), but its benefits for travellers are limited: analyses of trials showed no benefit over a placebo in preventing travellers’ diarrhea. It may be considered for travellers aged 2 years and older going to an at-risk area who want to reduce their risk of LT-ETEC diarrhea.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur » (mis à jour le 29 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-du-voyageur"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur : traitement » (mis à jour le 30 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-des-voyageurs/traitement"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « Chol-Ecol-O : vaccin oral contre le choléra et la diarrhée à Escherichia coli entérotoxinogène » (mis à jour le 3 avril 2025)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/cholera-et-la-diarrhee-a-ecet-chol-ecol-o/"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "dukoral-doses",
+      "theme": "page:dukoral",
+      "q": {
+        "fr": "Comment prend-on le Dukoral contre la diarrhée à ECET ?",
+        "en": "How is Dukoral taken against ETEC diarrhea?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin se boit en 2 doses à 1 semaine d’intervalle. La protection commence environ 1 semaine après la 2e dose, et un rappel est donné tous les 3 mois si le risque persiste. Le Dukoral protège aussi contre le choléra; pour cet usage, voyez la page <a href=\"/vaccination/cholera-et-etec/\">Choléra et ECET</a>.</p>",
+        "en": "<p>The vaccine is taken by mouth in 2 doses 1 week apart. Protection starts about 1 week after the 2nd dose, and a booster is given every 3 months if the risk continues. Dukoral also protects against cholera; for that use, see the <a href=\"/en/vaccination/cholera-and-etec-vaccination/\">Cholera and ETEC</a> page.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur » (mis à jour le 29 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-du-voyageur"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur : traitement » (mis à jour le 30 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-des-voyageurs/traitement"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « Chol-Ecol-O : vaccin oral contre le choléra et la diarrhée à Escherichia coli entérotoxinogène » (mis à jour le 3 avril 2025)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/cholera-et-la-diarrhee-a-ecet-chol-ecol-o/"
+        }
+      ],
+      "notes": "Short answer (about 45 words). Cholera dosing differs (3 doses at ages 2 to 6, other booster intervals), hence the link rather than restating it here. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "dukoral-prevenir-diarrhee",
+      "theme": "page:dukoral",
+      "q": {
+        "fr": "Comment prévenir la diarrhée du voyageur ?",
+        "en": "How can I prevent travellers’ diarrhea?"
+      },
+      "a": {
+        "fr": "<p>Le lavage des mains à l’eau et au savon, ou avec une solution hydroalcoolique, est la mesure la plus importante. Choisissez bien vos aliments : la viande mal cuite, les fruits et légumes crus, les produits laitiers non pasteurisés et les aliments laissés plusieurs heures à la température ambiante sont à risque. Le subsalicylate de bismuth (Pepto-Bismol®) peut être envisagé, mais il a des contre-indications, dont la grossesse et l’allaitement. Les antibiotiques pris en prévention ne sont généralement pas recommandés.</p>",
+        "en": "<p>Washing your hands with soap and water, or with an alcohol-based hand sanitizer, is the most important measure. Choose your food carefully: undercooked meat, raw fruits and vegetables, unpasteurized dairy products and food left for several hours at room temperature are risky. Bismuth subsalicylate (Pepto-Bismol®) may be considered, but it has contraindications, including pregnancy and breastfeeding. Antibiotics taken for prevention are generally not recommended.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur » (mis à jour le 29 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-du-voyageur"
+        },
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Diarrhée du voyageur : traitement » (mis à jour le 30 septembre 2025)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/risques/diarrhee-des-voyageurs/traitement"
+        },
+        {
+          "label": "Ministère de la Santé, de la Prévention et des Aînés, Protocole d’immunisation du Québec, « Chol-Ecol-O : vaccin oral contre le choléra et la diarrhée à Escherichia coli entérotoxinogène » (mis à jour le 3 avril 2025)",
+          "href": "https://www.msss.gouv.qc.ca/professionnels/vaccination/piq-vaccins/cholera-et-la-diarrhee-a-ecet-chol-ecol-o/"
+        }
+      ],
+      "notes": "Bismuth details shortened (three-week maximum, aspirin allergy, age limits are on the page). Verification (2026-11-12): OK"
+    },
+    {
+      "id": "encephalite-japonaise-recommande",
+      "theme": "page:encephalite-japonaise",
+      "q": {
+        "fr": "Le vaccin contre l’encéphalite japonaise est-il recommandé pour mon voyage ?",
+        "en": "Is the Japanese encephalitis vaccine recommended for my trip?"
+      },
+      "a": {
+        "fr": "<p>Cela dépend de la durée, du lieu et de la saison. Il est <strong>recommandé</strong> pour un séjour de plus de 1 mois au total en milieu rural, dans une région endémique, pendant la saison de transmission. Il <strong>peut être envisagé</strong> pour un séjour plus court hors des villes, dans une région endémique et pendant la saison de transmission, si les activités (visites de rizières ou de fermes porcines) ou les conditions de séjour augmentent le risque; pour un séjour dans une région où sévit une éclosion; ou pour un séjour en région endémique dont la destination, les activités ou la durée sont incertaines. Il n’est <strong>pas indiqué</strong> pour un court séjour limité aux villes ou hors de la saison de transmission.</p>",
+        "en": "<p>It depends on the length, location and season of your stay. It is <strong>recommended</strong> for a stay of more than 1 month in total in a rural area of an endemic region during the transmission season. It <strong>may be considered</strong> for a shorter stay outside cities, in an endemic region during the transmission season, if activities (visits to rice paddies or pig farms) or living conditions increase the risk; for a stay in a region with an outbreak; or for a stay in an endemic region when the destination, activities or length of stay are uncertain. It is <strong>not indicated</strong> for a short stay limited to cities or outside the transmission season.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Encéphalite japonaise » (mis à jour le 27 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-japonaise"
+        }
+      ],
+      "notes": "Summarizes the three indication levels; 'peut être envisagé' first case also covers higher risk from living conditions, not only activities; 'itinéraire incertain' summarizes 'destination, activités ou durée incertaines'. Verification (2026-11-12): « Peut être envisagé » restored conditions the summary dropped (endemic region, transmission season, living conditions; « itinéraire incertain » limited to endemic regions and spelled out as destination/activities/length), FR+EN."
+    },
+    {
+      "id": "encephalite-japonaise-risque",
+      "theme": "page:encephalite-japonaise",
+      "q": {
+        "fr": "Quel est le risque d’encéphalite japonaise pour les voyageurs ?",
+        "en": "What is the risk of Japanese encephalitis for travellers?"
+      },
+      "a": {
+        "fr": "<p>Le risque est très faible : moins de 1 cas par million de voyageurs. Il est plus élevé pour les expatriés et les longs séjours en milieu rural pendant la saison de transmission, ainsi que pour les activités extérieures (camping, randonnée, vélo, travail aux champs), surtout près des fermes de porcs et des rizières, le soir ou la nuit. Les enfants de moins de 10 ans sont plus à risque de faire une forme grave de la maladie.</p>",
+        "en": "<p>The risk is very low: fewer than 1 case per million travellers. It is higher for expatriates and long stays in rural areas during the transmission season, and for outdoor activities (camping, hiking, cycling, field work), especially near pig farms and rice paddies, in the evening or at night. Children under 10 are at higher risk of severe disease.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Encéphalite japonaise » (mis à jour le 27 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-japonaise"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "encephalite-japonaise-moustiques",
+      "theme": "page:encephalite-japonaise",
+      "q": {
+        "fr": "Comment se protéger des moustiques qui transmettent l’encéphalite japonaise ?",
+        "en": "How can I protect myself from the mosquitoes that transmit Japanese encephalitis?"
+      },
+      "a": {
+        "fr": "<p>Les moustiques <em>Culex</em> piquent surtout entre le crépuscule et l’aube. En plus de porter des vêtements longs de couleur pâle et d’utiliser un insectifuge, assurez-vous que les fenêtres ont de bonnes moustiquaires, gardez les portes fermées et dormez à l’air climatisé si possible, sinon sous une moustiquaire imprégnée d’insecticide installée sur le lit.</p>",
+        "en": "<p><em>Culex</em> mosquitoes bite mainly between dusk and dawn. In addition to wearing long, light-coloured clothing and using insect repellent, make sure windows have good screens, keep doors closed and sleep in air conditioning if possible, otherwise under an insecticide-treated bed net.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Encéphalite japonaise » (mis à jour le 27 août 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/encephalite-japonaise"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "fievre-jaune-qui-vacciner",
+      "theme": "page:fievre-jaune",
+      "q": {
+        "fr": "Qui devrait être vacciné contre la fièvre jaune ?",
+        "en": "Who should be vaccinated against yellow fever?"
+      },
+      "a": {
+        "fr": "<p>Le vaccin peut être indiqué pour répondre à une exigence d’entrée d’un pays, ou pour se protéger lors d’un séjour dans un pays à risque, même si ce pays n’exige rien (par exemple le Pérou). Dans les zones où une transmission persistante et périodique est attestée, il est recommandé pour tous les voyageurs de 9 mois ou plus. Là où l’exposition est peu probable, il n’est généralement pas recommandé, mais il peut être envisagé pour un petit nombre de voyageurs qui risquent d’être fortement exposés aux piqûres de moustiques. Consultez la page de votre destination dans notre <a href=\"/pays/\">liste des pays</a>.</p>",
+        "en": "<p>The vaccine may be indicated to meet a country’s entry requirement, or for protection during a stay in a country at risk, even if that country requires nothing (for example, Peru). In areas with documented persistent and periodic transmission, it is recommended for all travellers aged 9 months or older. Where exposure is unlikely, it is generally not recommended, but it may be considered for a small number of travellers likely to be heavily exposed to mosquito bites. Check your destination’s page in our <a href=\"/en/countries/\">list of countries</a>.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Fièvre jaune » (mis à jour le 2 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/fievre-jaune"
+        }
+      ],
+      "notes": "Left out for length: in low-exposure areas it may be considered for a small number of travellers likely to be heavily exposed to mosquito bites. Verification (2026-11-12): Added the « peut être envisagé » exception for low-exposure areas (left out by the writer; without it the answer reads as a flat no), FR+EN."
+    },
+    {
+      "id": "fievre-jaune-rappel",
+      "theme": "page:fievre-jaune",
+      "q": {
+        "fr": "Faut-il un rappel du vaccin contre la fièvre jaune ?",
+        "en": "Is a yellow fever booster needed?"
+      },
+      "a": {
+        "fr": "<p>Selon l’OMS, une seule dose protège à vie. Depuis le 11 juillet 2016, le Certificat international de vaccination contre la fièvre jaune est valide à vie après une dose, et aucun pays ne peut exiger de rappel pour entrer sur son territoire. Une dose de rappel unique est toutefois recommandée à certaines personnes qui pourraient moins bien répondre au vaccin.</p>",
+        "en": "<p>According to the WHO, a single dose protects for life. Since July 11, 2016, the International Certificate of Vaccination against yellow fever is valid for life after one dose, and no country can require a booster for entry. A single booster dose is, however, recommended for some people who may respond less well to the vaccine.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Fièvre jaune » (mis à jour le 2 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/fievre-jaune"
+        }
+      ],
+      "notes": "The page does not say who those people are; the answer does not either. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "fievre-jaune-escale",
+      "theme": "page:fievre-jaune",
+      "q": {
+        "fr": "Ai-je besoin du vaccin contre la fièvre jaune pour une escale dans un pays à risque ?",
+        "en": "Do I need the yellow fever vaccine for a stopover in a country at risk?"
+      },
+      "a": {
+        "fr": "<p>Lors d’une escale de moins de 12 heures dans l’aéroport d’un pays à risque, le risque est jugé presque nul et une preuve de vaccination n’est pas requise. Certains pays exigent toutefois cette preuve de tous les voyageurs, quelle que soit la durée de l’escale. Comme les exigences peuvent changer à tout moment, vérifiez-les auprès de l’ambassade du pays visité.</p>",
+        "en": "<p>For a stopover of less than 12 hours in the airport of a country at risk, the risk is considered almost nil and proof of vaccination is not required. Some countries, however, require this proof from all travellers, whatever the length of the stopover. Since requirements can change at any time, check them with the embassy of the country you are visiting.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Fièvre jaune » (mis à jour le 2 avril 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/fievre-jaune"
+        }
+      ],
+      "notes": "Verification (2026-11-12): OK"
+    },
+    {
+      "id": "rage-morsure-en-voyage",
+      "theme": "page:rage",
+      "q": {
+        "fr": "Que faire en cas de morsure ou de griffure d’animal en voyage ?",
+        "en": "What should I do if an animal bites or scratches me while travelling?"
+      },
+      "a": {
+        "fr": "<p>Lavez la plaie à l’eau et au savon pendant 10 à 15 minutes : c’est l’étape la plus efficace pour éliminer le virus. Appliquez ensuite un virucide, même si quelques heures se sont écoulées. Consultez un professionnel de la santé le plus vite possible, idéalement en moins de 24 heures, et notez le nom, le numéro de lot et la date des produits reçus. À votre retour, consultez de nouveau, même si l’exposition remonte à plusieurs mois.</p>",
+        "en": "<p>Wash the wound with soap and water for 10 to 15 minutes: this is the most effective step to remove the virus. Then apply a virucide, even if a few hours have passed. See a health professional as soon as possible, ideally within 24 hours, and write down the name, lot number and date of the products you receive. When you get back, see a health professional again, even if the exposure was several months ago.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Rage » (mis à jour le 28 mai 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage"
+        }
+      ],
+      "notes": "'Date' summarizes expiry and administration dates; virucide examples left out for length. Verification (2026-11-12): OK"
+    },
+    {
+      "id": "rage-vaccin-avant-depart",
+      "theme": "page:rage",
+      "q": {
+        "fr": "Dois-je me faire vacciner contre la rage avant mon voyage ?",
+        "en": "Should I get the rabies vaccine before my trip?"
+      },
+      "a": {
+        "fr": "<p>La décision dépend du niveau de risque de rage du pays visité, de vos activités et de la disponibilité des vaccins et des immunoglobulines sur place. Aucune vaccination préventive n’est recommandée là où le risque est très faible. Plus le risque du pays est élevé, plus elle peut viser de voyageurs : contact possible avec des chauves-souris, activités surtout à l’extérieur, séjours de plusieurs mois ou répétés, jeunes enfants, puis exposition aux chiens errants. Le niveau de risque figure sur la page de chaque <a href=\"/pays/\">pays</a>.</p>",
+        "en": "<p>The decision depends on the rabies risk level of the country, your activities, and the local availability of vaccines and immunoglobulins. No preventive vaccination is recommended where the risk is very low. The higher the country’s risk, the more travellers it may apply to: possible contact with bats, mostly outdoor activities, stays of several months or repeated stays, young children, and then exposure to stray dogs. The risk level is shown on each <a href=\"/en/countries/\">country</a> page.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Rage » (mis à jour le 28 mai 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage"
+        }
+      ],
+      "notes": "Condensed version of the four risk tiers (low: bats; moderate: wild mammals, outdoor activities, stays of several months or repeated, young children; high: domestic animals, especially stray dogs). Check that every country page shows its rabies risk level; the country JSON files do contain a rabies entry. Rabies text sign-off is still an open item for the client. Verification (2026-11-12): « longs séjours » replaced by the page’s « séjours de plusieurs mois ou répétés » (repeated stays had been dropped), FR+EN. Checked: all 218 country files carry a rabies risk level."
+    },
+    {
+      "id": "rage-vaccine-apres-morsure",
+      "theme": "page:rage",
+      "q": {
+        "fr": "Si je suis vacciné contre la rage, ai-je encore besoin d’un traitement après une morsure ?",
+        "en": "If I am vaccinated against rabies, do I still need treatment after a bite?"
+      },
+      "a": {
+        "fr": "<p>Oui. Le vaccin préventif ne remplace pas le traitement après une exposition, mais il le simplifie : moins de doses, et pas besoin d’immunoglobulines, qui sont souvent plus difficiles à obtenir sur place. Les personnes immunosupprimées en auront toutefois besoin, même si elles ont été vaccinées. Dans tous les cas, lavez la plaie et consultez rapidement un professionnel de la santé.</p>",
+        "en": "<p>Yes. The preventive vaccine does not replace treatment after an exposure, but it simplifies it: fewer doses, and no need for immunoglobulins, which are often harder to obtain locally. People who are immunosuppressed will still need them, even if vaccinated. In all cases, wash the wound and see a health professional quickly.</p>"
+      },
+      "sources": [
+        {
+          "label": "INSPQ, Guide d’intervention santé-voyage, « Rage » (mis à jour le 28 mai 2026)",
+          "href": "https://www.inspq.qc.ca/sante-voyage/guide/immunisation/rage"
+        }
+      ],
+      "notes": "'Sur place' / 'locally' is a slight addition to 'souvent plus difficiles à obtenir'; remove if the reviewer prefers the exact wording. Verification (2026-11-12): OK"
+    }
+  ]
+}
