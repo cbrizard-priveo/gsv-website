@@ -111,7 +111,15 @@ const head = seoHead({
             columns={block.columns}
             tone={block.tone}
             cards={block.cards.map((c) => ({ title: c.title[lang], text: c.text[lang], href: c.href?.[lang], linkLabel: c.linkLabel?.[lang], image: c.image }))}
-          />
+          >
+            {block.source && (
+              <div class="service-source">
+                <p>
+                  {lang === 'fr' ? 'Source :' : 'Source:'} <a href={block.source.href[lang]}>{block.source.label[lang]}</a>
+                </p>
+              </div>
+            )}
+          </CardGrid>
         );
       if (block.type === 'vaccines') {
         if (block.compact)

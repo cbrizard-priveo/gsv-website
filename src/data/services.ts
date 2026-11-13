@@ -11,7 +11,7 @@ type Text = Record<Lang, string>;
 export type Block =
   | { type: 'steps'; tagline: Text; title: Text; steps: { title: Text; text: Text }[] }
   | { type: 'callout'; badge: Text; title: Text; text: Text; cta: { label: Text; href: Text }; asideTitle: Text; items: Text[]; source?: { label: Text; href: Text } }
-  | { type: 'cards'; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[] }
+  | { type: 'cards'; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[]; source?: { label: Text; href: Text } }
   /** Vaccine cards with their lowest price; `topics` limits them to those pages (src/data/vaccines keys, or
    *  « rage »); `compact` shows small tiles with the name only (no price, no note). */
   | { type: 'vaccines'; tagline: Text; title: Text; lede: Text; note?: Text; topics?: string[]; compact?: true }
@@ -538,6 +538,42 @@ export const servicePages: ServicePage[] = [
         topics: ['chikungunya', 'coqueluche', 'grippe', 'twinrix', 'meningocoque', 'pneumocoque', 'hib', 'vph', 'poliomyelite', 'oreillons', 'rougeole', 'rage', 'rubeole', 'tetanos', 'varicelle', 'zona'],
       },
       {
+        type: 'cards',
+        tagline: { fr: 'Coût des vaccins', en: 'Cost of vaccines' },
+        title: { fr: 'Vaccins gratuits ou payants ?', en: 'Free or paid vaccines?' },
+        lede: { fr: 'Selon le vaccin et votre situation, la vaccination peut être gratuite ou non.', en: 'Depending on the vaccine and your situation, vaccination may or may not be free.' },
+        columns: 3,
+        cards: [
+          {
+            title: { fr: 'Vaccins gratuits', en: 'Free vaccines' },
+            text: {
+              fr: '<p>Le Programme québécois d’immunisation offre gratuitement certains vaccins du calendrier de vaccination à toute personne vivant au Québec. D’autres vaccins peuvent aussi être gratuits selon votre état de santé, votre âge, vos habitudes de vie ou votre travail.</p>',
+              en: '<p>The Québec Immunization Program offers some of the vaccines in the vaccination schedule free of charge to anyone living in Québec. Other vaccines may also be free depending on your health, age, lifestyle or work.</p>',
+            },
+          },
+          {
+            title: { fr: 'Vaccins non couverts', en: 'Vaccines not covered' },
+            text: {
+              fr: '<p>D’autres vaccins peuvent être recommandés sans être gratuits. Dans nos cliniques, vous payez alors le prix du vaccin, sans frais d’injection.</p>',
+              en: '<p>Other vaccines may be recommended without being free. At our clinics, you then pay the price of the vaccine, with no injection fee.</p>',
+            },
+            href: tarifs,
+            linkLabel: { fr: 'Voir nos tarifs', en: 'See our prices' },
+          },
+          {
+            title: { fr: 'Un vaccin gratuit, chez nous', en: 'A free vaccine, with us' },
+            text: {
+              fr: '<p>Vous êtes admissible à un vaccin gratuit ? Vous pouvez le recevoir dans nos cliniques : des frais d’injection de 20 $ s’appliquent. Pour savoir quels vaccins vous pouvez recevoir gratuitement, informez-vous auprès d’un professionnel de la santé ou de votre CLSC.</p>',
+              en: '<p>Eligible for a free vaccine? You can get it at our clinics: a $20 injection fee applies. To find out which vaccines you can get for free, ask a health professional or your CLSC.</p>',
+            },
+          },
+        ],
+        source: {
+          label: { fr: 'Québec.ca, « Programme québécois d’immunisation » (mis à jour le 12 novembre 2026)', en: 'Québec.ca, “Québec Immunization Program” (French page updated November 12, 2026)' },
+          href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/quebec-immunisation-program' },
+        },
+      },
+      {
         type: 'callout',
         badge: { fr: 'Grippe', en: 'Flu' },
         title: { fr: 'La saison de la grippe approche et vous voulez éviter les files d’attente ?', en: 'Flu season is coming and you want to avoid the lines?' },
@@ -613,6 +649,51 @@ export const servicePages: ServicePage[] = [
           { fr: 'Empathie', en: 'Empathy' },
           { fr: 'Rigueur', en: 'Rigour' },
         ],
+      },
+      {
+        type: 'cards',
+        tagline: { fr: 'Le jour du vaccin', en: 'On vaccination day' },
+        title: { fr: 'Préparer votre enfant à la vaccination', en: 'Preparing your child for vaccination' },
+        lede: {
+          fr: 'Des moyens reconnus pour diminuer la douleur et l’anxiété de votre enfant. Vous pouvez en combiner plusieurs.',
+          en: 'Proven ways to reduce your child’s pain and anxiety. You can combine several of them.',
+        },
+        columns: 2,
+        tone: 'soft',
+        cards: [
+          {
+            title: { fr: 'Avant : le préparer', en: 'Before: prepare them' },
+            text: {
+              fr: '<ul><li>Parlez-lui du vaccin, de la raison pour laquelle il le reçoit et du déroulement de la visite.</li><li>Dites-lui la vérité : il sentira une piqûre ou un pincement, qui ne durera pas longtemps.</li><li>Ne présentez jamais le vaccin comme une punition.</li></ul>',
+              en: '<ul><li>Talk to them about the vaccine, why they are getting it and how the visit will go.</li><li>Tell them the truth: they will feel a prick or a pinch that won’t last long.</li><li>Never present the vaccine as a punishment.</li></ul>',
+            },
+          },
+          {
+            title: { fr: 'Pendant : rester calme', en: 'During: stay calm' },
+            text: {
+              fr: '<ul><li>Restez calme et souriant, et parlez d’une voix normale ; évitez de vous excuser ou de parler de douleur.</li><li>Tenez votre enfant sur vos genoux, dans la position que le vaccinateur vous indique.</li><li>Vous pouvez allaiter votre bébé pendant la vaccination.</li></ul>',
+              en: '<ul><li>Stay calm and smiling, and speak in a normal voice; avoid apologizing or talking about pain.</li><li>Hold your child on your lap, in the position the vaccinator shows you.</li><li>You can breastfeed your baby during the vaccination.</li></ul>',
+            },
+          },
+          {
+            title: { fr: 'Le distraire', en: 'Distract them' },
+            text: {
+              fr: '<ul><li>Moins de 3 ans : son jouet ou sa couverture préférés, des câlins, une chanson ou une histoire.</li><li>De 3 à 6 ans : faire des bulles, souffler sur un vire-vent, respirer lentement et profondément, un jouet, de la musique ou un appareil mobile.</li><li>Après le vaccin, câlinez-le, félicitez-le et récompensez-le.</li></ul>',
+              en: '<ul><li>Under 3: their favourite toy or blanket, cuddles, a song or a story.</li><li>Ages 3 to 6: blowing bubbles or a pinwheel, breathing slowly and deeply, a toy, music or a mobile device.</li><li>After the vaccine, cuddle, praise and reward them.</li></ul>',
+            },
+          },
+          {
+            title: { fr: 'Soulager la douleur', en: 'Relieve the pain' },
+            text: {
+              fr: '<ul><li>Avant : une crème ou un timbre anesthésiant en vente libre, appliqué 30 à 60 minutes avant à l’endroit de l’injection, engourdit la peau.</li><li>Bébé de moins de 2 ans : une solution d’eau sucrée donnée 1 à 2 minutes avant l’injection aide à soulager la douleur. N’utilisez jamais de miel avant 1 an.</li><li>Après, au besoin : de l’acétaminophène ou de l’ibuprofène contre la fièvre ou la douleur ; ils ne sont pas recommandés avant le vaccin.</li></ul><p>Lisez le mode d’emploi et, au besoin, parlez-en à votre pharmacien ou à votre vaccinateur.</p>',
+              en: '<ul><li>Before: an over-the-counter numbing cream or patch, applied 30 to 60 minutes before where the needle will go, numbs the skin.</li><li>Babies under 2: a sugar-water solution given 1 to 2 minutes before the injection helps relieve pain. Never use honey before age 1.</li><li>After, if needed: acetaminophen or ibuprofen for fever or pain; they are not recommended before the vaccine.</li></ul><p>Read the instructions and, if needed, talk to your pharmacist or vaccinator.</p>',
+            },
+          },
+        ],
+        source: {
+          label: { fr: 'Québec.ca, « Diminuer la douleur et l’anxiété liées à la vaccination chez les enfants » (mis à jour le 13 juin 2023)', en: 'Québec.ca, “Reducing the pain and anxiety of vaccination in children” (French page updated June 13, 2023)' },
+          href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/diminuer-douleur-et-anxiete-liees-a-la-vaccination-chez-enfants', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/reducing-pain-and-anxiety-of-vaccination-children' },
+        },
       },
       { type: 'faq', ids: ['enfants', 'enfants-vaccination-voyage', 'rougeole-bebe-6-11-mois', 'hepatite-a-bebes', 'poliomyelite-enfants-bebes', 'famille-ensemble'] },
       { type: 'clinics' },
