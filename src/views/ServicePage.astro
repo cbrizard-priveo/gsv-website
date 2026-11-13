@@ -86,6 +86,7 @@ const head = seoHead({
     cta={book}
     image={{ src: page.hero.image.src, alt: page.hero.image.alt[lang], width: page.hero.image.width, height: page.hero.image.height }}
   />
+  <div class:list={{ 'service-compact': page.compact }}>
   {
     page.blocks.map((block) => {
       if (block.type === 'steps')
@@ -156,4 +157,5 @@ const head = seoHead({
       return <BookingSteps tagline={steps.tagline} title={steps.title} steps={steps.items} cta={book} />;
     })
   }
+  </div>
 </BaseLayout>

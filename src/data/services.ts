@@ -27,6 +27,8 @@ export interface ServicePage {
   route: Text;
   hero: { tagline: Text; title: Text; description: Text; image: { src: string; width: number; height: number; alt: Text } };
   blocks: Block[];
+  /** Tighter spacing between and inside sections (the general and pediatric vaccination pages). */
+  compact?: true;
 }
 
 const tele: Text = { fr: '/consultation-en-telemedecine/', en: '/en/telemedicine-consultation/' };
@@ -487,6 +489,7 @@ export const servicePages: ServicePage[] = [
   // ---- General vaccination (replaces the imported page; its own text and vaccine list) -------------------
   {
     route: { fr: '/vaccination-generale/', en: '/en/general-vaccination/' },
+    compact: true,
     hero: {
       tagline: { fr: 'Vaccination', en: 'Vaccination' },
       title: { fr: 'Vaccination générale', en: 'General vaccination' },
@@ -509,6 +512,7 @@ export const servicePages: ServicePage[] = [
         cards: [
           {
             title: { fr: 'Vaccination de base', en: 'Basic vaccination' },
+            image: '/images/services/vaccin-base.jpg',
             text: {
               fr: '<p>Mettez à jour votre vaccination de base. La plupart des vaccins généraux offerts dans nos cliniques font partie du calendrier de vaccination régulier du Québec.</p>',
               en: '<p>Bring your basic vaccination up to date. Most of the general vaccines offered at our clinics are part of Québec’s regular vaccination schedule.</p>',
@@ -516,12 +520,14 @@ export const servicePages: ServicePage[] = [
           },
           {
             title: { fr: 'Grippe saisonnière', en: 'Seasonal flu' },
+            image: '/images/services/grippe-famille.jpg',
             text: { fr: '<p>Recevez le vaccin contre la grippe saisonnière dans l’une de nos cliniques.</p>', en: '<p>Get the seasonal flu vaccine at one of our clinics.</p>' },
             href: { fr: '/vaccination/grippe-influenza/', en: '/en/vaccination/influenza-vaccination/' },
             linkLabel: more,
           },
           {
             title: { fr: 'Zona, VPH et autres vaccins', en: 'Shingles, HPV and other vaccines' },
+            image: '/images/clinics/reception.jpg',
             text: {
               fr: '<p>Profitez de la protection d’autres vaccins, comme ceux contre le <a href="/vaccination/zona/">zona</a> ou les <a href="/vaccination/infections-par-les-virus-du-papillome-humain-vph/">VPH</a>.</p>',
               en: '<p>Benefit from the protection of other vaccines, such as those against <a href="/en/vaccination/shingles-vaccination/">shingles</a> or <a href="/en/vaccination/vaccination-human-papillomavirus-hpv-infections/">HPV</a>.</p>',
@@ -595,6 +601,7 @@ export const servicePages: ServicePage[] = [
   // ---- Pediatric vaccination (replaces « Vaccination infantile »; its own text, Québec.ca for the why) -------
   {
     route: { fr: '/vaccination-infantile/', en: '/en/infant-vaccination/' },
+    compact: true,
     hero: {
       tagline: { fr: 'Vaccination', en: 'Vaccination' },
       title: { fr: 'Vaccination pédiatrique', en: 'Pediatric vaccination' },
@@ -613,14 +620,17 @@ export const servicePages: ServicePage[] = [
         cards: [
           {
             title: { fr: 'De tout âge, y compris les bébés', en: 'All ages, babies included' },
+            image: '/images/services/bebe.jpg',
             text: { fr: '<p>Nous recevons les enfants de tout âge, y compris les bébés.</p>', en: '<p>We see children of all ages, babies included.</p>' },
           },
           {
             title: { fr: 'Vaccination à domicile', en: 'Home vaccination' },
+            image: '/images/services/domicile.jpg',
             text: { fr: '<p>Nous offrons aussi le service de vaccination à domicile.</p>', en: '<p>We also offer home vaccination.</p>' },
           },
           {
             title: { fr: 'Avant un voyage', en: 'Before a trip' },
+            image: '/images/services/aeroport.jpg',
             text: {
               fr: '<p>Vos enfants voyagent avec vous ? Certains vaccins peuvent leur être donnés avant l’âge habituel. Nous vous conseillons selon leur âge et votre destination.</p>',
               en: '<p>Are your children travelling with you? Some vaccines can be given to them earlier than the usual age. We advise you based on their age and your destination.</p>',
@@ -628,26 +638,6 @@ export const servicePages: ServicePage[] = [
             href: { fr: '/consultation/', en: '/en/consultation/' },
             linkLabel: more,
           },
-        ],
-      },
-      {
-        type: 'callout',
-        badge: { fr: 'Pourquoi vacciner ?', en: 'Why vaccinate?' },
-        title: { fr: 'Pourquoi la vaccination des enfants ?', en: 'Why vaccinate children?' },
-        text: {
-          fr: 'Selon le gouvernement du Québec, le risque de contracter plusieurs maladies est très élevé dans la première année de vie ; il recommande donc de faire vacciner les enfants selon le calendrier de vaccination. Un enfant non vacciné risque davantage d’attraper une maladie contagieuse et de la transmettre à d’autres. Avant un voyage à l’étranger, certains vaccins peuvent être donnés avant l’âge recommandé.',
-          en: 'According to the Government of Québec, the risk of catching several diseases is very high in a child’s first year of life; it therefore recommends vaccinating children according to the vaccination schedule. An unvaccinated child is more likely to catch a contagious disease and to pass it on to others. Before a trip abroad, some vaccines can be given before the recommended age.',
-        },
-        source: {
-          label: { fr: 'Québec.ca, « Vaccination des enfants » (mis à jour le 20 juillet 2026)', en: 'Québec.ca, “Vaccination for children” (French page updated July 20, 2026)' },
-          href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccination-des-enfants', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/vaccination-for-children' },
-        },
-        cta: { label: { fr: 'Prendre rendez-vous', en: 'Book an appointment' }, href: booking },
-        asideTitle: { fr: 'Notre approche :', en: 'Our approach:' },
-        items: [
-          { fr: 'Efficacité', en: 'Efficiency' },
-          { fr: 'Empathie', en: 'Empathy' },
-          { fr: 'Rigueur', en: 'Rigour' },
         ],
       },
       {
@@ -694,6 +684,26 @@ export const servicePages: ServicePage[] = [
           label: { fr: 'Québec.ca, « Diminuer la douleur et l’anxiété liées à la vaccination chez les enfants » (mis à jour le 13 juin 2023)', en: 'Québec.ca, “Reducing the pain and anxiety of vaccination in children” (French page updated June 13, 2023)' },
           href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/diminuer-douleur-et-anxiete-liees-a-la-vaccination-chez-enfants', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/reducing-pain-and-anxiety-of-vaccination-children' },
         },
+      },
+      {
+        type: 'callout',
+        badge: { fr: 'Pourquoi vacciner ?', en: 'Why vaccinate?' },
+        title: { fr: 'Pourquoi la vaccination des enfants ?', en: 'Why vaccinate children?' },
+        text: {
+          fr: 'Selon le gouvernement du Québec, le risque de contracter plusieurs maladies est très élevé dans la première année de vie ; il recommande donc de faire vacciner les enfants selon le calendrier de vaccination. Un enfant non vacciné risque davantage d’attraper une maladie contagieuse et de la transmettre à d’autres. Avant un voyage à l’étranger, certains vaccins peuvent être donnés avant l’âge recommandé.',
+          en: 'According to the Government of Québec, the risk of catching several diseases is very high in a child’s first year of life; it therefore recommends vaccinating children according to the vaccination schedule. An unvaccinated child is more likely to catch a contagious disease and to pass it on to others. Before a trip abroad, some vaccines can be given before the recommended age.',
+        },
+        source: {
+          label: { fr: 'Québec.ca, « Vaccination des enfants » (mis à jour le 20 juillet 2026)', en: 'Québec.ca, “Vaccination for children” (French page updated July 20, 2026)' },
+          href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccination-des-enfants', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/vaccination-for-children' },
+        },
+        cta: { label: { fr: 'Prendre rendez-vous', en: 'Book an appointment' }, href: booking },
+        asideTitle: { fr: 'Notre approche :', en: 'Our approach:' },
+        items: [
+          { fr: 'Efficacité', en: 'Efficiency' },
+          { fr: 'Empathie', en: 'Empathy' },
+          { fr: 'Rigueur', en: 'Rigour' },
+        ],
       },
       { type: 'faq', ids: ['enfants', 'enfants-vaccination-voyage', 'rougeole-bebe-6-11-mois', 'hepatite-a-bebes', 'poliomyelite-enfants-bebes', 'famille-ensemble'] },
       { type: 'clinics' },
