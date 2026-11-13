@@ -36,6 +36,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
           { label: 'Destinations', href: '/pays/' },
           { label: 'Vaccination', href: '/vaccination/' },
           { label: 'Prescription', href: '/prescription/' },
+          { label: 'Tarifs', href: '/tarifs/' },
         ],
         intro: {
           title: 'Santé-voyage',
@@ -103,6 +104,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
           { label: 'Destinations', href: '/en/countries/' },
           { label: 'Vaccination', href: '/en/pre-travel-vaccination-clinic/' },
           { label: 'Prescription', href: '/en/prescription-travel/' },
+          { label: 'Pricing', href: '/en/pricing/' },
         ],
         intro: {
           title: 'Travel health',

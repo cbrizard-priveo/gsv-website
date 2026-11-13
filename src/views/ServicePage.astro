@@ -1,0 +1,115 @@
+---
+// A service page (Consultation, Vaccination, Prescription, Telemedicine) built from Priveo's modules, in
+// the order given by src/data/services.ts. Title and description come from the SEO overrides (src/data/seo.ts)
+// through BaseLayout, as for the imported pages these replace.
+import BaseLayout from '../layouts/BaseLayout.astro';
+import HeroSub from '../components/priveo/HeroSub.astro';
+import BookingSteps from '../components/priveo/BookingSteps.astro';
+import CalloutBand from '../components/priveo/CalloutBand.astro';
+import CardGrid from '../components/priveo/CardGrid.astro';
+import ClinicMap from '../components/priveo/ClinicMap.astro';
+import Faq from '../components/priveo/Faq.astro';
+import { BOOKING, type Lang } from '../data/site';
+import { clinicCopy } from '../data/clinics';
+import { serviceCopy, type ServicePage } from '../data/services';
+import { vaccinePrices } from '../data/tarifs';
+import { vaccineSeo } from '../data/seo';
+import { vaccineList } from '../lib/vaccines';
+import { answerHtml, faqCopy, faqJsonLd, type FaqItem } from '../lib/faq';
+import { seoFor } from '../data/seo';
+import { seoHead } from '../lib/seo';
+
+interface Props {
+  page: ServicePage;
+  lang: Lang;
+}
+
+const { page, lang } = Astro.props;
+const route = page.route[lang];
+const other = page.route[lang === 'fr' ? 'en' : 'fr'];
+const seo = seoFor(route);
+const t = serviceCopy[lang];
+const book = { label: t.book, href: BOOKING };
+const steps = clinicCopy[lang].steps;
+const money = new Intl.NumberFormat(lang === 'fr' ? 'fr-CA' : 'en-CA', { style: 'currency', currency: 'CAD', minimumFractionDigits: 0 });
+
+// FAQ items by id, from every FAQ file.
+const faqFiles = import.meta.glob<{ items: FaqItem[] }>('../data/faq/*.json', { eager: true, import: 'default' });
+const faqById = new Map(Object.values(faqFiles).flatMap((f) => f.items.map((i) => [i.id, i] as const)));
+const faqItems = (ids: string[]) =>
+  ids.map((id) => {
+    const item = faqById.get(id);
+    if (!item) throw new Error(`service page ${route}: unknown FAQ id ${id}`);
+    return { q: item.q[lang], a: answerHtml(item, lang) };
+  });
+const allFaq = page.blocks.flatMap((b) => (b.type === 'faq' ? faqItems(b.ids) : []));
+
+// Vaccines block: every vaccine page (diseases without a vaccine left out), with its price when listed.
+const topics = import.meta.glob<{ routes: Record<Lang, string> }>('../data/vaccines/*.json', { eager: true, import: 'default' });
+const topicByRoute = new Map<string, string>([
+  ...Object.entries(topics).map(([f, j]) => [j.routes[lang], f.replace(/^.*\/|\.json$/g, '')] as [string, string]),
+  [lang === 'fr' ? '/vaccination/rage/' : '/en/vaccination/rabies-vaccination/', 'rage'],
+]);
+const lowest = (topic?: string) => {
+  const prices = vaccinePrices.filter((v) => v.topic === topic || (topic && v.also?.includes(topic))).map((v) => v.price);
+  return prices.length ? Math.min(...prices) : undefined;
+};
+const vaccineCards = vaccineList(lang)
+  .filter((v) => !vaccineSeo[v.route]?.noVaccine)
+  .map((v) => {
+    const price = lowest(topicByRoute.get(v.route));
+    return { title: v.name, meta: price !== undefined ? t.price(money.format(price)) : undefined, href: v.route, linkLabel: t.more };
+  });
+
+const head = seoHead({
+  title: seo?.title ?? page.hero.title[lang],
+  description: seo?.description ?? page.hero.description[lang],
+  path: route,
+  lang,
+  alternates: { fr: page.route.fr, en: page.route.en },
+  jsonLd: allFaq.length ? faqJsonLd(allFaq) : undefined,
+});
+---
+
+<BaseLayout lang={lang} htmlLang={lang === 'fr' ? 'fr-CA' : 'en-CA'} title={seo?.title ?? page.hero.title[lang]} head={head} route={route} alt={other}>
+  <HeroSub
+    tagline={page.hero.tagline[lang]}
+    title={seo?.h1 ?? page.hero.title[lang]}
+    description={page.hero.description[lang]}
+    cta={book}
+    image={{ src: page.hero.image.src, alt: page.hero.image.alt[lang], width: page.hero.image.width, height: page.hero.image.height }}
+  />
+  {
+    page.blocks.map((block) => {
+      if (block.type === 'steps')
+        return <BookingSteps tagline={block.tagline[lang]} title={block.title[lang]} steps={block.steps.map((s) => ({ title: s.title[lang], text: s.text[lang] }))} cta={book} />;
+      if (block.type === 'callout')
+        return (
+          <CalloutBand
+            badge={block.badge[lang]}
+            title={block.title[lang]}
+            text={block.text[lang]}
+            cta={{ label: block.cta.label[lang], href: block.cta.href[lang] }}
+            asideTitle={block.asideTitle[lang]}
+            items={block.items.map((i) => i[lang])}
+          />
+        );
+      if (block.type === 'cards')
+        return (
+          <CardGrid
+            tagline={block.tagline?.[lang]}
+            title={block.title[lang]}
+            lede={block.lede?.[lang]}
+            columns={block.columns}
+            tone={block.tone}
+            cards={block.cards.map((c) => ({ title: c.title[lang], text: c.text[lang], href: c.href?.[lang], linkLabel: c.linkLabel?.[lang], image: c.image }))}
+          />
+        );
+      if (block.type === 'vaccines')
+        return <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={`${block.lede[lang]} ${block.note[lang]}`} columns={4} tone="soft" cards={vaccineCards} />;
+      if (block.type === 'faq') return <Faq title={faqCopy[lang].title} lede={faqCopy[lang].lede} items={faqItems(block.ids)} more={faqCopy[lang].more} />;
+      if (block.type === 'clinics') return <ClinicMap lang={lang} />;
+      return <BookingSteps tagline={steps.tagline} title={steps.title} steps={steps.items} cta={book} />;
+    })
+  }
+</BaseLayout>

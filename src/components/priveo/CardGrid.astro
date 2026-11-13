@@ -1,0 +1,64 @@
+---
+// A Priveo section of cards (section header + card grid, as in web-priveo-sante's service grids): each card
+// has a title, a short text (HTML), and optionally a photo, a meta line (e.g. a price) and a link.
+import Icon from '../Icon.astro';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Card {
+  title: string;
+  text?: string;
+  meta?: string;
+  href?: string;
+  linkLabel?: string;
+  image?: string;
+}
+
+interface Props {
+  tagline?: string;
+  title: string;
+  lede?: string;
+  cards: Card[];
+  columns?: 2 | 3 | 4;
+  id?: string;
+  tone?: 'plain' | 'soft';
+}
+
+const { tagline, title, lede, cards, columns = 3, id, tone = 'plain' } = Astro.props;
+---
+
+<div class="pv">
+  <section class={`layout-element layout-section section card-section${tone === 'soft' ? ' card-section--soft' : ''}`} id={id}>
+    <div class="layout-element layout-container container">
+      <div class="layout-element layout-stack section-header section-header--center">
+        {tagline && <p class="layout-element text-inline section-header__tagline">{tagline}</p>}
+        <h2 class="layout-element typography-heading section-header__title font-secondary">{title}</h2>
+        {lede && <p class="layout-element text-inline section-header__description">{lede}</p>}
+      </div>
+      <div class={`layout-element layout-container card-grid card-grid--${columns}`}>
+        {
+          cards.map((card) => (
+            <article class="layout-element layout-container card card--service card--elevated">
+              {card.image && (
+                <div class="layout-element layout-stack card__media">
+                  <img class="layout-element media-image card__image css-filter size-large" src={card.image} alt="" loading="lazy" decoding="async" />
+                </div>
+              )}
+              <div class="layout-element layout-stack card__content">
+                <h3 class="layout-element typography-heading card__title">{card.title}</h3>
+                {card.meta && <p class="card-section__meta">{card.meta}</p>}
+                {card.text && <div class="layout-element text-inline card__text" set:html={card.text} />}
+                {card.href && (
+                  <a class="layout-element action-button btn btn--ghost btn--card button-base" href={card.href} aria-label={`${card.linkLabel ?? ''} : ${card.title}`}>
+                    {card.linkLabel}
+                    <Icon name="arrow-right" />
+                  </a>
+                )}
+              </div>
+            </article>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</div>

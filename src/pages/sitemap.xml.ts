@@ -6,6 +6,7 @@ import type { WpPageData } from '../layouts/WpPage.astro';
 import { countries, countryPath, hubPath } from '../lib/countries';
 import { absolute } from '../lib/seo';
 import { clinicPages, clinicPath, clinicsHubPath } from '../data/clinics';
+import { tarifsCopy } from '../data/tarifs';
 
 interface Entry {
   path: string;
@@ -35,6 +36,8 @@ export const GET: APIRoute = () => {
   }
   entries.push({ path: hubPath('fr'), alternates: { fr: hubPath('fr'), en: hubPath('en') } });
   entries.push({ path: hubPath('en'), alternates: { fr: hubPath('fr'), en: hubPath('en') } });
+  const tarifs = { fr: tarifsCopy.fr.path, en: tarifsCopy.en.path };
+  entries.push({ path: tarifs.fr, alternates: tarifs }, { path: tarifs.en, alternates: tarifs });
   const hubs = { fr: clinicsHubPath('fr'), en: clinicsHubPath('en') };
   entries.push({ path: hubs.fr, alternates: hubs }, { path: hubs.en, alternates: hubs });
   for (const c of clinicPages) {

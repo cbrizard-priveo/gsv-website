@@ -43,6 +43,24 @@
     height: 1em;
   }
 
+  /* Card sections (src/components/priveo/CardGrid.astro). */
+  .pv .card-section--soft {
+    background: var(--primary-l-6);
+  }
+  /* Priveo has no two-column card grid; this site's: two columns, one on phones. */
+  .pv .card-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @media (max-width: 767px) {
+    .pv .card-grid--2 {
+      grid-template-columns: minmax(0, 1fr);
+    }
+  }
+  .pv .card-section__meta {
+    color: var(--primary);
+    font-weight: 600;
+  }
+
   /* Priveo's service cards are tall to hold a photo; this site's have none yet. */
   .pv .card--service:not(:has(.card__media)) {
     min-height: 0;
