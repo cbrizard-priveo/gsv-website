@@ -114,6 +114,16 @@
     color: var(--primary);
     text-underline-offset: 3px;
   }
+  .pv .callout-band__source {
+    margin-top: 0.75rem;
+    font-size: 0.8125rem;
+    opacity: 0.85;
+  }
+  .pv .callout-band__source a {
+    color: inherit;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+  }
   .pv .callout-band__check svg {
     width: 1em;
     height: 1em;

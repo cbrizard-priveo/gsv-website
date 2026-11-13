@@ -11,9 +11,11 @@ interface Props {
   cta: { label: string; href: string };
   asideTitle: string;
   items: string[];
+  /** Where a fact in the text comes from, shown under it. */
+  source?: { prefix: string; label: string; href: string };
 }
 
-const { badge, title, text, cta, asideTitle, items } = Astro.props;
+const { badge, title, text, cta, asideTitle, items, source } = Astro.props;
 ---
 
 <div class="pv">
@@ -23,7 +25,7 @@ const { badge, title, text, cta, asideTitle, items } = Astro.props;
       <div class="callout-band__main">
         <span class="layout-element text-inline badge badge--pill badge-glass callout-band__badge">{badge}</span>
         <h2 class="layout-element typography-heading callout-band__title">{title}</h2>
-        <div class="layout-element text-flow callout-band__text"><p>{text}</p></div>
+        <div class="layout-element text-flow callout-band__text"><p>{text}</p>{source && <p class="callout-band__source">{source.prefix} <a href={source.href}>{source.label}</a></p>}</div>
         <a class="action-button btn btn--primary button-base" href={cta.href}>{cta.label}</a>
       </div>
       <aside class="callout-band__aside">

@@ -1,6 +1,6 @@
 ---
 // « Une seule clinique, peu importe la destination »: the slogan over a strip of travel settings.
-// One row of photos at every width (no links), then the button to the destinations.
+// One row of photos at every width (no links, no captions), then the button to the destinations.
 import Icon from '../Icon.astro';
 import type { Lang } from '../../data/site';
 import { destinations } from '../../data/home-tools';
@@ -22,8 +22,7 @@ const t = destinations[Astro.props.lang];
       {
         t.tiles.map((tile) => (
           <li class="dest__tile">
-            <img src={tile.image} alt="" loading="lazy" decoding="async" width="640" height="427" />
-            <span class="dest__label">{tile.label}</span>
+            <img src={tile.image} alt={tile.label} loading="lazy" decoding="async" width="640" height="427" />
           </li>
         ))
       }
@@ -62,20 +61,6 @@ const t = destinations[Astro.props.lang];
     height: 100%;
     object-fit: cover;
   }
-  .dest__tile::after {
-    content: '';
-    position: absolute;
-    inset: 45% 0 0;
-    background: linear-gradient(transparent, rgb(0 0 0 / 0.55));
-  }
-  .dest__label {
-    position: absolute;
-    z-index: 1;
-    right: 12px;
-    bottom: 10px;
-    left: 12px;
-    font: 500 15px/1.25 var(--gsv-font-sans);
-  }
   .dest__cta {
     margin-top: 32px;
     text-align: center;
@@ -90,13 +75,6 @@ const t = destinations[Astro.props.lang];
     .dest__tile {
       aspect-ratio: 3 / 4;
       border-radius: var(--gsv-radius-s);
-    }
-    .dest__label {
-      right: 1px;
-      bottom: 6px;
-      left: 1px;
-      font-size: 11px;
-      text-align: center;
     }
   }
 </style>

@@ -387,6 +387,22 @@ export const pageSeo: Record<string, SeoOverride> = {
     title: 'Vaccines for Hajj and Umrah | Travel Health Clinic',
     description: 'Meningococcal vaccine required for Hajj and Umrah: INSPQ requirements and recommendations for Saudi Arabia. Montreal, Laval, Longueuil, Blainville.',
   },
+  '/vaccination-generale/': {
+    title: 'Vaccination Générale : Grippe, Zona, VPH | Clinique Santé Voyage',
+    description: 'Mise à jour de la vaccination de base, vaccin contre la grippe saisonnière, zona, VPH et plus, dans nos cliniques de Montréal, Laval, Longueuil et Blainville.',
+  },
+  '/en/general-vaccination/': {
+    title: 'General Vaccination: Flu, Shingles, HPV | Travel Health Clinic',
+    description: 'Basic vaccination updates, seasonal flu vaccine, shingles, HPV and more, at our clinics in Montreal, Laval, Longueuil and Blainville.',
+  },
+  '/vaccination-infantile/': {
+    title: 'Vaccination Pédiatrique | Clinique Santé Voyage',
+    description: 'Vaccination des enfants de tout âge, y compris les bébés, en clinique ou à domicile. Efficacité, empathie et rigueur pour l’enfant et ses parents.',
+  },
+  '/en/infant-vaccination/': {
+    title: 'Pediatric Vaccination | Travel Health Clinic',
+    description: 'Vaccination for children of all ages, babies included, in clinic or at home. Efficiency, empathy and rigour for the child and the parents.',
+  },
 };
 
 export function seoFor(route: string): VaccineSeo | undefined {

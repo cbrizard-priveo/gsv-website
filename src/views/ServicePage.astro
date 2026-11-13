@@ -13,7 +13,7 @@ import PromoBanner from '../components/priveo/PromoBanner.astro';
 import { BOOKING, type Lang } from '../data/site';
 import { clinicCopy } from '../data/clinics';
 import { serviceCopy, type ServicePage } from '../data/services';
-import { vaccinePrices } from '../data/tarifs';
+import { tarifsCopy, vaccinePrices } from '../data/tarifs';
 import { vaccineSeo } from '../data/seo';
 import { vaccineList } from '../lib/vaccines';
 import { answerHtml, faqCopy, faqJsonLd, type FaqItem } from '../lib/faq';
@@ -53,15 +53,18 @@ const topicByRoute = new Map<string, string>([
   ...Object.entries(topics).map(([f, j]) => [j.routes[lang], f.replace(/^.*\/|\.json$/g, '')] as [string, string]),
   [lang === 'fr' ? '/vaccination/rage/' : '/en/vaccination/rabies-vaccination/', 'rage'],
 ]);
+// The cheapest product for a page, and whether Priveo's list adds the visit fee to it (« + prix visite »).
 const lowest = (topic?: string) => {
-  const prices = vaccinePrices.filter((v) => v.topic === topic || (topic && v.also?.includes(topic))).map((v) => v.price);
-  return prices.length ? Math.min(...prices) : undefined;
+  const rows = vaccinePrices.filter((v) => v.topic === topic || (topic && v.also?.includes(topic))).sort((a, b) => a.price - b.price);
+  return rows[0];
 };
-const vaccineCards = vaccineList(lang)
+const vaccineCards = (topics?: string[]) => vaccineList(lang)
   .filter((v) => !vaccineSeo[v.route]?.noVaccine)
+  .filter((v) => !topics || topics.includes(topicByRoute.get(v.route) ?? ''))
   .map((v) => {
-    const price = lowest(topicByRoute.get(v.route));
-    return { title: v.name, meta: price !== undefined ? t.price(money.format(price)) : undefined, href: v.route, linkLabel: t.more };
+    const row = lowest(topicByRoute.get(v.route));
+    const meta = row ? `${t.price(money.format(row.price))}${row.plusVisit ? ` ${tarifsCopy[lang].vaccines.plusVisit}` : ''}` : undefined;
+    return { title: v.name, meta, href: v.route, linkLabel: t.more };
   });
 
 const head = seoHead({
@@ -95,6 +98,7 @@ const head = seoHead({
             cta={{ label: block.cta.label[lang], href: block.cta.href[lang] }}
             asideTitle={block.asideTitle[lang]}
             items={block.items.map((i) => i[lang])}
+            source={block.source && { prefix: lang === 'fr' ? 'Source :' : 'Source:', label: block.source.label[lang], href: block.source.href[lang] }}
           />
         );
       if (block.type === 'cards')
@@ -109,7 +113,7 @@ const head = seoHead({
           />
         );
       if (block.type === 'vaccines')
-        return <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={`${block.lede[lang]} ${block.note[lang]}`} columns={4} tone="soft" cards={vaccineCards} />;
+        return <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={`${block.lede[lang]} ${block.note[lang]}`} columns={4} tone="soft" cards={vaccineCards(block.topics)} />;
       if (block.type === 'country') {
         const c = countries.find((x) => x.slug === block.slug);
         if (!c) throw new Error(`service page ${route}: unknown country ${block.slug}`);
