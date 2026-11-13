@@ -117,10 +117,10 @@ export const stats: Record<Lang, { label: string; founded: string; clinics: stri
 };
 
 // « Une seule clinique » band (src/components/home/Destinations.astro): the slogan chosen by the client
-// on 2026-11-13, over photos of travel settings from the site's own images (public/images/destinations).
+// on 2026-11-13, over a single row of travel settings (public/images/destinations), not clickable.
 export const destinations: Record<
   Lang,
-  { title: string; text: string; cta: { label: string; href: string }; tiles: { label: string; image: string; href?: string }[] }
+  { title: string; text: string; cta: { label: string; href: string }; tiles: { label: string; image: string }[] }
 > = {
   fr: {
     title: 'Une seule clinique, peu importe la destination',
@@ -130,9 +130,8 @@ export const destinations: Record<
       { label: 'Montagne', image: '/images/destinations/montagne.jpg' },
       { label: 'Désert', image: '/images/destinations/desert.jpg' },
       { label: 'Plage', image: '/images/destinations/plage.jpg' },
-      { label: 'Hadj et Omra', image: '/images/destinations/pelerinage.jpg', href: '/pelerinage-hadj-omra/' },
+      { label: 'Hadj et Omra', image: '/images/destinations/pelerinage.jpg' },
       { label: 'Campagne', image: '/images/destinations/rizieres.jpg' },
-      { label: 'Circuits culturels', image: '/images/destinations/culture.jpg' },
     ],
   },
   en: {
@@ -143,9 +142,8 @@ export const destinations: Record<
       { label: 'Mountains', image: '/images/destinations/montagne.jpg' },
       { label: 'Desert', image: '/images/destinations/desert.jpg' },
       { label: 'Beach', image: '/images/destinations/plage.jpg' },
-      { label: 'Hajj and Umrah', image: '/images/destinations/pelerinage.jpg', href: '/en/hajj-umrah-pilgrimage/' },
+      { label: 'Hajj and Umrah', image: '/images/destinations/pelerinage.jpg' },
       { label: 'Countryside', image: '/images/destinations/rizieres.jpg' },
-      { label: 'Cultural tours', image: '/images/destinations/culture.jpg' },
     ],
   },
 };
