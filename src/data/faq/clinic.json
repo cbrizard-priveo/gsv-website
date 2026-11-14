@@ -265,8 +265,8 @@
         "en": "Can I have a consultation without coming in?"
       },
       "a": {
-        "fr": "<p>Oui. Notre consultation en télémédecine vous permet de consulter un professionnel de la santé voyage de chez vous. Vous y recevrez une évaluation de votre itinéraire et des risques pour votre santé, des conseils pour votre voyage, des recommandations de vaccins et, au besoin, une prescription envoyée à votre pharmacie. Les vaccins peuvent ensuite être donnés à domicile ou dans l’une de nos cliniques. <a href=\"/consultation-en-telemedecine/\">En savoir plus sur la télémédecine</a>.</p>",
-        "en": "<p>Yes. Our telemedicine consultation lets you consult a travel health professional from home. You receive an assessment of your itinerary and the risks to your health, advice for your trip, vaccine recommendations and, if required, a prescription sent to your pharmacy. Vaccines can then be given at home or at one of our clinics. <a href=\"/en/telemedicine-consultation/\">More about telemedicine</a>.</p>"
+        "fr": "<p>Oui. Notre consultation en télémédecine vous permet de consulter un professionnel de la santé voyage de chez vous. Vous y recevrez une évaluation de votre itinéraire et des risques pour votre santé, des conseils pour votre voyage, des recommandations de vaccins et, au besoin, une prescription envoyée à votre pharmacie. Les vaccins peuvent ensuite être donnés dans l’une de nos cliniques. <a href=\"/consultation-en-telemedecine/\">En savoir plus sur la télémédecine</a>.</p>",
+        "en": "<p>Yes. Our telemedicine consultation lets you consult a travel health professional from home. You receive an assessment of your itinerary and the risks to your health, advice for your trip, vaccine recommendations and, if required, a prescription sent to your pharmacy. Vaccines can then be given at one of our clinics. <a href=\"/en/telemedicine-consultation/\">More about telemedicine</a>.</p>"
       },
       "sources": [
         {
@@ -274,7 +274,7 @@
           "href": "/consultation-en-telemedecine/"
         }
       ],
-      "notes": "From the site's telemedicine page."
+      "notes": "From the site's telemedicine page. Home vaccination removed 2026-11-13: the client does not offer it."
     }
   ]
 }

@@ -57,6 +57,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
           cta: { label: 'Prendre rendez-vous', href: BOOKING },
         },
       },
+      { label: 'Tarifs', href: '/tarifs/' },
       {
         label: 'Cliniques',
         group: 'Nos cliniques',
@@ -125,6 +126,7 @@ export const menus: Record<Lang, { items: Item[]; book: string; menu: string; op
           cta: { label: 'Book an appointment', href: BOOKING },
         },
       },
+      { label: 'Pricing', href: '/en/pricing/' },
       {
         label: 'Clinics',
         group: 'Our clinics',

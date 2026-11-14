@@ -1,0 +1,129 @@
+---
+// Québec's vaccination schedule for children (src/data/calendar.ts) as tables, with the source.
+import Icon from '../Icon.astro';
+import type { Lang } from '../../data/site';
+import { CALENDAR_SOURCE, childCalendar, vaccineColumn } from '../../data/calendar';
+import { formatDate } from '../../lib/countries';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  lang: Lang;
+  id?: string;
+  tagline: string;
+  title: string;
+  lede?: string;
+}
+
+const { lang, id, tagline, title, lede } = Astro.props;
+const given = lang === 'fr' ? 'Recommandé' : 'Recommended';
+const src = CALENDAR_SOURCE;
+const updated = formatDate(src.updated, lang);
+const checked = formatDate(src.checked, lang);
+---
+
+<div class="pv">
+  <section class="layout-element layout-section section card-section" id={id}>
+    <div class="layout-element layout-container container">
+      <div class="layout-element layout-stack section-header section-header--center">
+        <p class="layout-element text-inline section-header__tagline">{tagline}</p>
+        <h2 class="layout-element typography-heading section-header__title font-secondary">{title}</h2>
+        {lede && <p class="layout-element text-inline section-header__description">{lede}</p>}
+      </div>
+      <div class="vax-cal" data-vax-cal>
+        <div class="vax-cal__toggle" role="group" aria-label={tagline} hidden data-toggle>
+          {childCalendar.map((table, i) => (
+            <button type="button" class="vax-cal__tab" aria-pressed={String(i === 0)} data-tab={i}>
+              {table.tab[lang]}
+            </button>
+          ))}
+        </div>
+        {
+          childCalendar.map((table, i) => (
+            <figure class="vax-cal__card" data-panel={i}>
+              <div class="vax-cal__scroll">
+                <table>
+                  <caption>{table.caption[lang]}</caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">{vaccineColumn[lang]}</th>
+                      {table.ages.map((a) => (
+                        <th scope="col">{a[lang]}</th>
+                      ))}
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {table.rows.map((row) => (
+                      <tr>
+                        <th scope="row">
+                          {row.vaccine[lang]}
+                          {row.note && '*'}
+                        </th>
+                        {table.ages.map((_, i) => (
+                          <td>
+                            {row.at.includes(i) ? (
+                              <span class="vax-cal__dose">
+                                <Icon name="check-circle" />
+                                <span class="vax-cal__sr">{given}</span>
+                                {row.when && <span class="vax-cal__when">{row.when[lang]}</span>}
+                              </span>
+                            ) : (
+                              <span class="vax-cal__none" aria-label="—">–</span>
+                            )}
+                          </td>
+                        ))}
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+              <div class="vax-cal__list" aria-hidden="true">
+                <p class="vax-cal__list-title">{table.caption[lang]}</p>
+                <ul>
+                  {table.rows.map((row) => (
+                    <li>
+                      <strong>
+                        {row.vaccine[lang]}
+                        {row.note && '*'}
+                      </strong>
+                      <span>
+                        {row.at.map((i, j) => (j ? table.ages[i][lang].replace(/^À /, 'à ').replace(/^At /, 'at ') : table.ages[i][lang])).join(', ')}
+                        {row.when && ` (${row.when[lang]})`}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              <figcaption class="vax-cal__foot">
+                {table.note && <p class="vax-cal__note">{table.note[lang]}</p>}
+                <p class="vax-cal__source">
+                  {lang === 'fr' ? 'Source : ' : 'Source: '}
+                  <a href={src.href[lang]}>{src.name[lang]}</a>
+                  {lang === 'fr' ? ', page mise à jour le ' : ', French page updated '}
+                  <time datetime={src.updated}>{updated}</time>
+                  {lang === 'fr' ? ' ; vérifiée le ' : '; checked on '}
+                  <time datetime={src.checked}>{checked}</time>.
+                </p>
+              </figcaption>
+            </figure>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+</div>
+
+<script>
+  // Toggle between the schedules; without the script, both tables stay visible.
+  for (const root of document.querySelectorAll<HTMLElement>('[data-vax-cal]')) {
+    const tabs = [...root.querySelectorAll<HTMLButtonElement>('[data-tab]')];
+    const panels = [...root.querySelectorAll<HTMLElement>('[data-panel]')];
+    const show = (i: string) => {
+      for (const t of tabs) t.setAttribute('aria-pressed', String(t.dataset.tab === i));
+      for (const p of panels) p.hidden = p.dataset.panel !== i;
+    };
+    root.querySelector<HTMLElement>('[data-toggle]')!.hidden = false;
+    for (const t of tabs) t.addEventListener('click', () => show(t.dataset.tab!));
+    show('0');
+  }
+</script>

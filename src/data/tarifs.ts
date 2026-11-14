@@ -20,27 +20,28 @@ export const injectionFees: { label: Text; price: number }[] = [
 ];
 
 /** `topic`: the vaccine/disease page key (src/data/vaccines/*.json, or « rage »), when the site has one;
- *  `also`: other pages the same vaccine is for (Dukoral for cholera, dcaT for diphtheria). */
-export const vaccinePrices: { disease: Text; product: string; price: number; topic?: string; also?: string[] }[] = [
-  { disease: { fr: 'Chikungunya', en: 'Chikungunya' }, product: 'IXCHIQ', price: 260, topic: 'chikungunya' },
-  { disease: { fr: 'Choléra et diarrhée à E. coli', en: 'Cholera and E. coli diarrhea' }, product: 'Dukoral (oral)', price: 80, topic: 'dukoral', also: ['cholera-etec'] },
+ *  `also`: other pages the same vaccine is for (Dukoral for cholera, dcaT for diphtheria);
+ *  `plusVisit`: Priveo's list shows « + prix visite » (the visit fee is added), read 2026-11-13. */
+export const vaccinePrices: { disease: Text; product: string; price: number; plusVisit?: true; topic?: string; also?: string[] }[] = [
+  { disease: { fr: 'Chikungunya', en: 'Chikungunya' }, product: 'IXCHIQ', price: 260, plusVisit: true, topic: 'chikungunya' },
+  { disease: { fr: 'Choléra et diarrhée à E. coli', en: 'Cholera and E. coli diarrhea' }, product: 'Dukoral (oral)', price: 80, plusVisit: true, topic: 'dukoral', also: ['cholera-etec'] },
   { disease: { fr: 'Coqueluche et diphtérie', en: 'Whooping cough and diphtheria' }, product: 'Coqueluche / Diphtérie', price: 80, topic: 'coqueluche', also: ['diphterie'] },
   { disease: { fr: 'COVID-19', en: 'COVID-19' }, product: 'Comirnaty', price: 160 },
-  { disease: { fr: 'Encéphalite japonaise', en: 'Japanese encephalitis' }, product: 'Ixiaro', price: 270, topic: 'encephalite-japonaise' },
-  { disease: { fr: 'Fièvre jaune', en: 'Yellow fever' }, product: 'Fièvre jaune (carnet de certification inclus)', price: 275, topic: 'fievre-jaune' },
+  { disease: { fr: 'Encéphalite japonaise', en: 'Japanese encephalitis' }, product: 'Ixiaro', price: 270, plusVisit: true, topic: 'encephalite-japonaise' },
+  { disease: { fr: 'Fièvre jaune', en: 'Yellow fever' }, product: 'Fièvre jaune (carnet de certification inclus)', price: 275, plusVisit: true, topic: 'fievre-jaune' },
   { disease: { fr: 'Grippe (influenza)', en: 'Influenza (flu)' }, product: 'Flucelvax', price: 40, topic: 'grippe' },
-  { disease: { fr: 'Hépatite A', en: 'Hepatitis A' }, product: 'Havrix 1440 / Avaxim', price: 95, topic: 'hepatite-a' },
-  { disease: { fr: 'Hépatite A (enfant)', en: 'Hepatitis A (child)' }, product: 'Havrix 720 / Avaxim pédiatrique', price: 95, topic: 'hepatite-a' },
-  { disease: { fr: 'Hépatite A et B', en: 'Hepatitis A and B' }, product: 'Twinrix', price: 120, topic: 'twinrix' },
-  { disease: { fr: 'Hépatite B', en: 'Hepatitis B' }, product: 'Engerix-B', price: 70, topic: 'hepatite-b' },
-  { disease: { fr: 'Hépatite B (enfant)', en: 'Hepatitis B (child)' }, product: 'Engerix-B pédiatrique', price: 65, topic: 'hepatite-b' },
-  { disease: { fr: 'Méningocoque (méningite)', en: 'Meningococcal disease (meningitis)' }, product: 'Nimenrix / Menveo', price: 160, topic: 'meningocoque' },
+  { disease: { fr: 'Hépatite A', en: 'Hepatitis A' }, product: 'Havrix 1440 / Avaxim', price: 95, plusVisit: true, topic: 'hepatite-a' },
+  { disease: { fr: 'Hépatite A (enfant)', en: 'Hepatitis A (child)' }, product: 'Havrix 720 / Avaxim pédiatrique', price: 95, plusVisit: true, topic: 'hepatite-a' },
+  { disease: { fr: 'Hépatite A et B', en: 'Hepatitis A and B' }, product: 'Twinrix', price: 120, plusVisit: true, topic: 'twinrix' },
+  { disease: { fr: 'Hépatite B', en: 'Hepatitis B' }, product: 'Engerix-B', price: 70, plusVisit: true, topic: 'hepatite-b' },
+  { disease: { fr: 'Hépatite B (enfant)', en: 'Hepatitis B (child)' }, product: 'Engerix-B pédiatrique', price: 65, plusVisit: true, topic: 'hepatite-b' },
+  { disease: { fr: 'Méningocoque (méningite)', en: 'Meningococcal disease (meningitis)' }, product: 'Nimenrix / Menveo', price: 160, plusVisit: true, topic: 'meningocoque' },
   { disease: { fr: 'Méningocoque B', en: 'Meningococcal B' }, product: 'Bexsero', price: 180, topic: 'bexsero' },
   { disease: { fr: 'Pneumocoque', en: 'Pneumococcal disease' }, product: 'Prevnar 20', price: 170, topic: 'pneumocoque' },
-  { disease: { fr: 'Rage (intradermique)', en: 'Rabies (intradermal)' }, product: 'Imovax / RabAvert', price: 140, topic: 'rage' },
-  { disease: { fr: 'Rage (intramusculaire)', en: 'Rabies (intramuscular)' }, product: 'Imovax / RabAvert', price: 275, topic: 'rage' },
+  { disease: { fr: 'Rage (intradermique)', en: 'Rabies (intradermal)' }, product: 'Imovax / RabAvert', price: 140, plusVisit: true, topic: 'rage' },
+  { disease: { fr: 'Rage (intramusculaire)', en: 'Rabies (intramuscular)' }, product: 'Imovax / RabAvert', price: 275, plusVisit: true, topic: 'rage' },
   { disease: { fr: 'Rougeole', en: 'Measles' }, product: 'RRO (MMR)', price: 80, topic: 'rougeole' },
-  { disease: { fr: 'Typhoïde', en: 'Typhoid' }, product: 'Typhim Vi / Vivotif', price: 80, topic: 'typhoide' },
+  { disease: { fr: 'Typhoïde', en: 'Typhoid' }, product: 'Typhim Vi / Vivotif', price: 80, plusVisit: true, topic: 'typhoide' },
   { disease: { fr: 'Virus du papillome humain (VPH)', en: 'Human papillomavirus (HPV)' }, product: 'Gardasil', price: 250, topic: 'vph' },
   { disease: { fr: 'Virus respiratoire syncytial (VRS)', en: 'Respiratory syncytial virus (RSV)' }, product: 'Abrysvo', price: 330 },
   { disease: { fr: 'Zona', en: 'Shingles' }, product: 'Shingrix', price: 230, topic: 'zona' },
@@ -56,7 +57,9 @@ export const tarifsCopy: Record<
     title: string;
     lede: string;
     consultation: { title: string; text: string };
-    vaccines: { title: string; text: string; filter: string; filterPlaceholder: string; none: string; disease: string; product: string; price: string; page: string };
+    vaccines: { title: string; text: string; plusVisit: string };
+    all: string;
+    good: string;
     injection: { title: string };
     insurance: { title: string; text: string; faq: { label: string; href: string } };
     checked: (date: string) => string;
@@ -69,7 +72,7 @@ export const tarifsCopy: Record<
     description: 'Prix de la consultation santé-voyage et de chaque vaccin dans nos cliniques de Montréal, Laval, Longueuil et Blainville.',
     tagline: 'Tarifs',
     title: 'Nos tarifs',
-    lede: 'Consultation santé-voyage et vaccins : tous nos prix.',
+    lede: 'Consultation santé-voyage, frais d’injection et vaccins : tous nos prix.',
     consultation: {
       title: 'Consultation santé-voyage',
       text: 'Les frais de consultation s’appliquent à la première visite. Aucuns frais de consultation ne s’ajoutent pour les doses suivantes d’une série reçue chez nous.',
@@ -77,14 +80,10 @@ export const tarifsCopy: Record<
     vaccines: {
       title: 'Vaccins',
       text: 'Prix de chaque vaccin. Le nombre de doses dépend du vaccin et de votre situation ; il est déterminé en consultation.',
-      filter: 'Rechercher un vaccin',
-      filterPlaceholder: 'Ex. : hépatite, rage, fièvre jaune',
-      none: 'Aucun vaccin ne correspond.',
-      disease: 'Protège contre',
-      product: 'Vaccin',
-      price: 'Prix',
-      page: 'Voir la fiche',
+      plusVisit: '+ prix de la visite',
     },
+    all: 'Tous les tarifs',
+    good: 'À savoir',
     injection: { title: 'Frais d’injection' },
     insurance: {
       title: 'RAMQ et assurances',
@@ -100,7 +99,7 @@ export const tarifsCopy: Record<
     description: 'Prices of the travel health consultation and of each vaccine at our clinics in Montreal, Laval, Longueuil and Blainville.',
     tagline: 'Pricing',
     title: 'Our prices',
-    lede: 'Travel health consultation and vaccines: all our prices.',
+    lede: 'Travel health consultation, injection fees and vaccines: all our prices.',
     consultation: {
       title: 'Travel health consultation',
       text: 'The consultation fee applies at the first visit. No consultation fee is added for the later doses of a series you receive with us.',
@@ -108,14 +107,10 @@ export const tarifsCopy: Record<
     vaccines: {
       title: 'Vaccines',
       text: 'Price of each vaccine. The number of doses depends on the vaccine and on your situation; it is determined during the consultation.',
-      filter: 'Search for a vaccine',
-      filterPlaceholder: 'E.g. hepatitis, rabies, yellow fever',
-      none: 'No vaccine matches.',
-      disease: 'Protects against',
-      product: 'Vaccine',
-      price: 'Price',
-      page: 'See the page',
+      plusVisit: '+ visit fee',
     },
+    all: 'All prices',
+    good: 'Good to know',
     injection: { title: 'Injection fees' },
     insurance: {
       title: 'RAMQ and insurance',

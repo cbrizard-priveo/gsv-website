@@ -10,10 +10,12 @@ import CardGrid from '../components/priveo/CardGrid.astro';
 import ClinicMap from '../components/priveo/ClinicMap.astro';
 import Faq from '../components/priveo/Faq.astro';
 import PromoBanner from '../components/priveo/PromoBanner.astro';
+import LinkTiles from '../components/priveo/LinkTiles.astro';
+import VaccinationCalendar from '../components/priveo/VaccinationCalendar.astro';
 import { BOOKING, type Lang } from '../data/site';
 import { clinicCopy } from '../data/clinics';
 import { serviceCopy, type ServicePage } from '../data/services';
-import { vaccinePrices } from '../data/tarifs';
+import { tarifsCopy, vaccinePrices } from '../data/tarifs';
 import { vaccineSeo } from '../data/seo';
 import { vaccineList } from '../lib/vaccines';
 import { answerHtml, faqCopy, faqJsonLd, type FaqItem } from '../lib/faq';
@@ -53,15 +55,18 @@ const topicByRoute = new Map<string, string>([
   ...Object.entries(topics).map(([f, j]) => [j.routes[lang], f.replace(/^.*\/|\.json$/g, '')] as [string, string]),
   [lang === 'fr' ? '/vaccination/rage/' : '/en/vaccination/rabies-vaccination/', 'rage'],
 ]);
+// The cheapest product for a page, and whether Priveo's list adds the visit fee to it (« + prix visite »).
 const lowest = (topic?: string) => {
-  const prices = vaccinePrices.filter((v) => v.topic === topic || (topic && v.also?.includes(topic))).map((v) => v.price);
-  return prices.length ? Math.min(...prices) : undefined;
+  const rows = vaccinePrices.filter((v) => v.topic === topic || (topic && v.also?.includes(topic))).sort((a, b) => a.price - b.price);
+  return rows[0];
 };
-const vaccineCards = vaccineList(lang)
+const vaccineCards = (topics?: string[]) => vaccineList(lang)
   .filter((v) => !vaccineSeo[v.route]?.noVaccine)
+  .filter((v) => !topics || topics.includes(topicByRoute.get(v.route) ?? ''))
   .map((v) => {
-    const price = lowest(topicByRoute.get(v.route));
-    return { title: v.name, meta: price !== undefined ? t.price(money.format(price)) : undefined, href: v.route, linkLabel: t.more };
+    const row = lowest(topicByRoute.get(v.route));
+    const meta = row ? `${t.price(money.format(row.price))}${row.plusVisit ? ` ${tarifsCopy[lang].vaccines.plusVisit}` : ''}` : undefined;
+    return { title: v.name, meta, href: v.route, linkLabel: t.more };
   });
 
 const head = seoHead({
@@ -95,21 +100,35 @@ const head = seoHead({
             cta={{ label: block.cta.label[lang], href: block.cta.href[lang] }}
             asideTitle={block.asideTitle[lang]}
             items={block.items.map((i) => i[lang])}
+            image={block.image}
+            source={block.source && { prefix: lang === 'fr' ? 'Source :' : 'Source:', label: block.source.label[lang], href: block.source.href[lang] }}
           />
         );
       if (block.type === 'cards')
         return (
           <CardGrid
+            id={block.id}
             tagline={block.tagline?.[lang]}
             title={block.title[lang]}
             lede={block.lede?.[lang]}
             columns={block.columns}
             tone={block.tone}
             cards={block.cards.map((c) => ({ title: c.title[lang], text: c.text[lang], href: c.href?.[lang], linkLabel: c.linkLabel?.[lang], image: c.image }))}
-          />
+          >
+            {block.source && (
+              <div class="service-source">
+                <p>
+                  {lang === 'fr' ? 'Source :' : 'Source:'} <a href={block.source.href[lang]}>{block.source.label[lang]}</a>
+                </p>
+              </div>
+            )}
+          </CardGrid>
         );
-      if (block.type === 'vaccines')
-        return <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={`${block.lede[lang]} ${block.note[lang]}`} columns={4} tone="soft" cards={vaccineCards} />;
+      if (block.type === 'vaccines') {
+        if (block.compact)
+          return <LinkTiles id={block.id} tagline={block.tagline[lang]} title={block.title[lang]} lede={block.lede[lang]} links={vaccineCards(block.topics).map((c) => ({ label: c.title, href: c.href }))} />;
+        return <CardGrid tagline={block.tagline[lang]} title={block.title[lang]} lede={[block.lede[lang], block.note?.[lang]].filter(Boolean).join(' ')} columns={4} tone="soft" cards={vaccineCards(block.topics)} />;
+      }
       if (block.type === 'country') {
         const c = countries.find((x) => x.slug === block.slug);
         if (!c) throw new Error(`service page ${route}: unknown country ${block.slug}`);
@@ -134,6 +153,8 @@ const head = seoHead({
         );
       }
       if (block.type === 'faq') return <Faq title={faqCopy[lang].title} lede={faqCopy[lang].lede} items={faqItems(block.ids)} more={faqCopy[lang].more} />;
+      if (block.type === 'calendar')
+        return <VaccinationCalendar lang={lang} id={block.id} tagline={block.tagline[lang]} title={block.title[lang]} lede={block.lede?.[lang]} />;
       if (block.type === 'banner')
         return <PromoBanner title={block.title[lang]} text={block.text[lang]} cta={{ label: block.cta.label[lang], href: block.cta.href[lang] }} image={block.image} />;
       if (block.type === 'clinics') return <ClinicMap lang={lang} />;

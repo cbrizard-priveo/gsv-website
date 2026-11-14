@@ -1,22 +1,27 @@
 // The service pages, rebuilt with Priveo's modules (src/views/ServicePage.astro): Consultation,
-// Vaccination, Prescription, Telemedicine and Companies and groups (old URLs), and Hajj and Umrah (new). Medical site: the text restates the old pages'
+// Vaccination, Prescription, Telemedicine, Companies and groups, General and Pediatric vaccination (old URLs),
+// and Hajj and Umrah (new). Medical site: the text restates the old pages'
 // own service descriptions, the clinic's answers (2026-11-12), the telemedicine page and the verified FAQ
 // and vaccine pages; the old pages' medical claims that went beyond INSPQ (e.g. Dukoral « probablement »
 // recommended for travellers' diarrhea) are left out.
-import type { Lang } from './site';
+import { BOOKING, type Lang } from './site';
 
 type Text = Record<Lang, string>;
 
 export type Block =
   | { type: 'steps'; tagline: Text; title: Text; steps: { title: Text; text: Text }[] }
-  | { type: 'callout'; badge: Text; title: Text; text: Text; cta: { label: Text; href: Text }; asideTitle: Text; items: Text[] }
-  | { type: 'cards'; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[] }
-  | { type: 'vaccines'; tagline: Text; title: Text; lede: Text; note: Text }
+  | { type: 'callout'; image?: string; badge: Text; title: Text; text: Text; cta: { label: Text; href: Text }; asideTitle: Text; items: Text[]; source?: { label: Text; href: Text } }
+  | { type: 'cards'; id?: string; tagline?: Text; title: Text; lede?: Text; columns?: 2 | 3 | 4; tone?: 'plain' | 'soft'; cards: { title: Text; text: Text; href?: Text; linkLabel?: Text; image?: string }[]; source?: { label: Text; href: Text } }
+  /** Vaccine cards with their lowest price; `topics` limits them to those pages (src/data/vaccines keys, or
+   *  « rage »); `compact` shows small tiles with the name only (no price, no note). */
+  | { type: 'vaccines'; id?: string; tagline: Text; title: Text; lede: Text; note?: Text; topics?: string[]; compact?: true }
   | { type: 'faq'; ids: string[] }
   /** Rows of a country page (src/data/countries/<slug>.json), word for word, with the INSPQ source. */
   | { type: 'country'; slug: string; tagline: Text; title: Text; lede: Text; rows: string[]; all: Text }
   | { type: 'clinics' }
   | { type: 'booking' }
+  /** Québec's vaccination schedule for children (src/data/calendar.ts). */
+  | { type: 'calendar'; id?: string; tagline: Text; title: Text; lede?: Text }
   /** A slim banner to another page (the photo is decorative). */
   | { type: 'banner'; title: Text; text: Text; cta: { label: Text; href: Text }; image: string };
 
@@ -41,6 +46,7 @@ const hajjBanner: Block = {
   cta: { label: { fr: 'Préparer mon pèlerinage', en: 'Prepare my pilgrimage' }, href: { fr: '/pelerinage-hadj-omra/', en: '/en/hajj-umrah-pilgrimage/' } },
   image: '/wp-content/uploads/2025/02/prophet-mohammed-mosque-al-masjid-an-nabawi-um-2023-11-27-05-14-01-utc-768x576.jpg',
 };
+const booking: Text = { fr: BOOKING, en: BOOKING };
 const contact: Text = { fr: 'mailto:info@cliniquesantevoyage.com', en: 'mailto:info@cliniquesantevoyage.com' };
 
 export const servicePages: ServicePage[] = [
@@ -103,8 +109,8 @@ export const servicePages: ServicePage[] = [
           {
             title: { fr: 'En télémédecine', en: 'By telemedicine' },
             text: {
-              fr: '<p>De chez vous : évaluation de votre itinéraire, conseils, recommandations de vaccins et, au besoin, une prescription envoyée à votre pharmacie. Les vaccins sont ensuite donnés à domicile ou dans l’une de nos cliniques.</p>',
-              en: '<p>From home: an assessment of your itinerary, advice, vaccine recommendations and, if needed, a prescription sent to your pharmacy. Vaccines are then given at home or at one of our clinics.</p>',
+              fr: '<p>De chez vous : évaluation de votre itinéraire, conseils, recommandations de vaccins et, au besoin, une prescription envoyée à votre pharmacie. Les vaccins sont ensuite donnés dans l’une de nos cliniques.</p>',
+              en: '<p>From home: an assessment of your itinerary, advice, vaccine recommendations and, if needed, a prescription sent to your pharmacy. Vaccines are then given at one of our clinics.</p>',
             },
             href: tele,
             linkLabel: { fr: 'La télémédecine', en: 'Telemedicine' },
@@ -315,7 +321,7 @@ export const servicePages: ServicePage[] = [
           },
           {
             title: { fr: 'Recevez vos vaccins et vos médicaments', en: 'Get your vaccines and medications' },
-            text: { fr: 'Les vaccins recommandés sont donnés à domicile ou dans l’une de nos cliniques ; au besoin, la prescription est envoyée à votre pharmacie.', en: 'The recommended vaccines are given at home or at one of our clinics; if needed, the prescription is sent to your pharmacy.' },
+            text: { fr: 'Les vaccins recommandés sont donnés dans l’une de nos cliniques ; au besoin, la prescription est envoyée à votre pharmacie.', en: 'The recommended vaccines are given at one of our clinics; if needed, the prescription is sent to your pharmacy.' },
           },
         ],
       },
@@ -475,6 +481,249 @@ export const servicePages: ServicePage[] = [
         ],
       },
       { type: 'faq', ids: ['vaccins-obligatoires-ou-recommandes', 'preuve-vaccination-certificat', 'quand-consulter-avant-depart', 'famille-ensemble'] },
+      { type: 'clinics' },
+      { type: 'booking' },
+    ],
+  },
+
+  // ---- General vaccination (replaces the imported page; its own text and vaccine list) -------------------
+  {
+    route: { fr: '/vaccination-generale/', en: '/en/general-vaccination/' },
+    hero: {
+      tagline: { fr: 'Vaccination', en: 'Vaccination' },
+      title: { fr: 'Vaccination générale', en: 'General vaccination' },
+      description: {
+        fr: 'Pour mettre à jour votre vaccination de base, recevoir le vaccin contre la grippe saisonnière ou vous protéger avec d’autres vaccins, comme ceux contre le zona ou les VPH.',
+        en: 'To update your basic vaccination, get the seasonal flu vaccine or protect yourself with other vaccines, such as those against shingles or HPV.',
+      },
+      image: { src: '/images/home/vaccination.jpg', width: 1200, height: 800, alt: { fr: 'Une infirmière vaccine une jeune femme', en: 'A nurse vaccinating a young woman' } },
+    },
+    blocks: [
+      {
+        type: 'cards',
+        tagline: { fr: 'Vaccination générale en clinique', en: 'General vaccination in clinic' },
+        title: { fr: 'Un service pour toute la famille', en: 'A service for the whole family' },
+        lede: {
+          fr: 'La vaccination générale est coordonnée par des infirmières qui ont le souci du détail. Adultes, personnes âgées et jeunes enfants : tous peuvent en profiter.',
+          en: 'General vaccination is coordinated by nurses with an eye for detail. Adults, older adults and young children can all benefit.',
+        },
+        columns: 3,
+        cards: [
+          {
+            title: { fr: 'Vaccination de base', en: 'Basic vaccination' },
+            image: '/images/services/vaccin-base.jpg',
+            text: {
+              fr: '<p>Mettez à jour votre vaccination de base, pour vous comme pour vos enfants : la plupart de nos vaccins généraux font partie du calendrier régulier du Québec.</p>',
+              en: '<p>Bring your basic vaccination up to date, for you and your children: most of our general vaccines are part of Québec’s regular schedule.</p>',
+            },
+            href: { fr: '#vaccins-offerts', en: '#vaccins-offerts' },
+            linkLabel: { fr: 'Voir les vaccins offerts', en: 'See the vaccines offered' },
+          },
+          {
+            title: { fr: 'Grippe saisonnière', en: 'Seasonal flu' },
+            image: '/images/services/grippe-famille.jpg',
+            text: {
+              fr: '<p>Recevez le vaccin contre la grippe saisonnière dans l’une de nos quatre cliniques du Grand Montréal, sans file d’attente.</p>',
+              en: '<p>Get the seasonal flu vaccine at one of our four clinics across Greater Montreal, without waiting in line.</p>',
+            },
+            href: { fr: '/vaccination/grippe-influenza/', en: '/en/vaccination/influenza-vaccination/' },
+            linkLabel: more,
+          },
+          {
+            title: { fr: 'Zona, VPH et autres vaccins', en: 'Shingles, HPV and other vaccines' },
+            image: '/images/clinics/reception.jpg',
+            text: {
+              fr: '<p>Profitez de la protection d’autres vaccins, comme ceux contre le zona ou les VPH. Certains peuvent être gratuits selon votre situation.</p>',
+              en: '<p>Benefit from the protection of other vaccines, such as those against shingles or HPV. Some may be free depending on your situation.</p>',
+            },
+            href: { fr: '#cout-des-vaccins', en: '#cout-des-vaccins' },
+            linkLabel: { fr: 'Gratuit ou payant ?', en: 'Free or paid?' },
+          },
+        ],
+      },
+      {
+        type: 'vaccines',
+        id: 'vaccins-offerts',
+        tagline: { fr: 'Vaccins offerts', en: 'Vaccines offered' },
+        title: { fr: 'Vaccins généraux disponibles en clinique', en: 'General vaccines available at the clinic' },
+        lede: { fr: 'Nous nous faisons un devoir de faciliter votre accès à une immunisation sécuritaire.', en: 'We make it our business to help you access safe immunization.' },
+        compact: true,
+        topics: ['chikungunya', 'coqueluche', 'grippe', 'twinrix', 'meningocoque', 'pneumocoque', 'hib', 'vph', 'poliomyelite', 'oreillons', 'rougeole', 'rage', 'rubeole', 'tetanos', 'varicelle', 'zona'],
+      },
+      {
+        type: 'cards',
+        id: 'cout-des-vaccins',
+        tagline: { fr: 'Coût des vaccins', en: 'Cost of vaccines' },
+        title: { fr: 'Vaccins gratuits ou payants ?', en: 'Free or paid vaccines?' },
+        lede: { fr: 'Selon le vaccin et votre situation, la vaccination peut être gratuite ou non.', en: 'Depending on the vaccine and your situation, vaccination may or may not be free.' },
+        columns: 3,
+        cards: [
+          {
+            title: { fr: 'Vaccins gratuits', en: 'Free vaccines' },
+            text: {
+              fr: '<p>Le Programme québécois d’immunisation offre gratuitement certains vaccins du calendrier à toute personne vivant au Québec, et d’autres selon votre santé, votre âge, vos habitudes de vie ou votre travail.</p>',
+              en: '<p>The Québec Immunization Program offers some schedule vaccines free to anyone living in Québec, and others depending on your health, age, lifestyle or work.</p>',
+            },
+            href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/quebec-immunisation-program' },
+            linkLabel: { fr: 'Le programme sur Québec.ca', en: 'The program on Québec.ca' },
+          },
+          {
+            title: { fr: 'Vaccins non couverts', en: 'Vaccines not covered' },
+            text: {
+              fr: '<p>D’autres vaccins peuvent être recommandés sans être gratuits. Dans nos cliniques, vous payez alors seulement le prix du vaccin : aucuns frais d’injection ne s’ajoutent.</p>',
+              en: '<p>Other vaccines may be recommended without being free. At our clinics, you then pay only the price of the vaccine: no injection fee is added.</p>',
+            },
+            href: tarifs,
+            linkLabel: { fr: 'Voir nos tarifs', en: 'See our prices' },
+          },
+          {
+            title: { fr: 'Un vaccin gratuit, chez nous', en: 'A free vaccine, with us' },
+            text: {
+              fr: '<p>Vous êtes admissible à un vaccin gratuit ? Recevez-le dans nos cliniques, avec des frais d’injection de 20 $. Votre professionnel de la santé ou votre CLSC peut vous dire lesquels vous sont offerts.</p>',
+              en: '<p>Eligible for a free vaccine? Get it at our clinics, with a $20 injection fee. Your health professional or CLSC can tell you which ones you are eligible for.</p>',
+            },
+            href: booking,
+            linkLabel: { fr: 'Prendre rendez-vous', en: 'Book an appointment' },
+          },
+        ],
+        source: {
+          label: { fr: 'Québec.ca, « Programme québécois d’immunisation » (mis à jour le 12 novembre 2026)', en: 'Québec.ca, “Québec Immunization Program” (French page updated November 12, 2026)' },
+          href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/programme-quebecois-d-immunisation', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/quebec-immunisation-program' },
+        },
+      },
+      {
+        type: 'callout',
+        image: '/images/services/grippe.jpg',
+        badge: { fr: 'Grippe', en: 'Flu' },
+        title: { fr: 'La saison de la grippe approche et vous voulez éviter les files d’attente ?', en: 'Flu season is coming and you want to avoid the lines?' },
+        text: { fr: 'Prenez rendez-vous dans l’une de nos quatre cliniques du Grand Montréal.', en: 'Book an appointment at one of our four clinics across Greater Montreal.' },
+        cta: { label: { fr: 'Prendre rendez-vous', en: 'Book an appointment' }, href: booking },
+        asideTitle: { fr: 'Pour toute la famille :', en: 'For the whole family:' },
+        items: [
+          { fr: 'Adultes', en: 'Adults' },
+          { fr: 'Personnes âgées', en: 'Older adults' },
+          { fr: 'Jeunes enfants', en: 'Young children' },
+        ],
+      },
+      { type: 'faq', ids: ['grippe-vaccin-avant-voyage', 'zona-qui-vacciner', 'vph-vaccin-gratuit', 'modes-de-paiement'] },
+      { type: 'clinics' },
+      { type: 'booking' },
+    ],
+  },
+
+  // ---- Pediatric vaccination (replaces « Vaccination infantile »; its own text, Québec.ca for the why) -------
+  {
+    route: { fr: '/vaccination-infantile/', en: '/en/infant-vaccination/' },
+    hero: {
+      tagline: { fr: 'Vaccination', en: 'Vaccination' },
+      title: { fr: 'Vaccination pédiatrique', en: 'Pediatric vaccination' },
+      description: {
+        fr: 'Notre équipe adapte son expertise en vaccination aux enfants : efficacité, empathie et rigueur, pour une expérience sans heurt pour l’enfant et ses parents.',
+        en: 'Our team adapts its vaccination expertise to children: efficiency, empathy and rigour, for a smooth experience for the child and the parents.',
+      },
+      image: { src: '/wp-content/uploads/2021/12/vaccination.jpeg', width: 1024, height: 683, alt: { fr: 'Une infirmière vaccine un enfant', en: 'A nurse vaccinating a child' } },
+    },
+    blocks: [
+      {
+        type: 'cards',
+        tagline: { fr: 'Protéger nos enfants', en: 'Protecting our children' },
+        title: { fr: 'La vaccination de vos enfants', en: 'Your children’s vaccination' },
+        columns: 3,
+        cards: [
+          {
+            title: { fr: 'De tout âge, y compris les bébés', en: 'All ages, babies included' },
+            image: '/images/services/bebe.jpg',
+            text: {
+              fr: '<p>Nous recevons les enfants de tout âge, y compris les bébés, dans nos quatre cliniques de Montréal, Laval, Longueuil et Blainville.</p>',
+              en: '<p>We see children of all ages, babies included, at our four clinics in Montreal, Laval, Longueuil and Blainville.</p>',
+            },
+            href: { fr: '/cliniques/', en: '/en/clinics/' },
+            linkLabel: { fr: 'Nos cliniques', en: 'Our clinics' },
+          },
+          {
+            title: { fr: 'Selon le calendrier du Québec', en: 'Following Québec’s schedule' },
+            image: '/images/services/vaccin-base.jpg',
+            text: {
+              fr: '<p>Le ministère de la Santé et des Services sociaux recommande de faire vacciner les enfants selon le calendrier de vaccination officiel.</p>',
+              en: '<p>Québec’s Ministry of Health and Social Services recommends vaccinating children according to the official vaccination schedule.</p>',
+            },
+            href: { fr: '#calendrier', en: '#calendrier' },
+            linkLabel: { fr: 'Voir le calendrier', en: 'See the schedule' },
+          },
+          {
+            title: { fr: 'Avant un voyage', en: 'Before a trip' },
+            image: '/images/services/aeroport.jpg',
+            text: {
+              fr: '<p>Vos enfants voyagent avec vous ? Certains vaccins peuvent être donnés avant l’âge habituel ; nous vous conseillons selon leur âge et la destination.</p>',
+              en: '<p>Are your children travelling with you? Some vaccines can be given earlier than the usual age; we advise you based on their age and destination.</p>',
+            },
+            href: { fr: '/consultation/', en: '/en/consultation/' },
+            linkLabel: more,
+          },
+        ],
+      },
+      {
+        type: 'calendar',
+        id: 'calendrier',
+        tagline: { fr: 'Calendrier de vaccination', en: 'Vaccination schedule' },
+        title: { fr: 'À quel âge vacciner votre enfant ?', en: 'When should your child be vaccinated?' },
+        lede: {
+          fr: 'Le calendrier de vaccination recommandé au Québec, de la naissance à la 3e année du secondaire.',
+          en: 'Québec’s recommended vaccination schedule, from birth to the 3rd year of high school.',
+        },
+      },
+      {
+        type: 'cards',
+        tagline: { fr: 'Le jour du vaccin', en: 'On vaccination day' },
+        title: { fr: 'Préparer votre enfant à la vaccination', en: 'Preparing your child for vaccination' },
+        lede: {
+          fr: 'Des moyens reconnus pour diminuer la douleur et l’anxiété de votre enfant. Vous pouvez en combiner plusieurs.',
+          en: 'Proven ways to reduce your child’s pain and anxiety. You can combine several of them.',
+        },
+        columns: 2,
+        tone: 'soft',
+        cards: [
+          {
+            title: { fr: 'Avant : le préparer', en: 'Before: prepare them' },
+            text: {
+              fr: '<ul><li>Parlez-lui du vaccin, de la raison pour laquelle il le reçoit et du déroulement de la visite.</li><li>Dites-lui la vérité : il sentira une piqûre ou un pincement, qui ne durera pas longtemps.</li><li>Ne présentez jamais le vaccin comme une punition.</li><li>Racontez-lui une histoire où un enfant reçoit un vaccin, ou regardez ensemble une vidéo sur le sujet.</li></ul>',
+              en: '<ul><li>Talk to them about the vaccine, why they are getting it and how the visit will go.</li><li>Tell them the truth: they will feel a prick or a pinch that won’t last long.</li><li>Never present the vaccine as a punishment.</li><li>Tell them a story about a child getting a vaccine, or watch a video on the subject together.</li></ul>',
+            },
+          },
+          {
+            title: { fr: 'Pendant : rester calme', en: 'During: stay calm' },
+            text: {
+              fr: '<ul><li>Restez calme et souriant, et parlez d’une voix normale ; évitez de vous excuser ou de parler de douleur.</li><li>Tenez votre enfant sur vos genoux, dans la position que le vaccinateur vous indique.</li><li>Vous pouvez allaiter votre bébé pendant la vaccination.</li><li>Distrayez-le selon son âge : son jouet ou sa couverture préférés, une chanson, des bulles ou une respiration lente et profonde.</li></ul>',
+              en: '<ul><li>Stay calm and smiling, and speak in a normal voice; avoid apologizing or talking about pain.</li><li>Hold your child on your lap, in the position the vaccinator shows you.</li><li>You can breastfeed your baby during the vaccination.</li><li>Distract them in a way that suits their age: their favourite toy or blanket, a song, bubbles or slow, deep breathing.</li></ul>',
+            },
+          },
+        ],
+        source: {
+          label: { fr: 'Québec.ca, « Diminuer la douleur et l’anxiété liées à la vaccination chez les enfants » (mis à jour le 13 juin 2023)', en: 'Québec.ca, “Reducing the pain and anxiety of vaccination in children” (French page updated June 13, 2023)' },
+          href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/diminuer-douleur-et-anxiete-liees-a-la-vaccination-chez-enfants', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/reducing-pain-and-anxiety-of-vaccination-children' },
+        },
+      },
+      {
+        type: 'callout',
+        badge: { fr: 'Pourquoi vacciner ?', en: 'Why vaccinate?' },
+        title: { fr: 'Pourquoi la vaccination des enfants ?', en: 'Why vaccinate children?' },
+        text: {
+          fr: 'Selon le gouvernement du Québec, le risque de contracter plusieurs maladies est très élevé dans la première année de vie ; il recommande donc de faire vacciner les enfants selon le calendrier de vaccination. Un enfant non vacciné risque davantage d’attraper une maladie contagieuse et de la transmettre à d’autres. Avant un voyage à l’étranger, certains vaccins peuvent être donnés avant l’âge recommandé.',
+          en: 'According to the Government of Québec, the risk of catching several diseases is very high in a child’s first year of life; it therefore recommends vaccinating children according to the vaccination schedule. An unvaccinated child is more likely to catch a contagious disease and to pass it on to others. Before a trip abroad, some vaccines can be given before the recommended age.',
+        },
+        source: {
+          label: { fr: 'Québec.ca, « Vaccination des enfants » (mis à jour le 20 juillet 2026)', en: 'Québec.ca, “Vaccination for children” (French page updated July 20, 2026)' },
+          href: { fr: 'https://www.quebec.ca/sante/conseils-et-prevention/vaccination/vaccination-des-enfants', en: 'https://www.quebec.ca/en/health/advice-and-prevention/vaccination/vaccination-for-children' },
+        },
+        cta: { label: { fr: 'Prendre rendez-vous', en: 'Book an appointment' }, href: booking },
+        asideTitle: { fr: 'Notre approche :', en: 'Our approach:' },
+        items: [
+          { fr: 'Efficacité', en: 'Efficiency' },
+          { fr: 'Empathie', en: 'Empathy' },
+          { fr: 'Rigueur', en: 'Rigour' },
+        ],
+      },
+      { type: 'faq', ids: ['enfants', 'enfants-vaccination-voyage', 'rougeole-bebe-6-11-mois', 'hepatite-a-bebes', 'poliomyelite-enfants-bebes', 'famille-ensemble'] },
       { type: 'clinics' },
       { type: 'booking' },
     ],

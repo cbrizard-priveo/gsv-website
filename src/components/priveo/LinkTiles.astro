@@ -1,0 +1,40 @@
+---
+// A section header over small link tiles (name and arrow), e.g. the vaccines on the general vaccination page.
+import Icon from '../Icon.astro';
+import '../../styles/priveo/sections.css';
+import '../../styles/sections.css';
+
+interface Props {
+  tagline?: string;
+  title: string;
+  lede?: string;
+  links: { label: string; href: string }[];
+  id?: string;
+}
+
+const { tagline, title, lede, links, id } = Astro.props;
+---
+
+<div class="pv">
+  <section class="layout-element layout-section section card-section card-section--soft" id={id}>
+    <div class="layout-element layout-container container">
+      <div class="layout-element layout-stack section-header section-header--center">
+        {tagline && <p class="layout-element text-inline section-header__tagline">{tagline}</p>}
+        <h2 class="layout-element typography-heading section-header__title font-secondary">{title}</h2>
+        {lede && <p class="layout-element text-inline section-header__description">{lede}</p>}
+      </div>
+      <ul class="link-tiles">
+        {
+          links.map((l) => (
+            <li>
+              <a class="link-tiles__tile" href={l.href}>
+                <span>{l.label}</span>
+                <Icon name="arrow-right" />
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</div>

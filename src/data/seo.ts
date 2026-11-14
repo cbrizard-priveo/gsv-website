@@ -328,12 +328,12 @@ export const pageSeo: Record<string, SeoOverride> = {
   // The current description is the general vaccination page's.
   '/consultation-en-telemedecine/': {
     title: 'Clinique Virtuelle & Télémédecine | Santé Voyage',
-    description: 'Consultez un professionnel de la santé voyage en télémédecine, puis recevez vos vaccins à domicile ou dans l’une de nos cliniques du Grand Montréal.',
+    description: 'Consultez un professionnel de la santé voyage en télémédecine, puis recevez vos vaccins dans l’une de nos cliniques du Grand Montréal.',
     h1: 'Télémédecine santé voyage',
   },
   '/en/telemedicine-consultation/': {
     title: 'Virtual Clinic & Telehealth Services | Travel Health',
-    description: 'Consult a travel health professional by telemedicine, then get your vaccines at home or at one of our clinics across Greater Montreal.',
+    description: 'Consult a travel health professional by telemedicine, then get your vaccines at one of our clinics across Greater Montreal.',
     h1: 'Travel Health Telemedicine',
   },
   // Descriptions below restate each page's own opening text.
@@ -386,6 +386,22 @@ export const pageSeo: Record<string, SeoOverride> = {
   '/en/hajj-umrah-pilgrimage/': {
     title: 'Vaccines for Hajj and Umrah | Travel Health Clinic',
     description: 'Meningococcal vaccine required for Hajj and Umrah: INSPQ requirements and recommendations for Saudi Arabia. Montreal, Laval, Longueuil, Blainville.',
+  },
+  '/vaccination-generale/': {
+    title: 'Vaccination Générale : Grippe, Zona, VPH | Clinique Santé Voyage',
+    description: 'Mise à jour de la vaccination de base, vaccin contre la grippe saisonnière, zona, VPH et plus, dans nos cliniques de Montréal, Laval, Longueuil et Blainville.',
+  },
+  '/en/general-vaccination/': {
+    title: 'General Vaccination: Flu, Shingles, HPV | Travel Health Clinic',
+    description: 'Basic vaccination updates, seasonal flu vaccine, shingles, HPV and more, at our clinics in Montreal, Laval, Longueuil and Blainville.',
+  },
+  '/vaccination-infantile/': {
+    title: 'Vaccination Pédiatrique | Clinique Santé Voyage',
+    description: 'Vaccination des enfants de tout âge, y compris les bébés, dans nos quatre cliniques du Grand Montréal. Efficacité, empathie et rigueur pour l’enfant et ses parents.',
+  },
+  '/en/infant-vaccination/': {
+    title: 'Pediatric Vaccination | Travel Health Clinic',
+    description: 'Vaccination for children of all ages, babies included, at our four clinics across Greater Montreal. Efficiency, empathy and rigour for the child and the parents.',
   },
 };
 
